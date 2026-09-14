@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/assets/bellium-ai-banner.png" alt="Bellium AI banner" width="100%" />
+</p>
+
 # Bellium AI
 
 > **Small minds. Sharp purpose. Local intelligence.**
