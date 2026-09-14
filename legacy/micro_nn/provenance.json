@@ -1,0 +1,62 @@
+{
+  "source_repository": "https://github.com/zedarvates/botte-secrete",
+  "pinned_commit": "d8c10b89d3130913b4f62a0f94fa5316ede2a3a8",
+  "migration_date": "2026-09-14",
+  "models": {
+    "anomaly_detector.json": {
+      "bellium_id": "bellium/micro-nn/anomaly-detector:legacy-botte",
+      "size_bytes": 2477,
+      "sha256": "c46cec267d1fb3310c0c6b7b260c8a6078febd90aa76a366806adc432b7a70b8"
+    },
+    "binary_router.json": {
+      "bellium_id": "bellium/micro-nn/binary-router:legacy-botte",
+      "size_bytes": 1628,
+      "sha256": "ea41e7c40032c19cfaebe93235facd56487d7d11bd7c747e2a8b064300241799"
+    },
+    "cloud_escalation_predictor.json": {
+      "bellium_id": "bellium/micro-nn/cloud-escalation-predictor:legacy-botte",
+      "size_bytes": 10059,
+      "sha256": "939b56e20454e4187dc6abdfdbc234bd4ed09dcb78b6bd62d19152e99ad9f0b0"
+    },
+    "compressibility_predictor.json": {
+      "bellium_id": "bellium/micro-nn/compressibility-predictor:legacy-botte",
+      "size_bytes": 8095,
+      "sha256": "ca8eae72280eb520fd47d752deed349512c6815fdae87c8f2225fa0f950f1d71"
+    },
+    "context_pruning_predictor.json": {
+      "bellium_id": "bellium/micro-nn/context-pruning-predictor:legacy-botte",
+      "size_bytes": 7258,
+      "sha256": "21dd269155afa15302de85c33403e9ad3547001230957fcdd754f08b01092a05"
+    },
+    "effort_classifier.json": {
+      "bellium_id": "bellium/micro-nn/effort-classifier:legacy-botte",
+      "size_bytes": 2964,
+      "sha256": "1087cf79a7503bcc35c051b14f678692a0454af15ca706242c813fda8c357bd3"
+    },
+    "error_classifier.json": {
+      "bellium_id": "bellium/micro-nn/error-classifier:legacy-botte",
+      "size_bytes": 10263,
+      "sha256": "879e30f2fd35dc4d009546da97b36a660e931793d748e618c9dafd9b512a5c34"
+    },
+    "response_length_predictor.json": {
+      "bellium_id": "bellium/micro-nn/response-length-predictor:legacy-botte",
+      "size_bytes": 8070,
+      "sha256": "94a837842bf7cd0e1dd6f25b186eb9c2d7187d1f0f46cf4c4b321e29df9c57cd"
+    },
+    "semantic_cache_hit_predictor.json": {
+      "bellium_id": "bellium/micro-nn/semantic-cache-hit-predictor:legacy-botte",
+      "size_bytes": 9167,
+      "sha256": "a39f59f56122a01db378da02230aa59031ce356e59b29c4f36124c7af4948be2"
+    },
+    "skip_agent_predictor.json": {
+      "bellium_id": "bellium/micro-nn/skip-agent-predictor:legacy-botte",
+      "size_bytes": 9207,
+      "sha256": "7abc190830db28eaf159016dc906fb055dfe95e679e292021d71b9a5600f1108"
+    },
+    "tool_call_predictor.json": {
+      "bellium_id": "bellium/micro-nn/tool-call-predictor:legacy-botte",
+      "size_bytes": 9207,
+      "sha256": "a5e11b05b266e0cb0fb91037997a5f5f886ce56286c120f157d517a3d34e9711"
+    }
+  }
+}
