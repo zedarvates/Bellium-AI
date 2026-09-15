@@ -4,11 +4,37 @@
 
 # Bellium AI
 
+[![Bellium AI CI](https://github.com/zedarvates/Bellium-AI/actions/workflows/ci.yml/badge.svg)](https://github.com/zedarvates/Bellium-AI/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-brightgreen.svg)](https://www.python.org/downloads/)
+
 > **Small minds. Sharp purpose. Local intelligence.**
 
 Bellium AI is an open-source laboratory for **micro-NN, k-NN, micro-LLM and hybrid specialist intelligence**: small, measurable models built to solve bounded recurring problems without calling a large general-purpose model for everything.
 
 🌹 **Visual identity:** abyssal blue, crystalline intelligence and a blue rose at the core — a small touch of fantasy and mystery.
+
+## Modules & Architecture
+
+Bellium AI is structured around zero-heavy-dependency specialist primitives:
+
+- [`bellium/cutout/`](bellium/cutout/) — Deterministic foreground segmentation, border sampling, alpha feathering and background normalization.
+- [`bellium/inpaint/`](bellium/inpaint/) — Fast localized patch k-NN synthesis and mask-ratio escalation routing.
+- [`bellium/language/`](bellium/language/) — Provenance-grounded phonemic vector space with epistemic evidence tracking (`attested`, `reconstructed`, `inferred`, `speculative`).
+- [`bellium/routing/`](bellium/routing/) — Tiered specialist router (deterministic → k-NN → micro-NN → micro-LLM → large model) with hard constraint filtering and graceful abstention.
+- [`bellium/pipeline/`](bellium/pipeline/) — End-to-end asset preparation chaining inpainting, cutout and canvas normalization for StoryCore / game engines.
+- [`legacy/`](legacy/) — Pinned weight-exact imports from `zedarvates/botte-secrete`: 11 micro-NN JSON models and family-isolated k-NN Asset Quality.
+
+## Quick Start & Verification
+
+```bash
+# Clone repository
+git clone https://github.com/zedarvates/Bellium-AI.git
+cd Bellium-AI
+
+# Run the 9 validation suites (cross-platform, pure Python / Pillow)
+python run_all_tests.py
+```
 
 ## Mission
 
