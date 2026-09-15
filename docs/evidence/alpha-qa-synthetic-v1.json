@@ -1,0 +1,4648 @@
+{
+  "schema": "bellium.alpha-benchmark/v1",
+  "authority": "shadow",
+  "implementation_hash_encoding": "UTF-8 with newlines normalized to LF",
+  "implementation_sha256": {
+    "__init__.py": "6c6b6b1484d222690356e81b8d3333875e07fd3396ef8186ddadc99ecc80dd1f",
+    "__main__.py": "a509cf4133d831c0690d62011f4733805235be280fddaa27a19c45062bb9aeaa",
+    "benchmark.py": "a30facf96b1bb3d9834847d4b8fcae8e38bcbee2a71bbc965ccce8482ea23490",
+    "dataset.py": "0a638693af405b279f506028835ecea14bbd93302fec82641f338bcd54f3bff5",
+    "features.py": "e3e0118a3c5144023a9b7aab52e94f570fe5c342e2455003bfc5c4772bc1f2ce",
+    "models.py": "fb4bfad495f012ecb74f0ac85a5e87ad7d5da97df37df37beaf0f9dbd2fbe102",
+    "test_asset_quality.py": "ad8df72d62bffe6a6de3d2c02dd2296e6b9833788a9f1fd23b6ff9f4ce509f26"
+  },
+  "created_at": "2026-09-15T16:09:05.422867+00:00",
+  "provenance": "synthetic-alpha-fixtures/v1; labels from transformations; no real assets",
+  "dataset_sha256": "ee120c4259cb0f0fcadfdacb9eba85ce0a138640bfbf97c85462f7b44b60b2ec",
+  "bundle_sha256": "bba16939868dcd6501499ce4ef897c191bb121157b200ec27adae7211a6b0c04",
+  "training_digest": "9e5c593f787948dc4fd27024cc22c6de5dd58392318b46306cf27e981d467ddb",
+  "feature_names": [
+    "coverage",
+    "partial_alpha",
+    "border_coverage",
+    "bbox_area",
+    "horizontal_offset",
+    "vertical_offset"
+  ],
+  "seed": 17,
+  "epochs": 100,
+  "split_counts": {
+    "train": 240,
+    "validation": 60,
+    "test": 60,
+    "ood": 12
+  },
+  "unique_training_assets": 240,
+  "fit_ms": 343.0302260003373,
+  "feature_extraction_p50_ms": 0.06292499983828748,
+  "hardware": {
+    "system": "Linux",
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "python": "3.12.14",
+    "pillow": "12.3.0",
+    "device": "cpu",
+    "gpu_used": false,
+    "vram_bytes": 0
+  },
+  "threshold_selection": "fixed a priori; validation reported, no test tuning",
+  "limitations": [
+    "Alpha geometry only; no RGB semantics, aesthetics, mesh, licensing or publication proof.",
+    "Synthetic fixtures are implementation evidence, not real Asset Factory quality evidence.",
+    "candidate means no detected matte defect; it never authorizes production or upload.",
+    "Scores and training-distance abstention are uncalibrated heuristics.",
+    "Latency includes support search, excludes decoding/features/loading; one call per case.",
+    "Allocation peak is a one-case Python allocation probe, not total process RAM.",
+    "Networks also need the shared support ledger for abstention; weight bytes are not total memory."
+  ],
+  "models": {
+    "rules": {
+      "parameters": 0,
+      "serialized_model_bytes": 0,
+      "shared_support_bytes": 0,
+      "python_prediction_allocation_peak_bytes": 432,
+      "by_split": {
+        "validation": {
+          "cases": 60,
+          "answered": 60,
+          "correct": 60,
+          "coverage": 1.0,
+          "selective_accuracy": 1.0,
+          "correct_over_all_cases": 1.0,
+          "review_cases": 40,
+          "false_candidates": 0,
+          "false_candidate_rate": 0.0,
+          "abstentions": 0,
+          "review_or_abstain_rate": 0.6666666666666666,
+          "latency_p50_ms": 0.001692999830993358,
+          "latency_p95_ms": 0.003095001375186257,
+          "confusion": {
+            "candidate": {
+              "candidate": 20,
+              "review": 0,
+              "abstain": 0
+            },
+            "review": {
+              "candidate": 0,
+              "review": 40,
+              "abstain": 0
+            }
+          }
+        },
+        "test": {
+          "cases": 60,
+          "answered": 60,
+          "correct": 60,
+          "coverage": 1.0,
+          "selective_accuracy": 1.0,
+          "correct_over_all_cases": 1.0,
+          "review_cases": 40,
+          "false_candidates": 0,
+          "false_candidate_rate": 0.0,
+          "abstentions": 0,
+          "review_or_abstain_rate": 0.6666666666666666,
+          "latency_p50_ms": 0.001663000148255378,
+          "latency_p95_ms": 0.0021029991330578923,
+          "confusion": {
+            "candidate": {
+              "candidate": 20,
+              "review": 0,
+              "abstain": 0
+            },
+            "review": {
+              "candidate": 0,
+              "review": 40,
+              "abstain": 0
+            }
+          }
+        },
+        "ood": {
+          "cases": 12,
+          "answered": 12,
+          "correct": 12,
+          "coverage": 1.0,
+          "selective_accuracy": 1.0,
+          "correct_over_all_cases": 1.0,
+          "review_cases": 12,
+          "false_candidates": 0,
+          "false_candidate_rate": 0.0,
+          "abstentions": 0,
+          "review_or_abstain_rate": 1.0,
+          "latency_p50_ms": 0.0016130006770254113,
+          "latency_p95_ms": 0.0035059983929386362,
+          "confusion": {
+            "candidate": {
+              "candidate": 0,
+              "review": 0,
+              "abstain": 0
+            },
+            "review": {
+              "candidate": 0,
+              "review": 12,
+              "abstain": 0
+            }
+          }
+        }
+      },
+      "cases": [
+        {
+          "id": "fixture-040-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.008091999916359782
+        },
+        {
+          "id": "fixture-040-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.004045999958179891
+        },
+        {
+          "id": "fixture-040-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0029650000215042382
+        },
+        {
+          "id": "fixture-040-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0023740012693451717
+        },
+        {
+          "id": "fixture-040-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0021239993657218292
+        },
+        {
+          "id": "fixture-040-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0021639989427058026
+        },
+        {
+          "id": "fixture-041-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0020229999790899456
+        },
+        {
+          "id": "fixture-041-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0020530005713226274
+        },
+        {
+          "id": "fixture-041-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.002222999682999216
+        },
+        {
+          "id": "fixture-041-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.00181299947143998
+        },
+        {
+          "id": "fixture-041-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.002003000190597959
+        },
+        {
+          "id": "fixture-041-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0019929993868572637
+        },
+        {
+          "id": "fixture-042-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.003635999746620655
+        },
+        {
+          "id": "fixture-042-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0018830014596460387
+        },
+        {
+          "id": "fixture-042-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.001853000867413357
+        },
+        {
+          "id": "fixture-042-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0016929989214986563
+        },
+        {
+          "id": "fixture-042-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0016929989214986563
+        },
+        {
+          "id": "fixture-042-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.001663000148255378
+        },
+        {
+          "id": "fixture-043-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0017429993022233248
+        },
+        {
+          "id": "fixture-043-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0015919995348667726
+        },
+        {
+          "id": "fixture-043-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0020930001483066007
+        },
+        {
+          "id": "fixture-043-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0017429993022233248
+        },
+        {
+          "id": "fixture-043-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.001722999513731338
+        },
+        {
+          "id": "fixture-043-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0019829985831165686
+        },
+        {
+          "id": "fixture-044-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0020330007828306407
+        },
+        {
+          "id": "fixture-044-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.001691998477326706
+        },
+        {
+          "id": "fixture-044-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.001682001311564818
+        },
+        {
+          "id": "fixture-044-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.001791999238776043
+        },
+        {
+          "id": "fixture-044-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.001582000550115481
+        },
+        {
+          "id": "fixture-044-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0016129997675307095
+        },
+        {
+          "id": "fixture-045-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.001571999746374786
+        },
+        {
+          "id": "fixture-045-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.001571999746374786
+        },
+        {
+          "id": "fixture-045-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0016930007404880598
+        },
+        {
+          "id": "fixture-045-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.001603000782779418
+        },
+        {
+          "id": "fixture-045-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0015819987311260775
+        },
+        {
+          "id": "fixture-045-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0016619997040834278
+        },
+        {
+          "id": "fixture-046-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0016129997675307095
+        },
+        {
+          "id": "fixture-046-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.002264001523144543
+        },
+        {
+          "id": "fixture-046-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0016819994925754145
+        },
+        {
+          "id": "fixture-046-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0015919995348667726
+        },
+        {
+          "id": "fixture-046-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0016129997675307095
+        },
+        {
+          "id": "fixture-046-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0017429993022233248
+        },
+        {
+          "id": "fixture-047-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0016029989637900144
+        },
+        {
+          "id": "fixture-047-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0016020003386074677
+        },
+        {
+          "id": "fixture-047-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0018119990272680297
+        },
+        {
+          "id": "fixture-047-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.001641999915591441
+        },
+        {
+          "id": "fixture-047-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0016920002963161096
+        },
+        {
+          "id": "fixture-047-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0015919995348667726
+        },
+        {
+          "id": "fixture-048-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.001562999386806041
+        },
+        {
+          "id": "fixture-048-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0015420009731315076
+        },
+        {
+          "id": "fixture-048-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0016430003597633913
+        },
+        {
+          "id": "fixture-048-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0016129997675307095
+        },
+        {
+          "id": "fixture-048-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.002163000317523256
+        },
+        {
+          "id": "fixture-048-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0016629983292659745
+        },
+        {
+          "id": "fixture-049-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0017330003174720332
+        },
+        {
+          "id": "fixture-049-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.001622998752282001
+        },
+        {
+          "id": "fixture-049-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0016220001270994544
+        },
+        {
+          "id": "fixture-049-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.001582000550115481
+        },
+        {
+          "id": "fixture-049-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.00175300010596402
+        },
+        {
+          "id": "fixture-049-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.003095001375186257
+        },
+        {
+          "id": "fixture-050-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0017120000848080963
+        },
+        {
+          "id": "fixture-050-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0017629990907153115
+        },
+        {
+          "id": "fixture-050-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0016729991330066696
+        },
+        {
+          "id": "fixture-050-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0018029986676992849
+        },
+        {
+          "id": "fixture-050-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.001631999111850746
+        },
+        {
+          "id": "fixture-050-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0017429993022233248
+        },
+        {
+          "id": "fixture-051-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.002212998879258521
+        },
+        {
+          "id": "fixture-051-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0019929993868572637
+        },
+        {
+          "id": "fixture-051-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0016520007193321362
+        },
+        {
+          "id": "fixture-051-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.001983000402105972
+        },
+        {
+          "id": "fixture-051-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0017820002540247515
+        },
+        {
+          "id": "fixture-051-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.001682001311564818
+        },
+        {
+          "id": "fixture-052-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0017820002540247515
+        },
+        {
+          "id": "fixture-052-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.002173001121263951
+        },
+        {
+          "id": "fixture-052-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.001722999513731338
+        },
+        {
+          "id": "fixture-052-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0017830006981967017
+        },
+        {
+          "id": "fixture-052-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0015819987311260775
+        },
+        {
+          "id": "fixture-052-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0016829999367473647
+        },
+        {
+          "id": "fixture-053-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0015320001693908125
+        },
+        {
+          "id": "fixture-053-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0015929999790387228
+        },
+        {
+          "id": "fixture-053-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.001663000148255378
+        },
+        {
+          "id": "fixture-053-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0019829985831165686
+        },
+        {
+          "id": "fixture-053-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0023340016923611984
+        },
+        {
+          "id": "fixture-053-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0021029991330578923
+        },
+        {
+          "id": "fixture-054-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0015630012057954445
+        },
+        {
+          "id": "fixture-054-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0018929986254079267
+        },
+        {
+          "id": "fixture-054-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.001603000782779418
+        },
+        {
+          "id": "fixture-054-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0016020003386074677
+        },
+        {
+          "id": "fixture-054-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0016220001270994544
+        },
+        {
+          "id": "fixture-054-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.001663000148255378
+        },
+        {
+          "id": "fixture-055-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0015929999790387228
+        },
+        {
+          "id": "fixture-055-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.00175300010596402
+        },
+        {
+          "id": "fixture-055-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.001631999111850746
+        },
+        {
+          "id": "fixture-055-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.001672000507824123
+        },
+        {
+          "id": "fixture-055-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.001731999873300083
+        },
+        {
+          "id": "fixture-055-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0016529993445146829
+        },
+        {
+          "id": "fixture-056-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0015330006135627627
+        },
+        {
+          "id": "fixture-056-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0015919995348667726
+        },
+        {
+          "id": "fixture-056-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0015929999790387228
+        },
+        {
+          "id": "fixture-056-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0016729991330066696
+        },
+        {
+          "id": "fixture-056-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.001582000550115481
+        },
+        {
+          "id": "fixture-056-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0016619997040834278
+        },
+        {
+          "id": "fixture-057-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0016730009519960731
+        },
+        {
+          "id": "fixture-057-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0020930001483066007
+        },
+        {
+          "id": "fixture-057-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.001672000507824123
+        },
+        {
+          "id": "fixture-057-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0017120000848080963
+        },
+        {
+          "id": "fixture-057-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0015919995348667726
+        },
+        {
+          "id": "fixture-057-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.001663000148255378
+        },
+        {
+          "id": "fixture-058-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0015619989426340908
+        },
+        {
+          "id": "fixture-058-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0016220001270994544
+        },
+        {
+          "id": "fixture-058-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.001631999111850746
+        },
+        {
+          "id": "fixture-058-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0015929999790387228
+        },
+        {
+          "id": "fixture-058-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0016120011423481628
+        },
+        {
+          "id": "fixture-058-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.001571999746374786
+        },
+        {
+          "id": "fixture-059-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0015429995983140543
+        },
+        {
+          "id": "fixture-059-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.0015720015653641894
+        },
+        {
+          "id": "fixture-059-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0015420009731315076
+        },
+        {
+          "id": "fixture-059-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.001603000782779418
+        },
+        {
+          "id": "fixture-059-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0015619989426340908
+        },
+        {
+          "id": "fixture-059-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0017020011000568047
+        },
+        {
+          "id": "stress-0",
+          "split": "ood",
+          "reason": "opaque_canvas",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.002062999556073919
+        },
+        {
+          "id": "stress-1",
+          "split": "ood",
+          "reason": "scattered_alpha",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0018029986676992849
+        },
+        {
+          "id": "stress-2",
+          "split": "ood",
+          "reason": "opaque_canvas",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0035059983929386362
+        },
+        {
+          "id": "stress-3",
+          "split": "ood",
+          "reason": "scattered_alpha",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0017220008885487914
+        },
+        {
+          "id": "stress-4",
+          "split": "ood",
+          "reason": "opaque_canvas",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0017519996617920697
+        },
+        {
+          "id": "stress-5",
+          "split": "ood",
+          "reason": "scattered_alpha",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0016020003386074677
+        },
+        {
+          "id": "stress-6",
+          "split": "ood",
+          "reason": "opaque_canvas",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.001613001586520113
+        },
+        {
+          "id": "stress-7",
+          "split": "ood",
+          "reason": "scattered_alpha",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0015219993656501174
+        },
+        {
+          "id": "stress-8",
+          "split": "ood",
+          "reason": "opaque_canvas",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0015620007616234943
+        },
+        {
+          "id": "stress-9",
+          "split": "ood",
+          "reason": "scattered_alpha",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0015929999790387228
+        },
+        {
+          "id": "stress-10",
+          "split": "ood",
+          "reason": "opaque_canvas",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0016129997675307095
+        },
+        {
+          "id": "stress-11",
+          "split": "ood",
+          "reason": "scattered_alpha",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.0015519999578827992
+        }
+      ]
+    },
+    "knn": {
+      "parameters": 0,
+      "serialized_model_bytes": 38390,
+      "shared_support_bytes": 0,
+      "python_prediction_allocation_peak_bytes": 16104,
+      "by_split": {
+        "validation": {
+          "cases": 60,
+          "answered": 60,
+          "correct": 60,
+          "coverage": 1.0,
+          "selective_accuracy": 1.0,
+          "correct_over_all_cases": 1.0,
+          "review_cases": 40,
+          "false_candidates": 0,
+          "false_candidate_rate": 0.0,
+          "abstentions": 0,
+          "review_or_abstain_rate": 0.6666666666666666,
+          "latency_p50_ms": 0.2692654998099897,
+          "latency_p95_ms": 0.3477540012681857,
+          "confusion": {
+            "candidate": {
+              "candidate": 20,
+              "review": 0,
+              "abstain": 0
+            },
+            "review": {
+              "candidate": 0,
+              "review": 40,
+              "abstain": 0
+            }
+          }
+        },
+        "test": {
+          "cases": 60,
+          "answered": 60,
+          "correct": 60,
+          "coverage": 1.0,
+          "selective_accuracy": 1.0,
+          "correct_over_all_cases": 1.0,
+          "review_cases": 40,
+          "false_candidates": 0,
+          "false_candidate_rate": 0.0,
+          "abstentions": 0,
+          "review_or_abstain_rate": 0.6666666666666666,
+          "latency_p50_ms": 0.2679885001271032,
+          "latency_p95_ms": 0.3261010006099241,
+          "confusion": {
+            "candidate": {
+              "candidate": 20,
+              "review": 0,
+              "abstain": 0
+            },
+            "review": {
+              "candidate": 0,
+              "review": 40,
+              "abstain": 0
+            }
+          }
+        },
+        "ood": {
+          "cases": 12,
+          "answered": 0,
+          "correct": 0,
+          "coverage": 0.0,
+          "selective_accuracy": null,
+          "correct_over_all_cases": 0.0,
+          "review_cases": 12,
+          "false_candidates": 0,
+          "false_candidate_rate": 0.0,
+          "abstentions": 12,
+          "review_or_abstain_rate": 1.0,
+          "latency_p50_ms": 0.25659599941718625,
+          "latency_p95_ms": 0.2719790008995915,
+          "confusion": {
+            "candidate": {
+              "candidate": 0,
+              "review": 0,
+              "abstain": 0
+            },
+            "review": {
+              "candidate": 0,
+              "review": 0,
+              "abstain": 12
+            }
+          }
+        }
+      },
+      "cases": [
+        {
+          "id": "fixture-040-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.3272020003350917
+        },
+        {
+          "id": "fixture-040-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2698259995668195
+        },
+        {
+          "id": "fixture-040-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2999719999934314
+        },
+        {
+          "id": "fixture-040-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2813339997373987
+        },
+        {
+          "id": "fixture-040-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2630059989314759
+        },
+        {
+          "id": "fixture-040-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2618039998196764
+        },
+        {
+          "id": "fixture-041-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.28071300039300695
+        },
+        {
+          "id": "fixture-041-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2687050000531599
+        },
+        {
+          "id": "fixture-041-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2677829997992376
+        },
+        {
+          "id": "fixture-041-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.3604729990911437
+        },
+        {
+          "id": "fixture-041-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.31508400024904404
+        },
+        {
+          "id": "fixture-041-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26329600041208323
+        },
+        {
+          "id": "fixture-042-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2620049999677576
+        },
+        {
+          "id": "fixture-042-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2786800014291657
+        },
+        {
+          "id": "fixture-042-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2632670002640225
+        },
+        {
+          "id": "fixture-042-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2640069997141836
+        },
+        {
+          "id": "fixture-042-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2870320004149107
+        },
+        {
+          "id": "fixture-042-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2823249997163657
+        },
+        {
+          "id": "fixture-043-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2605619993119035
+        },
+        {
+          "id": "fixture-043-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.26087300102517474
+        },
+        {
+          "id": "fixture-043-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.262886000200524
+        },
+        {
+          "id": "fixture-043-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.27912000041396823
+        },
+        {
+          "id": "fixture-043-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.25852899852907285
+        },
+        {
+          "id": "fixture-043-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.3117300002486445
+        },
+        {
+          "id": "fixture-044-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2966270003526006
+        },
+        {
+          "id": "fixture-044-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.26092199914273806
+        },
+        {
+          "id": "fixture-044-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26561999948171433
+        },
+        {
+          "id": "fixture-044-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2635670007293811
+        },
+        {
+          "id": "fixture-044-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2760959996521706
+        },
+        {
+          "id": "fixture-044-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.27102800049760845
+        },
+        {
+          "id": "fixture-045-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2683439997781534
+        },
+        {
+          "id": "fixture-045-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2814439994835993
+        },
+        {
+          "id": "fixture-045-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.27912000041396823
+        },
+        {
+          "id": "fixture-045-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2619850001792656
+        },
+        {
+          "id": "fixture-045-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26100300055986736
+        },
+        {
+          "id": "fixture-045-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2796709995891433
+        },
+        {
+          "id": "fixture-046-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.26064200028486084
+        },
+        {
+          "id": "fixture-046-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.26155399973504245
+        },
+        {
+          "id": "fixture-046-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.3297769999335287
+        },
+        {
+          "id": "fixture-046-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.3152350000164006
+        },
+        {
+          "id": "fixture-046-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2589490013633622
+        },
+        {
+          "id": "fixture-046-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.3477540012681857
+        },
+        {
+          "id": "fixture-047-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2913389998866478
+        },
+        {
+          "id": "fixture-047-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2598709997982951
+        },
+        {
+          "id": "fixture-047-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2649489997565979
+        },
+        {
+          "id": "fixture-047-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.28128399935667403
+        },
+        {
+          "id": "fixture-047-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2755550012807362
+        },
+        {
+          "id": "fixture-047-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26197499937552493
+        },
+        {
+          "id": "fixture-048-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2665110005182214
+        },
+        {
+          "id": "fixture-048-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.281624001218006
+        },
+        {
+          "id": "fixture-048-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2660710015334189
+        },
+        {
+          "id": "fixture-048-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2658710000105202
+        },
+        {
+          "id": "fixture-048-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.31502500132774003
+        },
+        {
+          "id": "fixture-048-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.3614249999372987
+        },
+        {
+          "id": "fixture-049-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.35212999864597805
+        },
+        {
+          "id": "fixture-049-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2620350005599903
+        },
+        {
+          "id": "fixture-049-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.29109899878676515
+        },
+        {
+          "id": "fixture-049-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26153399994655047
+        },
+        {
+          "id": "fixture-049-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.258269001278677
+        },
+        {
+          "id": "fixture-049-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.27933099954680074
+        },
+        {
+          "id": "fixture-050-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2735420002863975
+        },
+        {
+          "id": "fixture-050-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2625960005389061
+        },
+        {
+          "id": "fixture-050-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26796299971465487
+        },
+        {
+          "id": "fixture-050-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2773870000964962
+        },
+        {
+          "id": "fixture-050-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2672219998203218
+        },
+        {
+          "id": "fixture-050-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26632099979906343
+        },
+        {
+          "id": "fixture-051-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.32003199885366485
+        },
+        {
+          "id": "fixture-051-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.28367699997033924
+        },
+        {
+          "id": "fixture-051-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.32721299976401497
+        },
+        {
+          "id": "fixture-051-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2642580002429895
+        },
+        {
+          "id": "fixture-051-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2807220007525757
+        },
+        {
+          "id": "fixture-051-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2668819997779792
+        },
+        {
+          "id": "fixture-052-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2612230000522686
+        },
+        {
+          "id": "fixture-052-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.28000199927191716
+        },
+        {
+          "id": "fixture-052-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.27892999969481025
+        },
+        {
+          "id": "fixture-052-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2644790001795627
+        },
+        {
+          "id": "fixture-052-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2607019996503368
+        },
+        {
+          "id": "fixture-052-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2627260000735987
+        },
+        {
+          "id": "fixture-053-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.27905999922950286
+        },
+        {
+          "id": "fixture-053-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2623050004331162
+        },
+        {
+          "id": "fixture-053-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2657709992490709
+        },
+        {
+          "id": "fixture-053-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.34617100027389824
+        },
+        {
+          "id": "fixture-053-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2640879993123235
+        },
+        {
+          "id": "fixture-053-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.4614240006048931
+        },
+        {
+          "id": "fixture-054-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.29753800117759965
+        },
+        {
+          "id": "fixture-054-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.3261010006099241
+        },
+        {
+          "id": "fixture-054-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2706870000110939
+        },
+        {
+          "id": "fixture-054-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2865509995899629
+        },
+        {
+          "id": "fixture-054-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.3020549993379973
+        },
+        {
+          "id": "fixture-054-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2604319997772109
+        },
+        {
+          "id": "fixture-055-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.26106400036951527
+        },
+        {
+          "id": "fixture-055-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.27571499958867207
+        },
+        {
+          "id": "fixture-055-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26837400037038606
+        },
+        {
+          "id": "fixture-055-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2595999994809972
+        },
+        {
+          "id": "fixture-055-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26134300060220994
+        },
+        {
+          "id": "fixture-055-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2748539991443977
+        },
+        {
+          "id": "fixture-056-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2686650004761759
+        },
+        {
+          "id": "fixture-056-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.258979998761788
+        },
+        {
+          "id": "fixture-056-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2657799996086396
+        },
+        {
+          "id": "fixture-056-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2778689995466266
+        },
+        {
+          "id": "fixture-056-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2595009991637198
+        },
+        {
+          "id": "fixture-056-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2770369992504129
+        },
+        {
+          "id": "fixture-057-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.28086300153518096
+        },
+        {
+          "id": "fixture-057-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.26028199863503687
+        },
+        {
+          "id": "fixture-057-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26489900119486265
+        },
+        {
+          "id": "fixture-057-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2625249999255175
+        },
+        {
+          "id": "fixture-057-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.27244000011705793
+        },
+        {
+          "id": "fixture-057-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2680140005395515
+        },
+        {
+          "id": "fixture-058-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2613630003907019
+        },
+        {
+          "id": "fixture-058-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.25947100039047655
+        },
+        {
+          "id": "fixture-058-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.27918100022361614
+        },
+        {
+          "id": "fixture-058-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26490900017961394
+        },
+        {
+          "id": "fixture-058-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.258008998571313
+        },
+        {
+          "id": "fixture-058-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26803399850905407
+        },
+        {
+          "id": "fixture-059-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2821950001816731
+        },
+        {
+          "id": "fixture-059-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2639070007717237
+        },
+        {
+          "id": "fixture-059-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.3209329988749232
+        },
+        {
+          "id": "fixture-059-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.3006730003107805
+        },
+        {
+          "id": "fixture-059-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2616139991005184
+        },
+        {
+          "id": "fixture-059-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2591600004961947
+        },
+        {
+          "id": "stress-0",
+          "split": "ood",
+          "reason": "opaque_canvas",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.2566459988884162
+        },
+        {
+          "id": "stress-1",
+          "split": "ood",
+          "reason": "scattered_alpha",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.2719790008995915
+        },
+        {
+          "id": "stress-2",
+          "split": "ood",
+          "reason": "opaque_canvas",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.2565459999459563
+        },
+        {
+          "id": "stress-3",
+          "split": "ood",
+          "reason": "scattered_alpha",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.25780800024222117
+        },
+        {
+          "id": "stress-4",
+          "split": "ood",
+          "reason": "opaque_canvas",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.25413199909962714
+        },
+        {
+          "id": "stress-5",
+          "split": "ood",
+          "reason": "scattered_alpha",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.26796299971465487
+        },
+        {
+          "id": "stress-6",
+          "split": "ood",
+          "reason": "opaque_canvas",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.2473519998602569
+        },
+        {
+          "id": "stress-7",
+          "split": "ood",
+          "reason": "scattered_alpha",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.25467299929005094
+        },
+        {
+          "id": "stress-8",
+          "split": "ood",
+          "reason": "opaque_canvas",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.2455989997542929
+        },
+        {
+          "id": "stress-9",
+          "split": "ood",
+          "reason": "scattered_alpha",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.2681839996512281
+        },
+        {
+          "id": "stress-10",
+          "split": "ood",
+          "reason": "opaque_canvas",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.25029700009326916
+        },
+        {
+          "id": "stress-11",
+          "split": "ood",
+          "reason": "scattered_alpha",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.2689850007300265
+        }
+      ]
+    },
+    "nano": {
+      "parameters": 7,
+      "serialized_model_bytes": 170,
+      "shared_support_bytes": 38390,
+      "python_prediction_allocation_peak_bytes": 16104,
+      "by_split": {
+        "validation": {
+          "cases": 60,
+          "answered": 37,
+          "correct": 37,
+          "coverage": 0.6166666666666667,
+          "selective_accuracy": 1.0,
+          "correct_over_all_cases": 0.6166666666666667,
+          "review_cases": 40,
+          "false_candidates": 0,
+          "false_candidate_rate": 0.0,
+          "abstentions": 23,
+          "review_or_abstain_rate": 0.8,
+          "latency_p50_ms": 0.2696009996725479,
+          "latency_p95_ms": 0.2962060007121181,
+          "confusion": {
+            "candidate": {
+              "candidate": 12,
+              "review": 0,
+              "abstain": 8
+            },
+            "review": {
+              "candidate": 0,
+              "review": 25,
+              "abstain": 15
+            }
+          }
+        },
+        "test": {
+          "cases": 60,
+          "answered": 38,
+          "correct": 38,
+          "coverage": 0.6333333333333333,
+          "selective_accuracy": 1.0,
+          "correct_over_all_cases": 0.6333333333333333,
+          "review_cases": 40,
+          "false_candidates": 0,
+          "false_candidate_rate": 0.0,
+          "abstentions": 22,
+          "review_or_abstain_rate": 0.8333333333333334,
+          "latency_p50_ms": 0.2720750007938477,
+          "latency_p95_ms": 0.40829399949871004,
+          "confusion": {
+            "candidate": {
+              "candidate": 10,
+              "review": 0,
+              "abstain": 10
+            },
+            "review": {
+              "candidate": 0,
+              "review": 28,
+              "abstain": 12
+            }
+          }
+        },
+        "ood": {
+          "cases": 12,
+          "answered": 0,
+          "correct": 0,
+          "coverage": 0.0,
+          "selective_accuracy": null,
+          "correct_over_all_cases": 0.0,
+          "review_cases": 12,
+          "false_candidates": 0,
+          "false_candidate_rate": 0.0,
+          "abstentions": 12,
+          "review_or_abstain_rate": 1.0,
+          "latency_p50_ms": 0.28515399935713504,
+          "latency_p95_ms": 0.4978699998900993,
+          "confusion": {
+            "candidate": {
+              "candidate": 0,
+              "review": 0,
+              "abstain": 0
+            },
+            "review": {
+              "candidate": 0,
+              "review": 0,
+              "abstain": 12
+            }
+          }
+        }
+      },
+      "cases": [
+        {
+          "id": "fixture-040-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2791799997794442
+        },
+        {
+          "id": "fixture-040-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "abstain",
+          "latency_ms": 0.2926899996964494
+        },
+        {
+          "id": "fixture-040-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2730510004766984
+        },
+        {
+          "id": "fixture-040-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.35603600008471403
+        },
+        {
+          "id": "fixture-040-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.29035700026724953
+        },
+        {
+          "id": "fixture-040-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26841399994737003
+        },
+        {
+          "id": "fixture-041-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "abstain",
+          "latency_ms": 0.2672020000318298
+        },
+        {
+          "id": "fixture-041-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "abstain",
+          "latency_ms": 0.2853400001185946
+        },
+        {
+          "id": "fixture-041-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.288814999294118
+        },
+        {
+          "id": "fixture-041-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.26878500102611724
+        },
+        {
+          "id": "fixture-041-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2648980007506907
+        },
+        {
+          "id": "fixture-041-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2675420000741724
+        },
+        {
+          "id": "fixture-042-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "abstain",
+          "latency_ms": 0.2783489999274025
+        },
+        {
+          "id": "fixture-042-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "abstain",
+          "latency_ms": 0.27461399986350443
+        },
+        {
+          "id": "fixture-042-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26660099865694065
+        },
+        {
+          "id": "fixture-042-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.2774069998849882
+        },
+        {
+          "id": "fixture-042-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26618999982019886
+        },
+        {
+          "id": "fixture-042-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.33479400008218363
+        },
+        {
+          "id": "fixture-043-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2650989990797825
+        },
+        {
+          "id": "fixture-043-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "abstain",
+          "latency_ms": 0.2962060007121181
+        },
+        {
+          "id": "fixture-043-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.27308099924994167
+        },
+        {
+          "id": "fixture-043-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.29919100052211434
+        },
+        {
+          "id": "fixture-043-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.28194500009703916
+        },
+        {
+          "id": "fixture-043-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26517900005273987
+        },
+        {
+          "id": "fixture-044-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.26503900153329596
+        },
+        {
+          "id": "fixture-044-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2635869986988837
+        },
+        {
+          "id": "fixture-044-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.2821239995682845
+        },
+        {
+          "id": "fixture-044-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.26545999935478903
+        },
+        {
+          "id": "fixture-044-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.27031699937651865
+        },
+        {
+          "id": "fixture-044-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26169400007347576
+        },
+        {
+          "id": "fixture-045-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2803919996949844
+        },
+        {
+          "id": "fixture-045-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "abstain",
+          "latency_ms": 0.2685050003492506
+        },
+        {
+          "id": "fixture-045-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26876499941863585
+        },
+        {
+          "id": "fixture-045-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.2856599985534558
+        },
+        {
+          "id": "fixture-045-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2631659990584012
+        },
+        {
+          "id": "fixture-045-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2619050010252977
+        },
+        {
+          "id": "fixture-046-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2804019986797357
+        },
+        {
+          "id": "fixture-046-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.28612099958991166
+        },
+        {
+          "id": "fixture-046-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.26529000024311244
+        },
+        {
+          "id": "fixture-046-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.26926499958790373
+        },
+        {
+          "id": "fixture-046-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2630059989314759
+        },
+        {
+          "id": "fixture-046-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2811430003930582
+        },
+        {
+          "id": "fixture-047-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2629159989737673
+        },
+        {
+          "id": "fixture-047-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "abstain",
+          "latency_ms": 0.27050700009567663
+        },
+        {
+          "id": "fixture-047-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.28256499899725895
+        },
+        {
+          "id": "fixture-047-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.26552899907983374
+        },
+        {
+          "id": "fixture-047-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2678830005606869
+        },
+        {
+          "id": "fixture-047-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26487899958738126
+        },
+        {
+          "id": "fixture-048-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.27587499971559737
+        },
+        {
+          "id": "fixture-048-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.26707300094130915
+        },
+        {
+          "id": "fixture-048-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.26835400058189407
+        },
+        {
+          "id": "fixture-048-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.285230000372394
+        },
+        {
+          "id": "fixture-048-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2860410004359437
+        },
+        {
+          "id": "fixture-048-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2621849998831749
+        },
+        {
+          "id": "fixture-049-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.26573000104690436
+        },
+        {
+          "id": "fixture-049-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2800010006467346
+        },
+        {
+          "id": "fixture-049-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.26641099975677207
+        },
+        {
+          "id": "fixture-049-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.2699369997571921
+        },
+        {
+          "id": "fixture-049-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26700200032792054
+        },
+        {
+          "id": "fixture-049-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.28810399999201763
+        },
+        {
+          "id": "fixture-050-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.26382699979876634
+        },
+        {
+          "id": "fixture-050-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2645390013640281
+        },
+        {
+          "id": "fixture-050-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.2655200005392544
+        },
+        {
+          "id": "fixture-050-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.2823750000970904
+        },
+        {
+          "id": "fixture-050-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26411700127937365
+        },
+        {
+          "id": "fixture-050-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.28156400003354065
+        },
+        {
+          "id": "fixture-051-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "abstain",
+          "latency_ms": 0.265709999439423
+        },
+        {
+          "id": "fixture-051-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "abstain",
+          "latency_ms": 0.2694059985515196
+        },
+        {
+          "id": "fixture-051-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26567100030661095
+        },
+        {
+          "id": "fixture-051-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.26614099988364615
+        },
+        {
+          "id": "fixture-051-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.28068299980077427
+        },
+        {
+          "id": "fixture-051-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2661710004758788
+        },
+        {
+          "id": "fixture-052-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.272170000243932
+        },
+        {
+          "id": "fixture-052-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2651089998835232
+        },
+        {
+          "id": "fixture-052-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2845979997800896
+        },
+        {
+          "id": "fixture-052-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.2666510008566547
+        },
+        {
+          "id": "fixture-052-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.263076000919682
+        },
+        {
+          "id": "fixture-052-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26435800100443885
+        },
+        {
+          "id": "fixture-053-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "abstain",
+          "latency_ms": 0.28229500094312243
+        },
+        {
+          "id": "fixture-053-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "abstain",
+          "latency_ms": 0.267462999545387
+        },
+        {
+          "id": "fixture-053-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.28617099997063633
+        },
+        {
+          "id": "fixture-053-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.45324199891183525
+        },
+        {
+          "id": "fixture-053-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2756949998001801
+        },
+        {
+          "id": "fixture-053-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2647780002007494
+        },
+        {
+          "id": "fixture-054-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "abstain",
+          "latency_ms": 0.33688700023049023
+        },
+        {
+          "id": "fixture-054-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "abstain",
+          "latency_ms": 0.27189899992663413
+        },
+        {
+          "id": "fixture-054-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.40829399949871004
+        },
+        {
+          "id": "fixture-054-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.3040970004803967
+        },
+        {
+          "id": "fixture-054-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26867400083574466
+        },
+        {
+          "id": "fixture-054-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2796909993776353
+        },
+        {
+          "id": "fixture-055-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.35496499913278967
+        },
+        {
+          "id": "fixture-055-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.27697700170392636
+        },
+        {
+          "id": "fixture-055-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.27096699886897113
+        },
+        {
+          "id": "fixture-055-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.28299600126047153
+        },
+        {
+          "id": "fixture-055-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2876130001823185
+        },
+        {
+          "id": "fixture-055-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2632160012581153
+        },
+        {
+          "id": "fixture-056-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "abstain",
+          "latency_ms": 0.3326109999761684
+        },
+        {
+          "id": "fixture-056-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "abstain",
+          "latency_ms": 0.30284600143204443
+        },
+        {
+          "id": "fixture-056-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.269386000582017
+        },
+        {
+          "id": "fixture-056-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.26963600066665094
+        },
+        {
+          "id": "fixture-056-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26207499831798486
+        },
+        {
+          "id": "fixture-056-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.28541900064738
+        },
+        {
+          "id": "fixture-057-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.26132299899472855
+        },
+        {
+          "id": "fixture-057-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2659500005393056
+        },
+        {
+          "id": "fixture-057-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.27169899840373546
+        },
+        {
+          "id": "fixture-057-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.28279599973757286
+        },
+        {
+          "id": "fixture-057-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.30417800007853657
+        },
+        {
+          "id": "fixture-057-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.3237370001443196
+        },
+        {
+          "id": "fixture-058-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2959949997602962
+        },
+        {
+          "id": "fixture-058-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2646690008987207
+        },
+        {
+          "id": "fixture-058-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.2635870005178731
+        },
+        {
+          "id": "fixture-058-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 1.229880999744637
+        },
+        {
+          "id": "fixture-058-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.31194999974104576
+        },
+        {
+          "id": "fixture-058-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.31770799978403375
+        },
+        {
+          "id": "fixture-059-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "abstain",
+          "latency_ms": 0.27198000134376343
+        },
+        {
+          "id": "fixture-059-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "abstain",
+          "latency_ms": 0.35280100019008387
+        },
+        {
+          "id": "fixture-059-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.582356999075273
+        },
+        {
+          "id": "fixture-059-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.30487900039588567
+        },
+        {
+          "id": "fixture-059-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26753299971460365
+        },
+        {
+          "id": "fixture-059-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2647280016390141
+        },
+        {
+          "id": "stress-0",
+          "split": "ood",
+          "reason": "opaque_canvas",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.2579789997980697
+        },
+        {
+          "id": "stress-1",
+          "split": "ood",
+          "reason": "scattered_alpha",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.3850499997497536
+        },
+        {
+          "id": "stress-2",
+          "split": "ood",
+          "reason": "opaque_canvas",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.2602820004540263
+        },
+        {
+          "id": "stress-3",
+          "split": "ood",
+          "reason": "scattered_alpha",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.328984999214299
+        },
+        {
+          "id": "stress-4",
+          "split": "ood",
+          "reason": "opaque_canvas",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.36175500099489
+        },
+        {
+          "id": "stress-5",
+          "split": "ood",
+          "reason": "scattered_alpha",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.29983199965499807
+        },
+        {
+          "id": "stress-6",
+          "split": "ood",
+          "reason": "opaque_canvas",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.2506870005163364
+        },
+        {
+          "id": "stress-7",
+          "split": "ood",
+          "reason": "scattered_alpha",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.252669999099453
+        },
+        {
+          "id": "stress-8",
+          "split": "ood",
+          "reason": "opaque_canvas",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.2745429992501158
+        },
+        {
+          "id": "stress-9",
+          "split": "ood",
+          "reason": "scattered_alpha",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.4978699998900993
+        },
+        {
+          "id": "stress-10",
+          "split": "ood",
+          "reason": "opaque_canvas",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.29576499946415424
+        },
+        {
+          "id": "stress-11",
+          "split": "ood",
+          "reason": "scattered_alpha",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.25660600113042165
+        }
+      ]
+    },
+    "micro": {
+      "parameters": 65,
+      "serialized_model_bytes": 1325,
+      "shared_support_bytes": 38390,
+      "python_prediction_allocation_peak_bytes": 16104,
+      "by_split": {
+        "validation": {
+          "cases": 60,
+          "answered": 59,
+          "correct": 59,
+          "coverage": 0.9833333333333333,
+          "selective_accuracy": 1.0,
+          "correct_over_all_cases": 0.9833333333333333,
+          "review_cases": 40,
+          "false_candidates": 0,
+          "false_candidate_rate": 0.0,
+          "abstentions": 1,
+          "review_or_abstain_rate": 0.6666666666666666,
+          "latency_p50_ms": 0.27587500062509207,
+          "latency_p95_ms": 0.32048200046119746,
+          "confusion": {
+            "candidate": {
+              "candidate": 20,
+              "review": 0,
+              "abstain": 0
+            },
+            "review": {
+              "candidate": 0,
+              "review": 39,
+              "abstain": 1
+            }
+          }
+        },
+        "test": {
+          "cases": 60,
+          "answered": 56,
+          "correct": 56,
+          "coverage": 0.9333333333333333,
+          "selective_accuracy": 1.0,
+          "correct_over_all_cases": 0.9333333333333333,
+          "review_cases": 40,
+          "false_candidates": 0,
+          "false_candidate_rate": 0.0,
+          "abstentions": 4,
+          "review_or_abstain_rate": 0.6666666666666666,
+          "latency_p50_ms": 0.27907000003324356,
+          "latency_p95_ms": 0.33506399995530955,
+          "confusion": {
+            "candidate": {
+              "candidate": 20,
+              "review": 0,
+              "abstain": 0
+            },
+            "review": {
+              "candidate": 0,
+              "review": 36,
+              "abstain": 4
+            }
+          }
+        },
+        "ood": {
+          "cases": 12,
+          "answered": 0,
+          "correct": 0,
+          "coverage": 0.0,
+          "selective_accuracy": null,
+          "correct_over_all_cases": 0.0,
+          "review_cases": 12,
+          "false_candidates": 0,
+          "false_candidate_rate": 0.0,
+          "abstentions": 12,
+          "review_or_abstain_rate": 1.0,
+          "latency_p50_ms": 0.27634100115392357,
+          "latency_p95_ms": 0.3216339991922723,
+          "confusion": {
+            "candidate": {
+              "candidate": 0,
+              "review": 0,
+              "abstain": 0
+            },
+            "review": {
+              "candidate": 0,
+              "review": 0,
+              "abstain": 12
+            }
+          }
+        }
+      },
+      "cases": [
+        {
+          "id": "fixture-040-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.3328319999127416
+        },
+        {
+          "id": "fixture-040-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.27623500136542134
+        },
+        {
+          "id": "fixture-040-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.3197719997842796
+        },
+        {
+          "id": "fixture-040-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2736119986366248
+        },
+        {
+          "id": "fixture-040-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26849500136449933
+        },
+        {
+          "id": "fixture-040-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.28770300014002714
+        },
+        {
+          "id": "fixture-041-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2819140008796239
+        },
+        {
+          "id": "fixture-041-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2694350005185697
+        },
+        {
+          "id": "fixture-041-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2715880000323523
+        },
+        {
+          "id": "fixture-041-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.28153399944130797
+        },
+        {
+          "id": "fixture-041-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26852400151256006
+        },
+        {
+          "id": "fixture-041-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2628149995871354
+        },
+        {
+          "id": "fixture-042-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2674930001376197
+        },
+        {
+          "id": "fixture-042-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.28646099963225424
+        },
+        {
+          "id": "fixture-042-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.32048200046119746
+        },
+        {
+          "id": "fixture-042-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.27362199944036547
+        },
+        {
+          "id": "fixture-042-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.31418300022778567
+        },
+        {
+          "id": "fixture-042-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2781290004350012
+        },
+        {
+          "id": "fixture-043-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.26949600032821763
+        },
+        {
+          "id": "fixture-043-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2865009992092382
+        },
+        {
+          "id": "fixture-043-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2870820007956354
+        },
+        {
+          "id": "fixture-043-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26778400024340954
+        },
+        {
+          "id": "fixture-043-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2755149998847628
+        },
+        {
+          "id": "fixture-043-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.28278600075282156
+        },
+        {
+          "id": "fixture-044-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.26974600041285157
+        },
+        {
+          "id": "fixture-044-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.27098800092062447
+        },
+        {
+          "id": "fixture-044-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.27372300064598676
+        },
+        {
+          "id": "fixture-044-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.2865509995899629
+        },
+        {
+          "id": "fixture-044-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.31934099934005644
+        },
+        {
+          "id": "fixture-044-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2816039996105246
+        },
+        {
+          "id": "fixture-045-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.3124710001429776
+        },
+        {
+          "id": "fixture-045-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.27124900043418165
+        },
+        {
+          "id": "fixture-045-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.27263099946139846
+        },
+        {
+          "id": "fixture-045-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2904880002461141
+        },
+        {
+          "id": "fixture-045-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.28486900009738747
+        },
+        {
+          "id": "fixture-045-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26643099954526406
+        },
+        {
+          "id": "fixture-046-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2716290000535082
+        },
+        {
+          "id": "fixture-046-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2657910008565523
+        },
+        {
+          "id": "fixture-046-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.28265600121812895
+        },
+        {
+          "id": "fixture-046-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2686339994397713
+        },
+        {
+          "id": "fixture-046-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2729209991230164
+        },
+        {
+          "id": "fixture-046-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2824559996952303
+        },
+        {
+          "id": "fixture-047-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.3196909983671503
+        },
+        {
+          "id": "fixture-047-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.26739299937617034
+        },
+        {
+          "id": "fixture-047-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.5061619995103683
+        },
+        {
+          "id": "fixture-047-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.27312100064591505
+        },
+        {
+          "id": "fixture-047-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.29315099891391583
+        },
+        {
+          "id": "fixture-047-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2942529990832554
+        },
+        {
+          "id": "fixture-048-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.26911500026471913
+        },
+        {
+          "id": "fixture-048-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.269424999714829
+        },
+        {
+          "id": "fixture-048-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.28817299971706234
+        },
+        {
+          "id": "fixture-048-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2841080004145624
+        },
+        {
+          "id": "fixture-048-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2665409992914647
+        },
+        {
+          "id": "fixture-048-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2730409996729577
+        },
+        {
+          "id": "fixture-049-clean",
+          "split": "validation",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.26790399897436146
+        },
+        {
+          "id": "fixture-049-edge_feather",
+          "split": "validation",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2849390002666041
+        },
+        {
+          "id": "fixture-049-clipped",
+          "split": "validation",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.3367770004842896
+        },
+        {
+          "id": "fixture-049-broad_fade",
+          "split": "validation",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.269386000582017
+        },
+        {
+          "id": "fixture-049-tiny",
+          "split": "validation",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.29574499967566226
+        },
+        {
+          "id": "fixture-049-blank",
+          "split": "validation",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26684200020099524
+        },
+        {
+          "id": "fixture-050-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.3330019990244182
+        },
+        {
+          "id": "fixture-050-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.30369699925358873
+        },
+        {
+          "id": "fixture-050-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.27085799956694245
+        },
+        {
+          "id": "fixture-050-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.2683340007934021
+        },
+        {
+          "id": "fixture-050-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.27217900060350075
+        },
+        {
+          "id": "fixture-050-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2832770005625207
+        },
+        {
+          "id": "fixture-051-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.27143899933435023
+        },
+        {
+          "id": "fixture-051-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2692059988476103
+        },
+        {
+          "id": "fixture-051-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2693959995667683
+        },
+        {
+          "id": "fixture-051-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2845190010702936
+        },
+        {
+          "id": "fixture-051-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.32227500014414545
+        },
+        {
+          "id": "fixture-051-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26753299971460365
+        },
+        {
+          "id": "fixture-052-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.29599599838547874
+        },
+        {
+          "id": "fixture-052-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.27422299899626523
+        },
+        {
+          "id": "fixture-052-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2698959997360362
+        },
+        {
+          "id": "fixture-052-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.29319199893507175
+        },
+        {
+          "id": "fixture-052-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.28190400007588323
+        },
+        {
+          "id": "fixture-052-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2683239999896614
+        },
+        {
+          "id": "fixture-053-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.26868399982049596
+        },
+        {
+          "id": "fixture-053-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.28682199990726076
+        },
+        {
+          "id": "fixture-053-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2700059994822368
+        },
+        {
+          "id": "fixture-053-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.2757849997578887
+        },
+        {
+          "id": "fixture-053-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2677430002222536
+        },
+        {
+          "id": "fixture-053-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.281684000583482
+        },
+        {
+          "id": "fixture-054-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.31334199957200326
+        },
+        {
+          "id": "fixture-054-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.27866900018125307
+        },
+        {
+          "id": "fixture-054-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.3177380003762664
+        },
+        {
+          "id": "fixture-054-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.27037800100515597
+        },
+        {
+          "id": "fixture-054-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.27153900009579957
+        },
+        {
+          "id": "fixture-054-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.28820400075346697
+        },
+        {
+          "id": "fixture-055-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.28274500073166564
+        },
+        {
+          "id": "fixture-055-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.26701199931267183
+        },
+        {
+          "id": "fixture-055-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.5020759999752045
+        },
+        {
+          "id": "fixture-055-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.29908000033174176
+        },
+        {
+          "id": "fixture-055-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.27947099988523405
+        },
+        {
+          "id": "fixture-055-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.3349350008647889
+        },
+        {
+          "id": "fixture-056-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.32142400050361175
+        },
+        {
+          "id": "fixture-056-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.3165060006722342
+        },
+        {
+          "id": "fixture-056-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2737119993980741
+        },
+        {
+          "id": "fixture-056-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.3409830005693948
+        },
+        {
+          "id": "fixture-056-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2706579998630332
+        },
+        {
+          "id": "fixture-056-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2663309987838147
+        },
+        {
+          "id": "fixture-057-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.289786999928765
+        },
+        {
+          "id": "fixture-057-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.29658600033144467
+        },
+        {
+          "id": "fixture-057-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2705370006879093
+        },
+        {
+          "id": "fixture-057-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26572000024316367
+        },
+        {
+          "id": "fixture-057-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.28042299891239963
+        },
+        {
+          "id": "fixture-057-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.26840400096261874
+        },
+        {
+          "id": "fixture-058-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2679330009414116
+        },
+        {
+          "id": "fixture-058-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2679530007299036
+        },
+        {
+          "id": "fixture-058-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.28047199884895235
+        },
+        {
+          "id": "fixture-058-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.33506399995530955
+        },
+        {
+          "id": "fixture-058-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2701169996726094
+        },
+        {
+          "id": "fixture-058-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.30906500069249887
+        },
+        {
+          "id": "fixture-059-clean",
+          "split": "test",
+          "reason": "clean",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.2774579988908954
+        },
+        {
+          "id": "fixture-059-edge_feather",
+          "split": "test",
+          "reason": "edge_feather",
+          "expected": "candidate",
+          "predicted": "candidate",
+          "latency_ms": 0.27309100005368236
+        },
+        {
+          "id": "fixture-059-clipped",
+          "split": "test",
+          "reason": "clipped",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.28657099937845487
+        },
+        {
+          "id": "fixture-059-broad_fade",
+          "split": "test",
+          "reason": "broad_fade",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.28534900047816336
+        },
+        {
+          "id": "fixture-059-tiny",
+          "split": "test",
+          "reason": "tiny",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.4973979994247202
+        },
+        {
+          "id": "fixture-059-blank",
+          "split": "test",
+          "reason": "blank",
+          "expected": "review",
+          "predicted": "review",
+          "latency_ms": 0.2674930001376197
+        },
+        {
+          "id": "stress-0",
+          "split": "ood",
+          "reason": "opaque_canvas",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.3029060007975204
+        },
+        {
+          "id": "stress-1",
+          "split": "ood",
+          "reason": "scattered_alpha",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.269444999503321
+        },
+        {
+          "id": "stress-2",
+          "split": "ood",
+          "reason": "opaque_canvas",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.25410200032638386
+        },
+        {
+          "id": "stress-3",
+          "split": "ood",
+          "reason": "scattered_alpha",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.2743130007729633
+        },
+        {
+          "id": "stress-4",
+          "split": "ood",
+          "reason": "opaque_canvas",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.300121999316616
+        },
+        {
+          "id": "stress-5",
+          "split": "ood",
+          "reason": "scattered_alpha",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.25297100000898354
+        },
+        {
+          "id": "stress-6",
+          "split": "ood",
+          "reason": "opaque_canvas",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.2473820004524896
+        },
+        {
+          "id": "stress-7",
+          "split": "ood",
+          "reason": "scattered_alpha",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.2973669998027617
+        },
+        {
+          "id": "stress-8",
+          "split": "ood",
+          "reason": "opaque_canvas",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.3216339991922723
+        },
+        {
+          "id": "stress-9",
+          "split": "ood",
+          "reason": "scattered_alpha",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.27836900153488386
+        },
+        {
+          "id": "stress-10",
+          "split": "ood",
+          "reason": "opaque_canvas",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.2786089989967877
+        },
+        {
+          "id": "stress-11",
+          "split": "ood",
+          "reason": "scattered_alpha",
+          "expected": "review",
+          "predicted": "abstain",
+          "latency_ms": 0.25662599909992423
+        }
+      ]
+    }
+  }
+}

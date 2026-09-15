@@ -23,6 +23,7 @@ Bellium AI is structured around zero-heavy-dependency specialist primitives:
 - [`bellium/language/`](bellium/language/) — Provenance-grounded phonemic vector space with epistemic evidence tracking (`attested`, `reconstructed`, `inferred`, `speculative`).
 - [`bellium/routing/`](bellium/routing/) — Tiered specialist router (deterministic → k-NN → micro-NN → micro-LLM → large model) with hard constraint filtering and graceful abstention.
 - [`bellium/pipeline/`](bellium/pipeline/) — End-to-end asset preparation chaining inpainting, cutout and canvas normalization for StoryCore / game engines.
+- [`bellium/asset_quality/`](bellium/asset_quality/) — Offline alpha-matte inspection and a reproducible rules / k-NN / nano / micro benchmark, with group-disjoint datasets and shadow predictions.
 - [`legacy/`](legacy/) — Pinned weight-exact imports from `zedarvates/botte-secrete`: 11 micro-NN JSON models and family-isolated k-NN Asset Quality.
 
 ## Quick Start & Verification
@@ -32,9 +33,31 @@ Bellium AI is structured around zero-heavy-dependency specialist primitives:
 git clone https://github.com/zedarvates/Bellium-AI.git
 cd Bellium-AI
 
-# Run the 9 validation suites (cross-platform, pure Python / Pillow)
+# Install the visual primitives' dependency
+python -m pip install pillow
+
+# Run the 11 validation suites (cross-platform, pure Python / Pillow)
 python run_all_tests.py
 ```
+
+## Asset Factory alpha quality laboratory
+
+```bash
+# Inspect a transparent sprite; JSON advice only, input bytes are preserved
+python -m bellium.asset_quality inspect sprite.png
+
+# Train small experimental candidates and compare them on held-out fixtures
+python -m bellium.asset_quality benchmark --output alpha-report.json --models-output alpha-models.json
+
+# Compare learned advice without allowing it to override the deterministic result
+python -m bellium.asset_quality inspect sprite.png --models alpha-models.json
+```
+
+This first tool checks **alpha geometry** (empty/tiny foreground, clipping, broad
+partial alpha and framing). Nano is a 7-parameter classifier; micro has 65
+parameters. Their scores are uncalibrated and their bundled evidence is synthetic.
+They do not evaluate RGB aesthetics, full-frame textures, mesh quality or licensing.
+See the [tool contract, measured results and real-data workflow](docs/ASSET_FACTORY_QA.md).
 
 ## Mission
 

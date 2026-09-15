@@ -39,8 +39,20 @@ def inpaint_patch_knn(
     """Fill masked pixels (mask > 128) with k-NN exemplar patches from unmasked surroundings."""
     import time
     t0 = time.perf_counter()
+
+    if image.size != mask.size:
+        raise ValueError("Image and defect mask dimensions must match")
+    for name, value in (("patch_size", patch_size), ("search_radius", search_radius), ("k_neighbors", k_neighbors)):
+        if isinstance(value, bool) or not isinstance(value, int) or value < 1:
+            raise ValueError(f"{name} must be a positive integer")
+    if patch_size % 2 == 0:
+        raise ValueError("patch_size must be odd")
     
     verdict = route_inpaint_request(mask)
+    if verdict.method != "patch_knn":
+        # Routing is an execution boundary, not merely a label on a repair.
+        ms = (time.perf_counter() - t0) * 1000
+        return InpaintResult(image.copy(), InpaintMetrics(0, verdict.mask_ratio, verdict, round(ms, 2)))
     rgb_im = image.convert("RGB")
     gray_mask = mask.convert("L")
     w, h = rgb_im.size
@@ -63,7 +75,7 @@ def inpaint_patch_knn(
                 
     if not masked_coords:
         ms = (time.perf_counter() - t0) * 1000
-        return InpaintResult(out_im, InpaintMetrics(0, 0.0, verdict, round(ms, 2)))
+        return InpaintResult(image.copy(), InpaintMetrics(0, 0.0, verdict, round(ms, 2)))
         
     # Filter valid coordinates suitable as center of candidate patches
     valid_patch_centers = [
@@ -72,9 +84,11 @@ def inpaint_patch_knn(
     ]
     
     if not valid_patch_centers:
-        # Canvas completely masked, return fallback
+        # No source pixels were copied: never report masked pixels as repaired.
+        verdict = InpaintRouteVerdict("escalate_diffusion", 0.0, verdict.mask_ratio,
+                                      "No valid exemplar centers for this patch size")
         ms = (time.perf_counter() - t0) * 1000
-        return InpaintResult(out_im, InpaintMetrics(len(masked_coords), 1.0, verdict, round(ms, 2)))
+        return InpaintResult(image.copy(), InpaintMetrics(0, verdict.mask_ratio, verdict, round(ms, 2)))
         
     # Inpaint onion-peel style: prioritize pixels with most known neighbors
     # For efficiency and robustness, iterate until all masked pixels are filled

@@ -72,12 +72,17 @@ class AssetPrepPipeline:
         # Step 1: Inpaint defects if provided and requested
         inpaint_applied = False
         pixels_filled = 0
+        inpaint_needs_escalation = False
         if defect_mask is not None and self.spec.auto_inpaint_defects:
             inpaint_res = inpaint_patch_knn(working_im, defect_mask)
             working_im = inpaint_res.image
-            inpaint_applied = True
             pixels_filled = inpaint_res.metrics.filled_pixels
-            log.append(f"Defect inpainting applied: {pixels_filled} pixels repaired")
+            inpaint_applied = pixels_filled > 0
+            inpaint_needs_escalation = inpaint_res.metrics.verdict.method != "patch_knn"
+            if inpaint_needs_escalation:
+                log.append(f"Defect inpainting skipped: {inpaint_res.metrics.verdict.reason}")
+            else:
+                log.append(f"Defect inpainting applied: {pixels_filled} pixels repaired")
             
         # Step 2: Foreground cutout
         cutout_res = extract_foreground(working_im, tolerance=self.spec.tolerance)
@@ -117,7 +122,9 @@ class AssetPrepPipeline:
             log.append(f"Formatted solid background asset into {tw}x{th} canvas")
             
         # Final verdict determination
-        if m.recommendation == "confident":
+        if inpaint_needs_escalation:
+            verdict = "escalate"
+        elif m.recommendation == "confident":
             verdict = "ready_production"
         elif m.recommendation == "review":
             verdict = "needs_review"
@@ -131,6 +138,6 @@ class AssetPrepPipeline:
             inpaint_applied=inpaint_applied,
             inpaint_pixels_filled=pixels_filled,
             verdict=verdict,
-            confidence=m.confidence,
+            confidence=0.0 if inpaint_needs_escalation else m.confidence,
             log=log,
         )

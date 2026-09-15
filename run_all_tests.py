@@ -24,6 +24,8 @@ def run_all_tests():
         ('Bellium Native: Phoneme k-NN & Linguistic Reconstruction', 'bellium/language/test_phoneme.py'),
         ('Bellium Native: Tiered Specialist Router & Abstention', 'bellium/routing/test_routing.py'),
         ('Bellium Native: End-to-End Asset Prep Pipeline', 'bellium/pipeline/test_pipeline.py'),
+        ('Asset Factory: Alpha QA & Specialist Benchmark', 'bellium/asset_quality/test_asset_quality.py'),
+        ('Asset Factory: Inpaint Failure Propagation', 'bellium/pipeline/test_inpaint_boundaries.py'),
     ]
     
     print('=' * 65)
