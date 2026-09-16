@@ -24,6 +24,7 @@ def run_all_tests():
         ('Bellium Native: Phoneme k-NN & Linguistic Reconstruction', 'bellium/language/test_phoneme.py'),
         ('Bellium Native: Tiered Specialist Router & Abstention', 'bellium/routing/test_routing.py'),
         ('Bellium Native: End-to-End Asset Prep Pipeline', 'bellium/pipeline/test_pipeline.py'),
+        ('Bellium Native: Visual Anomaly & Emergency Gates', 'bellium/vision/test_anomaly.py'),
     ]
     
     print('=' * 65)

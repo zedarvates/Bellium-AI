@@ -23,6 +23,7 @@ Bellium AI is structured around zero-heavy-dependency specialist primitives:
 - [`bellium/language/`](bellium/language/) — Provenance-grounded phonemic vector space with epistemic evidence tracking (`attested`, `reconstructed`, `inferred`, `speculative`).
 - [`bellium/routing/`](bellium/routing/) — Tiered specialist router (deterministic → k-NN → micro-NN → micro-LLM → large model) with hard constraint filtering and graceful abstention.
 - [`bellium/pipeline/`](bellium/pipeline/) — End-to-end asset preparation chaining inpainting, cutout and canvas normalization for StoryCore / game engines.
+- [`bellium/vision/`](bellium/vision/) — Deterministic visual anomaly, sensor state and emergency stop detection (robotics / aquaponics / CCTV).
 - [`legacy/`](legacy/) — Pinned weight-exact imports from `zedarvates/botte-secrete`: 11 micro-NN JSON models and family-isolated k-NN Asset Quality.
 
 ## Quick Start & Verification
