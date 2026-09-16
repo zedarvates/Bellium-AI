@@ -3,3 +3,6 @@ __pycache__/
 *$py.class
 .pytest_cache/
 target/
+.venv/
+output/
+.ruff_cache/

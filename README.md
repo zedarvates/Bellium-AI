@@ -33,9 +33,28 @@ Bellium AI is structured around zero-heavy-dependency specialist primitives:
 git clone https://github.com/zedarvates/Bellium-AI.git
 cd Bellium-AI
 
-# Run the 9 validation suites (cross-platform, pure Python / Pillow)
+# Run the 10 validation suites (cross-platform, pure Python / Pillow)
 python run_all_tests.py
 ```
+
+## Usage examples: tools, scripts and an agent skill
+
+See [the runnable examples](examples/README.md) for a local image CLI, a callable
+tool adapter, tool routing, imported micro-NN error triage and a reusable
+[Bellium skill](examples/skills/bellium-local-tools/SKILL.md).
+
+```sh
+python -m pip install -r examples/requirements.txt
+python -m examples.tools.image_tool demo --output-dir output/bellium-demo
+python -m examples.tool_routing
+python -m examples.micro_nn_triage
+```
+
+The image demo creates synthetic inputs and separate grayscale, sepia, cutout
+and small-fill previews. Filters use Pillow; cutout/fill use the published
+Bellium primitives. Original files are preserved and uncertain requests can
+abstain. Physics, PBR extraction, nano-NNs and a full image editor remain
+[roadmap items](docs/ROADMAP.md).
 
 ## Mission
 
