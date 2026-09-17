@@ -25,6 +25,7 @@ Bellium AI is structured around zero-heavy-dependency specialist primitives:
 - [`bellium/pipeline/`](bellium/pipeline/) — End-to-end asset preparation chaining inpainting, cutout and canvas normalization for StoryCore / game engines.
 - [`bellium/vision/`](bellium/vision/) — Deterministic visual anomaly, sensor state and emergency stop detection (robotics / aquaponics / CCTV).
 - [`bellium/audio/`](bellium/audio/) — Zero-dependency voice activity detection (VAD), SNR estimation and clipping/quality gates.
+- [`bellium/adapters/`](bellium/adapters/) — Deterministic JSON repair, schema enforcement, type coercion and micro-LLM output stabilization.
 - [`legacy/`](legacy/) — Pinned weight-exact imports from `zedarvates/botte-secrete`: 11 micro-NN JSON models and family-isolated k-NN Asset Quality.
 
 ## Quick Start & Verification

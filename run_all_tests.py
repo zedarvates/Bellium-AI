@@ -26,6 +26,7 @@ def run_all_tests():
         ('Bellium Native: End-to-End Asset Prep Pipeline', 'bellium/pipeline/test_pipeline.py'),
         ('Bellium Native: Visual Anomaly & Emergency Gates', 'bellium/vision/test_anomaly.py'),
         ('Bellium Native: Voice Activity & Audio Quality Gates', 'bellium/audio/test_audio.py'),
+        ('Bellium Native: Schema Enforcement & JSON Adapter', 'bellium/adapters/test_adapters.py'),
     ]
     
     print('=' * 65)
