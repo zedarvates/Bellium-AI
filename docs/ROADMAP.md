@@ -40,8 +40,11 @@ the synthetic run does not show a quality or speed advantage for learned methods
 3. Context-scored patch k-NN and its frozen spatial-copy comparison are now
    implemented; see [measured outcomes](INPAINT_CONTEXT_QA.md). It improves
    repeating-pattern fixtures but regresses on gradients and abstains on noise.
-   Next compare deterministic gradient interpolation on new held-out identities
-   before adding a neural correction; preserve review and original pixels.
+   [Bounded bilinear interpolation](INPAINT_PREVIEW_QA.md) is now compared on 96
+   new procedural identities: all 24 regular-gradient/field cases improve, but
+   hidden details remain lost and four of those cases regress. Curved shading
+   still has substantial error. Preserve review and obtain real annotations
+   before selecting a neural correction; do not tune on these same identities.
 4. Separate RGB texture QA and near-duplicate retrieval with their own feature
    contracts and annotated families; do not reuse alpha-matte weights for them.
 5. Connect reviewed sidecars to the actual Studio/ComfyUI workflow through a

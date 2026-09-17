@@ -24,6 +24,7 @@ def run_all_tests():
         ('Asset Factory: Context Patch k-NN', 'bellium/inpaint/test_context_knn.py'),
         ('Asset Factory: Bounded Bilinear Preview', 'bellium/inpaint/test_preview.py'),
         ('Asset Factory: Inpaint Comparison Replay', 'benchmarks/test_inpaint_context.py'),
+        ('Asset Factory: Bilinear Preview Evidence Replay', 'benchmarks/test_inpaint_preview.py'),
         ('Bellium Native: Phoneme k-NN & Linguistic Reconstruction', 'bellium/language/test_phoneme.py'),
         ('Bellium Native: Tiered Specialist Router & Abstention', 'bellium/routing/test_routing.py'),
         ('Bellium Native: End-to-End Asset Prep Pipeline', 'bellium/pipeline/test_pipeline.py'),

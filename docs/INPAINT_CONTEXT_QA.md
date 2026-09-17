@@ -6,6 +6,11 @@ the visible patch context, ranks original intact donors, and averages the RGB
 centers of the best `k` matches. The task remains an experimental small-fill
 preview. A plausible surrounding patch does not prove a correct reconstruction.
 
+The [new preview wrapper](INPAINT_PREVIEW_QA.md) now tries bounded bilinear RGB
+interpolation before this unchanged k-NN. It addresses regular gradients and
+reports a separate 96-case evaluation, including hidden-detail losses. The
+historical source, results and regressions below are retained.
+
 ## Behavior and integration
 
 - Original donor patches must be wholly outside the original mask. Damaged
@@ -91,10 +96,9 @@ confidence, model activation or publication quality is established.
 
 1. Obtain an annotated real sprite/texture set grouped by source asset. The
    current accessible files did not provide a usable labeled sprite set.
-2. Treat this 48-case report as fixed development evidence when improving the
-   known gradient weakness; reserve new unseen gradient/texture identities for
-   the next final evaluation. Consider deterministic interpolation before adding
-   a neural correction.
+2. The deterministic interpolation comparison is now implemented with fixed
+   parameters and new identities; see [its results and limits](INPAINT_PREVIEW_QA.md).
+   This 48-case report remains development evidence and is not overwritten.
 3. Measure seams, unique-detail loss and false acceptance on real examples.
    Preserve abstention and human review even when context distances are low.
 4. Compare nano/micro correction or routing only after a real-data baseline

@@ -61,8 +61,10 @@ python -m examples.tools.image_tool inpaint --input small.png --mask mask.png --
   filling and preserves pixels outside the mask. It caps the input at 16,384
   pixels and the mask at 5%. It is a preview for small defects, not a complete
   magic eraser; mask size alone does not establish reconstruction quality.
-  Context matching uses intact original patches and three donors. Core abstention
-  also suppresses output; see [the comparison and gradient limitation](../docs/INPAINT_CONTEXT_QA.md).
+  Bounded bilinear interpolation first checks every known pixel in an enclosing
+  rectangle; otherwise context matching uses intact original patches and three
+  donors. Reports expose the chosen method and interpolation gate. Core
+  abstention also suppresses output; see [the comparison and remaining hidden-detail losses](../docs/INPAINT_PREVIEW_QA.md).
 - All inputs are limited to 1,048,576 pixels, output is PNG, and existing files
   are refused. These are bounded examples, not high-resolution editor APIs.
 - Exit codes: `0` completed/candidate written, `1` invalid input or I/O error,

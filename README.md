@@ -19,7 +19,7 @@ Bellium AI is an open-source laboratory for **micro-NN, k-NN, micro-LLM and hybr
 Bellium AI is structured around zero-heavy-dependency specialist primitives:
 
 - [`bellium/cutout/`](bellium/cutout/) — Deterministic foreground segmentation, border sampling, alpha feathering and background normalization.
-- [`bellium/inpaint/`](bellium/inpaint/) — Fast localized patch k-NN synthesis and mask-ratio escalation routing.
+- [`bellium/inpaint/`](bellium/inpaint/) — Bounded bilinear RGB previews, context patch k-NN and abstention routing.
 - [`bellium/language/`](bellium/language/) — Provenance-grounded phonemic vector space with epistemic evidence tracking (`attested`, `reconstructed`, `inferred`, `speculative`).
 - [`bellium/routing/`](bellium/routing/) — Tiered specialist router (deterministic → k-NN → micro-NN → micro-LLM → large model) with hard constraint filtering and graceful abstention.
 - [`bellium/pipeline/`](bellium/pipeline/) — End-to-end asset preparation chaining inpainting, cutout and canvas normalization for StoryCore / game engines.
@@ -64,7 +64,10 @@ Small-fill previews now match the surrounding context against intact original
 patches and use `k_neighbors` for RGB aggregation. Source pixels outside the mask
 and alpha are preserved. The [inpaint comparison](docs/INPAINT_CONTEXT_QA.md)
 records gains on repeating patterns, regressions on gradients and abstention on
-noise. Repairs remain review candidates.
+noise. A [bounded interpolation wrapper](docs/INPAINT_PREVIEW_QA.md) now addresses
+regular gradients: 24/24 new procedural gradient/field cases improve. Its
+96-case comparison also exposes hidden-detail losses and four regressions.
+Repairs remain review candidates.
 ## Usage examples: tools, scripts and an agent skill
 
 See [the runnable examples](examples/README.md) for a local image CLI, a callable
