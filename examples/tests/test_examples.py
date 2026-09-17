@@ -98,6 +98,43 @@ class ImageToolTests(unittest.TestCase):
         self.assertFalse(self.output.exists())
         self.assertEqual(self.source.read_bytes(), self.before)
 
+    def test_core_abstention_cannot_be_exported_as_a_success(self):
+        # 5% mask passes the adapter's ratio gate, but width=2 has no 3x3 donor patch.
+        Image.new("RGBA", (2, 10), (30, 60, 100, 255)).save(self.source)
+        mask = Image.new("L", (2, 10))
+        mask.putpixel((1, 5), 255)
+        mask.save(self.mask)
+        report = edit_image("inpaint", str(self.source), str(self.output), mask_path=str(self.mask))
+        self.assertEqual(report["status"], "abstained")
+        self.assertIsNone(report["output"])
+        self.assertFalse(self.output.exists())
+        self.assertEqual(report["metrics"]["filled_pixels"], 0)
+
+    def test_gradient_cli_reports_actual_route_and_exact_candidate(self):
+        reference = Image.new("RGBA", (24, 24))
+        for y in range(24):
+            for x in range(24):
+                reference.putpixel((x, y), (20 + 4 * x + y, 150 - 3 * x + y, 40 + 2 * y, 128))
+        damaged = reference.copy()
+        damaged.paste((255, 0, 255, 128), (10, 10, 13, 13))
+        damaged.save(self.source)
+        before = self.source.read_bytes()
+        mask = Image.new("L", reference.size)
+        mask.paste(255, (10, 10, 13, 13))
+        mask.save(self.mask)
+        result = subprocess.run([
+            sys.executable, "-m", "examples.tools.image_tool", "inpaint",
+            "--input", str(self.source), "--mask", str(self.mask), "--output", str(self.output),
+        ], capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        report = json.loads(result.stdout)
+        self.assertEqual(report["route"]["method"], "bilinear_rgb")
+        self.assertEqual(report["metrics"]["method"], "bilinear_rgb_v1")
+        self.assertTrue(report["review_required"])
+        self.assertEqual(self.source.read_bytes(), before)
+        with Image.open(self.output) as output:
+            self.assertEqual(output.tobytes(), reference.tobytes())
+
     def test_cli_demo_runs_all_operations(self):
         target = self.root / "demo"
         result = subprocess.run([

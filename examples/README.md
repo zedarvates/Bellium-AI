@@ -61,6 +61,10 @@ python -m examples.tools.image_tool inpaint --input small.png --mask mask.png --
   filling and preserves pixels outside the mask. It caps the input at 16,384
   pixels and the mask at 5%. It is a preview for small defects, not a complete
   magic eraser; mask size alone does not establish reconstruction quality.
+  Bounded bilinear interpolation first checks every known pixel in an enclosing
+  rectangle; otherwise context matching uses intact original patches and three
+  donors. Reports expose the chosen method and interpolation gate. Core
+  abstention also suppresses output; see [the comparison and remaining hidden-detail losses](../docs/INPAINT_PREVIEW_QA.md).
 - All inputs are limited to 1,048,576 pixels, output is PNG, and existing files
   are refused. These are bounded examples, not high-resolution editor APIs.
 - Exit codes: `0` completed/candidate written, `1` invalid input or I/O error,
@@ -112,5 +116,6 @@ python run_all_tests.py
 The example tests exercise CLI execution, source/alpha/mask preservation,
 overwrite refusal, abstention and consultative routing/triage. They do not
 certify real-image quality, calibrated model scores or real-time performance.
-Physics, material-map extraction, nano-NNs and a complete image editor remain
-planned in [the roadmap](../docs/ROADMAP.md).
+Physics, material-map extraction and a complete image editor remain planned in
+[the roadmap](../docs/ROADMAP.md). Dedicated experimental nano/micro alpha
+classifiers are available separately in [the alpha-QA laboratory](../docs/ASSET_FACTORY_QA.md).

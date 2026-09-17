@@ -32,8 +32,9 @@ def run_tests():
     for line in report.log:
         print('   -', line)
         
-    assert report.verdict == 'ready_production'
+    assert report.verdict == 'needs_review'
     assert report.inpaint_applied is True
+    assert any('bilinear_rgb_v1' in entry for entry in report.log)
     assert report.output_image.size == (128, 128)
     assert report.output_image.mode == 'RGBA'
     # Center pixel should have been repaired and not be yellow (255, 255, 0)

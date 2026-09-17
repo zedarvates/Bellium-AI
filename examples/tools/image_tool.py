@@ -12,7 +12,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageOps
 
 from bellium.cutout import extract_foreground
-from bellium.inpaint import inpaint_patch_knn, route_inpaint_request
+from bellium.inpaint import inpaint_preview, PREVIEW_METHODS, route_inpaint_request
 
 
 OPERATIONS = ("grayscale", "sepia", "cutout", "inpaint")
@@ -107,14 +107,19 @@ def edit_image(
         verdict = route_inpaint_request(binary_mask, max_local_ratio=MAX_MASK_RATIO)
         report.update(method="bellium_inpaint_preview", route=asdict(verdict),
                       review_required=True)
-        # Routing is advisory in the published core. This adapter enforces it BEFORE filling.
+        # This adapter keeps its stricter 5% preview boundary in addition to core gates.
         if verdict.method != "patch_knn" or verdict.mask_ratio > MAX_MASK_RATIO:
             report.update(status="abstained", reason="Mask exceeds the 5% preview limit.")
             return report
-        result = inpaint_patch_knn(original, binary_mask, patch_size=3, search_radius=8)
+        result = inpaint_preview(original, binary_mask, patch_size=3, search_radius=8)
+        if result.metrics.verdict.method not in PREVIEW_METHODS:
+            report.update(status="abstained", reason=result.metrics.verdict.reason,
+                          route=asdict(result.metrics.verdict), metrics=asdict(result.metrics))
+            return report
         output = Image.composite(result.image.convert("RGBA"), original, binary_mask)
         output.putalpha(original.getchannel("A"))
-        report.update(status="candidate_written", metrics=asdict(result.metrics))
+        report.update(status="candidate_written", route=asdict(result.metrics.verdict),
+                      metrics=asdict(result.metrics))
 
     save_new_png(output, output_path)
     report["output"] = str(target)
