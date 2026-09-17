@@ -24,6 +24,7 @@ Bellium AI is structured around zero-heavy-dependency specialist primitives:
 - [`bellium/routing/`](bellium/routing/) — Tiered specialist router (deterministic → k-NN → micro-NN → micro-LLM → large model) with hard constraint filtering and graceful abstention.
 - [`bellium/pipeline/`](bellium/pipeline/) — End-to-end asset preparation chaining inpainting, cutout and canvas normalization for StoryCore / game engines.
 - [`bellium/asset_quality/`](bellium/asset_quality/) — Offline alpha-matte inspection and a reproducible rules / k-NN / nano / micro benchmark, with group-disjoint datasets and shadow predictions.
+- [`bellium/vision/`](bellium/vision/) — Deterministic visual anomaly, sensor state and emergency stop detection (robotics / aquaponics / CCTV).
 - [`legacy/`](legacy/) — Pinned weight-exact imports from `zedarvates/botte-secrete`: 11 micro-NN JSON models and family-isolated k-NN Asset Quality.
 
 ## Quick Start & Verification
@@ -36,7 +37,7 @@ cd Bellium-AI
 # Install the visual primitives' dependency
 python -m pip install pillow
 
-# Run the 11 validation suites (cross-platform, pure Python / Pillow)
+# Run the 14 validation suites (cross-platform, pure Python / Pillow)
 python run_all_tests.py
 ```
 
@@ -58,6 +59,30 @@ partial alpha and framing). Nano is a 7-parameter classifier; micro has 65
 parameters. Their scores are uncalibrated and their bundled evidence is synthetic.
 They do not evaluate RGB aesthetics, full-frame textures, mesh quality or licensing.
 See the [tool contract, measured results and real-data workflow](docs/ASSET_FACTORY_QA.md).
+
+Small-fill previews now match the surrounding context against intact original
+patches and use `k_neighbors` for RGB aggregation. Source pixels outside the mask
+and alpha are preserved. The [inpaint comparison](docs/INPAINT_CONTEXT_QA.md)
+records gains on repeating patterns, regressions on gradients and abstention on
+noise. Repairs remain review candidates.
+## Usage examples: tools, scripts and an agent skill
+
+See [the runnable examples](examples/README.md) for a local image CLI, a callable
+tool adapter, tool routing, imported micro-NN error triage and a reusable
+[Bellium skill](examples/skills/bellium-local-tools/SKILL.md).
+
+```sh
+python -m pip install -r examples/requirements.txt
+python -m examples.tools.image_tool demo --output-dir output/bellium-demo
+python -m examples.tool_routing
+python -m examples.micro_nn_triage
+```
+
+The image demo creates synthetic inputs and separate grayscale, sepia, cutout
+and small-fill previews. Filters use Pillow; cutout/fill use the published
+Bellium primitives. Original files are preserved and uncertain requests can
+abstain. Physics, PBR extraction and a full image editor remain
+[roadmap items](docs/ROADMAP.md).
 
 ## Mission
 

@@ -155,8 +155,9 @@ these cases. The pipeline propagates escalation instead of letting a confident
 cutout declare the unresolved asset ready. Image/mask sizes and positive odd patch
 parameters are checked, and a zero mask preserves original image mode and bytes.
 
-The inherited synthesis itself still chooses spatially nearest pixels;
-`k_neighbors` does not yet control synthesis. Context-scored patch matching and
-image-quality benchmarking remain a separate next slice. These fixes do not
-establish semantic repair quality or redefine the existing `ready_production`
-label on unrelated successful paths.
+The next slice now implements [context-scored patch matching](INPAINT_CONTEXT_QA.md)
+with a frozen spatial-copy comparison. `k_neighbors` controls donor aggregation,
+and partial repairs are discarded on abstention. Successful fills receive
+`needs_review` instead of inheriting production readiness from cutout confidence.
+Unrelated paths without filling keep their earlier verdict behavior. Neither
+alpha QA nor contextual similarity establishes semantic repair quality.

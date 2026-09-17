@@ -1,0 +1,1914 @@
+{
+  "schema": "bellium.inpaint-comparison/v1",
+  "authority": "shadow",
+  "seed": 23,
+  "baseline_revision": "52e16b05aeec85d52730320b2a5755fd23407533",
+  "parameters": {
+    "patch_size": 5,
+    "search_radius": 8,
+    "k_neighbors": 3
+  },
+  "context_only_parameters": {
+    "max_context_error": 0.05,
+    "max_comparisons": 200000
+  },
+  "dataset_sha256": "efe00b1303d8319957deb05c72a59bc6894e030e482d2cbadcb31a8e751c5b22",
+  "fixture_identities": [
+    {
+      "id": "constant-0",
+      "family": "constant",
+      "reference_sha256": "eda94071c08f919dc898901f354095d3f08d7b6f4c0b19578b5da4449b028aeb",
+      "mask_sha256": "8b3bca730e3fe791b8e84226b7dfb64f6dcf87d21e277dbb01b3fbd0a63f84c1"
+    },
+    {
+      "id": "constant-1",
+      "family": "constant",
+      "reference_sha256": "6e5a8442473a1a1c4ab4835700ede1f5ab668430b3d9c123a0a61ebd8f194e33",
+      "mask_sha256": "85751e4b422964427bb3ba5b220c9e6b50cec95614a54859a36cb852729afadd"
+    },
+    {
+      "id": "constant-2",
+      "family": "constant",
+      "reference_sha256": "3f8e054abda96bb99ecc60b5e742395a0e14e10fdd62d8bfbc3f67319c4f55fa",
+      "mask_sha256": "12b757acd22b2f52a967178e54e9ed2d611e3dc1be063bbc6493d1520c4b40ad"
+    },
+    {
+      "id": "constant-3",
+      "family": "constant",
+      "reference_sha256": "b5e452dd6eea3531a4971ee1268a54db3ca2f9efa6bff5e10eaa529c699799db",
+      "mask_sha256": "1725b3c18a426dc77120885b0ec9482dce452d69005f9a3c61a42ad2bb72176c"
+    },
+    {
+      "id": "constant-4",
+      "family": "constant",
+      "reference_sha256": "98e5e977e17e052daeb12e3e4cef65e6cb3925577bbcce41cdbfd6afea6ec8dd",
+      "mask_sha256": "09f7d14f7c14b78822872cbce5f23c938536e0afc56d4996f0a2ef2c5b656ed1"
+    },
+    {
+      "id": "constant-5",
+      "family": "constant",
+      "reference_sha256": "e9f82f0917426557dac909710251bfd6ea7c861c89871f3da41279f127e1448a",
+      "mask_sha256": "47460ea206591429478d32e8c0bcadad7f558f1be249b0f840566850bb3bb3ce"
+    },
+    {
+      "id": "constant-6",
+      "family": "constant",
+      "reference_sha256": "00d718d342112d07860e47404c640b4debd8b71ba06fe1b0489c11d3e5b140fc",
+      "mask_sha256": "3ca2b1245117836aaaf33b06850e1d74c7c8bfe31fb9673f842cac9fce9fb0ab"
+    },
+    {
+      "id": "constant-7",
+      "family": "constant",
+      "reference_sha256": "3485ce1e394465401d53a757e57d048fb09e661419f10a9b24fa0889dac019e9",
+      "mask_sha256": "b044910ee40fa00c0b96fad25eef91d8638c38c37ff7d89f1f332b53811b6463"
+    },
+    {
+      "id": "x_stripes-0",
+      "family": "x_stripes",
+      "reference_sha256": "cf2692631f5d2f69ecadd9ebea535909b4d402d15b4d5f2ee912b464496f9456",
+      "mask_sha256": "afa4c098fc7e8232bf0f5046af34e808c41485981bf1ae14f7147c4249828fde"
+    },
+    {
+      "id": "x_stripes-1",
+      "family": "x_stripes",
+      "reference_sha256": "42e892e8717cce1c8a01334a82269e07bb1b1b3afd46859af03eef940c34584f",
+      "mask_sha256": "445e4dab60fb8263995c8fdbc2416558fa83ed3f0a97c57d8bb9bd44ba2a2b47"
+    },
+    {
+      "id": "x_stripes-2",
+      "family": "x_stripes",
+      "reference_sha256": "6ef804ef725c2ab3f31c9055f36501b73744db5b2c23b2dba1f45f6752f2bbe9",
+      "mask_sha256": "50cfcbdd3cc9fb4ca880527454a993d3bcdfa1c556baf8a92bc996b66f2ff5e0"
+    },
+    {
+      "id": "x_stripes-3",
+      "family": "x_stripes",
+      "reference_sha256": "827a11ffc6670c3da1181bbb978af2fd16f7013bdd50b83b2a2eab99ad1f0460",
+      "mask_sha256": "88e5c30aee92420eaa51842c89927f9605c0b18f49edbaaa365215e3dafbd7ab"
+    },
+    {
+      "id": "x_stripes-4",
+      "family": "x_stripes",
+      "reference_sha256": "f8d5528d942fd2c1792216c420eb10ff0d78807afedc151f01641c83f87ca970",
+      "mask_sha256": "d0f5399487d248be8566f777cd56cf127d9a830e4fdf2328d36b3fa43a48c8e9"
+    },
+    {
+      "id": "x_stripes-5",
+      "family": "x_stripes",
+      "reference_sha256": "8e9ee5a242f7fc1269d9584c5d000099bab7611e20c21db726318ae709f192f2",
+      "mask_sha256": "8818c2a20411060395983c7ae8da284851f5695f1702ce85d85e0377a18e224a"
+    },
+    {
+      "id": "x_stripes-6",
+      "family": "x_stripes",
+      "reference_sha256": "b09223c53e87e76914d430ca80edd7b792cf47a91753b758df66ab6d938bb7f8",
+      "mask_sha256": "9a3573f95db220187c1aabc2fb8157512bfc5d8c0178f7fb08da7ffd3c80541e"
+    },
+    {
+      "id": "x_stripes-7",
+      "family": "x_stripes",
+      "reference_sha256": "dc7c3c5216d32939948cf26170e7fdc47dc6b65828cc59e7e676cd3d995777cd",
+      "mask_sha256": "4b1debdda1b4bcf9d2609d32f2f85da989c56c38d43bb2fc86a4efb75633c28f"
+    },
+    {
+      "id": "y_stripes-0",
+      "family": "y_stripes",
+      "reference_sha256": "d87e962ca475970cfdddc9b574bedbc99c01e930d574af09d4d54ad8a63fdd5c",
+      "mask_sha256": "7b798fc232af324c1dad004c2c565babc866ee96a5f8d4010227f12f643c397e"
+    },
+    {
+      "id": "y_stripes-1",
+      "family": "y_stripes",
+      "reference_sha256": "9bbc27d57c074310124a871b5ef0cccf4703b6d74e787e45ec0afe4386baf8d0",
+      "mask_sha256": "a808c0e4d03821eb752d6d141976a56550fdcf8bd95792fca6326be2f9409fe7"
+    },
+    {
+      "id": "y_stripes-2",
+      "family": "y_stripes",
+      "reference_sha256": "9863a0faee5c4ff9980f2778abf10271e090ffcedb1c3fc9d004997202e68edd",
+      "mask_sha256": "0d61b758e0014e95ac51069011879c32d86b2b5cce06b4fb04273b0813c7f2b2"
+    },
+    {
+      "id": "y_stripes-3",
+      "family": "y_stripes",
+      "reference_sha256": "0a324c26d635d88aa265b7b87b88d5757acb548eb8bdf4d519bc3a5372c1f5c4",
+      "mask_sha256": "76197d782b198286d1dc955fbcdc34e5c59b3228ff3c07cfc14c8a2b457cbeee"
+    },
+    {
+      "id": "y_stripes-4",
+      "family": "y_stripes",
+      "reference_sha256": "e8363625eb7d6b2e42ef120c23762fbf20a9ce4a432215fc389a0575a05b7861",
+      "mask_sha256": "f60f1114931f7bf64449c1cb7b69fd0dc0b1c348cccb4209a966ae381bfc22dc"
+    },
+    {
+      "id": "y_stripes-5",
+      "family": "y_stripes",
+      "reference_sha256": "889a5d62eb351847b60c7f59dc7626943410601d7aa17650befd04a850b3e364",
+      "mask_sha256": "1d0a2a917f5cb8c1571897f4fdcb5cb446eec61e225423591a49283fe7b7f434"
+    },
+    {
+      "id": "y_stripes-6",
+      "family": "y_stripes",
+      "reference_sha256": "9d3bd4a3de2b524bc27ccb4cb2c6b5a109cced87549f8ff6ab881a49955914b3",
+      "mask_sha256": "ff067c55c23fe0586f612bdf4cf1207f3615ce5f8c99cd66bc3dac4c48ea9646"
+    },
+    {
+      "id": "y_stripes-7",
+      "family": "y_stripes",
+      "reference_sha256": "3ef85ae7e5f562714b23f74a2cc61562686059de6c5d67c50649bbdd1a76d1b7",
+      "mask_sha256": "a745b8c3c4b38a17082d4c4f0aaf2be656d77faf81b4a1383630c657bcf76014"
+    },
+    {
+      "id": "checker-0",
+      "family": "checker",
+      "reference_sha256": "a82361a97164e71413c7743f5ea7aedbd89bc62e57c7917a04706a2ba18dcb75",
+      "mask_sha256": "5e1f1e44e0a2f618c2270c4c4dc6be5997b232823f43a3feee28dfe5e98125b6"
+    },
+    {
+      "id": "checker-1",
+      "family": "checker",
+      "reference_sha256": "a1a8e0f496024992f63edd8d814713c475c3c6fa4c7ea52211612df7479f6429",
+      "mask_sha256": "00237ec218da4180156449631b2cd6ab84f7afc70679a0c4ff23def09d1fc2b6"
+    },
+    {
+      "id": "checker-2",
+      "family": "checker",
+      "reference_sha256": "1a51f0231770d5dba7ef3df816bdf2d5cd80daa5b09f253a63e68584e42077ee",
+      "mask_sha256": "dac4bcced1bf0fea5ab1b194977c844bb214f1bccdc2e2968f917a5befbe74f2"
+    },
+    {
+      "id": "checker-3",
+      "family": "checker",
+      "reference_sha256": "b5f7e0e35c45441238bf86829f7ee561729bd0836e7720f4e414e2aa751245de",
+      "mask_sha256": "f9ab65563d4178fd45c4e3658ce2e4ea7ba984a61e481428c1369a3ee5ea4fbe"
+    },
+    {
+      "id": "checker-4",
+      "family": "checker",
+      "reference_sha256": "7b6ec056ce17764f7937a79c24cb9afa8100fce5cf42639c8c9a2450737fd2d1",
+      "mask_sha256": "c1f6aca6277c7d40e17c23cb42fb85225b26969a099b7a1c6951b945d5d2e8d1"
+    },
+    {
+      "id": "checker-5",
+      "family": "checker",
+      "reference_sha256": "97b302d0291a79bd383e5191066eaa8cef12b7e1a18e3f50302b19f71b221c1c",
+      "mask_sha256": "f61191b38010afea311e2e150fc19b869d0ab415cdfd7b9a1e000e57e110b0d8"
+    },
+    {
+      "id": "checker-6",
+      "family": "checker",
+      "reference_sha256": "c2e15777aa18e69bfe147690337cf8295a0abc507f83b0652264aa98fee28fe4",
+      "mask_sha256": "82fdb1f023fa07129a887b6e47e87195d0c6c36e61e2da603082bb202077367f"
+    },
+    {
+      "id": "checker-7",
+      "family": "checker",
+      "reference_sha256": "26dcc7676e4a429add8046fd57f24626637876cc4dea22e0e70ef6225ec1e59b",
+      "mask_sha256": "af1a8a4cdf536a1db760961938ba1f31da511192decf0f12c7f93803f141b5ea"
+    },
+    {
+      "id": "gradient-0",
+      "family": "gradient",
+      "reference_sha256": "c5e030dc679013a5c5302f1a9ba6c475b2ecb47182cae6c43df5fe1f16569b45",
+      "mask_sha256": "195953553c7dde33c3564a46c3fa89bfc772ac1bba3f17569af2abbf746ede0f"
+    },
+    {
+      "id": "gradient-1",
+      "family": "gradient",
+      "reference_sha256": "f767506c4ee55399474ac2917107f07b1cc8ee692fd6f4c459740877cac7ba1f",
+      "mask_sha256": "87772f90b78f8064828d16ec7344ea9ed88934002f45ed2f7fe57e0c4135e59e"
+    },
+    {
+      "id": "gradient-2",
+      "family": "gradient",
+      "reference_sha256": "a221856fbe6901dc3d68c42cb97bece94dd3740f2e71cefb5fdf3e057aff986f",
+      "mask_sha256": "9a3573f95db220187c1aabc2fb8157512bfc5d8c0178f7fb08da7ffd3c80541e"
+    },
+    {
+      "id": "gradient-3",
+      "family": "gradient",
+      "reference_sha256": "099e8ee24bb800462d409b3705e6e662bdd526e4efaeea31ce16816793ade011",
+      "mask_sha256": "8b6773d9cc7248d47b9e526369d8d9173fec908dbacecbd74d05935d5159f330"
+    },
+    {
+      "id": "gradient-4",
+      "family": "gradient",
+      "reference_sha256": "8d84d0ff41510dcf71a9eb66b2b3975bea0bf3451040cbb0a6a111c8250d7fb1",
+      "mask_sha256": "2c573580c737765eecb025e745bef433642fb0c3997c7ad569a20a8a10d8effd"
+    },
+    {
+      "id": "gradient-5",
+      "family": "gradient",
+      "reference_sha256": "f772f2a28061faf0913ea1c0b18161e4f85615e8a7d29c6e5b913640075602e6",
+      "mask_sha256": "ad75b7837976a5a7f538dd93a8baf23992f0951fc4755509a75bfff88d5a35ae"
+    },
+    {
+      "id": "gradient-6",
+      "family": "gradient",
+      "reference_sha256": "c95855977cea724794a0d5edcdc8597108843e9ae382eb19fc5933a80ced564c",
+      "mask_sha256": "5b800f21de821bce0d012e98b2dff95f5bde6c30d88b62e3eee0948b6e5feb82"
+    },
+    {
+      "id": "gradient-7",
+      "family": "gradient",
+      "reference_sha256": "e70a842a67383263ae6ec75d14812a8a5c56176d6459c696307fb80365fabb21",
+      "mask_sha256": "2c93fa2c846079bb9f537d4786410ef0106e8eb9e7367d61c9c2e12930aa6892"
+    },
+    {
+      "id": "noise-0",
+      "family": "noise",
+      "reference_sha256": "df10af0a518bda217fc74f4ead993e7b62a2587d1531e5c752ee07f21cf9ca06",
+      "mask_sha256": "67711a39ad13cb298e76039e3cfbd38f5bbc0480018d13f9575f2dd1863decaf"
+    },
+    {
+      "id": "noise-1",
+      "family": "noise",
+      "reference_sha256": "107695d4fb56e66c92aa2059dfc3158764f2016beb70f25109e1765bc9cfb544",
+      "mask_sha256": "0dfd579d1802b1fe2200241d8d3a0075d46a428446853a9fa6f75050e1dde955"
+    },
+    {
+      "id": "noise-2",
+      "family": "noise",
+      "reference_sha256": "45799862c8c5d5b9375907ef064d4dfbb4d355a74f12b962eea15cbdf9cfb5ed",
+      "mask_sha256": "be5509eacfb08b2da3e88de90e5369465a4fdf3a5a5c49648a983055d168a244"
+    },
+    {
+      "id": "noise-3",
+      "family": "noise",
+      "reference_sha256": "98132ade871bec3545103cc79f556dec8796c38921cd6aa6946074e0a16e0bd1",
+      "mask_sha256": "4bb7113107444e95ca115d0f39d1c0d3a7368c7de654fedb0d96cb9f0667458b"
+    },
+    {
+      "id": "noise-4",
+      "family": "noise",
+      "reference_sha256": "de39b628297307d0dbb2852d09a013306c663bd238032159188e370a94d288b0",
+      "mask_sha256": "195953553c7dde33c3564a46c3fa89bfc772ac1bba3f17569af2abbf746ede0f"
+    },
+    {
+      "id": "noise-5",
+      "family": "noise",
+      "reference_sha256": "fad70f35a2c15be323ac9e843cca5c1b0f9718aaec1ffa295a8ac48679749c49",
+      "mask_sha256": "633c48f1bbf18ba49f18d577157aa749cdc3974b973ca1eb558a475886812d7a"
+    },
+    {
+      "id": "noise-6",
+      "family": "noise",
+      "reference_sha256": "8187da57e9fb0a17fd94fb8a55028ce3d87a94bb9bad33da42f861985e7dafb6",
+      "mask_sha256": "14a90b2f223cf9c23333efe6e666477215d1df7955e18083bc9a5b4ec5dc120f"
+    },
+    {
+      "id": "noise-7",
+      "family": "noise",
+      "reference_sha256": "555f21bcc9c62e009e415a3dd8b60f45375b45987d22cbff009aa564366be9d1",
+      "mask_sha256": "d94007af8b22862ac63381ff1bec47412649e4359565f3f0ba32a2c9e3a9d0a4"
+    }
+  ],
+  "source_sha256_lf": {
+    "bellium/inpaint/patch_knn.py": "7e41a9100879c5c6f0a2734ea5100a064d3b1d062b68efa05e1c245d9d3ee4c2",
+    "bellium/inpaint/router.py": "a5b1c30846a764112bbda7871fee7b685c33b39f652a4911226cf937c0466409",
+    "benchmarks/inpaint_context.py": "9d7d1423e2a0c5c1624f1dd8662d8f7d91699128aeaa7374161bbacf9af0a91d",
+    "benchmarks/inpaint_v0/patch_knn.py": "27ae7564486f079dfcd081220283941bb1ed68d4726aab6078383cc9867f92a4",
+    "benchmarks/inpaint_v0/router.py": "a5b1c30846a764112bbda7871fee7b685c33b39f652a4911226cf937c0466409"
+  },
+  "hardware": {
+    "system": "Linux",
+    "machine": "x86_64",
+    "python": "3.12.14",
+    "pillow": "12.3.0",
+    "device": "cpu"
+  },
+  "summary": {
+    "spatial_v0": {
+      "completed": 48,
+      "abstained": 0,
+      "mean_masked_mae_completed": 0.17664760348583877,
+      "mean_boundary_mae_completed": 0.17535062636165577,
+      "latency_p50_ms": 0.7024044989520917,
+      "latency_p95_ms": 1.0936590006167535,
+      "python_allocation_peak_probe_bytes": 42928
+    },
+    "context_v1": {
+      "completed": 40,
+      "abstained": 8,
+      "mean_masked_mae_completed": 0.0034277414669571533,
+      "mean_boundary_mae_completed": 0.0035294117647058825,
+      "latency_p50_ms": 2.050594000138517,
+      "latency_p95_ms": 25.137028000244754,
+      "python_allocation_peak_probe_bytes": 53106
+    }
+  },
+  "paired_by_family": {
+    "constant": {
+      "paired_completed": 8,
+      "baseline_mean_masked_mae": 0.0,
+      "context_mean_masked_mae": 0.0,
+      "improved": 0,
+      "worse": 0,
+      "equal": 8
+    },
+    "x_stripes": {
+      "paired_completed": 8,
+      "baseline_mean_masked_mae": 0.15711692084241102,
+      "context_mean_masked_mae": 0.0,
+      "improved": 6,
+      "worse": 0,
+      "equal": 2
+    },
+    "y_stripes": {
+      "paired_completed": 8,
+      "baseline_mean_masked_mae": 0.17936637618010168,
+      "context_mean_masked_mae": 0.0,
+      "improved": 7,
+      "worse": 0,
+      "equal": 1
+    },
+    "checker": {
+      "paired_completed": 8,
+      "baseline_mean_masked_mae": 0.39864742193173563,
+      "context_mean_masked_mae": 0.0,
+      "improved": 8,
+      "worse": 0,
+      "equal": 0
+    },
+    "gradient": {
+      "paired_completed": 8,
+      "baseline_mean_masked_mae": 0.013798111837327525,
+      "context_mean_masked_mae": 0.017138707334785765,
+      "improved": 0,
+      "worse": 8,
+      "equal": 0
+    },
+    "noise": {
+      "paired_completed": 0,
+      "baseline_mean_masked_mae": null,
+      "context_mean_masked_mae": null,
+      "improved": 0,
+      "worse": 0,
+      "equal": 0
+    }
+  },
+  "cases": [
+    {
+      "id": "constant-0",
+      "family": "constant",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.826196999696549,
+      "output_sha256": "eda94071c08f919dc898901f354095d3f08d7b6f4c0b19578b5da4449b028aeb",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "constant-0",
+      "family": "constant",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.2378269984765211,
+      "output_sha256": "eda94071c08f919dc898901f354095d3f08d7b6f4c0b19578b5da4449b028aeb",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "constant-1",
+      "family": "constant",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.0936590006167535,
+      "output_sha256": "6e5a8442473a1a1c4ab4835700ede1f5ab668430b3d9c123a0a61ebd8f194e33",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "constant-1",
+      "family": "constant",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.361332999294973,
+      "output_sha256": "6e5a8442473a1a1c4ab4835700ede1f5ab668430b3d9c123a0a61ebd8f194e33",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "constant-2",
+      "family": "constant",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.8151490001182538,
+      "output_sha256": "3f8e054abda96bb99ecc60b5e742395a0e14e10fdd62d8bfbc3f67319c4f55fa",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "constant-2",
+      "family": "constant",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.0538999995333143,
+      "output_sha256": "3f8e054abda96bb99ecc60b5e742395a0e14e10fdd62d8bfbc3f67319c4f55fa",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "constant-3",
+      "family": "constant",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.015702000586316,
+      "output_sha256": "b5e452dd6eea3531a4971ee1268a54db3ca2f9efa6bff5e10eaa529c699799db",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "constant-3",
+      "family": "constant",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.3325809995876625,
+      "output_sha256": "b5e452dd6eea3531a4971ee1268a54db3ca2f9efa6bff5e10eaa529c699799db",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "constant-4",
+      "family": "constant",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.7646930007467745,
+      "output_sha256": "98e5e977e17e052daeb12e3e4cef65e6cb3925577bbcce41cdbfd6afea6ec8dd",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "constant-4",
+      "family": "constant",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.0417920002510073,
+      "output_sha256": "98e5e977e17e052daeb12e3e4cef65e6cb3925577bbcce41cdbfd6afea6ec8dd",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "constant-5",
+      "family": "constant",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.0423019994050264,
+      "output_sha256": "e9f82f0917426557dac909710251bfd6ea7c861c89871f3da41279f127e1448a",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "constant-5",
+      "family": "constant",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.2991889998374972,
+      "output_sha256": "e9f82f0917426557dac909710251bfd6ea7c861c89871f3da41279f127e1448a",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "constant-6",
+      "family": "constant",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.7858959997975035,
+      "output_sha256": "00d718d342112d07860e47404c640b4debd8b71ba06fe1b0489c11d3e5b140fc",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "constant-6",
+      "family": "constant",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.063174000591971,
+      "output_sha256": "00d718d342112d07860e47404c640b4debd8b71ba06fe1b0489c11d3e5b140fc",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "constant-7",
+      "family": "constant",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.0894829993048916,
+      "output_sha256": "3485ce1e394465401d53a757e57d048fb09e661419f10a9b24fa0889dac019e9",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "constant-7",
+      "family": "constant",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.3289950002217665,
+      "output_sha256": "3485ce1e394465401d53a757e57d048fb09e661419f10a9b24fa0889dac019e9",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "x_stripes-0",
+      "family": "x_stripes",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.7819000002200482,
+      "output_sha256": "4f0e2cc6bdf2b39ff0cb8d5f19cdc836532bf5fd4fa07a2b00710c0252642b5f",
+      "quality": {
+        "masked_rgb_mae": 0.25620915032679736,
+        "boundary_rgb_mae": 0.25620915032679736
+      }
+    },
+    {
+      "id": "x_stripes-0",
+      "family": "x_stripes",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.7006449998007156,
+      "output_sha256": "cf2692631f5d2f69ecadd9ebea535909b4d402d15b4d5f2ee912b464496f9456",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "x_stripes-1",
+      "family": "x_stripes",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.0987980003847042,
+      "output_sha256": "1324fb988f756d4572eca92b76e5e49c575d654f8cce4c4b224fce8fa105d2d4",
+      "quality": {
+        "masked_rgb_mae": 0.125199709513435,
+        "boundary_rgb_mae": 0.14084967320261438
+      }
+    },
+    {
+      "id": "x_stripes-1",
+      "family": "x_stripes",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 2.2678710010950454,
+      "output_sha256": "42e892e8717cce1c8a01334a82269e07bb1b1b3afd46859af03eef940c34584f",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "x_stripes-2",
+      "family": "x_stripes",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.7345680005528266,
+      "output_sha256": "5b146489dc925b4a8574b6d92fcbe2a67fe7203fc9438edf1f3955680f04eb3d",
+      "quality": {
+        "masked_rgb_mae": 0.14640522875816994,
+        "boundary_rgb_mae": 0.14640522875816994
+      }
+    },
+    {
+      "id": "x_stripes-2",
+      "family": "x_stripes",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.3255089997983305,
+      "output_sha256": "6ef804ef725c2ab3f31c9055f36501b73744db5b2c23b2dba1f45f6752f2bbe9",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "x_stripes-3",
+      "family": "x_stripes",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.6620990006922511,
+      "output_sha256": "079988b7cc61fc25218a89a92634b44f3e1f1867f09096caf2e8b4a20fcedb82",
+      "quality": {
+        "masked_rgb_mae": 0.21263616557734205,
+        "boundary_rgb_mae": 0.23921568627450981
+      }
+    },
+    {
+      "id": "x_stripes-3",
+      "family": "x_stripes",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.3390900003287243,
+      "output_sha256": "827a11ffc6670c3da1181bbb978af2fd16f7013bdd50b83b2a2eab99ad1f0460",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "x_stripes-4",
+      "family": "x_stripes",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.5884380007046275,
+      "output_sha256": "f8d5528d942fd2c1792216c420eb10ff0d78807afedc151f01641c83f87ca970",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "x_stripes-4",
+      "family": "x_stripes",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.3858410002285382,
+      "output_sha256": "f8d5528d942fd2c1792216c420eb10ff0d78807afedc151f01641c83f87ca970",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "x_stripes-5",
+      "family": "x_stripes",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.6935860001249239,
+      "output_sha256": "8e9ee5a242f7fc1269d9584c5d000099bab7611e20c21db726318ae709f192f2",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "x_stripes-5",
+      "family": "x_stripes",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 3.0430610004259506,
+      "output_sha256": "8e9ee5a242f7fc1269d9584c5d000099bab7611e20c21db726318ae709f192f2",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "x_stripes-6",
+      "family": "x_stripes",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.6254639993130695,
+      "output_sha256": "c33f2b403db681f4ee3b988e18423d25e073407cccdb4a1b0a3cd852b0eb0ace",
+      "quality": {
+        "masked_rgb_mae": 0.34509803921568627,
+        "boundary_rgb_mae": 0.34509803921568627
+      }
+    },
+    {
+      "id": "x_stripes-6",
+      "family": "x_stripes",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.0413109994260594,
+      "output_sha256": "b09223c53e87e76914d430ca80edd7b792cf47a91753b758df66ab6d938bb7f8",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "x_stripes-7",
+      "family": "x_stripes",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.682869998854585,
+      "output_sha256": "f72d213904661ed3fb66461d7b2ad8e31dbdfec00db0eb49423cbd2b9cc10e5d",
+      "quality": {
+        "masked_rgb_mae": 0.17138707334785766,
+        "boundary_rgb_mae": 0.19281045751633988
+      }
+    },
+    {
+      "id": "x_stripes-7",
+      "family": "x_stripes",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.882149999801186,
+      "output_sha256": "dc7c3c5216d32939948cf26170e7fdc47dc6b65828cc59e7e676cd3d995777cd",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "y_stripes-0",
+      "family": "y_stripes",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.5982719994790386,
+      "output_sha256": "ba08a1ada6e42406e45ed1f438c5b65b0a1d8b35dabf2d2d5692301ba0538cc5",
+      "quality": {
+        "masked_rgb_mae": 0.2437908496732026,
+        "boundary_rgb_mae": 0.2437908496732026
+      }
+    },
+    {
+      "id": "y_stripes-0",
+      "family": "y_stripes",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.042701998812845,
+      "output_sha256": "d87e962ca475970cfdddc9b574bedbc99c01e930d574af09d4d54ad8a63fdd5c",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "y_stripes-1",
+      "family": "y_stripes",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.6857549997221213,
+      "output_sha256": "dba2e716401111f0bd3bba2b77b8ddb67166bc339b78307b3425f8dd22d17de5",
+      "quality": {
+        "masked_rgb_mae": 0.12403776325344953,
+        "boundary_rgb_mae": 0.06977124183006536
+      }
+    },
+    {
+      "id": "y_stripes-1",
+      "family": "y_stripes",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.4225049999367911,
+      "output_sha256": "9bbc27d57c074310124a871b5ef0cccf4703b6d74e787e45ec0afe4386baf8d0",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "y_stripes-2",
+      "family": "y_stripes",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.6080470011511352,
+      "output_sha256": "f3c49b033f270b1077fca4caf0d4aa4f93ab99d6ec0bfb9a913cd391c70b9551",
+      "quality": {
+        "masked_rgb_mae": 0.2503267973856209,
+        "boundary_rgb_mae": 0.2503267973856209
+      }
+    },
+    {
+      "id": "y_stripes-2",
+      "family": "y_stripes",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.276164999580942,
+      "output_sha256": "9863a0faee5c4ff9980f2778abf10271e090ffcedb1c3fc9d004997202e68edd",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "y_stripes-3",
+      "family": "y_stripes",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.7576330008305376,
+      "output_sha256": "1e65e826e4d869ad12c0d36d8fd904d8c2cb47a511b9437b04cbaa229fa589b2",
+      "quality": {
+        "masked_rgb_mae": 0.18474945533769063,
+        "boundary_rgb_mae": 0.20784313725490197
+      }
+    },
+    {
+      "id": "y_stripes-3",
+      "family": "y_stripes",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.3304170006449567,
+      "output_sha256": "0a324c26d635d88aa265b7b87b88d5757acb548eb8bdf4d519bc3a5372c1f5c4",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "y_stripes-4",
+      "family": "y_stripes",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.5029090007155901,
+      "output_sha256": "03c78b62caec863ce1c57c6cf73e6537e0c4b801bcc498ece7da9c38508ec1a2",
+      "quality": {
+        "masked_rgb_mae": 0.24705882352941178,
+        "boundary_rgb_mae": 0.24705882352941178
+      }
+    },
+    {
+      "id": "y_stripes-4",
+      "family": "y_stripes",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.4548749986715848,
+      "output_sha256": "e8363625eb7d6b2e42ef120c23762fbf20a9ce4a432215fc389a0575a05b7861",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "y_stripes-5",
+      "family": "y_stripes",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.8334369995282032,
+      "output_sha256": "889a5d62eb351847b60c7f59dc7626943410601d7aa17650befd04a850b3e364",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "y_stripes-5",
+      "family": "y_stripes",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 3.147388000797946,
+      "output_sha256": "889a5d62eb351847b60c7f59dc7626943410601d7aa17650befd04a850b3e364",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "y_stripes-6",
+      "family": "y_stripes",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.1256079997110646,
+      "output_sha256": "c035991d092bf0ae51ebb0c29aa8b066a180d0c1fed5fb2f5ca84f63f25c41de",
+      "quality": {
+        "masked_rgb_mae": 0.2751633986928105,
+        "boundary_rgb_mae": 0.2751633986928105
+      }
+    },
+    {
+      "id": "y_stripes-6",
+      "family": "y_stripes",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.1100249994342448,
+      "output_sha256": "9d3bd4a3de2b524bc27ccb4cb2c6b5a109cced87549f8ff6ab881a49955914b3",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "y_stripes-7",
+      "family": "y_stripes",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.6989439989411039,
+      "output_sha256": "7643d75e7325c39b31720b46da23a7a51dfe64b9cfb70a4cf7af5a7a09d2d3ab",
+      "quality": {
+        "masked_rgb_mae": 0.10980392156862745,
+        "boundary_rgb_mae": 0.061764705882352944
+      }
+    },
+    {
+      "id": "y_stripes-7",
+      "family": "y_stripes",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.4411840002139797,
+      "output_sha256": "3ef85ae7e5f562714b23f74a2cc61562686059de6c5d67c50649bbdd1a76d1b7",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "checker-0",
+      "family": "checker",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.5423279999376973,
+      "output_sha256": "6bc7ebfc4cf80a27304448423c4736abc45eaba77846ffb4c0112901e1eb4eec",
+      "quality": {
+        "masked_rgb_mae": 0.4718954248366013,
+        "boundary_rgb_mae": 0.4718954248366013
+      }
+    },
+    {
+      "id": "checker-0",
+      "family": "checker",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.0237040005449671,
+      "output_sha256": "a82361a97164e71413c7743f5ea7aedbd89bc62e57c7917a04706a2ba18dcb75",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "checker-1",
+      "family": "checker",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.6707920001645107,
+      "output_sha256": "03b07d1ace90240772947b6ca2710a1178f0840d3682c17b97c35061ee65f425",
+      "quality": {
+        "masked_rgb_mae": 0.2829339143064633,
+        "boundary_rgb_mae": 0.23872549019607844
+      }
+    },
+    {
+      "id": "checker-1",
+      "family": "checker",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 3.20375299997977,
+      "output_sha256": "a1a8e0f496024992f63edd8d814713c475c3c6fa4c7ea52211612df7479f6429",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "checker-2",
+      "family": "checker",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.5129040000610985,
+      "output_sha256": "6b7520e300617c0a2d8f1adf13c96cfeab8720cb5e19afdb3f653178ba61e4d1",
+      "quality": {
+        "masked_rgb_mae": 0.2777777777777778,
+        "boundary_rgb_mae": 0.2777777777777778
+      }
+    },
+    {
+      "id": "checker-2",
+      "family": "checker",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 2.219038000475848,
+      "output_sha256": "1a51f0231770d5dba7ef3df816bdf2d5cd80daa5b09f253a63e68584e42077ee",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "checker-3",
+      "family": "checker",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.7058649989630794,
+      "output_sha256": "f49420d06e90eea1d1ff20ba917818bb43fb3a3201fa0eaf9cbf60466351a6cc",
+      "quality": {
+        "masked_rgb_mae": 0.6332607116920842,
+        "boundary_rgb_mae": 0.7124183006535948
+      }
+    },
+    {
+      "id": "checker-3",
+      "family": "checker",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 2.719021000302746,
+      "output_sha256": "b5f7e0e35c45441238bf86829f7ee561729bd0836e7720f4e414e2aa751245de",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "checker-4",
+      "family": "checker",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.5549270008486928,
+      "output_sha256": "7f3a3a765961d5d2a9e6f86a34b8a8c74fb2ea179eef7a1d483ca2f7b503db16",
+      "quality": {
+        "masked_rgb_mae": 0.5424836601307189,
+        "boundary_rgb_mae": 0.5424836601307189
+      }
+    },
+    {
+      "id": "checker-4",
+      "family": "checker",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 1.3846189995092573,
+      "output_sha256": "7b6ec056ce17764f7937a79c24cb9afa8100fce5cf42639c8c9a2450737fd2d1",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "checker-5",
+      "family": "checker",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.6556190000992501,
+      "output_sha256": "f570c9b8a7e4d8aec3a7cada123a8fdc38a4fbf74bb7a813db35ba56845de11c",
+      "quality": {
+        "masked_rgb_mae": 0.056499636891793756,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "checker-5",
+      "family": "checker",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 4.979790999641409,
+      "output_sha256": "97b302d0291a79bd383e5191066eaa8cef12b7e1a18e3f50302b19f71b221c1c",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "checker-6",
+      "family": "checker",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.5866550000064308,
+      "output_sha256": "69b642111c50611f5df5e36f2f93a9d6a8a4df460284f4ed732b2bc5a4e76b6b",
+      "quality": {
+        "masked_rgb_mae": 0.6535947712418301,
+        "boundary_rgb_mae": 0.6535947712418301
+      }
+    },
+    {
+      "id": "checker-6",
+      "family": "checker",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.8762420002312865,
+      "output_sha256": "c2e15777aa18e69bfe147690337cf8295a0abc507f83b0652264aa98fee28fe4",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "checker-7",
+      "family": "checker",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.7190249998529907,
+      "output_sha256": "81a8661e18461af00e0bf871a17675a1eae92038e8d54704955b2d47a05e9728",
+      "quality": {
+        "masked_rgb_mae": 0.27073347857661584,
+        "boundary_rgb_mae": 0.2284313725490196
+      }
+    },
+    {
+      "id": "checker-7",
+      "family": "checker",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 3.036039999642526,
+      "output_sha256": "26dcc7676e4a429add8046fd57f24626637876cc4dea22e0e70ef6225ec1e59b",
+      "quality": {
+        "masked_rgb_mae": 0.0,
+        "boundary_rgb_mae": 0.0
+      }
+    },
+    {
+      "id": "gradient-0",
+      "family": "gradient",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.5113909992360277,
+      "output_sha256": "23af63ff61be6c6518ca2542d1b6b5df977e1f7bf0d6fccb65863025141bf9f0",
+      "quality": {
+        "masked_rgb_mae": 0.013071895424836602,
+        "boundary_rgb_mae": 0.013071895424836602
+      }
+    },
+    {
+      "id": "gradient-0",
+      "family": "gradient",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 15.29463100087014,
+      "output_sha256": "b29b74b34fb92242e4bcfe6d608bc3dbc545e901adfcc2eea4e1f31551c4125e",
+      "quality": {
+        "masked_rgb_mae": 0.01568627450980392,
+        "boundary_rgb_mae": 0.01568627450980392
+      }
+    },
+    {
+      "id": "gradient-1",
+      "family": "gradient",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.778974999775528,
+      "output_sha256": "f8c625750796bf88879cc97e09cd5548d0ae8d50b93ceb1700bdbeeae9953b32",
+      "quality": {
+        "masked_rgb_mae": 0.014524328249818447,
+        "boundary_rgb_mae": 0.013071895424836602
+      }
+    },
+    {
+      "id": "gradient-1",
+      "family": "gradient",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 25.137028000244754,
+      "output_sha256": "8cfdb203fda0fa7458e3e4f3adc9f36a702b257b90a0bf619adef2b7f6893742",
+      "quality": {
+        "masked_rgb_mae": 0.01859114015976761,
+        "boundary_rgb_mae": 0.0196078431372549
+      }
+    },
+    {
+      "id": "gradient-2",
+      "family": "gradient",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.47237299986591097,
+      "output_sha256": "083dd5e8fd0706f387e6953b2059b783a9790cd9f0934f93044131a61fface06",
+      "quality": {
+        "masked_rgb_mae": 0.013071895424836602,
+        "boundary_rgb_mae": 0.013071895424836602
+      }
+    },
+    {
+      "id": "gradient-2",
+      "family": "gradient",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 16.35333800004446,
+      "output_sha256": "94b0d9e295ef94cac67e918317e0d33e5de0a40efb878d6926c7040065ef7e87",
+      "quality": {
+        "masked_rgb_mae": 0.01568627450980392,
+        "boundary_rgb_mae": 0.01568627450980392
+      }
+    },
+    {
+      "id": "gradient-3",
+      "family": "gradient",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.9657470000092871,
+      "output_sha256": "6d62268a395c9d49c5e9acca856c5909c1ae71eb6f846b9f6803b7bb5924e76a",
+      "quality": {
+        "masked_rgb_mae": 0.014524328249818447,
+        "boundary_rgb_mae": 0.013071895424836602
+      }
+    },
+    {
+      "id": "gradient-3",
+      "family": "gradient",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 25.427695998587296,
+      "output_sha256": "145febf6befe8c33d3f67aabb556ce953c3f888fe5fa7513abe80be3a63f3109",
+      "quality": {
+        "masked_rgb_mae": 0.01859114015976761,
+        "boundary_rgb_mae": 0.0196078431372549
+      }
+    },
+    {
+      "id": "gradient-4",
+      "family": "gradient",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.46919800115574617,
+      "output_sha256": "f988d5431302912abca9c0d7a774dafd1d0c12e68dd04cda44099fa1488666ca",
+      "quality": {
+        "masked_rgb_mae": 0.013071895424836602,
+        "boundary_rgb_mae": 0.013071895424836602
+      }
+    },
+    {
+      "id": "gradient-4",
+      "family": "gradient",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 15.542125000138185,
+      "output_sha256": "78d62d6716272d5e22cb9944539e53f78fdc2d4d764c4c7ccd15fa3eac8d1399",
+      "quality": {
+        "masked_rgb_mae": 0.01568627450980392,
+        "boundary_rgb_mae": 0.01568627450980392
+      }
+    },
+    {
+      "id": "gradient-5",
+      "family": "gradient",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.8094309996522497,
+      "output_sha256": "01299ed2fc87264bbb8f533abddec986c74bbeab8ed2141910952888c099aa22",
+      "quality": {
+        "masked_rgb_mae": 0.014524328249818447,
+        "boundary_rgb_mae": 0.013071895424836602
+      }
+    },
+    {
+      "id": "gradient-5",
+      "family": "gradient",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 25.68399299889279,
+      "output_sha256": "b37fc9e78350636c36b40c7e9d81116897174085065a67cabc8ab8958fd47632",
+      "quality": {
+        "masked_rgb_mae": 0.01859114015976761,
+        "boundary_rgb_mae": 0.0196078431372549
+      }
+    },
+    {
+      "id": "gradient-6",
+      "family": "gradient",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.5500500010384712,
+      "output_sha256": "49d5eb6d1827db7231474e7c099207a641f4dc2ef2bd6cfb3a72f27e97f2e88c",
+      "quality": {
+        "masked_rgb_mae": 0.013071895424836602,
+        "boundary_rgb_mae": 0.013071895424836602
+      }
+    },
+    {
+      "id": "gradient-6",
+      "family": "gradient",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 15.170112999840057,
+      "output_sha256": "34c90adfa2749f4a6e6f885161ed28986162f8e8c3e1e5ca75f1fe73b1fd1944",
+      "quality": {
+        "masked_rgb_mae": 0.01568627450980392,
+        "boundary_rgb_mae": 0.01568627450980392
+      }
+    },
+    {
+      "id": "gradient-7",
+      "family": "gradient",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.8195659993361915,
+      "output_sha256": "ee6217b27d8357fb56e6c86b75d166e778466b3d5b93172d8c840757b0806396",
+      "quality": {
+        "masked_rgb_mae": 0.014524328249818447,
+        "boundary_rgb_mae": 0.013071895424836602
+      }
+    },
+    {
+      "id": "gradient-7",
+      "family": "gradient",
+      "method": "context_v1",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 25.03330199942866,
+      "output_sha256": "907617734d40ce8c11d2896645ffe28f3676cd4af9c2eac09437b6418ba74c07",
+      "quality": {
+        "masked_rgb_mae": 0.01859114015976761,
+        "boundary_rgb_mae": 0.0196078431372549
+      }
+    },
+    {
+      "id": "noise-0",
+      "family": "noise",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.44935799996892456,
+      "output_sha256": "2d437ac0aa0894d2fca206829168477495907978418cb44e15d9c34ecc426d09",
+      "quality": {
+        "masked_rgb_mae": 0.2973856209150327,
+        "boundary_rgb_mae": 0.2973856209150327
+      }
+    },
+    {
+      "id": "noise-0",
+      "family": "noise",
+      "method": "context_v1",
+      "completed": false,
+      "filled_pixels": 0,
+      "reason": "Too few nearby donor patches match the visible context",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 4.3401869988883846,
+      "output_sha256": "202d3296bc860d4b315cafc17e5ecde3bf6465207ebce9a7c7da54528635e554",
+      "quality": null
+    },
+    {
+      "id": "noise-1",
+      "family": "noise",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.7625799989909865,
+      "output_sha256": "088017d8a3ef37277e7ebc07b59787077c9969611f7cc81644db4f5fbfe1b952",
+      "quality": {
+        "masked_rgb_mae": 0.29310094408133625,
+        "boundary_rgb_mae": 0.30392156862745096
+      }
+    },
+    {
+      "id": "noise-1",
+      "family": "noise",
+      "method": "context_v1",
+      "completed": false,
+      "filled_pixels": 0,
+      "reason": "Too few nearby donor patches match the visible context",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 3.4327480007050326,
+      "output_sha256": "b34b7189695063dce9add64a278891616782a0b87d46b0082a4f16bde9c540b7",
+      "quality": null
+    },
+    {
+      "id": "noise-2",
+      "family": "noise",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.41383399911865126,
+      "output_sha256": "a1135ea671e4ec63ae7bcf6e1f5ae364e49c98c2f4d428ea19b8364a507dbe78",
+      "quality": {
+        "masked_rgb_mae": 0.3787581699346405,
+        "boundary_rgb_mae": 0.3787581699346405
+      }
+    },
+    {
+      "id": "noise-2",
+      "family": "noise",
+      "method": "context_v1",
+      "completed": false,
+      "filled_pixels": 0,
+      "reason": "Too few nearby donor patches match the visible context",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 5.004139000448049,
+      "output_sha256": "e585a256a2ee751afeaa49f36f95d6d51734006cdf42f50f1a364ac158c2d867",
+      "quality": null
+    },
+    {
+      "id": "noise-3",
+      "family": "noise",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.7960110015119426,
+      "output_sha256": "ecdf6796e304dcaa180a66dbd10b7ffd7369ba7478f7561e45b79d3e41ae5434",
+      "quality": {
+        "masked_rgb_mae": 0.29862018881626723,
+        "boundary_rgb_mae": 0.30424836601307187
+      }
+    },
+    {
+      "id": "noise-3",
+      "family": "noise",
+      "method": "context_v1",
+      "completed": false,
+      "filled_pixels": 0,
+      "reason": "Too few nearby donor patches match the visible context",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 3.2013100008043693,
+      "output_sha256": "acc9ff2870b067b8d1b8916281acb578b125f7d3a9e5a29cbbc5129d89937898",
+      "quality": null
+    },
+    {
+      "id": "noise-4",
+      "family": "noise",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.4137639989494346,
+      "output_sha256": "e60f770c4d56a6a07919957d3eaf33e0f39907018406b96eb49fc9e2bcd42bc1",
+      "quality": {
+        "masked_rgb_mae": 0.2725490196078431,
+        "boundary_rgb_mae": 0.2725490196078431
+      }
+    },
+    {
+      "id": "noise-4",
+      "family": "noise",
+      "method": "context_v1",
+      "completed": false,
+      "filled_pixels": 0,
+      "reason": "Too few nearby donor patches match the visible context",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 4.426157000125386,
+      "output_sha256": "1f062a0e214afc55c3ba4abd01204e05e049b61d4680dd518bba56be62adaab9",
+      "quality": null
+    },
+    {
+      "id": "noise-5",
+      "family": "noise",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.8542489995306823,
+      "output_sha256": "9fa14bba5bc5962fe1842b574b2a08cba8e4236928d4e33e9675272461cfa45e",
+      "quality": {
+        "masked_rgb_mae": 0.29760348583877994,
+        "boundary_rgb_mae": 0.29526143790849674
+      }
+    },
+    {
+      "id": "noise-5",
+      "family": "noise",
+      "method": "context_v1",
+      "completed": false,
+      "filled_pixels": 0,
+      "reason": "Too few nearby donor patches match the visible context",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 3.340189001391991,
+      "output_sha256": "60ed8a0dfffa9538792ff499a41b8f79c5234eecbe0d8a5a3fcc425c39710883",
+      "quality": null
+    },
+    {
+      "id": "noise-6",
+      "family": "noise",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 4,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.4609360003087204,
+      "output_sha256": "a0e5e40d534c4f7d765332ed289c6d42c4b63f9cd8f311cbb2357d03f9421c8c",
+      "quality": {
+        "masked_rgb_mae": 0.3264705882352941,
+        "boundary_rgb_mae": 0.3264705882352941
+      }
+    },
+    {
+      "id": "noise-6",
+      "family": "noise",
+      "method": "context_v1",
+      "completed": false,
+      "filled_pixels": 0,
+      "reason": "Too few nearby donor patches match the visible context",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 5.460275999212172,
+      "output_sha256": "a4fe776ccd71b3e8f9db8bed86a70d0f487c8170cfe4060763e207bfd99aec83",
+      "quality": null
+    },
+    {
+      "id": "noise-7",
+      "family": "noise",
+      "method": "spatial_v0",
+      "completed": true,
+      "filled_pixels": 9,
+      "reason": "Small bounded mask: instant patch k-NN synthesis",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 0.8234530014306074,
+      "output_sha256": "f45d13e37891d8be8ad1a48a6859cd496457675c3a50d0af1899174984f53a5e",
+      "quality": {
+        "masked_rgb_mae": 0.32316630355846043,
+        "boundary_rgb_mae": 0.33202614379084966
+      }
+    },
+    {
+      "id": "noise-7",
+      "family": "noise",
+      "method": "context_v1",
+      "completed": false,
+      "filled_pixels": 0,
+      "reason": "Too few nearby donor patches match the visible context",
+      "outside_unchanged": true,
+      "source_unchanged": true,
+      "latency_ms": 5.537132999961614,
+      "output_sha256": "f7bf6206de657ed72eeee98caac097994d93a157bf7aa15c0fdb0b588186a800",
+      "quality": null
+    }
+  ],
+  "limits": [
+    "48 procedural 32x32 RGB fixtures; no real sprites, photographs or GPU measurements.",
+    "Baseline files are pinned verbatim; original random fallback is forbidden during comparison.",
+    "Abstentions are excluded from quality means and reported separately; compare common completed pairs.",
+    "Unchanged damaged inputs returned on abstention are not scored as reconstructed images.",
+    "Fixed parameters; no training, tuning, model activation or production authorization.",
+    "Noise cannot in general be reconstructed from neighboring patches; unique details can be invented or lost.",
+    "Latency is one complete inference per case, excluding decoding; allocation is a separate one-case Python probe.",
+    "Color averaging can smooth detail. Correct execution and low context error do not imply a correct fill."
+  ]
+}

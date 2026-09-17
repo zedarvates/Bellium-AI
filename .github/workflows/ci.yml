@@ -32,3 +32,6 @@ jobs:
     - name: Run Bellium Test Suites
       run: |
         python run_all_tests.py
+
+    - name: Run usage examples integration tests
+      run: python -m unittest discover -s examples/tests -v

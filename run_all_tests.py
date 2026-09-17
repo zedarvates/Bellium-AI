@@ -21,11 +21,14 @@ def run_all_tests():
         ('Legacy k-NN Asset Quality Memory', 'legacy/knn_asset_quality/test_asset_quality.py'),
         ('Bellium Native: Cutout & Background Normalizer', 'bellium/cutout/test_cutout.py'),
         ('Bellium Native: Patch k-NN Inpaint & Escalation', 'bellium/inpaint/test_inpaint.py'),
+        ('Asset Factory: Context Patch k-NN', 'bellium/inpaint/test_context_knn.py'),
+        ('Asset Factory: Inpaint Comparison Replay', 'benchmarks/test_inpaint_context.py'),
         ('Bellium Native: Phoneme k-NN & Linguistic Reconstruction', 'bellium/language/test_phoneme.py'),
         ('Bellium Native: Tiered Specialist Router & Abstention', 'bellium/routing/test_routing.py'),
         ('Bellium Native: End-to-End Asset Prep Pipeline', 'bellium/pipeline/test_pipeline.py'),
         ('Asset Factory: Alpha QA & Specialist Benchmark', 'bellium/asset_quality/test_asset_quality.py'),
         ('Asset Factory: Inpaint Failure Propagation', 'bellium/pipeline/test_inpaint_boundaries.py'),
+        ('Bellium Native: Visual Anomaly & Emergency Gates', 'bellium/vision/test_anomaly.py'),
     ]
     
     print('=' * 65)

@@ -124,6 +124,9 @@ class AssetPrepPipeline:
         # Final verdict determination
         if inpaint_needs_escalation:
             verdict = "escalate"
+        elif inpaint_applied and m.recommendation != "escalate":
+            # Cutout confidence does not validate the content synthesized by a repair.
+            verdict = "needs_review"
         elif m.recommendation == "confident":
             verdict = "ready_production"
         elif m.recommendation == "review":

@@ -32,7 +32,7 @@ def run_tests():
     for line in report.log:
         print('   -', line)
         
-    assert report.verdict == 'ready_production'
+    assert report.verdict == 'needs_review'
     assert report.inpaint_applied is True
     assert report.output_image.size == (128, 128)
     assert report.output_image.mode == 'RGBA'

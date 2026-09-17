@@ -37,10 +37,11 @@ the synthetic run does not show a quality or speed advantage for learned methods
 2. Compare false-candidate rate, abstention, review workload, CPU latency and
    complete working-set memory. Calibrate only on validation data; keep final
    holdout inaccessible to model/threshold selection.
-3. Implement genuine context-scored patch k-NN. The inherited inpaint implementation
-   currently picks spatially nearest source pixels; `k_neighbors` does not yet
-   control its synthesis. Benchmark against that explicit baseline with untouched
-   source images, masked-region error and edge continuity.
+3. Context-scored patch k-NN and its frozen spatial-copy comparison are now
+   implemented; see [measured outcomes](INPAINT_CONTEXT_QA.md). It improves
+   repeating-pattern fixtures but regresses on gradients and abstains on noise.
+   Next compare deterministic gradient interpolation on new held-out identities
+   before adding a neural correction; preserve review and original pixels.
 4. Separate RGB texture QA and near-duplicate retrieval with their own feature
    contracts and annotated families; do not reuse alpha-matte weights for them.
 5. Connect reviewed sidecars to the actual Studio/ComfyUI workflow through a
@@ -70,6 +71,106 @@ Voice activity, speaker changes, recording-quality classification, audio duplica
 ## P6 — Micro-LLM laboratory
 
 Use micro-LLMs only when simpler approaches lose enough quality to justify them: structured tool selection, compact intent classification, short metadata extraction, bounded JSON transformations and multilingual label mapping.
+
+## P7 — Fast physical-relation estimates
+
+Planned research: bounded local specialists for quick estimates of physical
+relations, starting with terrestrial conditions and supporting robotics,
+aquaponics, games and simulation previews. These capabilities are not implemented.
+
+Compare three complementary mechanisms against analytical formulas, lookup
+tables and reference solvers before choosing a model:
+
+- **k-NN:** retrieve comparable measured or simulated cases and interpolate only
+  within a documented domain with sufficient neighbor support.
+- **Micro-NN:** small regressors for coupled relations or residual corrections
+  where the reference computation is costly enough to justify approximation.
+- **Nano-NN:** even smaller, narrowly specialized neural regressors, optionally
+  distilled or quantized for constrained devices. Define parameter count, model
+  bytes, precision, peak RAM and target-device latency per specialist; these are
+  project size labels, not standardized architectures or language models.
+
+| Planned specialist | Inputs and bounded estimates |
+| --- | --- |
+| `earth-gravity-v0` | Mass, position/altitude and stated Earth model; local gravitational acceleration and weight. Keep the analytical baseline when it is already cheaper and accurate enough. |
+| `pressure-relations-v0` | Fluid, density, depth/altitude, temperature and boundary conditions; hydrostatic or atmospheric pressure in separately declared regimes. |
+| `humidity-relations-v0` | Temperature, pressure and an explicit humidity measure; relative/absolute humidity and condensation tendency within the calibrated range. |
+| `contact-grip-v0` | Material pair, roughness, load, moisture and contact conditions; static/dynamic friction and slip tendency. Model adhesion separately when supported by measurements. |
+| `force-balance-v0` | Masses, accelerations, contact geometry and applied forces; bounded estimates of resultant forces and equilibrium residuals. |
+
+Every estimate must carry units, coordinate frame where applicable, assumptions,
+valid input range, provenance and calibrated uncertainty. Missing essential
+inputs, insufficient neighbors or out-of-domain conditions trigger abstention
+or a reference calculation. Visual material appearance alone cannot establish
+friction, adhesion or other physical coefficients. Existing deterministic
+constraints and simulation authority remain in control.
+
+First gate: define units and reference cases, then benchmark gravity/weight and
+pressure baselines. Extend to humidity, contact and coupled forces only with
+appropriate reference data. Split evaluation by physical scenario/material,
+measure error and worst cases alongside p50/p95 latency, memory and abstention,
+and set task-specific acceptance thresholds before training. Retain a neural
+candidate only if it provides a measured benefit over the simpler baseline.
+
+## P8 — Image-derived materials, depth and texture repetition
+
+Planned after the first physical-estimation gate, building on P0/P4 visual
+primitives. Interpret the request's "Alberto" provisionally as **albedo**.
+Produce independently inspectable maps and descriptors, with confidence and
+provenance for each output; no material-extraction capability is claimed yet.
+
+| Planned specialist | Separate outputs |
+| --- | --- |
+| `material-albedo-v0` | Albedo/base-color estimate with illumination and baked shadows distinguished from intrinsic surface color. |
+| `material-lighting-v0` | Illumination, shading, shadows, highlights and possible emission, with ambiguity reported. |
+| `material-pbr-v0` | Metallic and roughness estimates; normal, height/displacement and ambient-occlusion candidates when supported. Document ranges, color spaces and normal-map convention. |
+| `image-depth-v0` | Relative scene depth and confidence. Metric depth requires scale/calibration evidence; scene depth and surface height remain separate. |
+| `texture-repeat-xy-v0` | Independent X/Y periods in pixels, confidence, orientation and seam scores; UV repeat counts only for a specified target extent. Report no reliable repetition when appropriate. |
+| `texture-tileability-v0` | Horizontal/vertical edge continuity and an optional seamless-tile candidate, preserving the source and exposing the correction. |
+
+Start with classical image processing, autocorrelation/spectral repetition
+analysis and patch/material k-NN retrieval. Evaluate micro-NNs for compact map
+estimation or correction, and nano-NNs for bounded per-patch decisions when
+their measured quality and device cost justify them. A single image can admit
+multiple material/lighting/depth explanations: retain uncertainty instead of
+treating inferred maps as measured ground truth.
+
+First gate: X/Y repeat detection and tileability on held-out periodic,
+nonperiodic, rotated and perspective-distorted textures. Then evaluate albedo
+and lighting separation, followed by PBR maps and depth, using licensed paired
+captures or controlled renders with known maps. Keep synthetic and real-image
+results separate; measure per-map errors, repeat-period errors, seam artifacts,
+cross-map alignment, downstream render quality, latency and memory. Physical
+coefficients may be linked only through calibrated material evidence from P7.
+
+## P9 — Interactive image editing and direct filters
+
+Planned tools for local image editing, building on P0 cutout/inpainting and P4
+asset preparation. This extends the roadmap; an integrated editor is not yet
+implemented.
+
+| Planned tool | User-facing behavior |
+| --- | --- |
+| `magic-eraser-v0` | Brush or select an unwanted object/region, refine the mask, then propose background reconstruction with a before/after preview. Preserve pixels outside the effective mask. |
+| `direct-image-filters-v0` | Black-and-white conversion using grayscale, adjustable sepia, invert, brightness, contrast, saturation and tint; optional thresholded black/white as a distinct filter. |
+| `local-filter-mask-v0` | Apply a filter to the full image or a selected area, with adjustable strength, mask feathering and protected regions. |
+| `image-edit-stack-v0` | Preserve the source, keep ordered editable operations, support undo/redo and before/after comparison, then export a new image. |
+
+Use deterministic pixel operations for direct filters, with documented color
+space, clipping and alpha handling. Reuse patch k-NN and classical inpainting
+for the magic eraser; compare micro-NN/nano-NN mask refinement, blending or
+quality routing only where they improve measured results. Uncertain fills stay
+as previews and may abstain or suggest escalation. Existing experimental
+inpainting does not establish reliable object removal on photographs.
+
+First gate: grayscale and sepia with adjustable strength, selection masks and
+undo/redo; then the magic eraser on small bounded selections. Verify source and
+out-of-mask preservation, transparency, operation order and export consistency.
+Evaluate erasing seams, texture continuity and failure/abstention on held-out
+photographs. Measure preview p50/p95 latency and peak memory by image resolution
+on the target device before claiming real-time editing. Preview downsampling
+must remain distinct from full-resolution export. Keep artistic color filters
+separate from P8 numeric material maps such as normals, depth and roughness.
 
 ## First Bellium-native wave
 
