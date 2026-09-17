@@ -22,6 +22,7 @@ def run_all_tests():
         ('Bellium Native: Cutout & Background Normalizer', 'bellium/cutout/test_cutout.py'),
         ('Bellium Native: Patch k-NN Inpaint & Escalation', 'bellium/inpaint/test_inpaint.py'),
         ('Asset Factory: Context Patch k-NN', 'bellium/inpaint/test_context_knn.py'),
+        ('Asset Factory: Bounded Bilinear Preview', 'bellium/inpaint/test_preview.py'),
         ('Asset Factory: Inpaint Comparison Replay', 'benchmarks/test_inpaint_context.py'),
         ('Bellium Native: Phoneme k-NN & Linguistic Reconstruction', 'bellium/language/test_phoneme.py'),
         ('Bellium Native: Tiered Specialist Router & Abstention', 'bellium/routing/test_routing.py'),
