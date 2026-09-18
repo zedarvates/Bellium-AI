@@ -1,4 +1,4 @@
-"""Local image-tool example: Pillow filters and bounded Bellium previews."""
+"""Local image-tool example: Bellium filters and bounded previews."""
 
 from __future__ import annotations
 
@@ -9,13 +9,15 @@ import json
 import math
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageOps
+from PIL import Image, ImageDraw
 
 from bellium.cutout import extract_foreground
+from bellium.filters import apply_filter
 from bellium.inpaint import inpaint_patch_knn, route_inpaint_request
 
 
-OPERATIONS = ("grayscale", "sepia", "cutout", "inpaint")
+OPERATIONS = ("grayscale", "sepia", "binary", "cutout", "inpaint")
+FILTER_OPERATIONS = frozenset({"grayscale", "sepia", "binary"})
 MAX_PIXELS = 1_048_576
 MAX_INPAINT_PIXELS = 128 * 128
 MAX_MASK_RATIO = 0.05
@@ -47,6 +49,7 @@ def edit_image(
     *,
     mask_path: str | None = None,
     strength: float = 1.0,
+    threshold: int = 128,
 ) -> dict:
     """Callable tool adapter. Returns metadata; never starts a remote model."""
     if operation not in OPERATIONS:
@@ -58,8 +61,8 @@ def edit_image(
         raise ValueError("Choose a new .png output path.")
     if target.exists():
         raise FileExistsError(f"Output already exists: {target}")
-    if operation in {"cutout", "inpaint"} and strength != 1:
-        raise ValueError("strength is supported only for grayscale and sepia.")
+    if operation not in FILTER_OPERATIONS and strength != 1:
+        raise ValueError("strength is supported only for grayscale, sepia and binary.")
     if operation == "cutout" and mask_path is not None:
         raise ValueError("cutout estimates its own mask; omit mask_path.")
     if operation == "inpaint" and mask_path is None:
@@ -76,17 +79,12 @@ def edit_image(
         "review_required": False,
     }
 
-    if operation in {"grayscale", "sepia"}:
-        gray = ImageOps.grayscale(original.convert("RGB"))
-        filtered = gray.convert("RGB") if operation == "grayscale" else ImageOps.colorize(
-            gray, black="#201008", white="#f4dfb5"
-        )
-        filtered = filtered.convert("RGBA")
-        filtered.putalpha(original.getchannel("A"))
-        output = Image.blend(original, filtered, strength)
-        if mask is not None:
-            output = Image.composite(output, original, mask)
-        report["method"] = "pillow_deterministic"
+    if operation in FILTER_OPERATIONS:
+        options = {"strength": strength, "mask": mask}
+        if operation == "binary":
+            options["threshold"] = threshold
+        output = apply_filter(operation, original, **options)
+        report["method"] = "bellium_filters"
     elif operation == "cutout":
         result = extract_foreground(original)
         report.update(method="bellium_cutout", metrics=asdict(result.metrics),
@@ -134,7 +132,7 @@ def create_demo(output_dir: str) -> dict:
     for name, image in (("source", source), ("damaged", damaged), ("mask", mask)):
         save_new_png(image, target / f"{name}.png")
     reports = [edit_image(op, str(target / "source.png"), str(target / f"{op}.png"))
-               for op in ("grayscale", "sepia", "cutout")]
+               for op in ("grayscale", "sepia", "binary", "cutout")]
     reports.append(edit_image("inpaint", str(target / "damaged.png"),
                               str(target / "inpaint.png"), mask_path=str(target / "mask.png")))
     return {"fixture": "synthetic_demo_not_a_quality_benchmark", "results": reports}
@@ -151,13 +149,15 @@ def main(argv: list[str] | None = None) -> int:
         command.add_argument("--output", required=True)
         command.add_argument("--mask")
         command.add_argument("--strength", type=float, default=1.0)
+        command.add_argument("--threshold", type=int, default=128)
     args = parser.parse_args(argv)
     try:
         if args.operation == "demo":
             report = create_demo(args.output_dir)
         else:
             report = edit_image(args.operation, args.input, args.output,
-                                mask_path=args.mask, strength=args.strength)
+                                mask_path=args.mask, strength=args.strength,
+                                threshold=args.threshold)
     except (OSError, ValueError) as exc:
         print(json.dumps({"status": "error", "reason": str(exc)}))
         return 1

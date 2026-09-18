@@ -37,6 +37,16 @@ class ImageToolTests(unittest.TestCase):
             self.assertEqual(output.getchannel("R").tobytes(), output.getchannel("G").tobytes())
             self.assertEqual(output.getchannel("G").tobytes(), output.getchannel("B").tobytes())
 
+    def test_binary_threshold_produces_two_levels_and_preserves_alpha(self):
+        edit_image("binary", str(self.source), str(self.output), threshold=90)
+        with Image.open(self.output) as output:
+            self.assertEqual(output.getpixel((8, 8)), (255, 255, 255, 128))
+            self.assertEqual(output.getpixel((0, 0)), (0, 0, 0, 0))
+        self.output.unlink()
+        edit_image("binary", str(self.source), str(self.output), threshold=110)
+        with Image.open(self.output) as output:
+            self.assertEqual(output.getpixel((8, 8)), (0, 0, 0, 128))
+
     def test_zero_strength_is_identity(self):
         edit_image("sepia", str(self.source), str(self.output), strength=0)
         with Image.open(self.source) as source, Image.open(self.output) as output:
@@ -106,7 +116,7 @@ class ImageToolTests(unittest.TestCase):
         ], capture_output=True, text=True)
         self.assertEqual(result.returncode, 0, result.stderr)
         reports = json.loads(result.stdout)["results"]
-        self.assertEqual(len(reports), 4)
+        self.assertEqual(len(reports), 5)
         for report in reports:
             self.assertTrue(Path(report["output"]).is_file())
         with Image.open(target / "source.png") as source, Image.open(target / "inpaint.png") as fill:

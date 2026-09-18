@@ -14,7 +14,7 @@ def main(args: list[str] | None = None) -> int:
     subparsers = parser.add_subparsers(dest="command", help="Available specialist commands")
     
     # test command
-    subparsers.add_parser("test", help="Run all 12 validation gates")
+    subparsers.add_parser("test", help="Run all validation gates")
     
     # cutout command
     cutout_p = subparsers.add_parser("cutout", help="Extract foreground or normalize background")
@@ -22,6 +22,17 @@ def main(args: list[str] | None = None) -> int:
     cutout_p.add_argument("-o", "--output", help="Output image path")
     cutout_p.add_argument("--bg", choices=["transparent", "white"], default="transparent")
     cutout_p.add_argument("--tolerance", type=float, default=30.0)
+
+    # filter command
+    filter_p = subparsers.add_parser(
+        "filter", help="Apply a deterministic filter: grayscale, sepia or binary"
+    )
+    filter_p.add_argument("name", choices=["grayscale", "sepia", "binary"])
+    filter_p.add_argument("input", help="Input image path")
+    filter_p.add_argument("-o", "--output", required=True, help="Output image path")
+    filter_p.add_argument("--strength", type=float, default=1.0, help="Blend 0.0-1.0 (default 1.0)")
+    filter_p.add_argument("--mask", help="Optional mode L/1 mask with identical dimensions")
+    filter_p.add_argument("--threshold", type=int, default=128, help="Binary threshold 0-255")
     
     # inspect-frame command
     vision_p = subparsers.add_parser("inspect-frame", help="Scan camera frame for visual anomalies and blackouts")
@@ -62,6 +73,33 @@ def main(args: list[str] | None = None) -> int:
             print(f"Saved result to {parsed.output}")
         return 0
         
+    elif parsed.command == "filter":
+        from PIL import Image
+        from bellium.filters import apply_filter
+        source = Path(parsed.input)
+        target = Path(parsed.output)
+        if source.resolve() == target.resolve():
+            print("[Filter] Refusing to overwrite the source image; choose another output path.")
+            return 2
+        try:
+            with Image.open(source) as opened:
+                image = opened.copy()
+            mask = None
+            if parsed.mask:
+                with Image.open(parsed.mask) as opened_mask:
+                    mask = opened_mask.copy()
+            options = {"strength": parsed.strength, "mask": mask}
+            if parsed.name == "binary":
+                options["threshold"] = parsed.threshold
+            result = apply_filter(parsed.name, image, **options)
+        except (OSError, ValueError) as exc:
+            print(f"[Filter] {exc}")
+            return 2
+        target.parent.mkdir(parents=True, exist_ok=True)
+        result.save(target)
+        print(f"[Filter] {parsed.name} applied (strength={parsed.strength}); saved to {target}")
+        return 0
+
     elif parsed.command == "inspect-frame":
         from PIL import Image
         from bellium.vision import detect_visual_anomalies

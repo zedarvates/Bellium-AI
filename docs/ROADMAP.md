@@ -140,6 +140,12 @@ on the target device before claiming real-time editing. Preview downsampling
 must remain distinct from full-resolution export. Keep artistic color filters
 separate from P8 numeric material maps such as normals, depth and roughness.
 
+Status: the deterministic filter core is available in `bellium.filters`
+(grayscale, sepia and binary threshold with adjustable strength, optional
+mode L/1 masks and alpha preservation) and through the `bellium filter` CLI
+command. The interactive editor, mask brush, undo/redo stack and magic eraser
+remain unimplemented; no photographic-erasing quality is claimed.
+
 ## First Bellium-native wave
 
 1. `image-cutout-v0`
