@@ -1,0 +1,294 @@
+{
+  "schema": "bellium.sprite-anchor-memory/v1",
+  "notes": "Authored silhouettes. Anchors are content-box ratios, declared by hand.",
+  "items": [
+    {
+      "id": "sa_01_character_feet",
+      "family": "character",
+      "anchor": "feet",
+      "anchor_x": 0.5,
+      "anchor_y": 1.0,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "coverage": 0.049805,
+        "bbox_fill": 0.463636,
+        "centroid_x": 0.5,
+        "centroid_y": 0.465944,
+        "bottom_mass": 0.284314,
+        "symmetry": 1.0,
+        "aspect": 0.909091
+      }
+    },
+    {
+      "id": "sa_02_character_feet",
+      "family": "character",
+      "anchor": "feet",
+      "anchor_x": 0.5,
+      "anchor_y": 1.0,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "coverage": 0.075195,
+        "bbox_fill": 0.458333,
+        "centroid_x": 0.5,
+        "centroid_y": 0.462451,
+        "bottom_mass": 0.272727,
+        "symmetry": 1.0,
+        "aspect": 0.857143
+      }
+    },
+    {
+      "id": "sa_03_character_feet",
+      "family": "character",
+      "anchor": "feet",
+      "anchor_x": 0.5,
+      "anchor_y": 1.0,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "coverage": 0.097656,
+        "bbox_fill": 0.446429,
+        "centroid_x": 0.5,
+        "centroid_y": 0.461481,
+        "bottom_mass": 0.32,
+        "symmetry": 1.0,
+        "aspect": 0.875
+      }
+    },
+    {
+      "id": "sa_04_character_feet",
+      "family": "character",
+      "anchor": "feet",
+      "anchor_x": 0.5,
+      "anchor_y": 1.0,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "coverage": 0.131836,
+        "bbox_fill": 0.46875,
+        "centroid_x": 0.5,
+        "centroid_y": 0.473118,
+        "bottom_mass": 0.3,
+        "symmetry": 1.0,
+        "aspect": 0.888889
+      }
+    },
+    {
+      "id": "sa_05_effect_center",
+      "family": "effect",
+      "anchor": "center",
+      "anchor_x": 0.5,
+      "anchor_y": 0.5,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "coverage": 0.01001,
+        "bbox_fill": 0.506173,
+        "centroid_x": 0.5,
+        "centroid_y": 0.5,
+        "bottom_mass": 0.219512,
+        "symmetry": 1.0,
+        "aspect": 1.0
+      }
+    },
+    {
+      "id": "sa_06_effect_center",
+      "family": "effect",
+      "anchor": "center",
+      "anchor_x": 0.5,
+      "anchor_y": 0.5,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "coverage": 0.020752,
+        "bbox_fill": 0.502959,
+        "centroid_x": 0.5,
+        "centroid_y": 0.5,
+        "bottom_mass": 0.294118,
+        "symmetry": 1.0,
+        "aspect": 1.0
+      }
+    },
+    {
+      "id": "sa_07_effect_center",
+      "family": "effect",
+      "anchor": "center",
+      "anchor_x": 0.5,
+      "anchor_y": 0.5,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "coverage": 0.0354,
+        "bbox_fill": 0.50173,
+        "centroid_x": 0.5,
+        "centroid_y": 0.5,
+        "bottom_mass": 0.248276,
+        "symmetry": 1.0,
+        "aspect": 1.0
+      }
+    },
+    {
+      "id": "sa_08_effect_center",
+      "family": "effect",
+      "anchor": "center",
+      "anchor_x": 0.5,
+      "anchor_y": 0.5,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "coverage": 0.053955,
+        "bbox_fill": 0.501134,
+        "centroid_x": 0.5,
+        "centroid_y": 0.5,
+        "bottom_mass": 0.221719,
+        "symmetry": 1.0,
+        "aspect": 1.0
+      }
+    },
+    {
+      "id": "sa_09_ui_center",
+      "family": "ui",
+      "anchor": "center",
+      "anchor_x": 0.5,
+      "anchor_y": 0.5,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "coverage": 0.048096,
+        "bbox_fill": 0.681661,
+        "centroid_x": 0.5,
+        "centroid_y": 0.5,
+        "bottom_mass": 0.304569,
+        "symmetry": 1.0,
+        "aspect": 1.0
+      }
+    },
+    {
+      "id": "sa_10_ui_center",
+      "family": "ui",
+      "anchor": "center",
+      "anchor_x": 0.5,
+      "anchor_y": 0.5,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "coverage": 0.077393,
+        "bbox_fill": 0.718821,
+        "centroid_x": 0.5,
+        "centroid_y": 0.5,
+        "bottom_mass": 0.287066,
+        "symmetry": 1.0,
+        "aspect": 1.0
+      }
+    },
+    {
+      "id": "sa_11_ui_center",
+      "family": "ui",
+      "anchor": "center",
+      "anchor_x": 0.5,
+      "anchor_y": 0.5,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "coverage": 0.107666,
+        "bbox_fill": 0.7056,
+        "centroid_x": 0.5,
+        "centroid_y": 0.5,
+        "bottom_mass": 0.315193,
+        "symmetry": 1.0,
+        "aspect": 1.0
+      }
+    },
+    {
+      "id": "sa_12_ui_center",
+      "family": "ui",
+      "anchor": "center",
+      "anchor_x": 0.5,
+      "anchor_y": 0.5,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "coverage": 0.149658,
+        "bbox_fill": 0.728894,
+        "centroid_x": 0.5,
+        "centroid_y": 0.5,
+        "bottom_mass": 0.300163,
+        "symmetry": 1.0,
+        "aspect": 1.0
+      }
+    },
+    {
+      "id": "sa_13_prop_feet",
+      "family": "prop",
+      "anchor": "feet",
+      "anchor_x": 0.5,
+      "anchor_y": 1.0,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "coverage": 0.035156,
+        "bbox_fill": 1.0,
+        "centroid_x": 0.5,
+        "centroid_y": 0.5,
+        "bottom_mass": 0.333333,
+        "symmetry": 1.0,
+        "aspect": 1.0
+      }
+    },
+    {
+      "id": "sa_14_prop_feet",
+      "family": "prop",
+      "anchor": "feet",
+      "anchor_x": 0.5,
+      "anchor_y": 1.0,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "coverage": 0.0625,
+        "bbox_fill": 1.0,
+        "centroid_x": 0.5,
+        "centroid_y": 0.5,
+        "bottom_mass": 0.375,
+        "symmetry": 1.0,
+        "aspect": 1.0
+      }
+    },
+    {
+      "id": "sa_15_prop_feet",
+      "family": "prop",
+      "anchor": "feet",
+      "anchor_x": 0.5,
+      "anchor_y": 1.0,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "coverage": 0.079102,
+        "bbox_fill": 1.0,
+        "centroid_x": 0.5,
+        "centroid_y": 0.5,
+        "bottom_mass": 0.333333,
+        "symmetry": 1.0,
+        "aspect": 1.0
+      }
+    },
+    {
+      "id": "sa_16_prop_feet",
+      "family": "prop",
+      "anchor": "feet",
+      "anchor_x": 0.5,
+      "anchor_y": 1.0,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "coverage": 0.097656,
+        "bbox_fill": 1.0,
+        "centroid_x": 0.5,
+        "centroid_y": 0.5,
+        "bottom_mass": 0.35,
+        "symmetry": 1.0,
+        "aspect": 1.0
+      }
+    }
+  ]
+}

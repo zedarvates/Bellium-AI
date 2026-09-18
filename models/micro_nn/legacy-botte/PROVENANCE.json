@@ -1,0 +1,94 @@
+{
+  "schema": "bellium.legacy-botte-provenance/v1",
+  "imported_at": "2026-09-14T17:07:06.357138+00:00",
+  "source_repo": "zedarvates/botte-secrete",
+  "source_revision": "ec8e12730bbba0323f51d34f54af195cd789d3e7",
+  "license": "MIT",
+  "authority_mode": "observe",
+  "decision_eligible": false,
+  "models": [
+    {
+      "file": "anomaly_detector.json",
+      "sha256": "c46cec267d1fb3310c0c6b7b260c8a6078febd90aa76a366806adc432b7a70b8",
+      "bytes": 2477,
+      "source_path": "skills/botte_nn/models/anomaly_detector.json",
+      "source_blob_sha256": "c46cec267d1fb3310c0c6b7b260c8a6078febd90aa76a366806adc432b7a70b8"
+    },
+    {
+      "file": "binary_router.json",
+      "sha256": "ea41e7c40032c19cfaebe93235facd56487d7d11bd7c747e2a8b064300241799",
+      "bytes": 1628,
+      "source_path": "skills/botte_nn/models/binary_router.json",
+      "source_blob_sha256": "ea41e7c40032c19cfaebe93235facd56487d7d11bd7c747e2a8b064300241799"
+    },
+    {
+      "file": "cloud_escalation_predictor.json",
+      "sha256": "939b56e20454e4187dc6abdfdbc234bd4ed09dcb78b6bd62d19152e99ad9f0b0",
+      "bytes": 10059,
+      "source_path": "skills/botte_nn/models/cloud_escalation_predictor.json",
+      "source_blob_sha256": "939b56e20454e4187dc6abdfdbc234bd4ed09dcb78b6bd62d19152e99ad9f0b0"
+    },
+    {
+      "file": "compressibility_predictor.json",
+      "sha256": "ca8eae72280eb520fd47d752deed349512c6815fdae87c8f2225fa0f950f1d71",
+      "bytes": 8095,
+      "source_path": "skills/botte_nn/models/compressibility_predictor.json",
+      "source_blob_sha256": "ca8eae72280eb520fd47d752deed349512c6815fdae87c8f2225fa0f950f1d71"
+    },
+    {
+      "file": "context_pruning_predictor.json",
+      "sha256": "21dd269155afa15302de85c33403e9ad3547001230957fcdd754f08b01092a05",
+      "bytes": 7258,
+      "source_path": "skills/botte_nn/models/context_pruning_predictor.json",
+      "source_blob_sha256": "21dd269155afa15302de85c33403e9ad3547001230957fcdd754f08b01092a05"
+    },
+    {
+      "file": "effort_classifier.json",
+      "sha256": "1087cf79a7503bcc35c051b14f678692a0454af15ca706242c813fda8c357bd3",
+      "bytes": 2964,
+      "source_path": "skills/botte_nn/models/effort_classifier.json",
+      "source_blob_sha256": "1087cf79a7503bcc35c051b14f678692a0454af15ca706242c813fda8c357bd3"
+    },
+    {
+      "file": "error_classifier.json",
+      "sha256": "06b3f24b6801555f3f87f6989f317c2fee5bad3391ce0791e7958d418e5938f6",
+      "bytes": 8849,
+      "source_path": "skills/botte_nn/models/error_classifier.json",
+      "source_blob_sha256": "433abf6eb73df794e10dba69aafc083f80bf2fa482280bfa72139619547e0122"
+    },
+    {
+      "file": "response_length_predictor.json",
+      "sha256": "94a837842bf7cd0e1dd6f25b186eb9c2d7187d1f0f46cf4c4b321e29df9c57cd",
+      "bytes": 8070,
+      "source_path": "skills/botte_nn/models/response_length_predictor.json",
+      "source_blob_sha256": "94a837842bf7cd0e1dd6f25b186eb9c2d7187d1f0f46cf4c4b321e29df9c57cd"
+    },
+    {
+      "file": "semantic_cache_hit_predictor.json",
+      "sha256": "a39f59f56122a01db378da02230aa59031ce356e59b29c4f36124c7af4948be2",
+      "bytes": 9167,
+      "source_path": "skills/botte_nn/models/semantic_cache_hit_predictor.json",
+      "source_blob_sha256": "a39f59f56122a01db378da02230aa59031ce356e59b29c4f36124c7af4948be2"
+    },
+    {
+      "file": "skip_agent_predictor.json",
+      "sha256": "7abc190830db28eaf159016dc906fb055dfe95e679e292021d71b9a5600f1108",
+      "bytes": 9207,
+      "source_path": "skills/botte_nn/models/skip_agent_predictor.json",
+      "source_blob_sha256": "7abc190830db28eaf159016dc906fb055dfe95e679e292021d71b9a5600f1108"
+    },
+    {
+      "file": "tool_call_predictor.json",
+      "sha256": "a5e11b05b266e0cb0fb91037997a5f5f886ce56286c120f157d517a3d34e9711",
+      "bytes": 9207,
+      "source_path": "skills/botte_nn/models/tool_call_predictor.json",
+      "source_blob_sha256": "a5e11b05b266e0cb0fb91037997a5f5f886ce56286c120f157d517a3d34e9711"
+    }
+  ],
+  "notes": [
+    "Original Botte Secrete integrations are unchanged.",
+    "Private neighbor memories were not copied.",
+    "Import grants no operational authority.",
+    "Imported worktree bytes are preserved; source_blob_sha256 distinguishes source blobs from checkout newline conversion."
+  ]
+}

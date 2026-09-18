@@ -1,0 +1,231 @@
+{
+  "schema": "bellium.easing-profile-memory/v1",
+  "notes": "Published reference curves only, no measurement. The threshold rule and the nearest curve must agree at inference.",
+  "items": [
+    {
+      "id": "ea_ui_ease-in",
+      "family": "ui",
+      "label": "ease-in",
+      "source": "reference-curve:bellium/_motion.py",
+      "samples": [
+        0.0,
+        0.028,
+        0.111,
+        0.25,
+        0.444,
+        0.694,
+        1.0
+      ]
+    },
+    {
+      "id": "ea_ui_ease-in-out",
+      "family": "ui",
+      "label": "ease-in-out",
+      "source": "reference-curve:bellium/_motion.py",
+      "samples": [
+        0.0,
+        0.074,
+        0.259,
+        0.5,
+        0.741,
+        0.926,
+        1.0
+      ]
+    },
+    {
+      "id": "ea_ui_ease-out",
+      "family": "ui",
+      "label": "ease-out",
+      "source": "reference-curve:bellium/_motion.py",
+      "samples": [
+        0.0,
+        0.306,
+        0.556,
+        0.75,
+        0.889,
+        0.972,
+        1.0
+      ]
+    },
+    {
+      "id": "ea_ui_linear",
+      "family": "ui",
+      "label": "linear",
+      "source": "reference-curve:bellium/_motion.py",
+      "samples": [
+        0.0,
+        0.166667,
+        0.333333,
+        0.5,
+        0.666667,
+        0.833333,
+        1.0
+      ]
+    },
+    {
+      "id": "ea_ui_overshoot",
+      "family": "ui",
+      "label": "overshoot",
+      "source": "reference-curve:bellium/_motion.py",
+      "samples": [
+        0.0,
+        0.241,
+        0.63,
+        0.95,
+        1.06,
+        1.02,
+        1.0
+      ]
+    },
+    {
+      "id": "ea_character_ease-in",
+      "family": "character",
+      "label": "ease-in",
+      "source": "reference-curve:bellium/_motion.py",
+      "samples": [
+        0.0,
+        0.028,
+        0.111,
+        0.25,
+        0.444,
+        0.694,
+        1.0
+      ]
+    },
+    {
+      "id": "ea_character_ease-in-out",
+      "family": "character",
+      "label": "ease-in-out",
+      "source": "reference-curve:bellium/_motion.py",
+      "samples": [
+        0.0,
+        0.074,
+        0.259,
+        0.5,
+        0.741,
+        0.926,
+        1.0
+      ]
+    },
+    {
+      "id": "ea_character_ease-out",
+      "family": "character",
+      "label": "ease-out",
+      "source": "reference-curve:bellium/_motion.py",
+      "samples": [
+        0.0,
+        0.306,
+        0.556,
+        0.75,
+        0.889,
+        0.972,
+        1.0
+      ]
+    },
+    {
+      "id": "ea_character_linear",
+      "family": "character",
+      "label": "linear",
+      "source": "reference-curve:bellium/_motion.py",
+      "samples": [
+        0.0,
+        0.166667,
+        0.333333,
+        0.5,
+        0.666667,
+        0.833333,
+        1.0
+      ]
+    },
+    {
+      "id": "ea_character_overshoot",
+      "family": "character",
+      "label": "overshoot",
+      "source": "reference-curve:bellium/_motion.py",
+      "samples": [
+        0.0,
+        0.241,
+        0.63,
+        0.95,
+        1.06,
+        1.02,
+        1.0
+      ]
+    },
+    {
+      "id": "ea_effect_ease-in",
+      "family": "effect",
+      "label": "ease-in",
+      "source": "reference-curve:bellium/_motion.py",
+      "samples": [
+        0.0,
+        0.028,
+        0.111,
+        0.25,
+        0.444,
+        0.694,
+        1.0
+      ]
+    },
+    {
+      "id": "ea_effect_ease-in-out",
+      "family": "effect",
+      "label": "ease-in-out",
+      "source": "reference-curve:bellium/_motion.py",
+      "samples": [
+        0.0,
+        0.074,
+        0.259,
+        0.5,
+        0.741,
+        0.926,
+        1.0
+      ]
+    },
+    {
+      "id": "ea_effect_ease-out",
+      "family": "effect",
+      "label": "ease-out",
+      "source": "reference-curve:bellium/_motion.py",
+      "samples": [
+        0.0,
+        0.306,
+        0.556,
+        0.75,
+        0.889,
+        0.972,
+        1.0
+      ]
+    },
+    {
+      "id": "ea_effect_linear",
+      "family": "effect",
+      "label": "linear",
+      "source": "reference-curve:bellium/_motion.py",
+      "samples": [
+        0.0,
+        0.166667,
+        0.333333,
+        0.5,
+        0.666667,
+        0.833333,
+        1.0
+      ]
+    },
+    {
+      "id": "ea_effect_overshoot",
+      "family": "effect",
+      "label": "overshoot",
+      "source": "reference-curve:bellium/_motion.py",
+      "samples": [
+        0.0,
+        0.241,
+        0.63,
+        0.95,
+        1.06,
+        1.02,
+        1.0
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "schema": "bellium.grapheme-phoneme/v1",
+  "notes": "Lab orthography mappings. No audio. Not a reconstructed language.",
+  "items": [
+    {"id": "gp_pata", "language_id": "fixture-lab", "form": "pata", "ipa": ["p", "a", "t", "a"], "evidence": "attested", "source": "fixture:lab", "raw_audio_stored": false},
+    {"id": "gp_bata", "language_id": "fixture-lab", "form": "bata", "ipa": ["b", "a", "t", "a"], "evidence": "attested", "source": "fixture:lab", "raw_audio_stored": false},
+    {"id": "gp_pala", "language_id": "fixture-lab", "form": "pala", "ipa": ["p", "a", "l", "a"], "evidence": "attested", "source": "fixture:lab", "raw_audio_stored": false},
+    {"id": "gp_kama", "language_id": "fixture-lab", "form": "kama", "ipa": ["k", "a", "m", "a"], "evidence": "reconstructed", "source": "fixture:historical-sketch", "raw_audio_stored": false},
+    {"id": "gp_ka", "language_id": "fixture-lab", "form": "ka", "ipa": ["k", "a"], "evidence": "attested", "source": "fixture:lab", "raw_audio_stored": false},
+    {"id": "gp_kaa", "language_id": "fixture-lab", "form": "kaa", "ipa": ["k", "a"], "evidence": "attested", "source": "fixture:lab", "raw_audio_stored": false},
+    {"id": "gp_kah", "language_id": "fixture-lab", "form": "kah", "ipa": ["k", "a"], "evidence": "attested", "source": "fixture:lab", "raw_audio_stored": false},
+    {"id": "gp_kaaa", "language_id": "fixture-lab", "form": "kaaa", "ipa": ["k", "a"], "evidence": "attested", "source": "fixture:lab", "raw_audio_stored": false}
+  ]
+}

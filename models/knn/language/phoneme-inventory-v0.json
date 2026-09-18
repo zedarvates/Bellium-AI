@@ -1,0 +1,24 @@
+{
+  "schema": "bellium.phoneme-inventory/v1",
+  "language_id": "fixture-lab",
+  "notes": "Tiny original lab inventory for tests. Not a living-language corpus.",
+  "items": [
+    {"id": "ph_p", "ipa": "p", "language_id": "fixture-lab", "evidence": "attested", "source": "fixture:lab", "features": {"voicing": 0.0, "manner": 0.0, "place": 0.0, "rounding": 0.0}},
+    {"id": "ph_b", "ipa": "b", "language_id": "fixture-lab", "evidence": "attested", "source": "fixture:lab", "features": {"voicing": 1.0, "manner": 0.0, "place": 0.0, "rounding": 0.0}},
+    {"id": "ph_t", "ipa": "t", "language_id": "fixture-lab", "evidence": "attested", "source": "fixture:lab", "features": {"voicing": 0.0, "manner": 0.0, "place": 0.38, "rounding": 0.0}},
+    {"id": "ph_d", "ipa": "d", "language_id": "fixture-lab", "evidence": "attested", "source": "fixture:lab", "features": {"voicing": 1.0, "manner": 0.0, "place": 0.38, "rounding": 0.0}},
+    {"id": "ph_k", "ipa": "k", "language_id": "fixture-lab", "evidence": "attested", "source": "fixture:lab", "features": {"voicing": 0.0, "manner": 0.0, "place": 0.75, "rounding": 0.0}},
+    {"id": "ph_g", "ipa": "g", "language_id": "fixture-lab", "evidence": "attested", "source": "fixture:lab", "features": {"voicing": 1.0, "manner": 0.0, "place": 0.75, "rounding": 0.0}},
+    {"id": "ph_m", "ipa": "m", "language_id": "fixture-lab", "evidence": "attested", "source": "fixture:lab", "features": {"voicing": 1.0, "manner": 0.5, "place": 0.0, "rounding": 0.0}},
+    {"id": "ph_n", "ipa": "n", "language_id": "fixture-lab", "evidence": "attested", "source": "fixture:lab", "features": {"voicing": 1.0, "manner": 0.5, "place": 0.38, "rounding": 0.0}},
+    {"id": "ph_s", "ipa": "s", "language_id": "fixture-lab", "evidence": "attested", "source": "fixture:lab", "features": {"voicing": 0.0, "manner": 0.2, "place": 0.38, "rounding": 0.0}},
+    {"id": "ph_l", "ipa": "l", "language_id": "fixture-lab", "evidence": "attested", "source": "fixture:lab", "features": {"voicing": 1.0, "manner": 0.65, "place": 0.38, "rounding": 0.0}},
+    {"id": "ph_a", "ipa": "a", "language_id": "fixture-lab", "evidence": "attested", "source": "fixture:lab", "features": {"voicing": 1.0, "manner": 1.0, "height": 0.2, "backness": 0.5, "rounding": 0.0}},
+    {"id": "ph_ae", "ipa": "ae", "language_id": "fixture-lab", "evidence": "attested", "source": "fixture:lab", "features": {"voicing": 1.0, "manner": 1.0, "height": 0.32, "backness": 0.32, "rounding": 0.0}},
+    {"id": "ph_oe", "ipa": "oe", "language_id": "fixture-lab", "evidence": "attested", "source": "fixture:lab", "features": {"voicing": 1.0, "manner": 1.0, "height": 0.32, "backness": 0.68, "rounding": 0.35}},
+    {"id": "ph_e", "ipa": "e", "language_id": "fixture-lab", "evidence": "attested", "source": "fixture:lab", "features": {"voicing": 1.0, "manner": 1.0, "height": 0.65, "backness": 0.2, "rounding": 0.0}},
+    {"id": "ph_i", "ipa": "i", "language_id": "fixture-lab", "evidence": "attested", "source": "fixture:lab", "features": {"voicing": 1.0, "manner": 1.0, "height": 1.0, "backness": 0.0, "rounding": 0.0}},
+    {"id": "ph_o", "ipa": "o", "language_id": "fixture-lab", "evidence": "attested", "source": "fixture:lab", "features": {"voicing": 1.0, "manner": 1.0, "height": 0.65, "backness": 0.8, "rounding": 1.0}},
+    {"id": "ph_u", "ipa": "u", "language_id": "fixture-lab", "evidence": "attested", "source": "fixture:lab", "features": {"voicing": 1.0, "manner": 1.0, "height": 1.0, "backness": 1.0, "rounding": 1.0}}
+  ]
+}

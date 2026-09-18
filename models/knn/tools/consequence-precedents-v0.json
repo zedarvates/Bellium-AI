@@ -1,0 +1,1026 @@
+{
+  "schema": "bellium.consequence-precedent-memory/v1",
+  "notes": "Authored synthetic precedents, not recorded incidents. Labels come from the published risk rule; verified means the fixture was constructed deliberately.",
+  "items": [
+    {
+      "id": "cp_filesystem_safe_0",
+      "family": "filesystem",
+      "label": "safe",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.98,
+        "scope_ratio": 0.13,
+        "touches_protected": 0.0,
+        "has_backup": 0.98,
+        "dry_run_available": 0.98,
+        "blast_radius": 0.08,
+        "idempotent": 0.98,
+        "recent_failures": 0.03
+      }
+    },
+    {
+      "id": "cp_filesystem_safe_1",
+      "family": "filesystem",
+      "label": "safe",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 1.0,
+        "scope_ratio": 0.19,
+        "touches_protected": 0.04,
+        "has_backup": 1.0,
+        "dry_run_available": 1.0,
+        "blast_radius": 0.14,
+        "idempotent": 1.0,
+        "recent_failures": 0.09
+      }
+    },
+    {
+      "id": "cp_filesystem_safe_2",
+      "family": "filesystem",
+      "label": "safe",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.94,
+        "scope_ratio": 0.09,
+        "touches_protected": 0.0,
+        "has_backup": 0.94,
+        "dry_run_available": 0.94,
+        "blast_radius": 0.04,
+        "idempotent": 0.94,
+        "recent_failures": 0.0
+      }
+    },
+    {
+      "id": "cp_filesystem_safe_3",
+      "family": "filesystem",
+      "label": "safe",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 1.0,
+        "scope_ratio": 0.23,
+        "touches_protected": 0.08,
+        "has_backup": 1.0,
+        "dry_run_available": 1.0,
+        "blast_radius": 0.18,
+        "idempotent": 1.0,
+        "recent_failures": 0.13
+      }
+    },
+    {
+      "id": "cp_filesystem_review_0",
+      "family": "filesystem",
+      "label": "review",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.98,
+        "scope_ratio": 0.68,
+        "touches_protected": 0.0,
+        "has_backup": 0.98,
+        "dry_run_available": 0.0,
+        "blast_radius": 0.68,
+        "idempotent": 0.28,
+        "recent_failures": 0.48
+      }
+    },
+    {
+      "id": "cp_filesystem_review_1",
+      "family": "filesystem",
+      "label": "review",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 1.0,
+        "scope_ratio": 0.74,
+        "touches_protected": 0.04,
+        "has_backup": 1.0,
+        "dry_run_available": 0.04,
+        "blast_radius": 0.74,
+        "idempotent": 0.34,
+        "recent_failures": 0.54
+      }
+    },
+    {
+      "id": "cp_filesystem_review_2",
+      "family": "filesystem",
+      "label": "review",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.94,
+        "scope_ratio": 0.64,
+        "touches_protected": 0.0,
+        "has_backup": 0.94,
+        "dry_run_available": 0.0,
+        "blast_radius": 0.64,
+        "idempotent": 0.24,
+        "recent_failures": 0.44
+      }
+    },
+    {
+      "id": "cp_filesystem_review_3",
+      "family": "filesystem",
+      "label": "review",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 1.0,
+        "scope_ratio": 0.78,
+        "touches_protected": 0.08,
+        "has_backup": 1.0,
+        "dry_run_available": 0.08,
+        "blast_radius": 0.78,
+        "idempotent": 0.38,
+        "recent_failures": 0.58
+      }
+    },
+    {
+      "id": "cp_filesystem_dangerous_0",
+      "family": "filesystem",
+      "label": "dangerous",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.0,
+        "scope_ratio": 0.88,
+        "touches_protected": 0.98,
+        "has_backup": 0.0,
+        "dry_run_available": 0.0,
+        "blast_radius": 0.88,
+        "idempotent": 0.0,
+        "recent_failures": 0.58
+      }
+    },
+    {
+      "id": "cp_filesystem_dangerous_1",
+      "family": "filesystem",
+      "label": "dangerous",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.04,
+        "scope_ratio": 0.94,
+        "touches_protected": 1.0,
+        "has_backup": 0.04,
+        "dry_run_available": 0.04,
+        "blast_radius": 0.94,
+        "idempotent": 0.04,
+        "recent_failures": 0.64
+      }
+    },
+    {
+      "id": "cp_filesystem_dangerous_2",
+      "family": "filesystem",
+      "label": "dangerous",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.0,
+        "scope_ratio": 0.84,
+        "touches_protected": 0.94,
+        "has_backup": 0.0,
+        "dry_run_available": 0.0,
+        "blast_radius": 0.84,
+        "idempotent": 0.0,
+        "recent_failures": 0.54
+      }
+    },
+    {
+      "id": "cp_filesystem_dangerous_3",
+      "family": "filesystem",
+      "label": "dangerous",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.08,
+        "scope_ratio": 0.98,
+        "touches_protected": 1.0,
+        "has_backup": 0.08,
+        "dry_run_available": 0.08,
+        "blast_radius": 0.98,
+        "idempotent": 0.08,
+        "recent_failures": 0.68
+      }
+    },
+    {
+      "id": "cp_asset-pipeline_safe_0",
+      "family": "asset-pipeline",
+      "label": "safe",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 1.0,
+        "scope_ratio": 0.17,
+        "touches_protected": 0.02,
+        "has_backup": 1.0,
+        "dry_run_available": 1.0,
+        "blast_radius": 0.12,
+        "idempotent": 1.0,
+        "recent_failures": 0.07
+      }
+    },
+    {
+      "id": "cp_asset-pipeline_safe_1",
+      "family": "asset-pipeline",
+      "label": "safe",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.96,
+        "scope_ratio": 0.11,
+        "touches_protected": 0.0,
+        "has_backup": 0.96,
+        "dry_run_available": 0.96,
+        "blast_radius": 0.06,
+        "idempotent": 0.96,
+        "recent_failures": 0.01
+      }
+    },
+    {
+      "id": "cp_asset-pipeline_safe_2",
+      "family": "asset-pipeline",
+      "label": "safe",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 1.0,
+        "scope_ratio": 0.21,
+        "touches_protected": 0.06,
+        "has_backup": 1.0,
+        "dry_run_available": 1.0,
+        "blast_radius": 0.16,
+        "idempotent": 1.0,
+        "recent_failures": 0.11
+      }
+    },
+    {
+      "id": "cp_asset-pipeline_safe_3",
+      "family": "asset-pipeline",
+      "label": "safe",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.92,
+        "scope_ratio": 0.07,
+        "touches_protected": 0.0,
+        "has_backup": 0.92,
+        "dry_run_available": 0.92,
+        "blast_radius": 0.02,
+        "idempotent": 0.92,
+        "recent_failures": 0.0
+      }
+    },
+    {
+      "id": "cp_asset-pipeline_review_0",
+      "family": "asset-pipeline",
+      "label": "review",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 1.0,
+        "scope_ratio": 0.72,
+        "touches_protected": 0.02,
+        "has_backup": 1.0,
+        "dry_run_available": 0.02,
+        "blast_radius": 0.72,
+        "idempotent": 0.32,
+        "recent_failures": 0.52
+      }
+    },
+    {
+      "id": "cp_asset-pipeline_review_1",
+      "family": "asset-pipeline",
+      "label": "review",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.96,
+        "scope_ratio": 0.66,
+        "touches_protected": 0.0,
+        "has_backup": 0.96,
+        "dry_run_available": 0.0,
+        "blast_radius": 0.66,
+        "idempotent": 0.26,
+        "recent_failures": 0.46
+      }
+    },
+    {
+      "id": "cp_asset-pipeline_review_2",
+      "family": "asset-pipeline",
+      "label": "review",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 1.0,
+        "scope_ratio": 0.76,
+        "touches_protected": 0.06,
+        "has_backup": 1.0,
+        "dry_run_available": 0.06,
+        "blast_radius": 0.76,
+        "idempotent": 0.36,
+        "recent_failures": 0.56
+      }
+    },
+    {
+      "id": "cp_asset-pipeline_review_3",
+      "family": "asset-pipeline",
+      "label": "review",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.92,
+        "scope_ratio": 0.62,
+        "touches_protected": 0.0,
+        "has_backup": 0.92,
+        "dry_run_available": 0.0,
+        "blast_radius": 0.62,
+        "idempotent": 0.22,
+        "recent_failures": 0.42
+      }
+    },
+    {
+      "id": "cp_asset-pipeline_dangerous_0",
+      "family": "asset-pipeline",
+      "label": "dangerous",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.02,
+        "scope_ratio": 0.92,
+        "touches_protected": 1.0,
+        "has_backup": 0.02,
+        "dry_run_available": 0.02,
+        "blast_radius": 0.92,
+        "idempotent": 0.02,
+        "recent_failures": 0.62
+      }
+    },
+    {
+      "id": "cp_asset-pipeline_dangerous_1",
+      "family": "asset-pipeline",
+      "label": "dangerous",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.0,
+        "scope_ratio": 0.86,
+        "touches_protected": 0.96,
+        "has_backup": 0.0,
+        "dry_run_available": 0.0,
+        "blast_radius": 0.86,
+        "idempotent": 0.0,
+        "recent_failures": 0.56
+      }
+    },
+    {
+      "id": "cp_asset-pipeline_dangerous_2",
+      "family": "asset-pipeline",
+      "label": "dangerous",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.06,
+        "scope_ratio": 0.96,
+        "touches_protected": 1.0,
+        "has_backup": 0.06,
+        "dry_run_available": 0.06,
+        "blast_radius": 0.96,
+        "idempotent": 0.06,
+        "recent_failures": 0.66
+      }
+    },
+    {
+      "id": "cp_asset-pipeline_dangerous_3",
+      "family": "asset-pipeline",
+      "label": "dangerous",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.0,
+        "scope_ratio": 0.82,
+        "touches_protected": 0.92,
+        "has_backup": 0.0,
+        "dry_run_available": 0.0,
+        "blast_radius": 0.82,
+        "idempotent": 0.0,
+        "recent_failures": 0.52
+      }
+    },
+    {
+      "id": "cp_engine_safe_0",
+      "family": "engine",
+      "label": "safe",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.98,
+        "scope_ratio": 0.13,
+        "touches_protected": 0.0,
+        "has_backup": 0.98,
+        "dry_run_available": 0.98,
+        "blast_radius": 0.08,
+        "idempotent": 0.98,
+        "recent_failures": 0.03
+      }
+    },
+    {
+      "id": "cp_engine_safe_1",
+      "family": "engine",
+      "label": "safe",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 1.0,
+        "scope_ratio": 0.19,
+        "touches_protected": 0.04,
+        "has_backup": 1.0,
+        "dry_run_available": 1.0,
+        "blast_radius": 0.14,
+        "idempotent": 1.0,
+        "recent_failures": 0.09
+      }
+    },
+    {
+      "id": "cp_engine_safe_2",
+      "family": "engine",
+      "label": "safe",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.94,
+        "scope_ratio": 0.09,
+        "touches_protected": 0.0,
+        "has_backup": 0.94,
+        "dry_run_available": 0.94,
+        "blast_radius": 0.04,
+        "idempotent": 0.94,
+        "recent_failures": 0.0
+      }
+    },
+    {
+      "id": "cp_engine_safe_3",
+      "family": "engine",
+      "label": "safe",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 1.0,
+        "scope_ratio": 0.23,
+        "touches_protected": 0.08,
+        "has_backup": 1.0,
+        "dry_run_available": 1.0,
+        "blast_radius": 0.18,
+        "idempotent": 1.0,
+        "recent_failures": 0.13
+      }
+    },
+    {
+      "id": "cp_engine_review_0",
+      "family": "engine",
+      "label": "review",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.98,
+        "scope_ratio": 0.68,
+        "touches_protected": 0.0,
+        "has_backup": 0.98,
+        "dry_run_available": 0.0,
+        "blast_radius": 0.68,
+        "idempotent": 0.28,
+        "recent_failures": 0.48
+      }
+    },
+    {
+      "id": "cp_engine_review_1",
+      "family": "engine",
+      "label": "review",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 1.0,
+        "scope_ratio": 0.74,
+        "touches_protected": 0.04,
+        "has_backup": 1.0,
+        "dry_run_available": 0.04,
+        "blast_radius": 0.74,
+        "idempotent": 0.34,
+        "recent_failures": 0.54
+      }
+    },
+    {
+      "id": "cp_engine_review_2",
+      "family": "engine",
+      "label": "review",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.94,
+        "scope_ratio": 0.64,
+        "touches_protected": 0.0,
+        "has_backup": 0.94,
+        "dry_run_available": 0.0,
+        "blast_radius": 0.64,
+        "idempotent": 0.24,
+        "recent_failures": 0.44
+      }
+    },
+    {
+      "id": "cp_engine_review_3",
+      "family": "engine",
+      "label": "review",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 1.0,
+        "scope_ratio": 0.78,
+        "touches_protected": 0.08,
+        "has_backup": 1.0,
+        "dry_run_available": 0.08,
+        "blast_radius": 0.78,
+        "idempotent": 0.38,
+        "recent_failures": 0.58
+      }
+    },
+    {
+      "id": "cp_engine_dangerous_0",
+      "family": "engine",
+      "label": "dangerous",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.0,
+        "scope_ratio": 0.88,
+        "touches_protected": 0.98,
+        "has_backup": 0.0,
+        "dry_run_available": 0.0,
+        "blast_radius": 0.88,
+        "idempotent": 0.0,
+        "recent_failures": 0.58
+      }
+    },
+    {
+      "id": "cp_engine_dangerous_1",
+      "family": "engine",
+      "label": "dangerous",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.04,
+        "scope_ratio": 0.94,
+        "touches_protected": 1.0,
+        "has_backup": 0.04,
+        "dry_run_available": 0.04,
+        "blast_radius": 0.94,
+        "idempotent": 0.04,
+        "recent_failures": 0.64
+      }
+    },
+    {
+      "id": "cp_engine_dangerous_2",
+      "family": "engine",
+      "label": "dangerous",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.0,
+        "scope_ratio": 0.84,
+        "touches_protected": 0.94,
+        "has_backup": 0.0,
+        "dry_run_available": 0.0,
+        "blast_radius": 0.84,
+        "idempotent": 0.0,
+        "recent_failures": 0.54
+      }
+    },
+    {
+      "id": "cp_engine_dangerous_3",
+      "family": "engine",
+      "label": "dangerous",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.08,
+        "scope_ratio": 0.98,
+        "touches_protected": 1.0,
+        "has_backup": 0.08,
+        "dry_run_available": 0.08,
+        "blast_radius": 0.98,
+        "idempotent": 0.08,
+        "recent_failures": 0.68
+      }
+    },
+    {
+      "id": "cp_deployment_safe_0",
+      "family": "deployment",
+      "label": "safe",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 1.0,
+        "scope_ratio": 0.17,
+        "touches_protected": 0.02,
+        "has_backup": 1.0,
+        "dry_run_available": 1.0,
+        "blast_radius": 0.12,
+        "idempotent": 1.0,
+        "recent_failures": 0.07
+      }
+    },
+    {
+      "id": "cp_deployment_safe_1",
+      "family": "deployment",
+      "label": "safe",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.96,
+        "scope_ratio": 0.11,
+        "touches_protected": 0.0,
+        "has_backup": 0.96,
+        "dry_run_available": 0.96,
+        "blast_radius": 0.06,
+        "idempotent": 0.96,
+        "recent_failures": 0.01
+      }
+    },
+    {
+      "id": "cp_deployment_safe_2",
+      "family": "deployment",
+      "label": "safe",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 1.0,
+        "scope_ratio": 0.21,
+        "touches_protected": 0.06,
+        "has_backup": 1.0,
+        "dry_run_available": 1.0,
+        "blast_radius": 0.16,
+        "idempotent": 1.0,
+        "recent_failures": 0.11
+      }
+    },
+    {
+      "id": "cp_deployment_safe_3",
+      "family": "deployment",
+      "label": "safe",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.92,
+        "scope_ratio": 0.07,
+        "touches_protected": 0.0,
+        "has_backup": 0.92,
+        "dry_run_available": 0.92,
+        "blast_radius": 0.02,
+        "idempotent": 0.92,
+        "recent_failures": 0.0
+      }
+    },
+    {
+      "id": "cp_deployment_review_0",
+      "family": "deployment",
+      "label": "review",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 1.0,
+        "scope_ratio": 0.72,
+        "touches_protected": 0.02,
+        "has_backup": 1.0,
+        "dry_run_available": 0.02,
+        "blast_radius": 0.72,
+        "idempotent": 0.32,
+        "recent_failures": 0.52
+      }
+    },
+    {
+      "id": "cp_deployment_review_1",
+      "family": "deployment",
+      "label": "review",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.96,
+        "scope_ratio": 0.66,
+        "touches_protected": 0.0,
+        "has_backup": 0.96,
+        "dry_run_available": 0.0,
+        "blast_radius": 0.66,
+        "idempotent": 0.26,
+        "recent_failures": 0.46
+      }
+    },
+    {
+      "id": "cp_deployment_review_2",
+      "family": "deployment",
+      "label": "review",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 1.0,
+        "scope_ratio": 0.76,
+        "touches_protected": 0.06,
+        "has_backup": 1.0,
+        "dry_run_available": 0.06,
+        "blast_radius": 0.76,
+        "idempotent": 0.36,
+        "recent_failures": 0.56
+      }
+    },
+    {
+      "id": "cp_deployment_review_3",
+      "family": "deployment",
+      "label": "review",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.92,
+        "scope_ratio": 0.62,
+        "touches_protected": 0.0,
+        "has_backup": 0.92,
+        "dry_run_available": 0.0,
+        "blast_radius": 0.62,
+        "idempotent": 0.22,
+        "recent_failures": 0.42
+      }
+    },
+    {
+      "id": "cp_deployment_dangerous_0",
+      "family": "deployment",
+      "label": "dangerous",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.02,
+        "scope_ratio": 0.92,
+        "touches_protected": 1.0,
+        "has_backup": 0.02,
+        "dry_run_available": 0.02,
+        "blast_radius": 0.92,
+        "idempotent": 0.02,
+        "recent_failures": 0.62
+      }
+    },
+    {
+      "id": "cp_deployment_dangerous_1",
+      "family": "deployment",
+      "label": "dangerous",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.0,
+        "scope_ratio": 0.86,
+        "touches_protected": 0.96,
+        "has_backup": 0.0,
+        "dry_run_available": 0.0,
+        "blast_radius": 0.86,
+        "idempotent": 0.0,
+        "recent_failures": 0.56
+      }
+    },
+    {
+      "id": "cp_deployment_dangerous_2",
+      "family": "deployment",
+      "label": "dangerous",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.06,
+        "scope_ratio": 0.96,
+        "touches_protected": 1.0,
+        "has_backup": 0.06,
+        "dry_run_available": 0.06,
+        "blast_radius": 0.96,
+        "idempotent": 0.06,
+        "recent_failures": 0.66
+      }
+    },
+    {
+      "id": "cp_deployment_dangerous_3",
+      "family": "deployment",
+      "label": "dangerous",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.0,
+        "scope_ratio": 0.82,
+        "touches_protected": 0.92,
+        "has_backup": 0.0,
+        "dry_run_available": 0.0,
+        "blast_radius": 0.82,
+        "idempotent": 0.0,
+        "recent_failures": 0.52
+      }
+    },
+    {
+      "id": "cp_network_safe_0",
+      "family": "network",
+      "label": "safe",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.98,
+        "scope_ratio": 0.13,
+        "touches_protected": 0.0,
+        "has_backup": 0.98,
+        "dry_run_available": 0.98,
+        "blast_radius": 0.08,
+        "idempotent": 0.98,
+        "recent_failures": 0.03
+      }
+    },
+    {
+      "id": "cp_network_safe_1",
+      "family": "network",
+      "label": "safe",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 1.0,
+        "scope_ratio": 0.19,
+        "touches_protected": 0.04,
+        "has_backup": 1.0,
+        "dry_run_available": 1.0,
+        "blast_radius": 0.14,
+        "idempotent": 1.0,
+        "recent_failures": 0.09
+      }
+    },
+    {
+      "id": "cp_network_safe_2",
+      "family": "network",
+      "label": "safe",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.94,
+        "scope_ratio": 0.09,
+        "touches_protected": 0.0,
+        "has_backup": 0.94,
+        "dry_run_available": 0.94,
+        "blast_radius": 0.04,
+        "idempotent": 0.94,
+        "recent_failures": 0.0
+      }
+    },
+    {
+      "id": "cp_network_safe_3",
+      "family": "network",
+      "label": "safe",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 1.0,
+        "scope_ratio": 0.23,
+        "touches_protected": 0.08,
+        "has_backup": 1.0,
+        "dry_run_available": 1.0,
+        "blast_radius": 0.18,
+        "idempotent": 1.0,
+        "recent_failures": 0.13
+      }
+    },
+    {
+      "id": "cp_network_review_0",
+      "family": "network",
+      "label": "review",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.98,
+        "scope_ratio": 0.68,
+        "touches_protected": 0.0,
+        "has_backup": 0.98,
+        "dry_run_available": 0.0,
+        "blast_radius": 0.68,
+        "idempotent": 0.28,
+        "recent_failures": 0.48
+      }
+    },
+    {
+      "id": "cp_network_review_1",
+      "family": "network",
+      "label": "review",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 1.0,
+        "scope_ratio": 0.74,
+        "touches_protected": 0.04,
+        "has_backup": 1.0,
+        "dry_run_available": 0.04,
+        "blast_radius": 0.74,
+        "idempotent": 0.34,
+        "recent_failures": 0.54
+      }
+    },
+    {
+      "id": "cp_network_review_2",
+      "family": "network",
+      "label": "review",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.94,
+        "scope_ratio": 0.64,
+        "touches_protected": 0.0,
+        "has_backup": 0.94,
+        "dry_run_available": 0.0,
+        "blast_radius": 0.64,
+        "idempotent": 0.24,
+        "recent_failures": 0.44
+      }
+    },
+    {
+      "id": "cp_network_review_3",
+      "family": "network",
+      "label": "review",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 1.0,
+        "scope_ratio": 0.78,
+        "touches_protected": 0.08,
+        "has_backup": 1.0,
+        "dry_run_available": 0.08,
+        "blast_radius": 0.78,
+        "idempotent": 0.38,
+        "recent_failures": 0.58
+      }
+    },
+    {
+      "id": "cp_network_dangerous_0",
+      "family": "network",
+      "label": "dangerous",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.0,
+        "scope_ratio": 0.88,
+        "touches_protected": 0.98,
+        "has_backup": 0.0,
+        "dry_run_available": 0.0,
+        "blast_radius": 0.88,
+        "idempotent": 0.0,
+        "recent_failures": 0.58
+      }
+    },
+    {
+      "id": "cp_network_dangerous_1",
+      "family": "network",
+      "label": "dangerous",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.04,
+        "scope_ratio": 0.94,
+        "touches_protected": 1.0,
+        "has_backup": 0.04,
+        "dry_run_available": 0.04,
+        "blast_radius": 0.94,
+        "idempotent": 0.04,
+        "recent_failures": 0.64
+      }
+    },
+    {
+      "id": "cp_network_dangerous_2",
+      "family": "network",
+      "label": "dangerous",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.0,
+        "scope_ratio": 0.84,
+        "touches_protected": 0.94,
+        "has_backup": 0.0,
+        "dry_run_available": 0.0,
+        "blast_radius": 0.84,
+        "idempotent": 0.0,
+        "recent_failures": 0.54
+      }
+    },
+    {
+      "id": "cp_network_dangerous_3",
+      "family": "network",
+      "label": "dangerous",
+      "verified": true,
+      "source": "fixture:game-lab-authored-precedents",
+      "features": {
+        "reversible": 0.08,
+        "scope_ratio": 0.98,
+        "touches_protected": 1.0,
+        "has_backup": 0.08,
+        "dry_run_available": 0.08,
+        "blast_radius": 0.98,
+        "idempotent": 0.08,
+        "recent_failures": 0.68
+      }
+    }
+  ]
+}

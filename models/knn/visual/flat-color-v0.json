@@ -1,0 +1,84 @@
+{
+  "schema": "bellium.flat-color-memory/v1",
+  "notes": "Region features only. No pixels.",
+  "items": [
+    {
+      "id": "fc_flat_1",
+      "label": "flat",
+      "source": "fixture:lab",
+      "raw_image_stored": false,
+      "features": {
+        "luma_std": 0.0,
+        "chroma": 0.627451,
+        "chroma_std": 0.0,
+        "unique_ratio": 0.006944,
+        "channel_span": 0.0
+      }
+    },
+    {
+      "id": "fc_flat_2",
+      "label": "flat",
+      "source": "fixture:lab",
+      "raw_image_stored": false,
+      "features": {
+        "luma_std": 0.0,
+        "chroma": 0.54902,
+        "chroma_std": 0.0,
+        "unique_ratio": 0.006944,
+        "channel_span": 0.0
+      }
+    },
+    {
+      "id": "fc_flat_3",
+      "label": "flat",
+      "source": "fixture:lab",
+      "raw_image_stored": false,
+      "features": {
+        "luma_std": 0.0,
+        "chroma": 0.666667,
+        "chroma_std": 0.0,
+        "unique_ratio": 0.006944,
+        "channel_span": 0.0
+      }
+    },
+    {
+      "id": "fc_tex_1",
+      "label": "textured",
+      "source": "fixture:lab",
+      "raw_image_stored": false,
+      "features": {
+        "luma_std": 0.438671,
+        "chroma": 0.567702,
+        "chroma_std": 0.477595,
+        "unique_ratio": 0.333333,
+        "channel_span": 0.988235
+      }
+    },
+    {
+      "id": "fc_tex_2",
+      "label": "textured",
+      "source": "fixture:lab",
+      "raw_image_stored": false,
+      "features": {
+        "luma_std": 0.440447,
+        "chroma": 0.576634,
+        "chroma_std": 0.469888,
+        "unique_ratio": 0.333333,
+        "channel_span": 0.988235
+      }
+    },
+    {
+      "id": "fc_tex_3",
+      "label": "textured",
+      "source": "fixture:lab",
+      "raw_image_stored": false,
+      "features": {
+        "luma_std": 0.44542,
+        "chroma": 0.585621,
+        "chroma_std": 0.467411,
+        "unique_ratio": 0.333333,
+        "channel_span": 0.996078
+      }
+    }
+  ]
+}

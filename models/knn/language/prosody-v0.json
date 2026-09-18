@@ -1,0 +1,118 @@
+{
+  "schema": "bellium.prosody-memory/v1",
+  "notes": "Syllable-feature profiles only. No audio.",
+  "items": [
+    {
+      "id": "pr_iamb_1",
+      "language_id": "fixture-lab",
+      "label": "iambic",
+      "evidence": "attested",
+      "source": "fixture:lab",
+      "raw_audio_stored": false,
+      "features": {
+        "stress_ratio": 0.5,
+        "iamb_ratio": 0.666667,
+        "trochee_ratio": 0.333333,
+        "duration_cv": 0.238129,
+        "final_lengthening": 0.63388,
+        "late_stress": 0.666667
+      }
+    },
+    {
+      "id": "pr_iamb_2",
+      "language_id": "fixture-lab",
+      "label": "iambic",
+      "evidence": "attested",
+      "source": "fixture:lab",
+      "raw_audio_stored": false,
+      "features": {
+        "stress_ratio": 0.5,
+        "iamb_ratio": 0.666667,
+        "trochee_ratio": 0.333333,
+        "duration_cv": 0.235115,
+        "final_lengthening": 0.618785,
+        "late_stress": 0.666667
+      }
+    },
+    {
+      "id": "pr_iamb_3",
+      "language_id": "fixture-lab",
+      "label": "iambic",
+      "evidence": "attested",
+      "source": "fixture:lab",
+      "raw_audio_stored": false,
+      "features": {
+        "stress_ratio": 0.5,
+        "iamb_ratio": 0.666667,
+        "trochee_ratio": 0.333333,
+        "duration_cv": 0.237742,
+        "final_lengthening": 0.603352,
+        "late_stress": 0.666667
+      }
+    },
+    {
+      "id": "pr_troch_1",
+      "language_id": "fixture-lab",
+      "label": "trochaic",
+      "evidence": "attested",
+      "source": "fixture:lab",
+      "raw_audio_stored": false,
+      "features": {
+        "stress_ratio": 0.5,
+        "iamb_ratio": 0.333333,
+        "trochee_ratio": 0.666667,
+        "duration_cv": 0.205845,
+        "final_lengthening": 0.415301,
+        "late_stress": 0.333333
+      }
+    },
+    {
+      "id": "pr_troch_2",
+      "language_id": "fixture-lab",
+      "label": "trochaic",
+      "evidence": "attested",
+      "source": "fixture:lab",
+      "raw_audio_stored": false,
+      "features": {
+        "stress_ratio": 0.5,
+        "iamb_ratio": 0.333333,
+        "trochee_ratio": 0.666667,
+        "duration_cv": 0.224489,
+        "final_lengthening": 0.39779,
+        "late_stress": 0.333333
+      }
+    },
+    {
+      "id": "pr_troch_3",
+      "language_id": "fixture-lab",
+      "label": "trochaic",
+      "evidence": "attested",
+      "source": "fixture:lab",
+      "raw_audio_stored": false,
+      "features": {
+        "stress_ratio": 0.5,
+        "iamb_ratio": 0.333333,
+        "trochee_ratio": 0.666667,
+        "duration_cv": 0.248022,
+        "final_lengthening": 0.379888,
+        "late_stress": 0.333333
+      }
+    },
+    {
+      "id": "pr_even_re",
+      "language_id": "fixture-lab",
+      "label": "even",
+      "evidence": "reconstructed",
+      "source": "fixture:historical-sketch",
+      "raw_audio_stored": false,
+      "features": {
+        "stress_ratio": 1.0,
+        "iamb_ratio": 0.0,
+        "trochee_ratio": 0.0,
+        "duration_cv": 0.041973,
+        "final_lengthening": 0.52459,
+        "late_stress": 0.5
+      }
+    }
+  ]
+}

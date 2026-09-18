@@ -1,0 +1,16 @@
+{
+  "schema": "bellium.panel-crop-memory/v1",
+  "notes": "Layout features only. No pixels.",
+  "items": [
+    {"id": "pc_sc_safe_1", "family": "storycore-panel", "verdict": "safe", "margin": 0.10, "source": "fixture:lab", "raw_image_stored": false, "features": {"fill": 0.22, "aspect": 0.85, "touch_left": 0, "touch_right": 0, "touch_top": 0, "touch_bottom": 0}},
+    {"id": "pc_sc_safe_2", "family": "storycore-panel", "verdict": "safe", "margin": 0.11, "source": "fixture:lab", "raw_image_stored": false, "features": {"fill": 0.28, "aspect": 0.90, "touch_left": 0, "touch_right": 0, "touch_top": 0, "touch_bottom": 0}},
+    {"id": "pc_sc_safe_3", "family": "storycore-panel", "verdict": "safe", "margin": 0.09, "source": "fixture:lab", "raw_image_stored": false, "features": {"fill": 0.18, "aspect": 0.75, "touch_left": 0, "touch_right": 0, "touch_top": 0, "touch_bottom": 0}},
+    {"id": "pc_sc_bad_1", "family": "storycore-panel", "verdict": "unsafe", "margin": 0.00, "source": "fixture:lab", "raw_image_stored": false, "features": {"fill": 0.40, "aspect": 0.80, "touch_left": 1, "touch_right": 0, "touch_top": 0, "touch_bottom": 0}},
+    {"id": "pc_sc_bad_2", "family": "storycore-panel", "verdict": "unsafe", "margin": 0.00, "source": "fixture:lab", "raw_image_stored": false, "features": {"fill": 0.36, "aspect": 0.82, "touch_left": 0, "touch_right": 0, "touch_top": 1, "touch_bottom": 0}},
+    {"id": "pc_sc_bad_3", "family": "storycore-panel", "verdict": "unsafe", "margin": 0.00, "source": "fixture:lab", "raw_image_stored": false, "features": {"fill": 0.45, "aspect": 0.88, "touch_left": 0, "touch_right": 1, "touch_top": 0, "touch_bottom": 0}},
+    {"id": "pc_sp_safe_1", "family": "sprite", "verdict": "safe", "margin": 0.05, "source": "fixture:lab", "raw_image_stored": false, "features": {"fill": 0.30, "aspect": 0.95, "touch_left": 0, "touch_right": 0, "touch_top": 0, "touch_bottom": 0}},
+    {"id": "pc_sp_safe_2", "family": "sprite", "verdict": "safe", "margin": 0.06, "source": "fixture:lab", "raw_image_stored": false, "features": {"fill": 0.34, "aspect": 1.00, "touch_left": 0, "touch_right": 0, "touch_top": 0, "touch_bottom": 0}},
+    {"id": "pc_sp_safe_3", "family": "sprite", "verdict": "safe", "margin": 0.07, "source": "fixture:lab", "raw_image_stored": false, "features": {"fill": 0.26, "aspect": 0.90, "touch_left": 0, "touch_right": 0, "touch_top": 0, "touch_bottom": 0}}
+  ]
+}
+

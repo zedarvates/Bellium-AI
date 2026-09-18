@@ -1,0 +1,25 @@
+{
+  "schema": "bellium.pronunciation-memory/v1",
+  "notes": "Fixture word forms only. No audio, no private speakers.",
+  "items": [
+    {
+      "id": "w_pata_attested",
+      "language_id": "fixture-lab",
+      "form": "pata",
+      "ipa": ["p", "a", "t", "a"],
+      "evidence": "attested",
+      "speaker": "fixture:reference-1",
+      "raw_audio_stored": false
+    },
+    {
+      "id": "w_kama_reconstructed",
+      "language_id": "fixture-lab",
+      "form": "kama",
+      "ipa": ["k", "a", "m", "a"],
+      "evidence": "reconstructed",
+      "speaker": "fixture:historical-sketch",
+      "raw_audio_stored": false
+    }
+  ]
+}
+

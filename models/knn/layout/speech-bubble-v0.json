@@ -1,0 +1,13 @@
+{
+  "schema": "bellium.speech-bubble-memory/v1",
+  "notes": "Region features only. No pixels and no dialogue.",
+  "items": [
+    {"id": "sb_yes_1", "label": "bubble", "source": "fixture:lab", "raw_image_stored": false, "text_stored": false, "features": {"fill": 0.18, "aspect": 0.75, "compactness": 0.92, "brightness": 0.94, "border_touch": 0, "topness": 0.30}},
+    {"id": "sb_yes_2", "label": "bubble", "source": "fixture:lab", "raw_image_stored": false, "text_stored": false, "features": {"fill": 0.15, "aspect": 0.70, "compactness": 0.88, "brightness": 0.96, "border_touch": 0, "topness": 0.26}},
+    {"id": "sb_yes_3", "label": "bubble", "source": "fixture:lab", "raw_image_stored": false, "text_stored": false, "features": {"fill": 0.21, "aspect": 0.80, "compactness": 0.90, "brightness": 0.93, "border_touch": 0, "topness": 0.34}},
+    {"id": "sb_no_1", "label": "not_bubble", "source": "fixture:lab", "raw_image_stored": false, "text_stored": false, "features": {"fill": 0.22, "aspect": 0.85, "compactness": 0.70, "brightness": 0.32, "border_touch": 0, "topness": 0.58}},
+    {"id": "sb_no_2", "label": "not_bubble", "source": "fixture:lab", "raw_image_stored": false, "text_stored": false, "features": {"fill": 0.28, "aspect": 0.90, "compactness": 0.65, "brightness": 0.28, "border_touch": 0, "topness": 0.62}},
+    {"id": "sb_no_3", "label": "not_bubble", "source": "fixture:lab", "raw_image_stored": false, "text_stored": false, "features": {"fill": 0.19, "aspect": 0.78, "compactness": 0.72, "brightness": 0.35, "border_touch": 1, "topness": 0.70}}
+  ]
+}
+

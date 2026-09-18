@@ -1,0 +1,84 @@
+{
+  "schema": "bellium.voice-activity-memory/v1",
+  "notes": "Frame features only. No waveforms.",
+  "items": [
+    {
+      "id": "vad_sp_1",
+      "label": "speech",
+      "source": "fixture:lab",
+      "raw_audio_stored": false,
+      "features": {
+        "energy": 0.505076,
+        "zcr": 0.047619,
+        "periodicity": 0.951065,
+        "crest": 0.176777,
+        "high_ratio": 0.0
+      }
+    },
+    {
+      "id": "vad_sp_2",
+      "label": "speech",
+      "source": "fixture:lab",
+      "raw_audio_stored": false,
+      "features": {
+        "energy": 0.505076,
+        "zcr": 0.063492,
+        "periodicity": 0.96395,
+        "crest": 0.176777,
+        "high_ratio": 0.0
+      }
+    },
+    {
+      "id": "vad_sp_3",
+      "label": "speech",
+      "source": "fixture:lab",
+      "raw_audio_stored": false,
+      "features": {
+        "energy": 0.505076,
+        "zcr": 0.063492,
+        "periodicity": 1.0,
+        "crest": 0.176777,
+        "high_ratio": 0.0
+      }
+    },
+    {
+      "id": "vad_sil_1",
+      "label": "silence",
+      "source": "fixture:lab",
+      "raw_audio_stored": false,
+      "features": {
+        "energy": 0.003634,
+        "zcr": 0.904762,
+        "periodicity": 1.0,
+        "crest": 0.19657,
+        "high_ratio": 0.0
+      }
+    },
+    {
+      "id": "vad_sil_2",
+      "label": "silence",
+      "source": "fixture:lab",
+      "raw_audio_stored": false,
+      "features": {
+        "energy": 0.003622,
+        "zcr": 0.904762,
+        "periodicity": 1.0,
+        "crest": 0.197181,
+        "high_ratio": 0.0
+      }
+    },
+    {
+      "id": "vad_sil_3",
+      "label": "silence",
+      "source": "fixture:lab",
+      "raw_audio_stored": false,
+      "features": {
+        "energy": 0.00362,
+        "zcr": 0.904762,
+        "periodicity": 1.0,
+        "crest": 0.197334,
+        "high_ratio": 0.0
+      }
+    }
+  ]
+}

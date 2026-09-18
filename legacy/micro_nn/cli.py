@@ -1,0 +1,302 @@
+#!/usr/bin/env python3
+"""botte_nn — CLI Python pour inférence de classifieurs feedforward minuscules (Rust).
+
+Utilise soit:
+1. Le binaire Rust compilé (botte_nn_cli) — rapide, 0 dépendance
+2. Fallback Python (numpy) — si le binaire Rust n'est pas compilé
+
+Usage:
+    python -m skills.botte_nn.cli predict models/effort_classifier.json \\
+        --input 0.5 0.3 0.8 0.1
+
+    python -m skills.botte_nn.cli predict models/binary_router.json \\
+        --input 0.7 0.2 0.5 --probabilities
+
+    python -m skills.botte_nn.cli which \\
+        --input 0.1 0.2 0.8 0.0  # classify + label
+
+    python -m skills.botte_nn.cli list  # list available models
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import subprocess
+import sys
+from pathlib import Path
+
+# Windows consoles default to cp1252 and crash on the emoji/box-drawing output
+# below. Force UTF-8 once at import so every entry point (and importers like the
+# test suite) is safe. Guarded: never fail just because the helper moved.
+try:  # pragma: no cover - trivial wiring
+    from legacy.console_utf8 import force_utf8
+
+    force_utf8()
+except Exception:  # noqa: BLE001
+    pass
+
+
+_MODELS_DIR = Path(__file__).resolve().parent / "models"
+# The compiled Rust binary is platform-specific (`.exe` on Windows). A binary
+# built for another OS (or a stale one) must never crash us — see do_predict's
+# fallback. Build artifacts live under target/ and are git-ignored.
+_BIN_NAME = "botte_nn_cli.exe" if os.name == "nt" else "botte_nn_cli"
+_RUST_BINARY = Path(__file__).resolve().parent / "target" / "release" / _BIN_NAME
+
+# ── Model metadata ──
+_MODEL_META = {
+    "effort_classifier": {
+        "path": "effort_classifier.json",
+        "input_size": 4,
+        "output_size": 3,
+        "labels": ["easy (local)", "medium (hybrid)", "hard (cloud)"],
+        "description": "Classify task effort from file size, tokens, code-ness, depth",
+    },
+    "binary_router": {
+        "path": "binary_router.json",
+        "input_size": 3,
+        "output_size": 2,
+        "labels": ["local", "cloud"],
+        "description": "Route task: local or cloud based on complexity, budget, local model",
+    },
+    "anomaly_detector": {
+        "path": "anomaly_detector.json",
+        "input_size": 5,
+        "output_size": 2,
+        "labels": ["normal", "anomaly"],
+        "description": "Detect log anomalies: error ratio, latency, retries",
+    },
+    "error_classifier": {
+        "path": "error_classifier.json",
+        "input_size": 12,
+        "output_size": 6,
+        "labels": ["syntax", "runtime", "network", "permission", "timeout", "resource"],
+        "description": "Classify error type for auto-recovery: syntax, runtime, network, permission, timeout, resource",
+    },
+    # ── Micro-NN Belt 2.0 ──────────────────────────────────────
+    "compressibility_predictor": {
+        "path": "compressibility_predictor.json",
+        "input_size": 6,
+        "output_size": 3,
+        "labels": ["none", "delta", "heavy"],
+        "description": "Predict optimal compression level: none, delta, or heavy",
+    },
+    "context_pruning_predictor": {
+        "path": "context_pruning_predictor.json",
+        "input_size": 6,
+        "output_size": 2,
+        "labels": ["keep", "prune"],
+        "description": "Predict which context sections to keep vs prune",
+    },
+    "skip_agent_predictor": {
+        "path": "skip_agent_predictor.json",
+        "input_size": 7,
+        "output_size": 2,
+        "labels": ["execute", "skip"],
+        "description": "Predict if agent execution can be skipped (cache hit, no change)",
+    },
+    "cloud_escalation_predictor": {
+        "path": "cloud_escalation_predictor.json",
+        "input_size": 7,
+        "output_size": 3,
+        "labels": ["local_small", "local_big", "cloud"],
+        "description": "Predict escalation target: local small, local big, or cloud",
+    },
+    "response_length_predictor": {
+        "path": "response_length_predictor.json",
+        "input_size": 6,
+        "output_size": 3,
+        "labels": ["short", "medium", "long"],
+        "description": "Predict optimal response length: short, medium, or long",
+    },
+    "tool_call_predictor": {
+        "path": "tool_call_predictor.json",
+        "input_size": 7,
+        "output_size": 2,
+        "labels": ["llm_only", "use_tool"],
+        "description": "Predict if agent should use a tool or stay pure LLM",
+    },
+    "semantic_cache_hit_predictor": {
+        "path": "semantic_cache_hit_predictor.json",
+        "input_size": 7,
+        "output_size": 2,
+        "labels": ["miss", "hit"],
+        "description": "Predict if query will hit semantic cache",
+    },
+}
+
+
+def _find_model(name_or_path: str) -> dict | None:
+    """Find model by name or path. Returns metadata dict with resolved path."""
+    # Try name
+    if name_or_path in _MODEL_META:
+        meta = dict(_MODEL_META[name_or_path])
+        p = _MODELS_DIR / meta["path"]
+        if p.exists():
+            meta["path"] = str(p)
+            return meta
+        return None
+
+    # Try as file path
+    p = Path(name_or_path)
+    if p.exists():
+        # Load the model JSON to infer metadata
+        with open(p) as f:
+            data = json.load(f)
+        return {
+            "path": str(p),
+            "input_size": data["layers"][0],
+            "output_size": data["layers"][-1],
+            "labels": [f"class_{i}" for i in range(data["layers"][-1])],
+            "description": "Custom model",
+        }
+    return None
+
+
+def _predict_rust(binary: str, model_json: str, input_vec: list[float]) -> list[float]:
+    """Predict using Rust binary (subprocess)."""
+    result = subprocess.run(
+        # main.rs expects: `predict <model.json> <floats...>` (positional),
+        # not --model/--input — the old flags always errored → silent Python fallback.
+        [binary, "predict", model_json] + [str(x) for x in input_vec],
+        capture_output=True, text=True, timeout=10,
+    )
+    if result.returncode != 0:
+        raise RuntimeError(f"Rust binary error: {result.stderr.strip()}")
+    return json.loads(result.stdout.strip())
+
+
+def _predict_python(model_json: str, input_vec: list[float]) -> list[float]:
+    """Autonomous prediction using pure Python (with numpy optional fallback)."""
+    from bellium.micro_nn.mlp import load_mlp, predict_mlp
+    return predict_mlp(load_mlp(model_json), input_vec)
+
+
+def do_predict(args):
+    """Predict using Rust binary or Python fallback."""
+    meta = _find_model(args.model)
+    if not meta:
+        print(f"❌ Model not found: {args.model}", file=sys.stderr)
+        available = list(_MODEL_META.keys())
+        print(f"   Available: {', '.join(available)}", file=sys.stderr)
+        return 1
+
+    input_vec = args.input
+    expected = meta["input_size"]
+    if len(input_vec) != expected:
+        print(f"❌ Expected {expected} inputs, got {len(input_vec)}", file=sys.stderr)
+        return 1
+
+    # Try Rust first, fallback to Python
+    try:
+        if _RUST_BINARY.exists():
+            output = _predict_rust(str(_RUST_BINARY), meta["path"], input_vec)
+        else:
+            output = _predict_python(meta["path"], input_vec)
+    except (RuntimeError, subprocess.TimeoutExpired, json.JSONDecodeError, OSError) as e:
+        # OSError covers WinError 193 ("not a valid Win32 application") when an
+        # ELF/wrong-arch binary is present — fall back to pure-Python inference.
+        print(f"⚠️  Rust binary failed, using Python fallback: {e}", file=sys.stderr)
+        try:
+            output = _predict_python(meta["path"], input_vec)
+        except Exception as e2:
+            print(f"❌ Python fallback also failed: {e2}", file=sys.stderr)
+            return 1
+
+    if args.model in _MODEL_META:
+        from legacy.micro_nn.calibration import apply_temperature, load_temperature
+        output = apply_temperature(output, load_temperature(args.model))
+
+    if args.probabilities:
+        for i, (label, prob) in enumerate(zip(meta["labels"], output)):
+            bar = "█" * int(prob * 20) + "░" * (20 - int(prob * 20))
+            print(f"  {i}: {label:<20} [{bar}] {prob:.4f}")
+    elif args.json:
+        print(json.dumps({
+            "model": args.model,
+            "input": input_vec,
+            "output": output,
+            "labels": meta["labels"],
+        }, indent=2))
+    else:
+        pred_class = output.index(max(output))
+        print(f"  Input: {input_vec}")
+        print(f"  Prediction: {meta['labels'][pred_class]} (confidence: {max(output):.4f})")
+
+    return 0
+
+
+def do_which(args):
+    """Classify input and return the best label."""
+    # Try each model
+    best_label = None
+    best_conf = 0.0
+
+    for name, meta in _MODEL_META.items():
+        if len(args.input) != meta["input_size"]:
+            continue
+        try:
+            output = _predict_python(str(_MODELS_DIR / meta["path"]), args.input)
+            conf = max(output)
+            if conf > best_conf:
+                best_conf = conf
+                best_label = meta["labels"][output.index(max(output))]
+        except Exception:
+            continue
+
+    if best_label:
+        if args.json:
+            print(json.dumps({"label": best_label, "confidence": best_conf}))
+        else:
+            print(f"  🧠 {best_label} (confidence: {best_conf:.2%})")
+    else:
+        print("  ❓ No model matches the input dimensions")
+    return 0
+
+
+def do_list(args):
+    """List available models."""
+    print("Available models:")
+    print(f"{'Name':<20} {'Inputs':<8} {'Outputs':<8} {'Description'}")
+    print("-" * 70)
+    for name, meta in _MODEL_META.items():
+        p = _MODELS_DIR / meta["path"]
+        status = "✅" if p.exists() else "❌"
+        print(f"  {status} {name:<18} {meta['input_size']:<8} {meta['output_size']:<8} {meta['description']}")
+
+
+def main(argv=None) -> int:
+    p = argparse.ArgumentParser(prog="botte_nn", description=__doc__)
+    sub = p.add_subparsers(dest="cmd", required=True)
+
+    s = sub.add_parser("predict", help="Run inference on a model")
+    s.add_argument("model", help="Model name or path to JSON weights")
+    s.add_argument("--input", type=float, nargs="+", required=True,
+                   help="Input features")
+    s.add_argument("--probabilities", action="store_true",
+                   help="Show per-class probabilities")
+    s.add_argument("--json", action="store_true",
+                   help="Output as JSON")
+
+    s = sub.add_parser("which", help="Classify input across all models")
+    s.add_argument("--input", type=float, nargs="+", required=True)
+    s.add_argument("--json", action="store_true")
+
+    sub.add_parser("list", help="List available models")
+
+    args = p.parse_args(argv)
+
+    if args.cmd == "predict":
+        return do_predict(args)
+    elif args.cmd == "which":
+        return do_which(args)
+    elif args.cmd == "list":
+        return do_list(args)
+
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -1,0 +1,13 @@
+{
+  "schema": "bellium.memory-rerank/v1",
+  "notes": "Fixture titles and terms only. No bodies.",
+  "items": [
+    {"id": "mem_cutout", "domain": "bellium", "title": "Color k-NN cutout", "terms": "image cutout foreground alpha background", "evidence": "attested"},
+    {"id": "mem_inpaint", "domain": "bellium", "title": "Patch k-NN inpaint", "terms": "image inpaint hole patch fill mask", "evidence": "attested"},
+    {"id": "mem_white", "domain": "bellium", "title": "White background normalizer", "terms": "image background white cutout normalize", "evidence": "attested"},
+    {"id": "mem_phoneme", "domain": "bellium", "title": "Phoneme retrieval", "terms": "phoneme language inventory attested pronunciation", "evidence": "attested"},
+    {"id": "mem_guess", "domain": "bellium", "title": "Speculative routing note", "terms": "router tool guess sketch", "evidence": "speculative"},
+    {"id": "mem_other", "domain": "storycore", "title": "Panel crop helper", "terms": "image cutout panel manga crop", "evidence": "attested"},
+    {"id": "mem_bubble", "domain": "storycore", "title": "Speech bubble region", "terms": "image panel speech bubble crop", "evidence": "attested"}
+  ]
+}
