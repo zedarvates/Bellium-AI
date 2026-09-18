@@ -65,42 +65,26 @@ def inpaint_patch_knn(
         ms = (time.perf_counter() - t0) * 1000
         return InpaintResult(out_im, InpaintMetrics(0, 0.0, verdict, round(ms, 2)))
         
-    # Filter valid coordinates suitable as center of candidate patches
-    valid_patch_centers = [
-        (x, y) for (x, y) in valid_coords
-        if half <= x < w - half and half <= y < h - half and m_px[x, y] == 0
-    ]
-    
-    if not valid_patch_centers:
-        # Canvas completely masked, return fallback
-        ms = (time.perf_counter() - t0) * 1000
-        return InpaintResult(out_im, InpaintMetrics(len(masked_coords), 1.0, verdict, round(ms, 2)))
-        
-    # Inpaint onion-peel style: prioritize pixels with most known neighbors
-    # For efficiency and robustness, iterate until all masked pixels are filled
-    remaining = set(masked_coords)
-    filled_count = 0
-    
-    # Fast local patch synthesis pass
-    for (x, y) in masked_coords:
-        # Find nearest unmasked exemplar within search_radius
-        min_x = max(half, x - search_radius)
-        max_x = min(w - half - 1, x + search_radius)
-        min_y = max(half, y - search_radius)
-        max_y = min(h - half - 1, y + search_radius)
-        
-        candidates = [
-            (cx, cy) for (cx, cy) in valid_patch_centers
-            if min_x <= cx <= max_x and min_y <= cy <= max_y
-        ]
-        
-        if not candidates:
-            # Global fallback sample
-            candidates = random.sample(valid_patch_centers, min(10, len(valid_patch_centers)))
+   # Filter valid coordinates suitable as center of candidate patches
+    # Identify boundary perimeter pixels directly adjacent to the hole
+    boundary_exemplars = []
+    for (x, y) in valid_coords:
+        is_border = False
+        for dx, dy in ((-1, 0), (1, 0), (0, -1), (0, 1)):
+            nx, ny = x + dx, y + dy
+            if 0 <= nx < w and 0 <= ny < h and m_px[nx, ny] > 128:
+                is_border = True
+                break
+        if is_border:
+            boundary_exemplars.append((x, y))
             
-        # Score candidates by spatial proximity and boundary color continuity
-        best_candidate = min(candidates, key=lambda c: (c[0] - x)**2 + (c[1] - y)**2)
-        out_px[x, y] = out_px[best_candidate[0], best_candidate[1]]
+    if not boundary_exemplars:
+        boundary_exemplars = valid_coords[:20]
+        
+    filled_count = 0
+    for (x, y) in masked_coords:
+        best = min(boundary_exemplars, key=lambda c: (c[0] - x)**2 + (c[1] - y)**2)
+        out_px[x, y] = out_px[best[0], best[1]]
         filled_count += 1
         
     ms = (time.perf_counter() - t0) * 1000
