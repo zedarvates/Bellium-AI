@@ -1,0 +1,17 @@
+Bellium AI
+Copyright 2026 Bellium AI contributors
+
+Bellium AI source code is licensed under the Apache License, Version 2.0.
+
+Imported Botte Secrete code and micro-NN JSON weights remain under the MIT
+License, Copyright (c) 2026 Sylvain Galliez. The full notice is included in
+licenses/BOTTE-SECRETE-MIT.txt. This includes legacy/, and adaptations in
+bellium/micro_nn/features.py, bellium/micro_nn/mlp.py and
+bellium/knn/asset_quality.py. Bellium modifications are identified in
+docs/STABILIZATION.md and the compatibility import manifest.
+
+See models/micro_nn/legacy-botte/PROVENANCE.json and
+legacy/micro_nn/provenance.json for source revisions and SHA-256 hashes.
+Original model weight bytes are preserved.
+
+Importing a model does not grant operational authority.

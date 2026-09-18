@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bellium-ai"
+version = "0.1.0"
+description = "Micro-NN, k-NN, micro-LLM and hybrid specialist AI research"
+requires-python = ">=3.10"
+license = "Apache-2.0 AND MIT"
+license-files = ["LICENSE", "NOTICE", "licenses/*.txt"]
+readme = "README.md"
+dependencies = []
+
+[project.optional-dependencies]
+image = ["Pillow>=10"]
+dev = [
+  "pytest>=8",
+  "ruff>=0.6",
+  "build>=1",
+  "Pillow>=10",
+]
+
+[tool.setuptools.packages.find]
+include = ["bellium*", "legacy*"]
+namespaces = false
+
+[tool.setuptools.package-data]
+"legacy.micro_nn" = ["models/*.json", "provenance.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+extend-exclude = ["build", "dist", "*.egg-info"]
+
+[tool.ruff.lint.per-file-ignores]
+# These retained script entry points set up their import path before imports.
+"legacy/micro_nn/test_*.py" = ["E402"]
+"tests/test_pillow_regressions.py" = ["E402"]
