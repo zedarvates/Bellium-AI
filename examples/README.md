@@ -13,7 +13,7 @@ python -m pip install -r examples/requirements.txt
 
 | Example | What it demonstrates |
 | --- | --- |
-| [Image tool](tools/image_tool.py) | A CLI and callable adapter: grayscale, sepia, binary threshold, Bellium cutout and small masked-fill previews. |
+| [Image tool](tools/image_tool.py) | A CLI and callable adapter: eight deterministic filters, Bellium cutout and small masked-fill previews. |
 | [Tool routing](tool_routing.py) | Register capabilities, request an offline tool and handle unsupported requests without executing a proposal. |
 | [Micro-NN triage](micro_nn_triage.py) | Extract named features, consult an imported classifier and apply a consumer-side abstention threshold. |
 | [Agent skill](skills/bellium-local-tools/SKILL.md) | A reusable skill describing the actual tools, commands, limits and result handling. |
@@ -27,7 +27,7 @@ python -m examples.micro_nn_triage
 ```
 
 The image demo creates an original synthetic graphic, a damaged copy, a mask,
-and `grayscale.png`, `sepia.png`, `binary.png`, `cutout.png`, `inpaint.png`. It prints a JSON
+and one PNG per filter plus `cutout.png` and `inpaint.png`. It prints a JSON
 report. Use a new directory to rerun; existing files are never overwritten.
 These fixtures demonstrate wiring, not photographic quality.
 
@@ -46,14 +46,19 @@ exposes a model error instead of presenting successful execution as accuracy.
 python -m examples.tools.image_tool grayscale --input input.png --output output/gray.png
 python -m examples.tools.image_tool sepia --input input.png --output output/sepia.png --strength 0.7
 python -m examples.tools.image_tool binary --input input.png --output output/binary.png --threshold 128
+python -m examples.tools.image_tool invert --input input.png --output output/invert.png
+python -m examples.tools.image_tool brightness --input input.png --output output/bright.png --factor 1.4
+python -m examples.tools.image_tool tint --input input.png --output output/tint.png --color '#88ccff' --strength 0.5
 python -m examples.tools.image_tool sepia --input input.png --mask selection.png --output output/local-sepia.png
 python -m examples.tools.image_tool cutout --input input.png --output output/cutout.png
 python -m examples.tools.image_tool inpaint --input small.png --mask mask.png --output output/fill.png
 ```
 
-- Grayscale, sepia and binary threshold are deterministic `bellium.filters`
-  operations, not trained models. Black and white can be grayscale or the
-  thresholded `binary` filter; sepia is an adjustable warm duotone.
+- The eight direct filters are deterministic `bellium.filters` operations, not
+  trained models: grayscale, sepia, binary, invert, brightness, contrast,
+  saturation and tint.
+- `factor` tunes brightness, contrast and saturation (0 to 16, 1.0 identity).
+  `tint` requires `--color` and multiplies channels like a color gel.
 - Filter masks use `0` to preserve, `255` to apply, and intermediate values to
   blend. Images and masks must have the same dimensions. Alpha is preserved.
 - The same filters are exposed through the unified CLI, for example

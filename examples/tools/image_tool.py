@@ -9,15 +9,29 @@ import json
 import math
 from pathlib import Path
 
-from PIL import Image, ImageDraw
+from PIL import Image, ImageColor, ImageDraw
 
 from bellium.cutout import extract_foreground
 from bellium.filters import apply_filter
 from bellium.inpaint import inpaint_patch_knn, route_inpaint_request
 
 
-OPERATIONS = ("grayscale", "sepia", "binary", "cutout", "inpaint")
-FILTER_OPERATIONS = frozenset({"grayscale", "sepia", "binary"})
+OPERATIONS = (
+    "grayscale",
+    "sepia",
+    "binary",
+    "invert",
+    "brightness",
+    "contrast",
+    "saturation",
+    "tint",
+    "cutout",
+    "inpaint",
+)
+FILTER_OPERATIONS = frozenset(
+    {"grayscale", "sepia", "binary", "invert", "brightness", "contrast", "saturation", "tint"}
+)
+FACTOR_OPERATIONS = frozenset({"brightness", "contrast", "saturation"})
 MAX_PIXELS = 1_048_576
 MAX_INPAINT_PIXELS = 128 * 128
 MAX_MASK_RATIO = 0.05
@@ -50,6 +64,8 @@ def edit_image(
     mask_path: str | None = None,
     strength: float = 1.0,
     threshold: int = 128,
+    factor: float = 1.0,
+    color: str | None = None,
 ) -> dict:
     """Callable tool adapter. Returns metadata; never starts a remote model."""
     if operation not in OPERATIONS:
@@ -62,7 +78,13 @@ def edit_image(
     if target.exists():
         raise FileExistsError(f"Output already exists: {target}")
     if operation not in FILTER_OPERATIONS and strength != 1:
-        raise ValueError("strength is supported only for grayscale, sepia and binary.")
+        raise ValueError("strength is supported only for filter operations.")
+    if operation not in FACTOR_OPERATIONS and factor != 1.0:
+        raise ValueError("factor is supported only for brightness, contrast and saturation.")
+    if operation != "tint" and color is not None:
+        raise ValueError("color is supported only for tint.")
+    if operation == "tint" and color is None:
+        raise ValueError("tint requires a color such as '#88ccff'.")
     if operation == "cutout" and mask_path is not None:
         raise ValueError("cutout estimates its own mask; omit mask_path.")
     if operation == "inpaint" and mask_path is None:
@@ -83,6 +105,10 @@ def edit_image(
         options = {"strength": strength, "mask": mask}
         if operation == "binary":
             options["threshold"] = threshold
+        if operation in FACTOR_OPERATIONS:
+            options["factor"] = factor
+        if operation == "tint":
+            options["color"] = ImageColor.getrgb(color)
         output = apply_filter(operation, original, **options)
         report["method"] = "bellium_filters"
     elif operation == "cutout":
@@ -132,7 +158,11 @@ def create_demo(output_dir: str) -> dict:
     for name, image in (("source", source), ("damaged", damaged), ("mask", mask)):
         save_new_png(image, target / f"{name}.png")
     reports = [edit_image(op, str(target / "source.png"), str(target / f"{op}.png"))
-               for op in ("grayscale", "sepia", "binary", "cutout")]
+               for op in ("grayscale", "sepia", "binary", "invert", "brightness",
+                          "contrast", "saturation")]
+    reports.append(edit_image("tint", str(target / "source.png"), str(target / "tint.png"),
+                              color="#88ccff", strength=0.5))
+    reports.append(edit_image("cutout", str(target / "source.png"), str(target / "cutout.png")))
     reports.append(edit_image("inpaint", str(target / "damaged.png"),
                               str(target / "inpaint.png"), mask_path=str(target / "mask.png")))
     return {"fixture": "synthetic_demo_not_a_quality_benchmark", "results": reports}
@@ -150,6 +180,8 @@ def main(argv: list[str] | None = None) -> int:
         command.add_argument("--mask")
         command.add_argument("--strength", type=float, default=1.0)
         command.add_argument("--threshold", type=int, default=128)
+        command.add_argument("--factor", type=float, default=1.0)
+        command.add_argument("--color")
     args = parser.parse_args(argv)
     try:
         if args.operation == "demo":
@@ -157,7 +189,8 @@ def main(argv: list[str] | None = None) -> int:
         else:
             report = edit_image(args.operation, args.input, args.output,
                                 mask_path=args.mask, strength=args.strength,
-                                threshold=args.threshold)
+                                threshold=args.threshold, factor=args.factor,
+                                color=args.color)
     except (OSError, ValueError) as exc:
         print(json.dumps({"status": "error", "reason": str(exc)}))
         return 1

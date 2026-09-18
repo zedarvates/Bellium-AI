@@ -6,7 +6,18 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspa
 
 from PIL import Image
 
-from bellium.filters import FilterError, apply_filter, to_binary, to_grayscale, to_sepia
+from bellium.filters import (
+    FilterError,
+    apply_filter,
+    brightness,
+    contrast,
+    invert,
+    saturation,
+    tint,
+    to_binary,
+    to_grayscale,
+    to_sepia,
+)
 
 
 def _expect_error(expected, function, label):
@@ -63,6 +74,25 @@ def run_tests():
     assert to_binary(ramp, threshold=0).getpixel((0, 0)) == (255, 255, 255)
     print("Binary threshold: OK")
 
+    # 4b. Invert, brightness, contrast, saturation and tint.
+    rgb = Image.new("RGB", (1, 1), (60, 100, 180))
+    assert invert(rgb).getpixel((0, 0)) == (195, 155, 75)
+    assert invert(rgb, strength=0.0).getpixel((0, 0)) == (60, 100, 180)
+    assert brightness(rgb, factor=0.0).getpixel((0, 0)) == (0, 0, 0)
+    assert brightness(rgb, factor=1.0).getpixel((0, 0)) == (60, 100, 180)
+    assert brightness(rgb, factor=2.0).getpixel((0, 0)) == (120, 200, 255)
+    assert contrast(rgb, factor=0.0).getpixel((0, 0)) == (97, 97, 97)
+    assert contrast(rgb, factor=1.0).getpixel((0, 0)) == (60, 100, 180)
+    assert saturation(rgb, factor=0.0).getpixel((0, 0)) == (97, 97, 97)
+    assert saturation(rgb, factor=1.0).getpixel((0, 0)) == (60, 100, 180)
+    assert tint(rgb, color=(255, 0, 0)).getpixel((0, 0)) == (60, 0, 0)
+    assert tint(rgb, color=(255, 255, 255)).getpixel((0, 0)) == (60, 100, 180)
+    half_tint = tint(rgb, color=(255, 0, 0), strength=0.5).getpixel((0, 0))
+    assert half_tint == (60, 50, 90)
+    alpha_source = Image.new("RGBA", (1, 1), (60, 100, 180, 77))
+    assert invert(alpha_source).getpixel((0, 0)) == (195, 155, 75, 77)
+    print("Invert, brightness, contrast, saturation, tint: OK")
+
     # 5. Mask restricts the change and blends intermediate values.
     source = Image.new("RGBA", (3, 1))
     source.putdata([(200, 40, 40, 255), (200, 40, 40, 200), (200, 40, 40, 100)])
@@ -78,8 +108,13 @@ def run_tests():
     print("Mask blending: OK")
 
     # 6. Dispatch works for every advertised name.
-    for name in ("grayscale", "sepia", "binary"):
-        assert apply_filter(name, source).size == source.size
+    assert apply_filter("grayscale", source).size == source.size
+    assert apply_filter("sepia", source).size == source.size
+    assert apply_filter("binary", source).size == source.size
+    assert apply_filter("invert", source).size == source.size
+    for name in ("brightness", "contrast", "saturation"):
+        assert apply_filter(name, source, factor=1.0).size == source.size
+    assert apply_filter("tint", source, color=(255, 255, 255)).size == source.size
     print("Filter dispatch: OK")
 
     # 7. Invalid requests fail closed without mutating the source.
@@ -99,8 +134,13 @@ def run_tests():
         lambda: to_grayscale(source, mask=Image.new("RGB", source.size)),
         "rgb mask",
     )
-    _expect_error(FilterError, lambda: apply_filter("invert", source), "unknown filter")
+    _expect_error(FilterError, lambda: apply_filter("posterize", source), "unknown filter")
     _expect_error(FilterError, lambda: to_sepia(source, light=(256, 0, 0)), "light out of range")
+    _expect_error(FilterError, lambda: brightness(source, factor=-1.0), "negative factor")
+    _expect_error(FilterError, lambda: contrast(source, factor=float("inf")), "infinite factor")
+    _expect_error(FilterError, lambda: saturation(source, factor=200.0), "factor above 16")
+    _expect_error(FilterError, lambda: tint(source, color=None), "tint without color")
+    _expect_error(FilterError, lambda: tint(source, color=(0, 300, 0)), "tint out of range")
     assert source.tobytes() == snapshot
     print("Validation and fail-closed behavior: OK")
 

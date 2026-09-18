@@ -52,6 +52,21 @@ class ImageToolTests(unittest.TestCase):
         with Image.open(self.source) as source, Image.open(self.output) as output:
             self.assertEqual(source.tobytes(), output.tobytes())
 
+    def test_extended_filters_and_misuse_guard(self):
+        edit_image("invert", str(self.source), str(self.output))
+        with Image.open(self.output) as output:
+            self.assertEqual(output.getpixel((8, 8)), (195, 155, 75, 128))
+        self.output.unlink()
+        edit_image("tint", str(self.source), str(self.output), color="#ff0000")
+        with Image.open(self.output) as output:
+            self.assertEqual(output.getpixel((8, 8)), (60, 0, 0, 128))
+        self.output.unlink()
+        with self.assertRaises(ValueError):
+            edit_image("sepia", str(self.source), str(self.output), factor=2.0)
+        with self.assertRaises(ValueError):
+            edit_image("tint", str(self.source), str(self.output))
+        self.assertFalse(self.output.exists())
+
     def test_filter_changes_only_selected_pixels(self):
         mask = Image.new("L", (16, 16), 0)
         mask.putpixel((8, 8), 255)
@@ -116,7 +131,7 @@ class ImageToolTests(unittest.TestCase):
         ], capture_output=True, text=True)
         self.assertEqual(result.returncode, 0, result.stderr)
         reports = json.loads(result.stdout)["results"]
-        self.assertEqual(len(reports), 5)
+        self.assertEqual(len(reports), 10)
         for report in reports:
             self.assertTrue(Path(report["output"]).is_file())
         with Image.open(target / "source.png") as source, Image.open(target / "inpaint.png") as fill:

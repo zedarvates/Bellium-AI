@@ -141,10 +141,11 @@ must remain distinct from full-resolution export. Keep artistic color filters
 separate from P8 numeric material maps such as normals, depth and roughness.
 
 Status: the deterministic filter core is available in `bellium.filters`
-(grayscale, sepia and binary threshold with adjustable strength, optional
-mode L/1 masks and alpha preservation) and through the `bellium filter` CLI
-command. The interactive editor, mask brush, undo/redo stack and magic eraser
-remain unimplemented; no photographic-erasing quality is claimed.
+(grayscale, sepia, binary threshold, invert, brightness, contrast, saturation
+and tint, with adjustable strength, factors, optional mode L/1 masks and alpha
+preservation) and through the `bellium filter` CLI command. The interactive
+editor, mask brush, undo/redo stack and magic eraser remain unimplemented; no
+photographic-erasing quality is claimed.
 
 ## First Bellium-native wave
 

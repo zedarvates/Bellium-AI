@@ -22,15 +22,19 @@ Use a new output directory on subsequent runs. For a requested image operation:
 python -m examples.tools.image_tool grayscale --input input.png --output output/gray.png
 python -m examples.tools.image_tool sepia --input input.png --output output/sepia.png --strength 0.7
 python -m examples.tools.image_tool binary --input input.png --output output/binary.png --threshold 128
+python -m examples.tools.image_tool invert --input input.png --output output/invert.png
+python -m examples.tools.image_tool brightness --input input.png --output output/bright.png --factor 1.4
+python -m examples.tools.image_tool tint --input input.png --output output/tint.png --color '#88ccff' --strength 0.5
 python -m examples.tools.image_tool cutout --input input.png --output output/cutout.png
 python -m examples.tools.image_tool inpaint --input small.png --mask mask.png --output output/fill.png
 ```
 
-Choose the operation the user requested. Grayscale, sepia and binary threshold
-use the deterministic `bellium.filters` core, support an optional same-size
-grayscale mask and preserve alpha; binary maps values at or above the threshold
-to white. The unified CLI exposes the same filters, for example
-`python -m bellium.cli filter sepia input.png -o output/sepia.png --strength 0.7`.
+Choose the operation the user requested. The deterministic `bellium.filters`
+core covers grayscale, sepia, binary, invert, brightness, contrast, saturation
+and tint, supports an optional same-size grayscale mask and preserves alpha.
+`factor` tunes brightness/contrast/saturation and `tint` requires a color. The
+unified CLI exposes the same filters, for example
+`python -m bellium.cli filter tint input.png -o output/tint.png --color '#88ccff' --strength 0.5`.
 Cutout works best with a plain background. Inpaint is an experimental
 small-fill preview: at most 16,384 image pixels and 5% selected pixels, with
 mask values above 128 selecting the fill. This is not a general magic eraser.

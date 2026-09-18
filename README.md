@@ -26,7 +26,7 @@ Bellium AI is structured around zero-heavy-dependency specialist primitives:
 - [`bellium/vision/`](bellium/vision/) — Deterministic visual anomaly, sensor state and emergency stop detection (robotics / aquaponics / CCTV).
 - [`bellium/audio/`](bellium/audio/) — Zero-dependency voice activity detection (VAD), SNR estimation and clipping/quality gates.
 - [`bellium/adapters/`](bellium/adapters/) — Deterministic JSON repair, schema enforcement, type coercion and micro-LLM output stabilization.
-- [`bellium/filters/`](bellium/filters/) — Deterministic grayscale, sepia and binary threshold filters with adjustable strength, optional masks and alpha preservation.
+- [`bellium/filters/`](bellium/filters/) — Deterministic grayscale, sepia, binary, invert, brightness, contrast, saturation and tint filters with adjustable strength, factors, optional masks and alpha preservation.
 - [`legacy/`](legacy/) — Pinned weight-exact imports from `zedarvates/botte-secrete`: 11 micro-NN JSON models and family-isolated k-NN Asset Quality.
 
 ## Quick Start & Verification
@@ -56,11 +56,11 @@ python -m examples.tool_routing
 python -m examples.micro_nn_triage
 ```
 
-The image demo creates synthetic inputs and separate grayscale, sepia, binary,
-cutout and small-fill previews. Direct filters use the native `bellium.filters`
-core; cutout/fill use the published Bellium primitives. Original files are
-preserved and uncertain requests can abstain. Physics, PBR extraction, nano-NNs
-and a full image editor remain [roadmap items](docs/ROADMAP.md).
+The image demo creates synthetic inputs and one preview per filter plus cutout
+and small-fill previews. Direct filters use the native `bellium.filters` core;
+cutout/fill use the published Bellium primitives. Original files are preserved
+and uncertain requests can abstain. Physics, PBR extraction, nano-NNs and a
+full image editor remain [roadmap items](docs/ROADMAP.md).
 
 ## Empirical Benchmarks & Latency Gates
 

@@ -9,11 +9,21 @@ from __future__ import annotations
 
 import math
 
-from PIL import Image, ImageOps
+from PIL import Image, ImageChops, ImageEnhance, ImageOps
 
-FILTER_NAMES: tuple[str, ...] = ("grayscale", "sepia", "binary")
+FILTER_NAMES: tuple[str, ...] = (
+    "grayscale",
+    "sepia",
+    "binary",
+    "invert",
+    "brightness",
+    "contrast",
+    "saturation",
+    "tint",
+)
 SEPIA_DARK: tuple[int, int, int] = (32, 16, 8)
 SEPIA_LIGHT: tuple[int, int, int] = (244, 223, 181)
+MAX_FACTOR: float = 16.0
 
 
 class FilterError(ValueError):
@@ -33,6 +43,15 @@ def _validate_threshold(threshold: int) -> int:
     if isinstance(threshold, bool) or not isinstance(threshold, int) or not 0 <= threshold <= 255:
         raise FilterError("threshold must be an integer between 0 and 255.")
     return threshold
+
+
+def _validate_factor(factor: float) -> float:
+    if isinstance(factor, bool) or not isinstance(factor, (int, float)):
+        raise FilterError(f"factor must be a finite number between 0 and {MAX_FACTOR:g}.")
+    value = float(factor)
+    if not math.isfinite(value) or not 0.0 <= value <= MAX_FACTOR:
+        raise FilterError(f"factor must be a finite number between 0 and {MAX_FACTOR:g}.")
+    return value
 
 
 def _validate_color(color: tuple[int, int, int], name: str) -> tuple[int, int, int]:
@@ -141,12 +160,101 @@ def to_binary(
     return _apply(image, transform, strength=strength, mask=mask)
 
 
+def invert(
+    image: Image.Image,
+    *,
+    strength: float = 1.0,
+    mask: Image.Image | None = None,
+) -> Image.Image:
+    """Invert every RGB channel (255 - value); alpha is preserved."""
+    return _apply(image, ImageChops.invert, strength=strength, mask=mask)
+
+
+def brightness(
+    image: Image.Image,
+    *,
+    factor: float = 1.0,
+    strength: float = 1.0,
+    mask: Image.Image | None = None,
+) -> Image.Image:
+    """Scale luminance with Pillow ImageEnhance: 0 is black, 1 is identity."""
+    factor = _validate_factor(factor)
+    return _apply(
+        image,
+        lambda rgb: ImageEnhance.Brightness(rgb).enhance(factor),
+        strength=strength,
+        mask=mask,
+    )
+
+
+def contrast(
+    image: Image.Image,
+    *,
+    factor: float = 1.0,
+    strength: float = 1.0,
+    mask: Image.Image | None = None,
+) -> Image.Image:
+    """Adjust contrast with Pillow ImageEnhance: 0 is flat gray, 1 is identity."""
+    factor = _validate_factor(factor)
+    return _apply(
+        image,
+        lambda rgb: ImageEnhance.Contrast(rgb).enhance(factor),
+        strength=strength,
+        mask=mask,
+    )
+
+
+def saturation(
+    image: Image.Image,
+    *,
+    factor: float = 1.0,
+    strength: float = 1.0,
+    mask: Image.Image | None = None,
+) -> Image.Image:
+    """Adjust color saturation: 0 is grayscale, 1 is identity, above 1 is stronger."""
+    factor = _validate_factor(factor)
+    return _apply(
+        image,
+        lambda rgb: ImageEnhance.Color(rgb).enhance(factor),
+        strength=strength,
+        mask=mask,
+    )
+
+
+def tint(
+    image: Image.Image,
+    *,
+    color: tuple[int, int, int] | None = None,
+    strength: float = 1.0,
+    mask: Image.Image | None = None,
+) -> Image.Image:
+    """Multiply RGB channels by a tint color, like a color gel; white is identity."""
+    if color is None:
+        raise FilterError("tint requires an (R, G, B) color.")
+    color = _validate_color(color, "color")
+
+    def transform(rgb: Image.Image) -> Image.Image:
+        return ImageChops.multiply(rgb, Image.new("RGB", rgb.size, color))
+
+    return _apply(image, transform, strength=strength, mask=mask)
+
+
 def apply_filter(name: str, image: Image.Image, **options) -> Image.Image:
-    """Dispatch grayscale, sepia or binary by name."""
+    """Dispatch any advertised filter name."""
     if name == "grayscale":
         return to_grayscale(image, **options)
     if name == "sepia":
         return to_sepia(image, **options)
     if name == "binary":
         return to_binary(image, **options)
+    if name == "invert":
+        return invert(image, **options)
+    if name == "brightness":
+        return brightness(image, **options)
+    if name == "contrast":
+        return contrast(image, **options)
+    if name == "saturation":
+        return saturation(image, **options)
+    if name == "tint":
+        return tint(image, **options)
     raise FilterError(f"Unknown filter {name!r}; available: {', '.join(FILTER_NAMES)}.")

@@ -7,6 +7,8 @@ from pathlib import Path
 
 
 def main(args: list[str] | None = None) -> int:
+    from bellium.filters import FILTER_NAMES
+
     parser = argparse.ArgumentParser(
         prog="bellium",
         description="Bellium AI: Specialist micro-intelligence laboratory (micro-NN, k-NN, hybrid)",
@@ -25,14 +27,16 @@ def main(args: list[str] | None = None) -> int:
 
     # filter command
     filter_p = subparsers.add_parser(
-        "filter", help="Apply a deterministic filter: grayscale, sepia or binary"
+        "filter", help="Apply a deterministic filter: grayscale, sepia, binary, invert, brightness, contrast, saturation or tint"
     )
-    filter_p.add_argument("name", choices=["grayscale", "sepia", "binary"])
+    filter_p.add_argument("name", choices=list(FILTER_NAMES))
     filter_p.add_argument("input", help="Input image path")
     filter_p.add_argument("-o", "--output", required=True, help="Output image path")
     filter_p.add_argument("--strength", type=float, default=1.0, help="Blend 0.0-1.0 (default 1.0)")
     filter_p.add_argument("--mask", help="Optional mode L/1 mask with identical dimensions")
     filter_p.add_argument("--threshold", type=int, default=128, help="Binary threshold 0-255")
+    filter_p.add_argument("--factor", type=float, default=1.0, help="Factor 0-16 for brightness, contrast, saturation")
+    filter_p.add_argument("--color", help="Tint color such as '#88ccff' (tint only)")
     
     # inspect-frame command
     vision_p = subparsers.add_parser("inspect-frame", help="Scan camera frame for visual anomalies and blackouts")
@@ -91,6 +95,23 @@ def main(args: list[str] | None = None) -> int:
             options = {"strength": parsed.strength, "mask": mask}
             if parsed.name == "binary":
                 options["threshold"] = parsed.threshold
+            elif parsed.name in ("brightness", "contrast", "saturation"):
+                options["factor"] = parsed.factor
+            elif parsed.name == "tint":
+                if not parsed.color:
+                    print("[Filter] tint requires --color, for example --color '#88ccff'.")
+                    return 2
+                from PIL import ImageColor
+                options["color"] = ImageColor.getrgb(parsed.color)
+            if parsed.name != "binary" and parsed.threshold != 128:
+                print("[Filter] --threshold applies only to binary.")
+                return 2
+            if parsed.name not in ("brightness", "contrast", "saturation") and parsed.factor != 1.0:
+                print("[Filter] --factor applies only to brightness, contrast and saturation.")
+                return 2
+            if parsed.name != "tint" and parsed.color:
+                print("[Filter] --color applies only to tint.")
+                return 2
             result = apply_filter(parsed.name, image, **options)
         except (OSError, ValueError) as exc:
             print(f"[Filter] {exc}")

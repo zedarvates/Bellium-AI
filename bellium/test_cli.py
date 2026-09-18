@@ -37,6 +37,12 @@ def run_tests():
             assert pixel[0] == pixel[1] == pixel[2]
         r5 = subprocess.run([sys.executable, "-m", "bellium.cli", "filter", "sepia", src, "-o", src], cwd=root, env=env, capture_output=True, text=True)
         assert r5.returncode == 2
+        r6 = subprocess.run([sys.executable, "-m", "bellium.cli", "filter", "invert", src, "-o", os.path.join(tmp, "inv.png")], cwd=root, env=env, capture_output=True, text=True)
+        assert r6.returncode == 0, r6.stderr
+        with Image.open(os.path.join(tmp, "inv.png")) as inv:
+            assert inv.convert("RGB").getpixel((0, 0)) == (55, 215, 215)
+        r7 = subprocess.run([sys.executable, "-m", "bellium.cli", "filter", "sepia", src, "-o", os.path.join(tmp, "bad.png"), "--factor", "2"], cwd=root, env=env, capture_output=True, text=True)
+        assert r7.returncode == 2
         print("CLI Filter test: OK")
     
     print("All CLI tests PASSED!")
