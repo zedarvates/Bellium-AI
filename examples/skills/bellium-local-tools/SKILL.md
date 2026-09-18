@@ -45,6 +45,20 @@ Show generated candidates for review and retain the original. The tool refuses
 existing output files. An abstention does not authorize calling a remote model.
 Do not relabel heuristic scores as calibrated confidence or measured quality.
 
+For texture repetition analysis (read-only; exit code `2` means no reliable
+period on the requested axis):
+
+```sh
+python -m examples.texture_repeat demo
+python -m examples.texture_repeat analyze --input input.png --axis x
+```
+
+Periods come from deterministic mean-absolute-difference autocorrelation. A
+two-colour chessboard is inverted by a one-cell shift, so its reported
+single-axis fundamental is two cells (16 px for 8 px cells). The edge numbers
+are wrapped-edge differences, not a tileability verdict, and no seamless tile
+is generated.
+
 For integration demonstrations:
 
 ```sh

@@ -14,6 +14,7 @@ python -m pip install -r examples/requirements.txt
 | Example | What it demonstrates |
 | --- | --- |
 | [Image tool](tools/image_tool.py) | A CLI and callable adapter: eight deterministic filters, Bellium cutout and small masked-fill previews. |
+| [Texture repetition](texture_repeat.py) | Measure X/Y periods with match scores, margins and abstention; includes synthetic checkerboard, sine stripes and noise cases. |
 | [Tool routing](tool_routing.py) | Register capabilities, request an offline tool and handle unsupported requests without executing a proposal. |
 | [Micro-NN triage](micro_nn_triage.py) | Extract named features, consult an imported classifier and apply a consumer-side abstention threshold. |
 | [Agent skill](skills/bellium-local-tools/SKILL.md) | A reusable skill describing the actual tools, commands, limits and result handling. |
@@ -95,6 +96,23 @@ allowlist. Supply user-selected paths through the host application and display
 the returned status; do not execute arbitrary command text from a model.
 This adapter has no filesystem sandbox. A hosted integration must enforce its
 own allowed input/output directories before calling it.
+
+## Measure texture repetition (X/Y)
+
+```sh
+python -m examples.texture_repeat demo
+python -m examples.texture_repeat analyze --input input.png --axis x
+```
+
+`analyze` prints a JSON report and returns exit code `2` when no reliable
+period is found on the requested axis; `demo` analyzes three synthetic cases.
+Periods come from deterministic mean-absolute-difference autocorrelation with
+a local-prominence and harmonic check, so flat, noisy and non-periodic content
+abstains. A two-colour chessboard is inverted by a one-cell shift, so its
+reported single-axis fundamental is two cells (16 px for 8 px cells). The
+`edge_difference` values measure wrapped-edge difference (0 identical, 1
+maximally different); they are not a tileability verdict, and no seamless tile
+is generated.
 
 ## Use the sample skill
 

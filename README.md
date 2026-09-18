@@ -27,6 +27,7 @@ Bellium AI is structured around zero-heavy-dependency specialist primitives:
 - [`bellium/audio/`](bellium/audio/) — Zero-dependency voice activity detection (VAD), SNR estimation and clipping/quality gates.
 - [`bellium/adapters/`](bellium/adapters/) — Deterministic JSON repair, schema enforcement, type coercion and micro-LLM output stabilization.
 - [`bellium/filters/`](bellium/filters/) — Deterministic grayscale, sepia, binary, invert, brightness, contrast, saturation and tint filters with adjustable strength, factors, optional masks and alpha preservation.
+- [`bellium/texture/`](bellium/texture/) — Deterministic X/Y repetition periods in source pixels with match scores, local prominence, a harmonic check and abstention on flat, noisy or non-periodic content.
 - [`legacy/`](legacy/) — Pinned weight-exact imports from `zedarvates/botte-secrete`: 11 micro-NN JSON models and family-isolated k-NN Asset Quality.
 
 ## Quick Start & Verification
@@ -36,11 +37,14 @@ Bellium AI is structured around zero-heavy-dependency specialist primitives:
 git clone https://github.com/zedarvates/Bellium-AI.git
 cd Bellium-AI
 
-# Run the 14 validation suites (cross-platform, pure Python / Pillow)
+# Run the 15 validation suites (cross-platform, pure Python / Pillow)
 python run_all_tests.py
 
 # Apply a deterministic filter (grayscale, sepia or binary)
 python -m bellium.cli filter sepia input.png -o output/sepia.png --strength 0.7
+
+# Measure X/Y texture repetition (exit code 2 when no period is reliable)
+python -m bellium.cli texture input.png
 ```
 
 ## Usage examples: tools, scripts and an agent skill
@@ -58,9 +62,11 @@ python -m examples.micro_nn_triage
 
 The image demo creates synthetic inputs and one preview per filter plus cutout
 and small-fill previews. Direct filters use the native `bellium.filters` core;
-cutout/fill use the published Bellium primitives. Original files are preserved
-and uncertain requests can abstain. Physics, PBR extraction, nano-NNs and a
-full image editor remain [roadmap items](docs/ROADMAP.md).
+cutout/fill use the published Bellium primitives. The
+[texture example](examples/texture_repeat.py) reports X/Y repetition or
+abstains. Original files are preserved and uncertain requests can abstain.
+Physics, PBR extraction, nano-NNs and a full image editor remain
+[roadmap items](docs/ROADMAP.md).
 
 ## Empirical Benchmarks & Latency Gates
 

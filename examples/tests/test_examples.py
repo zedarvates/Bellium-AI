@@ -10,6 +10,7 @@ import unittest
 from PIL import Image
 
 from examples.micro_nn_triage import suggest_error_label
+from examples.texture_repeat import analyze_texture, demo_report, synthetic_cases
 from examples.tool_routing import propose_tool
 from examples.tools.image_tool import edit_image
 
@@ -154,6 +155,26 @@ class AdvisoryTests(unittest.TestCase):
         self.assertAlmostEqual(sum(report["probabilities"]), 1.0, places=5)
         self.assertTrue(report["abstained"])
         self.assertIsNone(report["accepted_label"])
+
+
+class TextureTests(unittest.TestCase):
+    def test_demo_reports_periods_and_abstention(self):
+        report = demo_report()
+        self.assertEqual(report["sine_stripes_10px"]["x"]["period_px"], 10)
+        self.assertIsNone(report["sine_stripes_10px"]["y"]["period_px"])
+        self.assertEqual(report["checkerboard_8px_cells"]["x"]["period_px"], 16)
+        self.assertEqual(report["checkerboard_8px_cells"]["y"]["period_px"], 16)
+        self.assertIsNone(report["noise"]["x"]["period_px"])
+        self.assertFalse(report["noise"]["reliable"])
+
+    def test_analyze_texture_file(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "stripes.png"
+            synthetic_cases()["sine_stripes_10px"].save(path)
+            report = analyze_texture(path, axis="x")
+            self.assertTrue(report["reliable"])
+            self.assertEqual(report["x"]["period_px"], 10)
+            self.assertEqual(report["input"], str(path))
 
 
 if __name__ == "__main__":

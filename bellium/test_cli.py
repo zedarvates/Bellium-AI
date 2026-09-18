@@ -44,6 +44,27 @@ def run_tests():
         r7 = subprocess.run([sys.executable, "-m", "bellium.cli", "filter", "sepia", src, "-o", os.path.join(tmp, "bad.png"), "--factor", "2"], cwd=root, env=env, capture_output=True, text=True)
         assert r7.returncode == 2
         print("CLI Filter test: OK")
+
+        # 5. Test CLI texture repetition with a synthetic checkerboard and noise
+        import random
+        board = Image.new("L", (64, 64), 0)
+        for y in range(64):
+            for x in range(64):
+                if ((x // 8) + (y // 8)) % 2 == 0:
+                    board.putpixel((x, y), 255)
+        board_path = os.path.join(tmp, "board.png")
+        board.save(board_path)
+        r8 = subprocess.run([sys.executable, "-m", "bellium.cli", "texture", board_path], cwd=root, env=env, capture_output=True, text=True)
+        assert r8.returncode == 0, r8.stderr
+        assert "period=16 px" in r8.stdout, r8.stdout
+        rng = random.Random(7)
+        noise = Image.new("L", (64, 64))
+        noise.putdata([rng.randrange(256) for _ in range(64 * 64)])
+        noise_path = os.path.join(tmp, "noise.png")
+        noise.save(noise_path)
+        r9 = subprocess.run([sys.executable, "-m", "bellium.cli", "texture", noise_path], cwd=root, env=env, capture_output=True, text=True)
+        assert r9.returncode == 2, r9.stdout
+        print("CLI Texture test: OK")
     
     print("All CLI tests PASSED!")
 

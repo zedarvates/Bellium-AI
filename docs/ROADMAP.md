@@ -111,6 +111,12 @@ results separate; measure per-map errors, repeat-period errors, seam artifacts,
 cross-map alignment, downstream render quality, latency and memory. Physical
 coefficients may be linked only through calibrated material evidence from P7.
 
+Status: `bellium.texture.detect_repeat` measures X/Y periods in source pixels
+with match scores, local prominence, a harmonic check and abstention for flat,
+noisy or non-periodic content, and the `bellium texture` CLI reports it.
+Seamless-tile synthesis, albedo/lighting separation, PBR maps and depth remain
+unimplemented.
+
 ## P9 — Interactive image editing and direct filters
 
 Planned tools for local image editing, building on P0 cutout/inpainting and P4

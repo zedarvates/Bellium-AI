@@ -37,6 +37,18 @@ def main(args: list[str] | None = None) -> int:
     filter_p.add_argument("--threshold", type=int, default=128, help="Binary threshold 0-255")
     filter_p.add_argument("--factor", type=float, default=1.0, help="Factor 0-16 for brightness, contrast, saturation")
     filter_p.add_argument("--color", help="Tint color such as '#88ccff' (tint only)")
+
+    # texture command
+    texture_p = subparsers.add_parser(
+        "texture", help="Detect X/Y texture repetition with confidence and abstention"
+    )
+    texture_p.add_argument("input", help="Input image path")
+    texture_p.add_argument("--axis", choices=["both", "x", "y"], default="both")
+    texture_p.add_argument("--min-period", type=int, default=2)
+    texture_p.add_argument("--max-period", type=int)
+    texture_p.add_argument("--min-match", type=float, default=0.8)
+    texture_p.add_argument("--min-contrast", type=float, default=0.05)
+    texture_p.add_argument("--max-analysis", type=int, default=256)
     
     # inspect-frame command
     vision_p = subparsers.add_parser("inspect-frame", help="Scan camera frame for visual anomalies and blackouts")
@@ -120,6 +132,39 @@ def main(args: list[str] | None = None) -> int:
         result.save(target)
         print(f"[Filter] {parsed.name} applied (strength={parsed.strength}); saved to {target}")
         return 0
+
+    elif parsed.command == "texture":
+        from PIL import Image
+        from bellium.texture import detect_repeat
+        try:
+            with Image.open(parsed.input) as opened:
+                image = opened.copy()
+            report = detect_repeat(
+                image,
+                axis=parsed.axis,
+                min_period=parsed.min_period,
+                max_period=parsed.max_period,
+                min_match=parsed.min_match,
+                min_contrast=parsed.min_contrast,
+                max_analysis=parsed.max_analysis,
+            )
+        except (OSError, ValueError) as exc:
+            print(f"[Texture] {exc}")
+            return 1
+        for item in (report.x, report.y):
+            if item.period_px is None:
+                print(f"[Texture] {item.axis}: no reliable period (match={item.match}, margin={item.margin})")
+            else:
+                print(
+                    f"[Texture] {item.axis}: period={item.period_px} px "
+                    f"(analysis {item.period_analysis}, conf={item.confidence}, "
+                    f"match={item.match}, margin={item.margin})"
+                )
+        print(
+            f"[Texture] edge difference x={report.edge_difference_x} "
+            f"y={report.edge_difference_y} (0 identical, 1 maximally different)"
+        )
+        return 0 if report.reliable else 2
 
     elif parsed.command == "inspect-frame":
         from PIL import Image
