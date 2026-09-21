@@ -22,6 +22,7 @@ dev = [
 ]
 
 [project.scripts]
+bellium = "bellium.cli:main"
 bellium-magick = "bellium.magick.cli:main"
 
 [tool.setuptools.packages.find]

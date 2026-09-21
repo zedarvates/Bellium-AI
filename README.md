@@ -4,6 +4,10 @@
 
 # Bellium AI
 
+[![Bellium AI CI](https://github.com/zedarvates/Bellium-AI/actions/workflows/ci.yml/badge.svg)](https://github.com/zedarvates/Bellium-AI/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-brightgreen.svg)](https://www.python.org/downloads/)
+
 > **Small minds. Sharp purpose. Local intelligence.**
 
 Bellium AI is an open-source laboratory for **micro-NN, k-NN, micro-LLM and hybrid specialist intelligence**. It exists to solve bounded, recurring problems with small measurable models, without calling a large general-purpose model for everything.
@@ -89,6 +93,28 @@ a specialist runs with the mode its registry entry declares.
   DXF R12 output.
 - [`bellium/specialists`](bellium/specialists) — the registry-facing entry points
   that wrap every tier in the same result contract.
+- [`bellium/adapters`](bellium/adapters) — deterministic JSON repair, schema
+  enforcement and type coercion for micro-LLM output.
+- [`bellium/cli.py`](bellium/cli.py) — the unified `bellium` command over cutout,
+  filters, texture, frame inspection and routing.
+- [`bellium/pipeline`](bellium/pipeline) — the end-to-end asset preparation chain:
+  defect inpaint, cutout, then transparent or solid-background formatting.
+- [`bellium/filters`](bellium/filters) — the first published filter API: grayscale,
+  sepia, binary, invert, brightness, contrast, saturation and tint.
+- [`bellium/texture`](bellium/texture) — the first published X/Y repetition analysis.
+- [`bellium/vision`](bellium/vision) — the first published visual anomaly and
+  blackout screen.
+- [`bellium/audio`](bellium/audio) — the first published voice activity and audio
+  quality gates.
+- [`examples/`](examples) — runnable examples, the local-tools agent skill and their
+  integration tests.
+
+Naming note: `bellium/filters`, `bellium/texture`, `bellium/vision` and
+`bellium/audio` are the first published APIs for four capabilities that the extended
+families also cover under `bellium/editing`, `bellium/knn` and `bellium/nano_nn`.
+Both are shipped on purpose: the unified CLI, the examples and `benchmarks.py` call
+the first APIs, while the extended specialists are the ones measured in the gate
+records under `docs/`. Neither is promoted over the other automatically.
 
 ## First project-driven tracks
 
@@ -146,6 +172,20 @@ quantization, spatial filtering, tone, thresholding, morphology, compositing,
 channel operations, comparison, geometry transforms, vectorization, batch mogrify
 and spritesheet assembly. See
 [the replacement gate](docs/MAGICK_REPLACEMENT_GATE.md).
+
+The unified `bellium` command wraps the first published APIs:
+
+```sh
+bellium cutout art.png -o cut.png --bg transparent
+bellium filter sepia art.png -o sepia.png --strength 0.6
+bellium texture tile.png
+bellium inspect-frame frame.png
+bellium route --tags cutout inpaint --zero-tokens
+```
+
+This repository has three test entry points: `python -m pytest -q` runs the
+`tests/` suite, `python run_all_tests.py` runs the suite embedded in each package,
+and `python -m unittest discover -s examples/tests` runs the example integrations.
 
 The tool router is a first orchestration specialist: it proposes which node should
 run, and it does not execute the tool itself.
