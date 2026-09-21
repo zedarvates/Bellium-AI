@@ -1,0 +1,59 @@
+{
+  "schema": "bellium.import-target-memory/v1",
+  "notes": "Declared import contracts, not measurements of an engine. Every profile carries its own source string and conservative defaults, and the caller must override them for its platform and import settings. No engine was run to produce this file.",
+  "items": [
+    {
+      "id": "godot-4",
+      "source": "declared-contract:godot-4-conservative",
+      "note": "One AtlasTexture per page over a single texture; regions are anonymous and the nine-patch margin stays zero.",
+      "manifest_shape": "godot-atlas-textures",
+      "color_space": "sRGB",
+      "max_texture": 8192,
+      "power_of_two": false,
+      "square": false,
+      "required_padding": 0,
+      "recommended_padding": 1,
+      "max_pages_per_asset": 1
+    },
+    {
+      "id": "unity-sprite-atlas",
+      "source": "declared-contract:unity-sprite-atlas-conservative",
+      "note": "One texture per sprite atlas asset; sprite names are keys and the sheet rect uses a bottom-left origin. Padding is a bleed recommendation, not a hard requirement.",
+      "manifest_shape": "unity-spritesheet",
+      "color_space": "sRGB",
+      "max_texture": 8192,
+      "power_of_two": false,
+      "square": false,
+      "required_padding": 0,
+      "recommended_padding": 2,
+      "max_pages_per_asset": 1
+    },
+    {
+      "id": "phaser-3-json",
+      "source": "declared-contract:phaser-3-json-conservative",
+      "note": "TexturePacker JSON hash frames; frame names are object keys. Conservative WebGL texture limit.",
+      "manifest_shape": "phaser-json",
+      "color_space": "sRGB",
+      "max_texture": 4096,
+      "power_of_two": false,
+      "square": false,
+      "required_padding": 0,
+      "recommended_padding": 1,
+      "max_pages_per_asset": 1
+    },
+    {
+      "id": "generic-regions",
+      "source": "declared-contract:generic-regions",
+      "note": "Target-neutral page and region list for a caller that assembles the pages itself. No engine convention is implied.",
+      "manifest_shape": "generic-regions",
+      "color_space": "sRGB",
+      "max_texture": 8192,
+      "power_of_two": false,
+      "square": false,
+      "required_padding": 0,
+      "recommended_padding": 0,
+      "max_pages_per_asset": 64
+    }
+  ]
+}
+
