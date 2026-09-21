@@ -1,0 +1,93 @@
+{
+  "benchmark": "magick-replacement-v1",
+  "status": "passed",
+  "timestamp": "2026-09-19T10:45:34Z",
+  "results": {
+    "resize": {
+      "step_edge": {
+        "nano_ms": 14.67,
+        "bilinear_ms": 5.79,
+        "diff_ssim": 0.9997,
+        "diff_mae": 0.5269,
+        "refined_pixels": 254
+      },
+      "gradient": {
+        "nano_ms": 10.48,
+        "bilinear_ms": 5.7,
+        "diff_ssim": 1.0,
+        "diff_mae": 0.0,
+        "refined_pixels": 0
+      },
+      "lineart": {
+        "nano_ms": 57.52,
+        "bilinear_ms": 7.7,
+        "diff_ssim": 0.9984,
+        "diff_mae": 4.5906,
+        "refined_pixels": 2811
+      }
+    },
+    "quantize": {
+      "step_edge": {
+        "nano_quant_ms": 4.53,
+        "floyd_steinberg_ms": 3.03,
+        "dither_intensity": 0.9049
+      },
+      "gradient": {
+        "nano_quant_ms": 6.33,
+        "floyd_steinberg_ms": 4.39,
+        "dither_intensity": 0.7856
+      },
+      "lineart": {
+        "nano_quant_ms": 4.57,
+        "floyd_steinberg_ms": 3.03,
+        "dither_intensity": 0.9999
+      }
+    },
+    "adaptive_filter": {
+      "step_edge": {
+        "nano_filter_ms": 25.86,
+        "sharp_weight": 0.3168,
+        "smooth_weight": 0.6832
+      },
+      "gradient": {
+        "nano_filter_ms": 26.03,
+        "sharp_weight": 0.6202,
+        "smooth_weight": 0.3798
+      },
+      "lineart": {
+        "nano_filter_ms": 25.3,
+        "sharp_weight": 0.9385,
+        "smooth_weight": 0.0615
+      }
+    },
+    "tone_curve": {
+      "step_edge": {
+        "micro_tone_ms": 1.95,
+        "curve": {
+          "gamma": 1.4344,
+          "lift": 0.0533,
+          "gain": 1.0762,
+          "pivot": 0.6303
+        }
+      },
+      "gradient": {
+        "micro_tone_ms": 2.01,
+        "curve": {
+          "gamma": 1.4636,
+          "lift": 0.0513,
+          "gain": 1.0832,
+          "pivot": 0.6112
+        }
+      },
+      "lineart": {
+        "micro_tone_ms": 1.64,
+        "curve": {
+          "gamma": 1.4425,
+          "lift": 0.0522,
+          "gain": 1.0781,
+          "pivot": 0.6193
+        }
+      }
+    }
+  }
+}
