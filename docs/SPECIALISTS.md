@@ -80,6 +80,16 @@ The first native wave is now present locally. No specialist is active.
 - stream-compression v0: independent, bounded lossless byte packets.
 - splats-compression v0: finite float32 records, static or explicit-base temporal
   residuals. The research format is separate from .fovea.
+- ply-archive v0: complete supported binary PLY files, header and every declared
+  scalar field included, via reversible byte planes. Values stay opaque, so NaN
+  payloads and unknown vendor columns survive. Canonical ASCII files are archived
+  too, verbatim or transposed by column when the rows are canonical. Files above
+  16 MiB need an explicit `limit`, up to 256 MiB.
+  Polygonal files are supported: a `face` element with an index list is archived
+  exactly and transposed too when every face has the same arity; mixed arity is
+  left verbatim. Multi-element ASCII is supported and always stored verbatim,
+  with the column layout reserved for canonical uniform rows. See the coverage,
+  polygonal and real-corpus gate records.
 
 All remain consultative. Automatic mode compares actual packet sizes against
 classical codecs. See [the model card](model-cards/compression-v0.md) for limits.
@@ -245,3 +255,110 @@ faster than every alternative measured here.
   scaled, rotated or cropped. The plan is re-checked before it is returned, and the two
   published shelf baselines stay in the same module for comparison.
   See [the gate record](ATLAS_PACKING_GATE.md).
+
+- engine-import-validation v0 (hybrid): checks an atlas plan against a declared target contract
+  and returns the findings plus a manifest mirror. No engine runs, no file is written, and a
+  manifest that fails its own checks abstains instead of shipping. See
+  [the gate record](ENGINE_IMPORT_GATE.md).
+
+## P8 gate: relative height from a normal field
+
+- normal-to-height v0 (hybrid): integrates a normal field, from the sibling specialist or from
+  anywhere else, into a relative height. Four published integrators are compared in the same
+  module and the run reports which one ran, whether it finished, what the declared grazing floor
+  refused, and the additive constant that a normal field cannot carry. A field with no recoverable
+  slope abstains. See [the gate record](NORMAL_INTEGRATION_GATE.md).
+
+- Measured on four controlled geometries: the row/column average means 0.0682 of relative error
+  against 0.1519 for the row alignment, 0.1242 for the vertical alignment and 0.3045 for the
+  least-squares solve at 242 ms. On the controlled capture chain the grazing floor takes the error
+  from 1.370 to 0.194 while keeping 96 % of the pixels, which is a prior about the capture rather
+  than about the integrator.
+
+- integration-method v0 (k-NN): names the integrator to call before anything is integrated, from
+  five deterministic features of the slope field, with the published rule returned beside the
+  recommendation. The memory holds 16 measured exemplars and the evaluation is held out on other
+  seeds: 31 of 32 fields at the best method, against 25 of 32 for the rule and 23 of 32 for the
+  fixed default. See [the gate record](NORMAL_INTEGRATION_GATE.md).
+
+- The integration itself keeps no learned tier: once the slopes are known the problem is linear
+  algebra with an exact solver per surface family, and the only decision worth learning is which
+  solver to call.
+
+## P8 gate: normal maps as pixels
+
+- normal-map-convention v0 (hybrid): reads what a map states about its own encoding, names the
+  decidable symptoms (not-a-normal-map, object-space, inverted-z, tangent-space, ambiguous), and
+  converts the tangent-space handedness the caller declares. The converted pixels are returned as
+  data and no file is written. See [the gate record](NORMAL_MAP_IO_GATE.md).
+
+- The handedness is decided by integrability where the surface bends: negating the green channel
+  without mirroring the domain is not the gradient of any surface, so the wrong reading carries a
+  curl of twice the cross derivative of the x slope. Measured over 32 readings: 8 decided,
+  24 abstained, 0 decided wrongly, and an exact tilted plane is genuinely ambiguous.
+
+- The measurement priced two pipeline mistakes: storing the map as sRGB colour and reading the bytes
+  back as data costs 40.9 to 45.0 degrees, and a height map in a normal slot is named from its
+  0.442 mean unit-length deviation. Displacement quantization costs 0.196 % of the span at 8 bits.
+
+## P8 gate: reducing a normal field
+
+- normal-mip-chain v0 (hybrid): reduces a normal field into level-of-detail levels in three
+  published forms, reports the mean Z, coverage and length of every level, and refuses to
+  materialize a chain above a declared pixel budget. See
+  [the gate record](NORMAL_RESAMPLE_GATE.md).
+
+- Measured: the direction of a reduction is the direction of the average, so the naive form and the
+  renormalized form differ only in the stored length (3.7021 degrees against 0.1772 on a sphere at
+  a factor of two, identical 0.1772 of direction). Slope-space filtering measurably loses the
+  direction on a dome (0.4696 against 0.1772) and is exactly equal to the renormalized form on a
+  cone. The integral cannot see any of it, because a scale on a normal cancels in the slope.
+
+- The chain reports the flattening it produces: mean Z drifts by 0.09489 over two levels of a sphere
+  against 0.006 for a cone and 0 for a plane, and the declared limit of 0.03 sits between them.
+
+## P8 gate: ambient occlusion from relief fields
+
+- ambient-occlusion v0 (hybrid): calculates screen-space / heightfield horizon-based ambient
+  occlusion accessibility in [0.0, 1.0] from a relative height field or normal map. Evaluates
+  cosine-weighted solid-angle visibility along discrete radial directions. See
+  [the gate record](AMBIENT_OCCLUSION_GATE.md).
+
+- atlas-raster v0 (hybrid): composes a verified plan into exact pages and returns either pixels
+  or 8-bit RGB/RGBA PNG bytes. Pages are re-derived and re-checked first, the encoded files are
+  inspected and decoded back, and nothing is written to disk. See
+  [the gate record](ATLAS_RASTER_GATE.md).
+
+- atlas-dedup v0 (hybrid): removes duplicate frames, stores one copy per distinct image and returns
+  the alias map plus the placements needed to draw every declared frame. Merging is exact unless
+  the caller declares a max_delta per-channel bound, in which case the worst measured delta is
+  reported, and mirrors are matched under none, flip-x, flip-y or rotate-180 with the transform
+  declared per alias; the alias map is re-checked and nothing is written to disk. See
+  [the gate record](ATLAS_DEDUP_GATE.md).
+
+## Expérimental
+
+- adaptive-inpaint v1 (experimental): choisit entre copie de patches et interpolation
+  entre bords connus. Deux méthodes doivent valider leurs contrôles de contexte.
+  Non inscrit au registre, aucune autorité. Voir docs/VISUAL_QUALITY_V3.md.
+
+## ImageMagick replacement suite (P0 visual primitives)
+
+- resample-edge v0 (nano-NN): 38-parameter nano model predicting high-frequency subpixel residuals along detected structural edges during image resizing, converging to exact bilinear interpolation on flat zones (diff_mae = 0.0).
+- resample-knn v0 (k-NN): subpixel exemplar gradient matching for oriented edge reconstruction.
+- quantize-tone v0 (nano-NN): 25-parameter nano model acting as an adaptive dithering arbiter, suppressing noise artifacts on flat surfaces while modulating Floyd-Steinberg error diffusion across subtle color gradients to prevent posterization.
+- palette-match v0 (k-NN): perceptual color space nearest-neighbor mapping with quantization error and coverage diagnostics.
+- adaptive-filter v0 (nano-NN): 30-parameter nano model performing local pixel-wise blending between sharpening structural contours (up to 94% on lineart) and smoothing noisy textures.
+- filter-selector v0 (k-NN): classifier selecting the optimal convolution preset from 6 statistical image descriptors.
+- tone-curve v0 (micro-NN): 108-parameter micro model parameterizing smooth exposure curves (gamma, lift, gain, pivot) from 8 global luminance distribution quantiles.
+- adaptive-threshold v0 (k-NN): binarization strategy classifier (Otsu vs adaptive local window) with automatic abstention on flat uniform inputs.
+- magick-replacement v0 (hybrid): unified ImageMagick replacement engine exposing bellium-magick CLI and pure-Python API for resizing, quantization, spatial filtering, tone adjustment, thresholding, mathematical morphology, compositing/blending, channel splitting/merging, image comparison (RMSE/PSNR/SSIM) and orthogonal geometry transforms without any C runtime dependency. See [the gate record](MAGICK_REPLACEMENT_GATE.md).
+- raster-to-svg v0 (hybrid): traces hard-edge quantized regions into SVG paths. k-NN names flat fills vs thin strokes and abstains on photographic colour counts. The pelican-bicycle fixture is original geometric clip-art for tracing, not a prompt-to-image benchmark.
+
+## P10 gate: 2D drafting document
+
+- drafting-document v0 (deterministic): native Y-up drawing in mm or in, with layers and
+  exact line, polyline, circle, arc and text primitives. Emits a drafting SVG profile and
+  a DXF R12 subset only after both round-trips reconstruct the document. Foreign SVG,
+  splines and empty sheets abstain. Not a pixel tracer and not a CAD kernel. See
+  [the gate record](DRAFTING_GATE.md).

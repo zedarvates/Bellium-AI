@@ -49,6 +49,15 @@ def test_registry_lists_legacy_and_native() -> None:
     assert "bellium/hybrid/animation-timing:v0" in ids
     assert "bellium/hybrid/photometric-normals:v0" in ids
     assert "bellium/hybrid/atlas-packing:v0" in ids
+    assert "bellium/hybrid/engine-import-validation:v0" in ids
+    assert "bellium/hybrid/atlas-raster:v0" in ids
+    assert "bellium/hybrid/atlas-dedup:v0" in ids
+    assert "bellium/hybrid/normal-to-height:v0" in ids
+    assert "bellium/knn/integration-method:v0" in ids
+    assert "bellium/hybrid/normal-map-convention:v0" in ids
+    assert "bellium/hybrid/normal-mip-chain:v0" in ids
+    assert "bellium/hybrid/ambient-occlusion:v0" in ids
+    assert "bellium/deterministic/drafting-document:v0" in ids
     assert all(item.decision_eligible is False for item in specs)
     native = get_specialist("bellium/knn/asset-quality:v0")
     assert native.authority_mode is AuthorityMode.SHADOW

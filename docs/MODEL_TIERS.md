@@ -6,7 +6,7 @@ tier only earns its place with a measured benefit over the simpler one.
 
 | Tier | Definition | Published example |
 | --- | --- | --- |
-| deterministic | Formula, threshold or classical CV/DSP with no learned parameters | `bellium/deterministic/seam-threshold:v0` |
+| deterministic | Formula, threshold, classical CV/DSP or a 2D drafting document | `bellium/deterministic/drafting-document:v0` |
 | k-NN | Family-local exemplar memory plus explicit features, no gradient training | `bellium/knn/texture-tileability:v0` |
 | nano-NN | Hard parameter and byte budget, declared precision, bounded per-axis decisions | `bellium/nano-nn/tile-seam:v0` (38 parameters, 1816 bytes) |
 | micro-NN | Small feed-forward classifier for a bounded recurring decision | `bellium/micro-nn/npc-behavior-router:v0` (173 parameters) |

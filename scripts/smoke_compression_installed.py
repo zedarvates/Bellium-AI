@@ -39,8 +39,46 @@ def main():
     for predictor in PREDICTORS:
         packet = encode_spatial_image(pixels, width=8, height=8, mode="RGBA", predictor=predictor)
         assert decode_spatial_image(packet).pixels == pixels
+    from bellium.compression.ply_archive import decode_ply, encode_ply
+    from bellium.specialists.ply_archive import archive_ply
+    header = (b"ply\nformat binary_little_endian 1.0\nelement vertex 2\n"
+              b"property float x\nproperty float f_rest_0\nproperty uchar tag\nend_header\n")
+    ply = header + struct.pack("<ffB", -0.0, 0.25, 7) + struct.pack("<ffB", 1.5, -2.0, 0)
+    archive_roundtrips = 0
+    for layout in ("original", "byte-planes", "auto"):
+        assert decode_ply(encode_ply(ply, layout=layout)) == ply
+        archive_roundtrips += 1
+    assert decode_ply(archive_ply(ply).output["packet"]) == ply
+    assert not get_specialist("bellium/hybrid/ply-archive:v0").decision_eligible
+    ascii_ply = (b"ply\nformat ascii 1.0\nelement vertex 2\nproperty float x\n"
+                 b"property uchar tag\nend_header\n1.5 3\n2.5 4\n")
+    for layout in ("opaque", "columns", "auto"):
+        assert decode_ply(encode_ply(ascii_ply, layout=layout)) == ascii_ply
+    header_only = b"ply\nformat ascii 1.0\nelement vertex 0\nend_header\n"
+    assert decode_ply(encode_ply(header_only)) == header_only
+    mesh_header = (b"ply\nformat binary_little_endian 1.0\nelement vertex 2\n"
+                   b"property float x\nproperty float y\nproperty float z\n"
+                   b"element face 1\nproperty list uchar int vertex_indices\nend_header\n")
+    mesh = (mesh_header + struct.pack("<ffffff", 0, 0, 0, 1, 0, 0)
+            + struct.pack("<B", 3) + struct.pack("<iii", 0, 1, 0))
+    from bellium.compression.ply_archive import inspect_ply
+    assert [element.name for element in inspect_ply(mesh).elements] == ["vertex", "face"]
+    for layout in ("original", "byte-planes", "auto"):
+        assert decode_ply(encode_ply(mesh, layout=layout)) == mesh
+    ascii_mesh = (b"ply\nformat ascii 1.0\nelement vertex 2\nproperty float x\nproperty float y\n"
+                  b"element face 1\nproperty list uchar int vertex_indices\nend_header\n"
+                  b"0.0 0.0\n1.0 0.0\n3 0 1 0\n")
+    ragged = ascii_mesh.replace(b"0.0 0.0\n", b"0.0  0.0\n")
+    for sample in (ascii_mesh, ragged):
+        for layout in ("opaque", "auto"):
+            assert decode_ply(encode_ply(sample, layout=layout)) == sample
+    assert decode_ply(encode_ply(ascii_mesh, layout="columns")) == ascii_mesh
     print(json.dumps({"installed_package": str(package), "exact_roundtrips": roundtrips,
                       "research_spatial_roundtrips": len(PREDICTORS),
+                      "full_ply_archive_roundtrips": archive_roundtrips,
+                      "ascii_ply_roundtrips": 4,
+                      "polygonal_ply_roundtrips": 3,
+                      "multi_element_ascii_roundtrips": 5,
                       "specialist_wrapper": True, "passed": True}))
 
 

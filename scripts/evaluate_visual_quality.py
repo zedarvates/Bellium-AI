@@ -19,8 +19,22 @@ from PIL import Image, ImageDraw, ImageOps
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from bellium.knn.color_cutout import cutout  # noqa: E402
-from bellium.knn.patch_inpaint import inpaint  # noqa: E402
+from bellium.knn.patch_inpaint import inpaint as patch_inpaint  # noqa: E402
 from bellium.specialists.inpaint_router import route_inpaint  # noqa: E402
+
+ENGINES = {
+    "patch": ("bellium.knn.patch_inpaint", patch_inpaint),
+}
+
+
+def load_engine(name: str):
+    """Resolve a named development candidate without changing the frozen default."""
+    if name == "adaptive":
+        from bellium.specialists.adaptive_inpaint import inpaint as adaptive_inpaint
+        return "bellium.specialists.adaptive_inpaint", adaptive_inpaint
+    if name not in ENGINES:
+        raise ValueError(f"unknown engine '{name}'")
+    return ENGINES[name]
 
 
 def digest(data: bytes) -> str:
@@ -35,7 +49,12 @@ def fetch_assets(protocol: dict, cache: Path, *, fetch: bool) -> list[dict]:
         if Path(filename).name != filename or Path(filename).suffix.lower() not in {".png", ".jpg"}:
             raise ValueError("asset must name one PNG or JPEG file")
         path = cache / filename
-        url = f'https://raw.githubusercontent.com/scikit-image/scikit-image/{protocol["upstream_revision"]}/skimage/data/{filename}'
+        # Some scikit-image assets live in the external data repository and are not
+        # reachable through the package path; a manifest may pin the exact URL.
+        url = asset.get("url") or (
+            f'https://raw.githubusercontent.com/scikit-image/scikit-image/'
+            f'{protocol["upstream_revision"]}/skimage/data/{filename}'
+        )
         if not path.exists():
             if not fetch:
                 raise FileNotFoundError(f"missing {filename}; use --fetch once")
@@ -134,8 +153,10 @@ def inpaint_summary(cases: list[dict], limits: dict) -> dict:
             "bad_accept_rate": bad_rate, "p95_seconds": p95, "gates": gates, "passed": all(gates.values())}
 
 
-def run_photos(protocol: dict, cache: Path, output: Path, baseline=None) -> list[dict]:
+def run_photos(protocol: dict, cache: Path, output: Path, baseline=None, engine=None,
+               engine_name: str = "patch") -> list[dict]:
     config = protocol["inpaint"]
+    engine = engine or patch_inpaint
     cases = []
     for asset in protocol["assets"]:
         if asset["kind"] != "photograph":
@@ -152,10 +173,12 @@ def run_photos(protocol: dict, cache: Path, output: Path, baseline=None) -> list
                 corrupted = [[(0, 0, 0) if mask[r][c] else original[r][c]
                               for c in range(reference.width)] for r in range(reference.height)]
                 start = time.perf_counter()
-                result = inpaint(corrupted, mask)
+                result = engine(corrupted, mask)
                 elapsed = time.perf_counter() - start
                 route = route_inpaint(corrupted, mask)
                 prediction = result.output.get("image", corrupted)
+                # A compliant consumer applies nothing when the specialist abstains.
+                delivered = corrupted if result.abstained else prediction
                 baseline_record = None
                 if baseline is not None:
                     baseline_start = time.perf_counter()
@@ -185,7 +208,9 @@ def run_photos(protocol: dict, cache: Path, output: Path, baseline=None) -> list
                         "baseline": baseline_record,
                         "elapsed_seconds": elapsed, "severe_error_mae_255": config["severe_error_mae_255"],
                         "route_label": route.output["label"], "route_confidence": route.confidence,
+                        "engine": engine_name,
                         "patch": mask_metrics(original, prediction, mask),
+                        "delivered": mask_metrics(original, delivered, mask),
                         "nearest": mask_metrics(original, nearest, mask),
                         "ring_mean": mask_metrics(original, ring, mask), "comparison": filename}
                 cases.append(case)
@@ -237,6 +262,7 @@ def main(argv=None) -> int:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--fetch", action="store_true")
     parser.add_argument("--baseline-module", type=Path)
+    parser.add_argument("--engine", default="patch", choices=["patch", "adaptive"])
     args = parser.parse_args(argv)
     if args.output.exists():
         raise FileExistsError("choose a new output directory to preserve previous evidence")
@@ -261,7 +287,11 @@ def main(argv=None) -> int:
     engine_hashes = {path.relative_to(ROOT).as_posix(): digest(path.read_bytes()) for path in engine_paths}
     (args.output / "protocol.json").write_bytes(protocol_bytes)
     (args.output / "engine-manifest.json").write_text(json.dumps(engine_hashes, indent=2), encoding="utf-8")
-    cases = run_photos(protocol, args.cache, args.output, baseline=baseline)
+    engine_module, engine = load_engine(args.engine)
+    engine_path = Path(sys.modules[engine_module].__file__).resolve()
+    engine_sha = digest(engine_path.read_bytes())
+    cases = run_photos(protocol, args.cache, args.output, baseline=baseline,
+                       engine=engine, engine_name=args.engine)
     summary = inpaint_summary(cases, protocol["inpaint"]["gates"])
     result = {"schema": "bellium.visual-quality-report/v1", "started_at": started,
               "protocol_sha256": digest(protocol_bytes), "runner_sha256": digest(Path(__file__).read_bytes()),
@@ -270,6 +300,9 @@ def main(argv=None) -> int:
               "cutout": run_cutout(protocol, args.cache, args.output),
               "model_or_threshold_changes_during_run": False, "authority_promotion": False,
               "baseline_sha256": baseline_sha}
+    result["engine"] = {"name": args.engine, "module": engine_module,
+                        "sha256": engine_sha,
+                        "default_engine": args.engine == "patch"}
     if baseline is not None:
         baseline_cases = [{**case, **case["baseline"]} for case in cases]
         result["inpaint"]["baseline_summary"] = inpaint_summary(baseline_cases, protocol["inpaint"]["gates"])

@@ -13,6 +13,8 @@ from bellium.knn.patch_inpaint import (
 
 SPECIALIST_ID = "bellium/hybrid/adaptive-inpaint:experimental-v1"
 METHODS = ("patch_knn", "axis_linear")
+MIN_ELIGIBLE_METHODS = 2
+ADAPTIVE_PROBES = 2
 
 
 def _axis_linear(image: Image, mask: Mask) -> Image | None:
@@ -64,29 +66,36 @@ def inpaint(
         "patch_knn": patch.output.get("image") if patch.output.get("status") == "complete" else None,
         "axis_linear": _axis_linear(image, mask),
     }
-    regions = _probe_regions(mask)
+    # Two methods each contribute two probes, so total evidence matches the
+    # four probes of the single-method guard.
+    regions, considered = _probe_regions(image, mask, max_probes=ADAPTIVE_PROBES)
+
+    def _fill(name: str, picture: Image, picture_mask: Mask) -> Image | None:
+        if name == "patch_knn":
+            trial = _inpaint_candidate(picture, picture_mask, patch_size=patch_size,
+                                       search_radius=search_radius,
+                                       k_neighbors=k_neighbors, _probe=True)
+            return trial.output.get("image") if trial.output.get("status") == "complete" else None
+        return _axis_linear(picture, picture_mask)
+
+    # Each method is probed with its own algorithm on a single masked block. The
+    # hole content comes from that method's candidate, so no hidden pixel leaks.
     scores = {name: [] for name in METHODS}
     for region in regions:
-        probe_mask = [row[:] for row in mask]
-        probe_image = copy_image(image)
-        for r, row in enumerate(mask):
-            for c, missing in enumerate(row):
-                if missing:
-                    probe_image[r][c] = (0, 0, 0)
+        probe_mask = [[0] * len(mask[0]) for _ in mask]
         for r, c in region:
             probe_mask[r][c] = 1
-            probe_image[r][c] = (0, 0, 0)
-        trial = _inpaint_candidate(probe_image, probe_mask, patch_size=patch_size,
-                                   search_radius=search_radius, k_neighbors=k_neighbors, _probe=True)
-        predictions = {
-            "patch_knn": trial.output.get("image") if trial.output.get("status") == "complete" else None,
-            "axis_linear": _axis_linear(probe_image, probe_mask),
-        }
-        for name, prediction in predictions.items():
+        for name in METHODS:
+            if candidates[name] is None:
+                continue
+            picture = copy_image(candidates[name])
+            for r, c in region:
+                picture[r][c] = (0, 0, 0)
+            prediction = _fill(name, picture, probe_mask)
             if prediction is None:
                 continue
-            error = sum(abs(image[r][c][i]-prediction[r][c][i])
-                        for r, c in region for i in range(3)) / (3*len(region))
+            error = sum(abs(image[r][c][i] - prediction[r][c][i])
+                        for r, c in region for i in range(3)) / (3 * len(region))
             scores[name].append(error)
     records = {}
     eligible = []
@@ -99,15 +108,22 @@ def inpaint(
                          "max_probe_mae_255": maximum, "passed": passes}
         if passes:
             eligible.append((maximum, METHODS.index(name), name))
-    selected = min(eligible)[2] if eligible else None
+    # Two independent fills must both survive four known-context probes each. A
+    # single survivor can pass by luck on visible neighbours while missing an
+    # unseen feature such as a point highlight inside the hole.
+    selected = min(eligible)[2] if len(eligible) >= MIN_ELIGIBLE_METHODS else None
     output = {"image": candidates[selected] if selected else patch.output.get("image", copy_image(image)),
               "filled": count if selected else 0, "selected_method": selected,
               "status": "complete" if selected else "uncertain",
               "quality": {"version": "method-selection-v1", "methods": records,
-                          "attempted_probes": len(regions), "limit_mae_255": MAX_PROBE_MAE_255,
+                          "attempted_probes": len(regions), "candidate_sites": considered,
+                          "selected_sites": len(regions), "limit_mae_255": MAX_PROBE_MAE_255,
                           "passed": selected is not None, "calibrated_probability": False}}
     if selected is None:
-        output["reason"] = "no_validated_method"
+        output["reason"] = ("unpredictable_context" if considered and len(regions) < MIN_COMPLETE_PROBES
+                            else "insufficient_method_agreement" if eligible
+                            else "no_validated_method")
+    output["quality"]["eligible_methods"] = [name for _score, _index, name in eligible]
     return SpecialistResult(
         SPECIALIST_ID, output, None, selected is None, AuthorityMode.CONSULTATIVE,
         notes=("Experimental method selection on known context, not a probability or permission to act.",),

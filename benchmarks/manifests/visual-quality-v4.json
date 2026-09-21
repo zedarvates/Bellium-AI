@@ -1,0 +1,129 @@
+{
+  "schema": "bellium.visual-quality-protocol/v1",
+  "protocol_id": "visual-quality-v4",
+  "frozen_before_scoring": true,
+  "scope": "Frozen validation of the corrected guard on three never-used photographs",
+  "upstream_repository": "https://github.com/scikit-image/scikit-image",
+  "upstream_revision": "e8a42ba85aaf5fd9322ef9ca51bc21063b22fcae",
+  "upstream_version": "0.25.2",
+  "license_reference": "https://scikit-image.org/docs/0.25.x/api/skimage.data.html",
+  "assets": [
+    {
+      "id": "eagle",
+      "file": "eagle.png",
+      "kind": "photograph",
+      "license": "CC0-1.0",
+      "attribution": "Dayane Machado, via scikit-image data",
+      "url": "https://gitlab.com/scikit-image/data/-/raw/1e4f62ac31ba4553d176d4473a5967ad1b076d62/eagle.png",
+      "sha256": "928f1bbe7403b533265f56db3a6b07c835dfa8e2513f5c5075ca2f1960f6179e"
+    },
+    {
+      "id": "skin",
+      "file": "skin.jpg",
+      "kind": "photograph",
+      "license": "LicenseRef-Public-Domain",
+      "attribution": "Kilbad, Wikimedia (normal epidermis and dermis)",
+      "url": "https://gitlab.com/scikit-image/data/-/raw/2cdc5ce89b334d28f06a58c9f0ca21aa6992a5ba/Normal_Epidermis_and_Dermis_with_Intradermal_Nevus_10x.JPG",
+      "sha256": "8759fe080509712163453f4b17106582b8513e73b0788d80160abf840e272075"
+    },
+    {
+      "id": "cell",
+      "file": "cell.png",
+      "kind": "photograph",
+      "license": "CC0-1.0",
+      "attribution": "Muller et al., via scikit-image data",
+      "sha256": "8d23a7fb81f7cc877cd09f330357fc7f595651306e84e17252f6e0a1b3f61515"
+    },
+    {
+      "id": "horse",
+      "file": "horse.png",
+      "kind": "silhouette",
+      "license": "CC0-1.0",
+      "attribution": "Andreas Preuss (marauder), Openclipart",
+      "sha256": "c7fb60789fe394c485f842291ea3b21e50d140f39d6dcb5fb9917cc178225455"
+    }
+  ],
+  "inpaint": {
+    "long_side": 128,
+    "resize": "Pillow LANCZOS, preserve aspect ratio, RGB",
+    "centers_xy": [
+      [
+        0.25,
+        0.3
+      ],
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.75,
+        0.7
+      ]
+    ],
+    "hole_sides": [
+      3,
+      7
+    ],
+    "primary_baseline": "nearest-original-known-pixel-euclidean",
+    "secondary_baseline": "one-pixel-bounding-ring-mean",
+    "score_only_masked_pixels": true,
+    "severe_error_mae_255": 25.0,
+    "gates": {
+      "minimum_coverage": 0.8,
+      "maximum_accepted_mean_mae_255": 12.0,
+      "minimum_primary_baseline_improvement": 0.1,
+      "maximum_bad_accept_rate": 0.05,
+      "maximum_p95_seconds": 1.0,
+      "all_known_pixels_preserved": true
+    }
+  },
+  "cutout": {
+    "silhouette_canvas": [
+      128,
+      128
+    ],
+    "foreground_color": [
+      210,
+      50,
+      40
+    ],
+    "backgrounds": [
+      [
+        255,
+        255,
+        255
+      ],
+      [
+        10,
+        20,
+        200
+      ]
+    ],
+    "minimum_mask_iou": 0.98,
+    "minimum_coverage": 1.0,
+    "low_contrast_background": [
+      205,
+      45,
+      40
+    ],
+    "low_contrast_must_abstain": true,
+    "photographs_have_no_cutout_ground_truth": true
+  },
+  "authority": "consultative-only",
+  "data_policy": "Held out from every development step; single run per engine; no tuning",
+  "threshold_note": "Engineering acceptance gates chosen before scoring; not universal perceptual standards",
+  "baseline": null,
+  "quality_guard": {
+    "version": "local-probes-v1 + method-selection-v1",
+    "frozen_at": "before the v4 run",
+    "rule": "context-matched probes within 18/255, each fill within 12/255, at least two probes",
+    "tuning": "none on v4"
+  },
+  "engine_selection": {
+    "candidates": [
+      "patch",
+      "adaptive"
+    ],
+    "decision": "report both; no gate relaxation"
+  }
+}

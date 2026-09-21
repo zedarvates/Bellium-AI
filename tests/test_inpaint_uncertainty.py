@@ -19,8 +19,9 @@ def test_unpredictable_visible_texture_abstains():
     corrupted, mask = _hole(image)
     result = inpaint(corrupted, mask)
     assert result.abstained
-    assert result.output["reason"] == "local_reconstruction_error"
-    assert result.output["quality"]["max_probe_mae_255"] > 12
+    assert result.output["reason"] in {"local_reconstruction_error", "unpredictable_context"}
+    maximum = result.output["quality"]["max_probe_mae_255"]
+    assert maximum is None or maximum > 12
     assert result.confidence is None
 
 

@@ -8,6 +8,9 @@ import zlib
 from .predictors import residuals
 
 MAX_RAW_BYTES = 16 * 1024 * 1024
+# Hard ceiling for callers that opt into a larger explicit limit. The wire
+# format is unchanged; only the default guard moves, and it stays at 16 MiB.
+ABSOLUTE_MAX_BYTES = 256 * 1024 * 1024
 MAX_PREDICTIVE_BYTES = 64 * 1024
 MAX_METADATA_BYTES = 4096
 METHODS = ("raw", "zlib", "delta", "knn", "micro-nn")
@@ -36,10 +39,11 @@ def _metadata(pairs):
     return result
 
 
-def pack(data: bytes, metadata: dict, *, method="auto") -> bytes:
+def pack(data: bytes, metadata: dict, *, method="auto", limit=MAX_RAW_BYTES) -> bytes:
     _bytes(data, "data")
-    if len(data) > MAX_RAW_BYTES:
-        raise ValueError("input exceeds the raw byte limit")
+    _integer(limit, "limit", 1, ABSOLUTE_MAX_BYTES)
+    if len(data) > limit:
+        raise ValueError("input exceeds the declared byte limit")
     if method not in (*METHODS, "auto"):
         raise ValueError("unknown compression method")
     if method in ("knn", "micro-nn") and len(data) > MAX_PREDICTIVE_BYTES:
@@ -68,8 +72,8 @@ def pack(data: bytes, metadata: dict, *, method="auto") -> bytes:
 
 def _parse(packet, max_output_bytes):
     _bytes(packet, "packet")
-    _integer(max_output_bytes, "max_output_bytes", 0, MAX_RAW_BYTES)
-    if not HEADER.size + 32 <= len(packet) <= MAX_RAW_BYTES + 16384:
+    _integer(max_output_bytes, "max_output_bytes", 0, ABSOLUTE_MAX_BYTES)
+    if not HEADER.size + 32 <= len(packet) <= ABSOLUTE_MAX_BYTES + 16384:
         raise ValueError("invalid packet size")
     magic, version, code, size, meta_size, payload_size, digest = HEADER.unpack_from(packet)
     if magic != b"BLCP" or version != 1 or code >= len(METHODS):

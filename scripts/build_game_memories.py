@@ -33,15 +33,32 @@ from bellium.knn.texture_orientation import (  # noqa: E402
     orientation_features,
 )
 from bellium.knn._motion import REFERENCE_CURVES  # noqa: E402
+from bellium.knn.integration_method import (  # noqa: E402
+    SCHEMA as INTEGRATION_SCHEMA,
+    integration_features,
+    measured_label,
+)
+from bellium.material.controlled import perturbed_normals  # noqa: E402
+from bellium.material.integration import (  # noqa: E402
+    METHODS as INTEGRATION_METHODS,
+    analytic_height,
+    height_error,
+    integrate_height,
+)
+from bellium.material.photometric import synthetic_geometry  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 MODELS = ROOT / "models" / "knn" / "visual"
 LAYOUT_MODELS = ROOT / "models" / "knn" / "layout"
 TOOL_MODELS = ROOT / "models" / "knn" / "tools"
 MOTION_MODELS = ROOT / "models" / "knn" / "motion"
+INTEGRATION_MODELS = ROOT / "models" / "knn" / "integration"
 SOURCE = "fixture:game-lab-synthetic"
 SIZE = 64
 CLIP_CELL = 24
+INTEGRATION_SIZE = 32
+INTEGRATION_NOISES = (0.0, 0.02, 0.05, 0.1)
+INTEGRATION_SEED = 1
 
 Image = list[list[tuple[int, int, int]]]
 Mask = list[list[int]]
@@ -504,6 +521,54 @@ def anchor_memory() -> dict:
     }
 
 
+def integration_method_memory() -> dict:
+    """Measured winners of the four integrators on the controlled surfaces.
+
+    The label of an exemplar is not authored: every fixture is integrated with all
+    four methods and the label is the measured winner, with the full table stored
+    beside it. These seeds are the memory; the benchmark scores other seeds, so the
+    published accuracy is held out rather than measured on its own exemplars.
+    """
+    items = []
+    for geometry in ("sphere", "cone", "waves", "tilted-plane"):
+        normals, mask = synthetic_geometry(geometry, size=INTEGRATION_SIZE)
+        truth, truth_mask = analytic_height(geometry, size=INTEGRATION_SIZE)
+        scale = 1.0 if geometry == "waves" else 1.0 / (INTEGRATION_SIZE * 0.45)
+        for level in INTEGRATION_NOISES:
+            field = perturbed_normals(normals, level, seed=INTEGRATION_SEED)
+            errors = {}
+            for method in INTEGRATION_METHODS:
+                result = integrate_height(
+                    field, mask, method=method, iterations=400, pixel_scale=scale
+                )
+                errors[method] = height_error(
+                    result["height"], truth, truth_mask
+                )["relative_rmse"]
+            features = integration_features(field, mask)
+            if features is None:
+                raise SystemExit(
+                    f"integration fixture {geometry} at noise {level} has too few slopes"
+                )
+            items.append({
+                "id": f"im_{geometry}_{str(level).replace('.', '')}",
+                "family": geometry,
+                "method": measured_label(errors),
+                "noise": level,
+                "source": "measurement:controlled-geometry",
+                "features": features,
+                "errors": {name: errors[name] for name in sorted(errors)},
+            })
+    return {
+        "schema": INTEGRATION_SCHEMA,
+        "notes": (
+            "Measured winners, not authored labels: each exemplar carries the relative error "
+            f"of all four integrators. Noise levels {INTEGRATION_NOISES} at seed "
+            f"{INTEGRATION_SEED}; the benchmark evaluates on other seeds."
+        ),
+        "items": items,
+    }
+
+
 def write(path: Path, payload: dict[str, Any], *, force: bool) -> str:
     if path.exists() and not force:
         return f"kept {path.name}"
@@ -516,6 +581,8 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--force", action="store_true", help="overwrite existing memories")
     options = parser.parse_args()
+    print(write(INTEGRATION_MODELS / "method-selection-v0.json",
+                integration_method_memory(), force=options.force))
     print(write(MODELS / "texture-repeat-v0.json", repeat_memory(), force=options.force))
     print(write(MODELS / "tileability-v0.json", tileability_memory(), force=options.force))
     print(write(MODELS / "sprite-anchor-v0.json", anchor_memory(), force=options.force))

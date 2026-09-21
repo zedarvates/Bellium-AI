@@ -14,13 +14,32 @@ from bellium.specialists.consequence import classify_consequence, predict_conseq
 from bellium.specialists.physical import estimate_physical
 from bellium.specialists.animation_timing import report_timing
 from bellium.specialists.material import separate_image
-from bellium.specialists.photometric import recover_normals
+from bellium.specialists.photometric import recover_height, recover_normals
 from bellium.specialists.editing import edit_image, erase_region
 from bellium.specialists.atlas import pack_atlas
+from bellium.specialists.imports import validate_import
+from bellium.specialists.integration_method import recommend_integration
+from bellium.specialists.normal_map_io import convert_normal_map
+from bellium.specialists.normal_mip_chain import build_normal_mips
+from bellium.specialists.ambient_occlusion import estimate_ambient_occlusion
+from bellium.specialists.magick import magick_process
+from bellium.specialists.atlas_raster import rasterize_atlas
+from bellium.specialists.atlas_dedup import dedup_atlas
+from bellium.specialists.drafting import inspect_drawing
 
 __all__ = [
     "assess_recording",
     "pack_atlas",
+    "validate_import",
+    "rasterize_atlas",
+    "dedup_atlas",
+    "inspect_drawing",
+    "recover_height",
+    "recommend_integration",
+    "convert_normal_map",
+    "build_normal_mips",
+    "estimate_ambient_occlusion",
+    "magick_process",
     "classify_npc_behavior",
     "crop_panel",
     "detect_voice",

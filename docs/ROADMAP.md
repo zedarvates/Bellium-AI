@@ -140,6 +140,22 @@ on the target device before claiming real-time editing. Preview downsampling
 must remain distinct from full-resolution export. Keep artistic color filters
 separate from P8 numeric material maps such as normals, depth and roughness.
 
+## P10 — 2D technical drawing (DAO)
+
+Native vector documents for local drafting, before any 3D CAD kernel. Start with
+units, layers and exact 2D primitives, then SVG and DXF round-trips on authored
+fixtures. Raster-to-svg remains a pixel tracer and is not this track.
+
+| Planned specialist | Behaviour |
+| --- | --- |
+| drafting-document-v0 | Y-up document in mm or in; line, polyline, circle, arc, text. |
+| drafting-svg-dxf-v0 | Profile SVG and DXF R12 that reconstruct the same document. |
+| drafting-ops-v0 | Later: intersection, trim, extend, offset, with abstention on ambiguity. |
+| drafting-dims-v0 | Later: cotation, cartouche, orthographic views. 3D CAO is later still. |
+
+First gate: the document and both round-trips, no model. A neural candidate is
+not in scope until a deterministic operator loses a measured comparison.
+
 ## First Bellium-native wave
 
 1. `image-cutout-v0`
@@ -367,3 +383,155 @@ twice their runtime, 0.22 to 1.05 ms for 64 to 400 frames. See
 This closes the atlas-packing half of the P4 gap named in the eleventh wave. Engine-import
 validation is still missing, and rasterization, rotation, trimming, duplicate-frame removal and
 any measurement on real project sheets remain open.
+
+## P4 gate: engine-import validation delivered
+
+1. `models/imports/target-profiles-v0.json`: four declared target contracts, each with its own
+   source string, note and conservative limits, plus a caller override path through the same
+   strict contract
+2. `bellium/imports/targets.py` and `bellium/imports/manifest.py`: findings against a contract and
+   JSON manifest mirrors in four shapes, with the Unity bottom-left rect conversion re-checked
+3. `bellium/hybrid/engine-import-validation:v0`: ready with warnings or abstain, never a file
+4. `scripts/benchmark_import_validation.py` and its report on 21 runs
+
+Measured: 17 ready and 4 abstain over 5 cases x 4 profiles plus one caller-tightened override,
+0 manifest violations, manifests of 1.2 to 12.4 KB and 0.32 to 1.8 ms per run. A three-page set
+is refused by every single-texture profile and accepted by the multi-page one. See
+[the gate record](ENGINE_IMPORT_GATE.md).
+
+No engine was executed, so this closes the P4 gap as a declared contract rather than a measured
+round trip. Rasterization, platform texture limits, sprite meshes, nine-patch borders, artist
+pivots, trim and rotation paths, duplicate-frame removal and any measurement on real project
+sheets remain open.
+
+## P4 gate: atlas rasterization delivered
+
+1. `bellium/atlas/raster.py`: exact page composition in RGB or RGBA with its own invariant checker
+2. `bellium/atlas/png.py`: a minimal deterministic PNG writer plus an independent container
+   inspector and a decoder for the same subset
+3. `bellium/hybrid/atlas-raster:v0`: pack, verify, rasterize, optionally encode; a page that fails
+   its check is never returned
+4. `scripts/benchmark_atlas_export.py` and its report, cross-checked with Pillow
+
+Measured: 5 cases turn 397312 raw bytes into 184367 PNG bytes (0.464) with 0 invariant violations
+and 0 Pillow mismatches; rasterization costs 10.9 to 28.9 ms, encoding 3.5 to 9.7 ms and
+verification 5.4 to 15.7 ms. Compression ratios spread from 0.202 to 0.830 by content, which is
+what a single-filter encoder does. See [the gate record](ATLAS_RASTER_GATE.md).
+
+The engine round trip stays open: no engine opened these files, platform texture formats and
+mipmaps are not produced, and no real project sheet was measured.
+
+## P4 gate: exact duplicate removal delivered
+
+1. `bellium/atlas/dedup.py`: content keys, canonical selection, alias map, duplicate groups, a
+   declared per-channel tolerance with measured deltas, mirror matching over the four size-keeping
+   transforms, and an independent alias verifier
+2. `bellium/hybrid/atlas-dedup:v0`: analyze, verify aliases, pack only the distinct frames,
+   rasterize, verify, optionally encode; placements are returned with the pages
+3. `scripts/benchmark_atlas_dedup.py` and its report, including a near-miss control
+
+Measured: 9 cases turn 108 declared frames into 59 stored with 86592 bytes saved and 0 violations;
+one case turns a two-page set that did not fit into a single complete page, and a mirrored walk of
+12 frames stores 4 images that redraw exactly. The near-miss control, whose frames differ by one
+channel value, saves nothing, and the same jittered set saves nothing at a declared bound of 1. See
+[the gate record](ATLAS_DEDUP_GATE.md).
+
+Still open in P4: a perceptual metric for duplicate removal (the shipped tolerance is a declared
+per-channel bound, not a claim about what a viewer notices), quarter turns, deduplication across
+atlases, engine-side frame list rewriting, and the engine round trip itself.
+
+## Thirteenth Bellium-native wave: P8 fourth gate delivered
+
+1. `bellium/material/integration.py`: slopes with a declared grazing floor, four integrators, an
+   offset-removing error metric and the controlled geometries with known heights
+2. `bellium/hybrid/normal-to-height:v0`: the consultative specialist, with convergence reporting,
+   the dropped-pixel count and abstention when no slope is recoverable
+3. `scripts/benchmark_normal_integration.py` and its report: 16 integrator runs plus the controlled
+   capture chain at six declared grazing floors
+4. `bellium/knn/integration-method:v0`: five slope features, a 16-exemplar measured memory and the
+   published rule returned beside the recommendation
+
+Measured: the row/column average is the best of the four on the controlled set (mean 0.0682,
+worst 0.109 at 1.17 ms) while least-squares is exact on a constant slope but not converged on a
+dome after 400 sweeps (0.806 at 242 ms), and the vertical alignment is exact on a constant slope
+at 1.1 ms. The measurement found two defects and both were fixed: the cone fixture was a
+paraboloid, and the row alignment drops the vertical slope of a tilted plane. On the controlled
+capture chain, refusing the pixels below a vertical component of 0.1 takes the relative error
+from 1.370 to 0.194 while keeping 96 % of them. See [the gate record](NORMAL_INTEGRATION_GATE.md).
+
+The selector is measured held out, on seeds the memory never saw: the k-NN names the best
+integrator in 31 of 32 fields at a mean relative error of 0.0635, against 25 of 32 for the published
+rule (0.0764) and 23 of 32 for the fixed default (0.0897), with an oracle at 0.0634. Its limit is
+the fixture set: four geometries, one noise model, and no evidence about real normal maps.
+
+P8 remains open beyond this gate: colour casts, interreflection, roughness, depth from shading,
+multi-view fusion, normal-map convention conversion and any evaluation on real captures or engine
+imports. The height is relative by construction and the pixel scale stays a declared input.
+
+## Fourteenth Bellium-native wave: P8 fifth gate delivered
+
+1. `bellium/material/normals_io.py`: 8-bit encode and decode with a mask, the green-channel flip,
+   the handedness detector and the displacement quantizer
+2. `bellium/material/integration.py`: `integrability`, the cell curl of a slope field with its
+   measured bands, returned by every integration
+3. `bellium/hybrid/normal-map-convention:v0`: the consultative specialist, which inspects, converts
+   only what the caller declares, and writes nothing
+4. `scripts/benchmark_normal_map_io.py` and its report: the round trip, the colour-space mistake,
+   the curl bands, 32 handedness readings and the displacement quantization
+
+Measured: the round trip costs 0.08 to 0.25 degrees mean and 0.69 degrees worst with Z
+reconstructed; storing the map as sRGB colour and reading it back as data costs 40.9 to 45.0
+degrees; the handedness is decided by integrability in 8 of 32 readings with 0 decided wrongly and
+an exact tilted plane is genuinely ambiguous; and a height map in a normal slot is named from its
+0.442 mean unit-length deviation. See [the gate record](NORMAL_MAP_IO_GATE.md).
+
+The gate corrected two of its own a-priori claims, which is the useful part: the handedness is
+*not* invisible to every statistic, and the first two curl estimators were wrong in different ways
+(an unpaired edge difference invented curl at a mask border, and central differences were blind to
+a slope alternating every row).
+
+P8 remains open beyond this gate: object-space to tangent-space conversion, the UV basis and
+mirrored UVs, mipmap-safe filtering, block compression, depth from shading, and any evaluation on
+real captures or engine imports.
+
+## Fifteenth Bellium-native wave: P8 sixth gate delivered
+
+1. `bellium/material/resample.py`: three published reductions, a level-of-detail chain with the
+   drift of every level, and a declared pixel budget
+2. `bellium/material/controlled.py`: `sampled_geometry` and `sampled_height`, the same continuous
+   surface at another sampling, so a reduction can be scored against something
+3. `bellium/hybrid/normal-mip-chain:v0`: the consultative specialist, statistics first, pixels
+   only within the budget
+4. `scripts/benchmark_normal_resample.py` and its report: the three forms at two factors, the
+   chain, the band-limit counter-example and the detectability of the length defect
+
+Measured: a reduction by two costs 0.1772 degrees of direction on a sphere where the naive form
+costs 3.7021 as stored with the identical direction, and slope-space filtering costs 0.4696 and is
+therefore worse here; the integral is unchanged by all three. The chain drifts 0.09489 of mean Z
+over two levels of a sphere against 0.006 for a cone and 0 for a plane, and the length defect it
+leaves is twenty-five times smaller than the check that could catch it. See
+[the gate record](NORMAL_RESAMPLE_GATE.md).
+
+P8 remains open beyond this gate: object-space to tangent-space conversion, the UV basis and
+mirrored UVs, tile and atlas boundaries under a filter, hardware mip generation, compressed
+formats, depth from shading, and any evaluation on real captures or engine imports.
+
+## Sixteenth Bellium-native wave: P8 seventh gate delivered
+
+1. `bellium/material/ambient_occlusion.py`: discrete horizon elevation angle ray-marching,
+   projecting cosine-weighted hemispherical occlusion into accessibility [0.0, 1.0]
+2. `bellium/specialists/ambient_occlusion.py`: consultative specialist `bellium/hybrid/ambient-occlusion:v0`
+   accepting height grids or normal fields
+3. `scripts/benchmark_ambient_occlusion.py` and its report on controlled V-grooves, pits and
+   standard topographies
+
+## Seventeenth Bellium-native wave: P10 first gate delivered
+
+1. bellium/drafting: Y-up document, mm or in, layers, line/polyline/circle/arc/text
+2. SVG drafting profile and DXF R12 ASCII subset with INSUNITS and LIMMAX
+3. consultative specialist bellium/deterministic/drafting-document:v0
+4. five hand-authored fixtures and scripts/benchmark_drafting.py
+
+The document is the baseline. SVG and DXF must reconstruct it or the specialist
+abstains. No neural tier. Offset, cotation and 3D CAD remain later gates. See
+the gate record (DRAFTING_GATE.md).

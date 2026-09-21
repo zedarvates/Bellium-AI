@@ -38,3 +38,13 @@ def test_selection_does_not_look_at_masked_values():
     mask = _mask()
     changed = [[(255, 0, 255) if mask[r][c] else image[r][c] for c in range(24)] for r in range(24)]
     assert inpaint(image, mask) == inpaint(changed, mask)
+
+
+def test_unpredictable_context_is_reported_separately_from_a_failed_trial():
+    rng = random.Random(17)
+    image = [[tuple(rng.randrange(256) for _ in range(3)) for _ in range(28)] for _ in range(28)]
+    result = inpaint(image, _mask(28))
+    assert result.abstained
+    quality = result.output["quality"]
+    assert quality["selected_sites"] < 2
+    assert result.output["reason"] in {"no_validated_method", "unpredictable_context"}
