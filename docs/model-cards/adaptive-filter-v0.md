@@ -8,7 +8,7 @@
   image, *, model=None) -> SpecialistResult`. v0.
 - Authority mode: `consultative`.
 - Model / exemplar source revision and license: hand-authored weights in
-  `models/nano_nn/adaptive-filter/v0.json`, Apache-2.0, no third-party model or
+  `models/nano_nn/adaptive-filter/v0.json`, MIT, no third-party model or
   dataset.
 - Training data and seeds: none recorded. Shapes `[4, 4, 2]` with `relu` then
   `softmax`. The declared `heldout_accuracy` is 0.982, taken from the authoring

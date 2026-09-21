@@ -8,7 +8,7 @@
   and `micro_tone_adjust(image, *, model=None) -> SpecialistResult`. v0.
 - Authority mode: `consultative`.
 - Model / exemplar source revision and license: hand-authored weights in
-  `models/micro_nn/tone-curve/v0.json`, Apache-2.0, no third-party model or
+  `models/micro_nn/tone-curve/v0.json`, MIT, no third-party model or
   dataset.
 - Training data and seeds: none recorded. Shapes `[8, 8, 4]`, activations `relu`
   then `sigmoid`, 108 parameters counted from the declared shapes. The file records

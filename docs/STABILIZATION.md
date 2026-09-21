@@ -39,8 +39,8 @@ demande une langue pour inférer dans une mémoire multilingue.
 ## Provenance et licences
 
 Les poids importés n'ont pas été réentraînés ni remplacés. Leurs empreintes sont
-vérifiées au chargement natif. Les fichiers d'attribution MIT et le texte complet
-Apache sont présents. Les identifiants du manifeste historique sont alignés sur
+vérifiées au chargement natif. Les fichiers d'attribution MIT sont présents, et
+le dépôt entier est publié sous licence MIT. Les identifiants du manifeste historique sont alignés sur
 l'inventaire, en conservant les anciens IDs comme métadonnées. Les chemins source
 du manifeste local sont désormais relatifs au dépôt, avec une empreinte distincte
 du blob Git pour documenter les conversions historiques de fins de ligne.

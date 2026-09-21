@@ -8,7 +8,7 @@
   palette, *, model=None) -> SpecialistResult`. v0.
 - Authority mode: `consultative`.
 - Model / exemplar source revision and license: hand-authored weights in
-  `models/nano_nn/quantize-tone/v0.json`, Apache-2.0. No third-party model or
+  `models/nano_nn/quantize-tone/v0.json`, MIT. No third-party model or
   dataset.
 - Training data and seeds: none recorded. Shapes `[4, 4, 1]` with `relu` then
   `sigmoid`. The file declares `heldout_accuracy: 0.978`; that figure is

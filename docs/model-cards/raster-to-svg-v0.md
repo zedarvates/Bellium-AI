@@ -12,7 +12,7 @@
 - Authority mode: `consultative`. Nothing is written to disk; the SVG comes back as
   data and the result is not certified.
 - Model / exemplar source revision and license: authored exemplar set in
-  `models/knn/visual/vector-regions-v0.json` (7 exemplars), Apache-2.0. The tracing
+  `models/knn/visual/vector-regions-v0.json` (7 exemplars), MIT. The tracing
   fixture is original geometric clip-art authored for this repository, not a
   third-party image.
 - Training data and seeds: none. The k-NN memory is loaded at call time and the

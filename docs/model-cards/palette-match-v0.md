@@ -10,7 +10,7 @@
 - Authority mode: `consultative`.
 - Model / exemplar source revision and license: no model file and no exemplar
   memory. The metric is `bellium.editing.quantize._perceptual_dist_sq`, part of this
-  repository's Apache-2.0 code, and the palette always comes from the caller.
+  repository's MIT code, and the palette always comes from the caller.
 - Training data and seeds: none; this specialist has nothing to train.
 - Independent evaluation data: none published. The palette path is covered by
   `tests/test_magick.py` (`test_quantization_and_palette_matching`) on synthetic

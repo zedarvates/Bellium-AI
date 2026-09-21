@@ -9,7 +9,7 @@
 - Authority mode: `consultative`.
 - Model / exemplar source revision and license: authored exemplar set in
   `models/knn/visual/resample-patterns-v0.json` (7 patterns, including
-  `flat_uniform`), Apache-2.0, with no external corpus.
+  `flat_uniform`), MIT, with no external corpus.
 - Training data and seeds: none. The memory is read from the JSON file at call time
   and can be replaced by the caller through `patterns`.
 - Independent evaluation data: none specific to this memory. The resize family is

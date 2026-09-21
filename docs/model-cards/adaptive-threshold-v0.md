@@ -10,7 +10,7 @@
   produced by `bellium.editing.morphology`.
 - Model / exemplar source revision and license: authored exemplar set in
   `models/knn/visual/threshold-patterns-v0.json` (5 patterns, including
-  `clean_text`), Apache-2.0, no external corpus.
+  `clean_text`), MIT, no external corpus.
 - Training data and seeds: none. The memory is loaded at call time and can be replaced
   through `patterns`.
 - Independent evaluation data: none specific to this memory. The threshold family is
