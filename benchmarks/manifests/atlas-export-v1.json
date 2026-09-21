@@ -1,0 +1,141 @@
+{
+  "schema": "bellium.atlas-export-benchmark/v1",
+  "note": "Generated sprites, no external assets. Encoded pages use filter 0, one fixed zlib level and no interlacing: a tuned encoder would produce smaller files. No engine was run and nothing was written to disk.",
+  "repeats": 5,
+  "cases": [
+    {
+      "name": "uniform_16_rgba",
+      "frames": 64,
+      "channels": 4,
+      "pages": 1,
+      "pixels": 16384,
+      "raw_bytes": 65536,
+      "png_bytes": 54406,
+      "png_ratio": 0.8302,
+      "digests": [
+        "a9ca5f5901d7edd9c59db9fefa3f834ea995e510daa3cb22b6ffe34a94d04467"
+      ],
+      "page_sha256": [
+        "bb48d402f755e25318836e8b3e36a2fd892ba1da67dc19f25f7bc1246db37694"
+      ],
+      "violations": [],
+      "pillow_mismatches": 0,
+      "pillow_used": true,
+      "ms_p50": {
+        "raster": 20.6528,
+        "encode": 4.328,
+        "verify": 7.2867
+      }
+    },
+    {
+      "name": "mixed_rgb",
+      "frames": 12,
+      "channels": 3,
+      "pages": 1,
+      "pixels": 16384,
+      "raw_bytes": 49152,
+      "png_bytes": 19876,
+      "png_ratio": 0.4044,
+      "digests": [
+        "0d0455cd9fc95600f22e4cbf829d2331ced062cc5d5d867653a55f2a02ea3db5"
+      ],
+      "page_sha256": [
+        "7c722cfa42e567dc182500a6e37ed68ec8e6a8545c1369dba76b32e4406d7633"
+      ],
+      "violations": [],
+      "pillow_mismatches": 0,
+      "pillow_used": true,
+      "ms_p50": {
+        "raster": 10.9454,
+        "encode": 4.5481,
+        "verify": 6.2656
+      }
+    },
+    {
+      "name": "mixed_padded_rgba",
+      "frames": 12,
+      "channels": 4,
+      "pages": 1,
+      "pixels": 36864,
+      "raw_bytes": 147456,
+      "png_bytes": 29718,
+      "png_ratio": 0.2015,
+      "digests": [
+        "72b675b30cd5a82e8b42fb0b7c22009374dec4be56606cfea173db072c2a3edd"
+      ],
+      "page_sha256": [
+        "5e001edefdb6b7e2605c37ed3c461f391e59f5fbab8c691cf3ff1ef2e9c463d4"
+      ],
+      "violations": [],
+      "pillow_mismatches": 0,
+      "pillow_used": true,
+      "ms_p50": {
+        "raster": 14.0921,
+        "encode": 8.9369,
+        "verify": 15.6583
+      }
+    },
+    {
+      "name": "measured_96_rgba",
+      "frames": 14,
+      "channels": 4,
+      "pages": 1,
+      "pixels": 9216,
+      "raw_bytes": 36864,
+      "png_bytes": 24561,
+      "png_ratio": 0.6663,
+      "digests": [
+        "4f7ec4d2903cb4a08856f2eaf69d145c8b8d45ef13d99dbbde191809372554cd"
+      ],
+      "page_sha256": [
+        "a10dea5058dd7559bbfd2e8fd4a0dee9abcdd22b9fc699e1768c52b7f97c30f2"
+      ],
+      "violations": [],
+      "pillow_mismatches": 0,
+      "pillow_used": true,
+      "ms_p50": {
+        "raster": 12.9419,
+        "encode": 3.5224,
+        "verify": 5.4005
+      }
+    },
+    {
+      "name": "two_pages_rgb",
+      "frames": 24,
+      "channels": 3,
+      "pages": 2,
+      "pixels": 32768,
+      "raw_bytes": 98304,
+      "png_bytes": 55806,
+      "png_ratio": 0.5677,
+      "digests": [
+        "27bf7f38d2e046b4099b3720faaf72637926f8259a2289c8593b819653d6df40",
+        "e8605d242dca1a286fd611d53e412c6fb515c60f685265205dfa6854d05b2502"
+      ],
+      "page_sha256": [
+        "7340344cffb2f76ec31fc5c5d2f67a6dbe2c126846522723d21e7b4ef4040af9",
+        "6168d27dccc7cefee6b8c1a310ab67c9e6ce5858276e5f108d1d9a02c06aa070"
+      ],
+      "violations": [],
+      "pillow_mismatches": 0,
+      "pillow_used": true,
+      "ms_p50": {
+        "raster": 28.9168,
+        "encode": 9.7085,
+        "verify": 13.0486
+      }
+    }
+  ],
+  "summary": {
+    "cases": 5,
+    "raw_bytes": 397312,
+    "png_bytes": 184367,
+    "pillow_used": true,
+    "violations": 0,
+    "pillow_mismatches": 0,
+    "ms_p50_raster": 14.0921,
+    "ms_p50_encode": 4.5481,
+    "ms_p50_verify": 7.2867,
+    "png_ratio": 0.464
+  }
+}
