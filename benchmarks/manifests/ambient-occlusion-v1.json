@@ -1,0 +1,95 @@
+{
+  "schema": "bellium.ambient-occlusion-benchmark/v1",
+  "note": "Horizon-based ambient occlusion benchmarking on controlled height fields and normals.",
+  "size": 32,
+  "cases": [
+    {
+      "fixture": "v-groove",
+      "parameter": "slope=0.5",
+      "mean_ao": 0.835016,
+      "center_ao": 0.712381,
+      "latency_ms": 17.045,
+      "pixels": 1024
+    },
+    {
+      "fixture": "v-groove",
+      "parameter": "slope=1.0",
+      "mean_ao": 0.736719,
+      "center_ao": 0.526188,
+      "latency_ms": 19.096,
+      "pixels": 1024
+    },
+    {
+      "fixture": "v-groove",
+      "parameter": "slope=2.0",
+      "mean_ao": 0.661213,
+      "center_ao": 0.365348,
+      "latency_ms": 20.27,
+      "pixels": 1024
+    },
+    {
+      "fixture": "hemispherical-pit",
+      "parameter": "radius=10.0",
+      "mean_ao": 0.866169,
+      "center_ao": 0.675949,
+      "latency_ms": 19.078,
+      "pixels": 1024
+    },
+    {
+      "fixture": "sphere",
+      "parameter": "analytic_height",
+      "mean_ao": 0.971606,
+      "latency_ms": 10.854,
+      "pixels": 648
+    },
+    {
+      "fixture": "sphere",
+      "parameter": "from_normals_integrated",
+      "mean_ao": 0.746818,
+      "latency_ms": 12.476,
+      "pixels": 648
+    },
+    {
+      "fixture": "cone",
+      "parameter": "analytic_height",
+      "mean_ao": 0.97532,
+      "latency_ms": 11.793,
+      "pixels": 648
+    },
+    {
+      "fixture": "cone",
+      "parameter": "from_normals_integrated",
+      "mean_ao": 0.744432,
+      "latency_ms": 12.697,
+      "pixels": 648
+    },
+    {
+      "fixture": "waves",
+      "parameter": "analytic_height",
+      "mean_ao": 0.909367,
+      "latency_ms": 17.657,
+      "pixels": 1024
+    },
+    {
+      "fixture": "waves",
+      "parameter": "from_normals_integrated",
+      "mean_ao": 0.908722,
+      "latency_ms": 19.359,
+      "pixels": 1024
+    },
+    {
+      "fixture": "tilted-plane",
+      "parameter": "analytic_height",
+      "mean_ao": 0.989677,
+      "latency_ms": 18.51,
+      "pixels": 1024
+    },
+    {
+      "fixture": "tilted-plane",
+      "parameter": "from_normals_integrated",
+      "mean_ao": 0.927198,
+      "latency_ms": 21.111,
+      "pixels": 1024
+    }
+  ]
+}

@@ -112,7 +112,12 @@ def synthetic_geometry(kind: str, size: int = 32, *, height: float = 0.6,
                 length = math.hypot(x, y)
                 if length > 1.0:
                     continue
-                normals[r][c] = normalize((x, y, 1.0))
+                # z = 1 - r, so the surface gradient is (x/r, y/r, 1): the plain
+                # (x, y, 1) form would describe a paraboloid instead.
+                if length > 1e-6:
+                    normals[r][c] = normalize((x / length, y / length, 1.0))
+                else:
+                    normals[r][c] = (0.0, 0.0, 1.0)
             else:
                 raise ValueError(f"unknown geometry: {kind}")
             mask[r][c] = 1.0

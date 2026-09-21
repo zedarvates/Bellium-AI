@@ -11,10 +11,77 @@ import math
 import random
 
 from bellium.knn._image import Image, clamp_rgb
+from bellium.material.integration import Normals, analytic_height
+from bellium.material.photometric import synthetic_geometry
 
 Floats = list[list[float]]
 ColorFloats = list[list[tuple[float, float, float]]]
 EPSILON = 1.0 / 512.0
+BASE_SIZE = 32
+BASE_PERIOD = 12.0
+
+
+def sampled_geometry(
+    kind: str,
+    size: int = BASE_SIZE,
+    *,
+    base_size: int = BASE_SIZE,
+    base_period: float = BASE_PERIOD,
+) -> tuple[Normals, Floats]:
+    """The same continuous surface, sampled at another size.
+
+    The oscillation period of the wave family is declared in pixels, so a smaller
+    grid of that family is a different surface unless the period shrinks with it.
+    A level-of-detail comparison needs the same surface at two samplings, and this
+    is the helper that keeps the period proportional. The other families are
+    defined on a normalized domain and are unaffected.
+    """
+    return synthetic_geometry(kind, size=size, period=base_period * size / base_size)
+
+
+def sampled_height(
+    kind: str,
+    size: int = BASE_SIZE,
+    *,
+    base_size: int = BASE_SIZE,
+    base_period: float = BASE_PERIOD,
+) -> tuple[Floats, Floats]:
+    """The matching height of sampled_geometry, on the same domain."""
+    return analytic_height(kind, size=size, period=base_period * size / base_size)
+
+
+def perturbed_normals(normals: Normals, sigma: float = 0.0, seed: int = 1) -> Normals:
+    """A declared perturbation of a normal field, evaluation only.
+
+    Every component receives the same deterministic Gaussian offset and the
+    result is renormalized, which is what an estimated normal map carries: a
+    small error in every direction rather than a clean field. A sigma of zero
+    returns the field unchanged.
+    """
+    if isinstance(sigma, bool) or not isinstance(sigma, (int, float)):
+        raise ValueError("sigma must be numeric")
+    if not math.isfinite(float(sigma)) or float(sigma) < 0.0:
+        raise ValueError("sigma must be positive and finite")
+    if isinstance(seed, bool) or not isinstance(seed, int):
+        raise ValueError("seed must be an integer")
+    if float(sigma) == 0.0:
+        return normals
+    rng = random.Random(seed)
+    out: Normals = []
+    for row in normals:
+        values = []
+        for normal in row:
+            if normal is None:
+                values.append(None)
+                continue
+            vector = [float(normal[i]) + rng.gauss(0.0, float(sigma)) for i in range(3)]
+            length = math.sqrt(sum(value * value for value in vector))
+            if length <= 1e-12:
+                values.append((0.0, 0.0, 1.0))
+                continue
+            values.append(tuple(value / length for value in vector))
+        out.append(values)
+    return out
 
 
 def _gray(value: float) -> tuple[float, float, float]:

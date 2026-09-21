@@ -1,0 +1,326 @@
+{
+  "schema": "bellium.integration-method-memory/v1",
+  "notes": "Measured winners, not authored labels: each exemplar carries the relative error of all four integrators. Noise levels (0.0, 0.02, 0.05, 0.1) at seed 1; the benchmark evaluates on other seeds.",
+  "items": [
+    {
+      "id": "im_sphere_00",
+      "family": "sphere",
+      "method": "cumulative-average",
+      "noise": 0.0,
+      "source": "measurement:controlled-geometry",
+      "features": {
+        "direction_focus": 0.0,
+        "slope_uniformity": 0.013139,
+        "divergence_ratio": 0.450815,
+        "radial_alignment": 1.0,
+        "flat_field": 0.0
+      },
+      "errors": {
+        "cumulative": 0.176631,
+        "cumulative-average": 0.058617,
+        "cumulative-vertical": 0.230439,
+        "least-squares": 0.805877
+      }
+    },
+    {
+      "id": "im_sphere_002",
+      "family": "sphere",
+      "method": "cumulative-average",
+      "noise": 0.02,
+      "source": "measurement:controlled-geometry",
+      "features": {
+        "direction_focus": 0.001572,
+        "slope_uniformity": 0.019805,
+        "divergence_ratio": 0.44808,
+        "radial_alignment": 0.998477,
+        "flat_field": 0.0
+      },
+      "errors": {
+        "cumulative": 0.183936,
+        "cumulative-average": 0.058647,
+        "cumulative-vertical": 0.23263,
+        "least-squares": 0.795213
+      }
+    },
+    {
+      "id": "im_sphere_005",
+      "family": "sphere",
+      "method": "cumulative-average",
+      "noise": 0.05,
+      "source": "measurement:controlled-geometry",
+      "features": {
+        "direction_focus": 0.002789,
+        "slope_uniformity": 0.0,
+        "divergence_ratio": 0.463974,
+        "radial_alignment": 0.991341,
+        "flat_field": 0.0
+      },
+      "errors": {
+        "cumulative": 0.207745,
+        "cumulative-average": 0.064269,
+        "cumulative-vertical": 0.245892,
+        "least-squares": 0.840679
+      }
+    },
+    {
+      "id": "im_sphere_01",
+      "family": "sphere",
+      "method": "cumulative-average",
+      "noise": 0.1,
+      "source": "measurement:controlled-geometry",
+      "features": {
+        "direction_focus": 0.003997,
+        "slope_uniformity": 0.0,
+        "divergence_ratio": 0.595822,
+        "radial_alignment": 0.965398,
+        "flat_field": 0.0
+      },
+      "errors": {
+        "cumulative": 0.310469,
+        "cumulative-average": 0.137612,
+        "cumulative-vertical": 0.263189,
+        "least-squares": 1.336286
+      }
+    },
+    {
+      "id": "im_cone_00",
+      "family": "cone",
+      "method": "cumulative-average",
+      "noise": 0.0,
+      "source": "measurement:controlled-geometry",
+      "features": {
+        "direction_focus": 0.0,
+        "slope_uniformity": 1.0,
+        "divergence_ratio": 0.137307,
+        "radial_alignment": 1.0,
+        "flat_field": 0.0
+      },
+      "errors": {
+        "cumulative": 0.158564,
+        "cumulative-average": 0.024538,
+        "cumulative-vertical": 0.177926,
+        "least-squares": 0.157696
+      }
+    },
+    {
+      "id": "im_cone_002",
+      "family": "cone",
+      "method": "cumulative-average",
+      "noise": 0.02,
+      "source": "measurement:controlled-geometry",
+      "features": {
+        "direction_focus": 0.000774,
+        "slope_uniformity": 0.960905,
+        "divergence_ratio": 0.142128,
+        "radial_alignment": 0.999573,
+        "flat_field": 0.0
+      },
+      "errors": {
+        "cumulative": 0.162194,
+        "cumulative-average": 0.025832,
+        "cumulative-vertical": 0.179587,
+        "least-squares": 0.157799
+      }
+    },
+    {
+      "id": "im_cone_005",
+      "family": "cone",
+      "method": "cumulative-average",
+      "noise": 0.05,
+      "source": "measurement:controlled-geometry",
+      "features": {
+        "direction_focus": 0.001857,
+        "slope_uniformity": 0.901888,
+        "divergence_ratio": 0.186408,
+        "radial_alignment": 0.997307,
+        "flat_field": 0.0
+      },
+      "errors": {
+        "cumulative": 0.171954,
+        "cumulative-average": 0.030524,
+        "cumulative-vertical": 0.184091,
+        "least-squares": 0.158075
+      }
+    },
+    {
+      "id": "im_cone_01",
+      "family": "cone",
+      "method": "cumulative-average",
+      "noise": 0.1,
+      "source": "measurement:controlled-geometry",
+      "features": {
+        "direction_focus": 0.003344,
+        "slope_uniformity": 0.799889,
+        "divergence_ratio": 0.301095,
+        "radial_alignment": 0.988999,
+        "flat_field": 0.0
+      },
+      "errors": {
+        "cumulative": 0.199597,
+        "cumulative-average": 0.043268,
+        "cumulative-vertical": 0.197497,
+        "least-squares": 0.159174
+      }
+    },
+    {
+      "id": "im_waves_00",
+      "family": "waves",
+      "method": "cumulative-average",
+      "noise": 0.0,
+      "source": "measurement:controlled-geometry",
+      "features": {
+        "direction_focus": 0.004978,
+        "slope_uniformity": 0.658385,
+        "divergence_ratio": 0.567378,
+        "radial_alignment": 0.032404,
+        "flat_field": 0.0
+      },
+      "errors": {
+        "cumulative": 0.164288,
+        "cumulative-average": 0.080462,
+        "cumulative-vertical": 0.08831,
+        "least-squares": 0.254405
+      }
+    },
+    {
+      "id": "im_waves_002",
+      "family": "waves",
+      "method": "cumulative-average",
+      "noise": 0.02,
+      "source": "measurement:controlled-geometry",
+      "features": {
+        "direction_focus": 0.003179,
+        "slope_uniformity": 0.672008,
+        "divergence_ratio": 0.585412,
+        "radial_alignment": 0.034052,
+        "flat_field": 0.0
+      },
+      "errors": {
+        "cumulative": 0.201089,
+        "cumulative-average": 0.097586,
+        "cumulative-vertical": 0.113421,
+        "least-squares": 0.24879
+      }
+    },
+    {
+      "id": "im_waves_005",
+      "family": "waves",
+      "method": "cumulative-average",
+      "noise": 0.05,
+      "source": "measurement:controlled-geometry",
+      "features": {
+        "direction_focus": 0.006746,
+        "slope_uniformity": 0.64709,
+        "divergence_ratio": 0.663398,
+        "radial_alignment": 0.032239,
+        "flat_field": 0.0
+      },
+      "errors": {
+        "cumulative": 0.350201,
+        "cumulative-average": 0.154038,
+        "cumulative-vertical": 0.206284,
+        "least-squares": 0.255907
+      }
+    },
+    {
+      "id": "im_waves_01",
+      "family": "waves",
+      "method": "cumulative-average",
+      "noise": 0.1,
+      "source": "measurement:controlled-geometry",
+      "features": {
+        "direction_focus": 0.018519,
+        "slope_uniformity": 0.559535,
+        "divergence_ratio": 0.832598,
+        "radial_alignment": 0.021016,
+        "flat_field": 0.0
+      },
+      "errors": {
+        "cumulative": 0.658312,
+        "cumulative-average": 0.271858,
+        "cumulative-vertical": 0.391713,
+        "least-squares": 0.304335
+      }
+    },
+    {
+      "id": "im_tilted-plane_00",
+      "family": "tilted-plane",
+      "method": "cumulative-vertical",
+      "noise": 0.0,
+      "source": "measurement:controlled-geometry",
+      "features": {
+        "direction_focus": 1.0,
+        "slope_uniformity": 1.0,
+        "divergence_ratio": 0.0,
+        "radial_alignment": 0.0,
+        "flat_field": 0.0
+      },
+      "errors": {
+        "cumulative": 0.108306,
+        "cumulative-average": 0.109149,
+        "cumulative-vertical": 0.0,
+        "least-squares": 0.0
+      }
+    },
+    {
+      "id": "im_tilted-plane_002",
+      "family": "tilted-plane",
+      "method": "least-squares",
+      "noise": 0.02,
+      "source": "measurement:controlled-geometry",
+      "features": {
+        "direction_focus": 0.998633,
+        "slope_uniformity": 0.940338,
+        "divergence_ratio": 0.089204,
+        "radial_alignment": 0.001208,
+        "flat_field": 0.0
+      },
+      "errors": {
+        "cumulative": 0.110728,
+        "cumulative-average": 0.108864,
+        "cumulative-vertical": 0.005721,
+        "least-squares": 0.003832
+      }
+    },
+    {
+      "id": "im_tilted-plane_005",
+      "family": "tilted-plane",
+      "method": "least-squares",
+      "noise": 0.05,
+      "source": "measurement:controlled-geometry",
+      "features": {
+        "direction_focus": 0.991334,
+        "slope_uniformity": 0.851836,
+        "divergence_ratio": 0.222105,
+        "radial_alignment": 0.00295,
+        "flat_field": 0.0
+      },
+      "errors": {
+        "cumulative": 0.115786,
+        "cumulative-average": 0.108532,
+        "cumulative-vertical": 0.014312,
+        "least-squares": 0.009704
+      }
+    },
+    {
+      "id": "im_tilted-plane_01",
+      "family": "tilted-plane",
+      "method": "least-squares",
+      "noise": 0.1,
+      "source": "measurement:controlled-geometry",
+      "features": {
+        "direction_focus": 0.963209,
+        "slope_uniformity": 0.711569,
+        "divergence_ratio": 0.435823,
+        "radial_alignment": 0.005457,
+        "flat_field": 0.0
+      },
+      "errors": {
+        "cumulative": 0.127709,
+        "cumulative-average": 0.108224,
+        "cumulative-vertical": 0.028895,
+        "least-squares": 0.020085
+      }
+    }
+  ]
+}
