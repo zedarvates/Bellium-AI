@@ -44,6 +44,52 @@ The last rungs are fallbacks, not the architecture. A specialist stays local, in
 
 Abstention is a feature. Critical safety constraints stay deterministic.
 
+## Modules
+
+Every package below ships in the wheel. Presence in the tree is not authority:
+a specialist runs with the mode its registry entry declares.
+
+- [`bellium/contracts`](bellium/contracts) — the shared `SpecialistResult` and
+  `AuthorityMode` that every tier returns.
+- [`bellium/registry`](bellium/registry) — the declarative specialist catalogue and
+  its authority modes; membership never authorizes an action.
+- [`bellium/resources.py`](bellium/resources.py) — resolves bundled model JSON from
+  the installed package or the source tree.
+- [`bellium/cutout`](bellium/cutout) — deterministic foreground extraction and
+  background normalization.
+- [`bellium/inpaint`](bellium/inpaint) — patch k-NN fill with mask-ratio escalation.
+- [`bellium/language`](bellium/language) — phoneme k-NN, pronunciation similarity,
+  grapheme↔phoneme reconstruction, cognates and prosody.
+- [`bellium/routing`](bellium/routing) — the tiered router with hard constraint
+  filtering and declarative abstention.
+- [`bellium/knn`](bellium/knn) — the k-NN family: image helpers plus the specialist
+  memories for inpainting, cutout, texture, sprites, panels, audio, physics, tools,
+  language, layout, motion and memory reranking.
+- [`bellium/nano_nn`](bellium/nano_nn) — hard-budget tiny networks: tile seam,
+  edge resampling, tone quantization and adaptive filtering.
+- [`bellium/micro_nn`](bellium/micro_nn) — small feed-forward classifiers: inpaint
+  router, tool router, NPC behaviour, consequence, atmosphere and tone curve.
+- [`bellium/editing`](bellium/editing) — deterministic editing primitives: filters,
+  selections, replayable stacks, geometry, convolution, morphology, quantization,
+  resampling, tone, compositing, channels, colour spaces, montage, comparison,
+  vectorization and previews.
+- [`bellium/magick`](bellium/magick) — the dependency-free raster toolkit and the
+  `bellium-magick` command that replaces the ImageMagick binaries.
+- [`bellium/material`](bellium/material) — albedo/illumination separation,
+  photometric normals, ambient occlusion, normal-map I/O and normal reduction.
+- [`bellium/physics`](bellium/physics) — published reference models and bounded
+  physical estimates travelling with their uncertainty.
+- [`bellium/compression`](bellium/compression) — lossless research codecs,
+  including the complete binary-PLY archive.
+- [`bellium/atlas`](bellium/atlas) — atlas packing and rasterization, exact
+  duplicate removal and the minimal deterministic PNG writer.
+- [`bellium/imports`](bellium/imports) — declared engine-import target contracts
+  and the manifest mirror.
+- [`bellium/drafting`](bellium/drafting) — 2D drafting documents with SVG and
+  DXF R12 output.
+- [`bellium/specialists`](bellium/specialists) — the registry-facing entry points
+  that wrap every tier in the same result contract.
+
 ## First project-driven tracks
 
 - selected-zone image filling and compact inpainting
@@ -93,6 +139,13 @@ python -m build
 
 Models are included in the wheel. Test the installed package outside the source
 import path with `python -I scripts/smoke_installed.py --image` after installing it.
+
+Installing the package also provides the `bellium-magick` command, a
+zero-C-dependency replacement for the ImageMagick binaries covering resize,
+quantization, spatial filtering, tone, thresholding, morphology, compositing,
+channel operations, comparison, geometry transforms, vectorization, batch mogrify
+and spritesheet assembly. See
+[the replacement gate](docs/MAGICK_REPLACEMENT_GATE.md).
 
 The tool router is a first orchestration specialist: it proposes which node should
 run, and it does not execute the tool itself.
@@ -316,3 +369,39 @@ P10 gate, 2D drafting document:
 - SVG drafting profile and DXF R12 subset that must reconstruct the same document
 - five hand-authored fixtures; foreign SVG, splines and empty sheets abstain
 - not a pixel tracer and not a CAD kernel ([gate record](docs/DRAFTING_GATE.md))
+
+P0 suite, ImageMagick replacement:
+
+- the `bellium-magick` command and a pure-Python API covering resize, quantization,
+  spatial filtering, tone, thresholding, morphology, compositing, channel split and
+  merge, comparison (MAE, RMSE, PSNR, SSIM), orthogonal transforms, montage,
+  perceptual hashing, EXIF auto-orientation, batch mogrify and spritesheet
+  slicing/assembly
+- every operation keeps the tier order: deterministic baseline first, then a k-NN
+  exemplar memory, then a nano-NN or micro-NN only where it was measured. The full
+  ImageMagick-to-Bellium mapping is in
+  [the model card](docs/model-cards/magick-replacement-v0.md).
+- reproduced on three synthetic tracks
+  ([manifest](benchmarks/manifests/magick-replacement-v1.json), 2026-09-19): the
+  38-parameter edge model refines 0 pixels and returns bilinear exactly on a smooth
+  gradient (MAE 0.0, SSIM 1.0), and 2 811 pixels on line art (MAE 4.59, SSIM
+  0.9984) at 57.5 ms against 7.7 ms for bilinear; the dither arbiter asks for 0.79
+  of diffusion on a gradient and 1.00 on line art; the adaptive filter prefers
+  0.94 sharpening on line art and 0.68 smoothing on a flat noisy zone; the tone
+  curve costs 1.6 to 2.0 ms per image
+- the k-NN memories behind these operations are small authored exemplar sets
+  (7 resampling patterns, 5 binarization patterns, 8 filter presets and 7 vector
+  region exemplars), not measured corpora
+- no device verification yet: every nano and micro model of this suite ships with
+  `device_verified: false` and null latency and RAM fields, and the held-out
+  accuracies recorded in the model files are declared by the authoring run rather
+  than reproduced independently here ([gate record](docs/MAGICK_REPLACEMENT_GATE.md))
+
+P0 suite, raster to SVG:
+
+- `raster-to-svg v0` traces hard-edge quantized regions into SVG paths, with a k-NN
+  that separates flat fills from thin strokes and abstains on photographic colour
+  counts
+- the pelican-and-bicycle fixture is original geometric clip-art written for tracing,
+  not a prompt-to-image benchmark
+  ([model card](docs/model-cards/raster-to-svg-v0.md))
