@@ -1,0 +1,102 @@
+{
+  "version": "v0",
+  "description": "Exemplar image feature vectors for automated filter selection",
+  "presets": [
+    {
+      "id": "noisy_flat",
+      "features": [
+        0.05,
+        0.04,
+        0.02,
+        0.15,
+        0.2,
+        0.45
+      ],
+      "label": "denoise_soft"
+    },
+    {
+      "id": "grainy_texture",
+      "features": [
+        0.15,
+        0.08,
+        0.05,
+        0.25,
+        0.4,
+        0.6
+      ],
+      "label": "denoise_soft"
+    },
+    {
+      "id": "blurry_photo",
+      "features": [
+        0.08,
+        0.06,
+        0.03,
+        0.05,
+        0.6,
+        0.05
+      ],
+      "label": "sharpen_subtle"
+    },
+    {
+      "id": "soft_portrait",
+      "features": [
+        0.12,
+        0.09,
+        0.08,
+        0.1,
+        0.7,
+        0.08
+      ],
+      "label": "sharpen_subtle"
+    },
+    {
+      "id": "crisp_lineart",
+      "features": [
+        0.45,
+        0.25,
+        0.4,
+        0.35,
+        0.9,
+        0.02
+      ],
+      "label": "edge_accentuate"
+    },
+    {
+      "id": "technical_diagram",
+      "features": [
+        0.55,
+        0.3,
+        0.5,
+        0.45,
+        0.95,
+        0.01
+      ],
+      "label": "edge_accentuate"
+    },
+    {
+      "id": "heightmap_relief",
+      "features": [
+        0.35,
+        0.18,
+        0.2,
+        0.22,
+        0.8,
+        0.03
+      ],
+      "label": "emboss_texture"
+    },
+    {
+      "id": "clean_balanced",
+      "features": [
+        0.2,
+        0.12,
+        0.15,
+        0.18,
+        0.8,
+        0.02
+      ],
+      "label": "pass_through"
+    }
+  ]
+}

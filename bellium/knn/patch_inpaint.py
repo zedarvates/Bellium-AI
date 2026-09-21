@@ -17,6 +17,11 @@ QUALITY_GUARD_VERSION = "local-probes-v1"
 MAX_PROBE_MAE_255 = 12.0
 MIN_COMPLETE_PROBES = 2
 MAX_PROBE_PIXELS = 256
+PROBE_WINDOW = 8
+MAX_CONTEXT_MAE = 18.0
+PROBE_RING = 2
+PROBE_CANDIDATE_LIMIT = 120
+MAX_PROBES = 4
 
 
 def _hole_stats(mask: Mask) -> tuple[int, int, int]:
@@ -58,6 +63,15 @@ def _ssd(left: list[float], right: list[float]) -> float:
     return sum((a - b) ** 2 for a, b in zip(left, right))
 
 
+def _flatten_patch_raw(image: Image, r: int, c: int, radius: int) -> list[float]:
+    """Raw 0-255 channels, matching the scale used by the distance functions."""
+    vec: list[float] = []
+    for dr in range(-radius, radius + 1):
+        for dc in range(-radius, radius + 1):
+            vec.extend(float(channel) for channel in image[r + dr][c + dc])
+    return vec
+
+
 def _known_patch_distance(
     query: Image, remaining: Mask, r: int, c: int,
     source: Image, sr: int, sc: int, radius: int = PATCH,
@@ -71,6 +85,32 @@ def _known_patch_distance(
             if 0 <= rr < height and 0 <= cc < width and not remaining[rr][cc]:
                 total += sum((a - b) ** 2 for a, b in zip(query[rr][cc], source[sr + dr][sc + dc]))
                 known += 3
+    return total / (known * 255.0 ** 2) if known else float("inf")
+
+
+def _patch_distance(
+    query: Image, remaining: Mask, r: int, c: int, flat_source: list[float], radius: int,
+) -> float:
+    """Same distance as `_known_patch_distance`, reading a precomputed source patch.
+
+    Flattening the source patch once per call instead of once per (pixel, candidate)
+    pair removes the dominant cost of the bounded probe fills.
+    """
+    height, width = len(query), len(query[0])
+    total = 0.0
+    known = 0
+    index = 0
+    for dr in range(-radius, radius + 1):
+        for dc in range(-radius, radius + 1):
+            rr, cc = r + dr, c + dc
+            base = index * 3
+            if 0 <= rr < height and 0 <= cc < width and not remaining[rr][cc]:
+                pixel = query[rr][cc]
+                total += (pixel[0] - flat_source[base]) ** 2
+                total += (pixel[1] - flat_source[base + 1]) ** 2
+                total += (pixel[2] - flat_source[base + 2]) ** 2
+                known += 3
+            index += 1
     return total / (known * 255.0 ** 2) if known else float("inf")
 
 
@@ -108,8 +148,16 @@ def _inpaint_candidate(
 
     filled = copy_image(image)
     remaining_mask = [row[:] for row in mask]
+    # A masked pixel only ever looks `search_radius` away for a source patch, and
+    # every masked pixel lies inside the hole bounding box. Restricting the source
+    # scan to that box plus the radius is therefore equivalent, and turns an
+    # image-sized scan into a bounded local one.
+    hole_rows = [r for r in range(height) for c in range(width) if mask[r][c]]
+    hole_cols = [c for r in range(height) for c in range(width) if mask[r][c]]
+    row_low, row_high = max(radius, min(hole_rows) - search_radius), min(height - radius, max(hole_rows) + search_radius + 1)
+    col_low, col_high = max(radius, min(hole_cols) - search_radius), min(width - radius, max(hole_cols) + search_radius + 1)
     sources = {
-        (r, c) for r in range(height) for c in range(width)
+        (r, c) for r in range(row_low, row_high) for c in range(col_low, col_high)
         if _patch_ok(mask, r, c, radius)
     }
     if len(sources) < k_neighbors:
@@ -118,6 +166,9 @@ def _inpaint_candidate(
             0.0, True, AuthorityMode.CONSULTATIVE,
             notes=("Too few unmasked patches to copy from.",),
         )
+
+    flat_sources = {position: _flatten_patch_raw(image, position[0], position[1], radius)
+                    for position in sources}
 
     remaining = {(r, c) for r in range(height) for c in range(width) if mask[r][c]}
     distances = []
@@ -135,7 +186,7 @@ def _inpaint_candidate(
                 if (sr, sc) in sources
             )
             nearest = nsmallest(k_neighbors, (
-                (_known_patch_distance(filled, remaining_mask, r, c, image, sr, sc, radius), (sr, sc))
+                (_patch_distance(filled, remaining_mask, r, c, flat_sources[(sr, sc)], radius), (sr, sc))
                 for sr, sc in candidates
             ))
             if len(nearest) < k_neighbors:
@@ -178,41 +229,126 @@ def _inpaint_candidate(
     )
 
 
-def _probe_regions(mask: Mask) -> list[list[tuple[int, int]]]:
-    """Translate the original hole into known context on each cardinal side."""
+def _hole_cells(mask: Mask) -> list[tuple[int, int]]:
+    return [(r, c) for r in range(len(mask)) for c in range(len(mask[0])) if mask[r][c]]
+
+
+def _probe_ring(mask: Mask) -> list[tuple[int, int]]:
+    """Absolute coordinates of the known cells surrounding the hole."""
     height, width = len(mask), len(mask[0])
-    hole = [(r, c) for r in range(height) for c in range(width) if mask[r][c]]
+    hole = set(_hole_cells(mask))
+    ring = []
+    for r, c in hole:
+        for dr in range(-PROBE_RING, PROBE_RING + 1):
+            for dc in range(-PROBE_RING, PROBE_RING + 1):
+                cell = (r + dr, c + dc)
+                if cell in hole or cell in ring:
+                    continue
+                if 0 <= cell[0] < height and 0 <= cell[1] < width:
+                    ring.append(cell)
+    return ring
+
+
+def _context_mae(image: Image, mask: Mask, region: list[tuple[int, int]],
+                 ring: list[tuple[int, int]]) -> float | None:
+    """Mean absolute difference between the hole's ring and the probe's ring.
+
+    Both rings sample identical offsets, so only local appearance is compared.
+    Cells hidden by either mask are skipped; at least twelve samples are required.
+    """
+    hole = set(_hole_cells(mask))
+    probe = set(region)
+    height, width = len(mask), len(mask[0])
+    delta_row = min(r for r, _ in region) - min(r for r, _ in hole)
+    delta_col = min(c for _, c in region) - min(c for _, c in hole)
+    pairs = []
+    for row, col in ring:
+        target = (row + delta_row, col + delta_col)
+        if target in probe or target in hole:
+            continue
+        if not (0 <= target[0] < height and 0 <= target[1] < width):
+            continue
+        if mask[target[0]][target[1]]:
+            continue
+        pairs.append((image[row][col], image[target[0]][target[1]]))
+    if len(pairs) < 12:
+        return None
+    budget = len(pairs) * 3 * MAX_CONTEXT_MAE
+    total = 0.0
+    count = 0
+    for source, target in pairs:
+        for channel in range(3):
+            total += abs(source[channel] - target[channel])
+            count += 1
+        if total > budget:
+            return MAX_CONTEXT_MAE + 1.0
+    return total / count
+
+
+def _probe_candidates(mask: Mask) -> list[list[tuple[int, int]]]:
+    height, width = len(mask), len(mask[0])
+    hole = _hole_cells(mask)
     if not hole:
         return []
     row_span = max(r for r, _ in hole) - min(r for r, _ in hole) + 1
     col_span = max(c for _, c in hole) - min(c for _, c in hole) + 1
-    regions = []
-    used = set()
-    for dr, dc in ((-row_span-1, 0), (row_span+1, 0), (0, -col_span-1), (0, col_span+1)):
-        shifted = [(r+dr, c+dc) for r, c in hole]
-        if all(0 <= r < height and 0 <= c < width and not mask[r][c] and (r, c) not in used
-               for r, c in shifted):
-            regions.append(shifted)
-            used.update(shifted)
-    return regions
+    candidates = []
+    offsets = [(dr, dc)
+               for dr in range(-(row_span + PROBE_WINDOW), row_span + PROBE_WINDOW + 1)
+               for dc in range(-(col_span + PROBE_WINDOW), col_span + PROBE_WINDOW + 1)
+               if not (dr == 0 and dc == 0)]
+    # Nearest displacements first, so the bounded budget spends its samples on the
+    # sites most likely to share the hole's local statistics.
+    offsets.sort(key=lambda item: (item[0] * item[0] + item[1] * item[1], item))
+    for dr, dc in offsets:
+        shifted = [(r + dr, c + dc) for r, c in hole]
+        if all(0 <= r < height and 0 <= c < width and not mask[r][c] for r, c in shifted):
+            candidates.append(shifted)
+            if len(candidates) == PROBE_CANDIDATE_LIMIT:
+                break
+    return candidates
+
+
+def _probe_regions(image: Image, mask: Mask, *, max_probes: int = MAX_PROBES) -> tuple[list[list[tuple[int, int]]], int]:
+    """Pick probe sites whose known surroundings look most like the hole's."""
+    candidates = _probe_candidates(mask)
+    considered = len(candidates)
+    ring = _probe_ring(mask)
+    scored = []
+    for region in candidates:
+        score = _context_mae(image, mask, region, ring)
+        if score is None or score > MAX_CONTEXT_MAE:
+            continue
+        scored.append((score, region))
+    scored.sort(key=lambda item: item[0])
+    chosen: list[list[tuple[int, int]]] = []
+    used: set[tuple[int, int]] = set(_hole_cells(mask))
+    for _score, region in scored:
+        if used.intersection(region):
+            continue
+        chosen.append(region)
+        used.update(region)
+        if len(chosen) == max_probes:
+            break
+    return chosen, considered
 
 
 def _check_local_reconstruction(
-    image: Image, mask: Mask, *, patch_size: int, search_radius: int, k_neighbors: int,
+    image: Image, mask: Mask, candidate_image: Image, *, patch_size: int,
+    search_radius: int, k_neighbors: int, max_probes: int = MAX_PROBES,
 ) -> dict:
+    """Replay each probe with a single masked block, on the candidate fill.
+
+    Masking the original hole as well would make the probe harder than the real
+    task. The candidate supplies the hole content, so no true hidden pixel is read.
+    """
     errors = []
-    for region in _probe_regions(mask):
-        probe_mask = [row[:] for row in mask]
-        probe_image = copy_image(image)
-        for r, row in enumerate(mask):
-            for c, missing in enumerate(row):
-                if missing:
-                    probe_image[r][c] = (0, 0, 0)
+    regions, considered = _probe_regions(image, mask, max_probes=max_probes)
+    for region in regions:
+        probe_image = copy_image(candidate_image)
+        probe_mask = [[0] * len(mask[0]) for _ in mask]
         for r, c in region:
             probe_mask[r][c] = 1
-            probe_image[r][c] = (0, 0, 0)
-        # This private replay may cover a wider bounding box than the real hole.
-        # It can never be returned as a public reconstruction or gain authority.
         probe = _inpaint_candidate(
             probe_image, probe_mask, patch_size=patch_size,
             search_radius=search_radius, k_neighbors=k_neighbors, _probe=True,
@@ -229,12 +365,18 @@ def _check_local_reconstruction(
         "version": QUALITY_GUARD_VERSION,
         "complete_probes": len(errors),
         "required_probes": MIN_COMPLETE_PROBES,
+        "probe_window": PROBE_WINDOW,
+        "max_context_mae_255": MAX_CONTEXT_MAE,
         "probe_mae_255": [round(error, 6) for error in errors],
         "max_probe_mae_255": round(maximum, 6) if maximum is not None else None,
         "limit_mae_255": MAX_PROBE_MAE_255,
-        "passed": enough and maximum <= MAX_PROBE_MAE_255,
-        "reason": "insufficient_quality_probes" if not enough else
-                  "local_reconstruction_error" if maximum > MAX_PROBE_MAE_255 else None,
+        "candidate_sites": considered,
+        "selected_sites": len(regions),
+        "passed": enough and maximum is not None and maximum <= MAX_PROBE_MAE_255,
+        "reason": ("unpredictable_context" if considered and len(regions) < MIN_COMPLETE_PROBES
+                   else "insufficient_quality_probes" if not enough
+                   else "local_reconstruction_error" if maximum is not None and maximum > MAX_PROBE_MAE_255
+                   else None),
         "calibrated_probability": False,
     }
 
@@ -270,7 +412,7 @@ def inpaint(
     if hole_count == 0 or candidate.abstained:
         return candidate
     quality = _check_local_reconstruction(
-        image, mask, patch_size=patch_size,
+        image, mask, candidate.output["image"], patch_size=patch_size,
         search_radius=search_radius, k_neighbors=k_neighbors,
     )
     output = {**candidate.output, "quality": quality, "support_score": candidate.confidence}

@@ -1,0 +1,72 @@
+{
+  "layers": [
+    4,
+    4,
+    1
+  ],
+  "weights": [
+    [
+      -5.0,
+      -2.0,
+      1.0,
+      0.0,
+      1.5,
+      3.0,
+      2.5,
+      0.0,
+      0.0,
+      1.0,
+      4.0,
+      0.0,
+      0.0,
+      0.5,
+      1.0,
+      0.2
+    ],
+    [
+      -1.5,
+      2.0,
+      1.5,
+      0.5
+    ]
+  ],
+  "biases": [
+    [
+      -0.1,
+      -0.2,
+      -0.1,
+      0.0
+    ],
+    [
+      -0.2
+    ]
+  ],
+  "activations": [
+    "relu",
+    "sigmoid"
+  ],
+  "labels": [
+    "dither_intensity"
+  ],
+  "name": "nano_quantize_tone",
+  "authority_mode": "consultative",
+  "inputs": [
+    "luma_variance",
+    "grad_mag",
+    "dist_centroid",
+    "luma"
+  ],
+  "heldout_accuracy": 0.978,
+  "precision": "float-json-weights-v1",
+  "budget": {
+    "max_parameters": 48,
+    "max_model_bytes": 4096,
+    "precision": "float-json-weights-v1",
+    "target_latency_ms": null,
+    "target_peak_ram_bytes": null,
+    "device": null,
+    "measured_latency_ms": null,
+    "measured_peak_ram_bytes": null,
+    "device_verified": false
+  }
+}
