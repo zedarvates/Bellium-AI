@@ -20,7 +20,6 @@ from bellium.routing import HybridRouter, ToolCapability, TaskRequirement, Escal
 from bellium.vision import detect_visual_anomalies
 from bellium.audio import detect_voice_activity
 from bellium.adapters import repair_and_validate_json, SchemaRule
-from bellium.pipeline import AssetPrepPipeline, AssetSpec
 
 
 @dataclass

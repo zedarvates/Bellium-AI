@@ -1,7 +1,8 @@
-import os, sys
+import os
+import sys
 
 sys.path.insert(0, os.path.abspath('temp_bellium_repo'))
-from bellium.language import PhonemeMemory, EvidenceLevel, PhonemicVector
+from bellium.language import PhonemeMemory, EvidenceLevel
 
 def run_tests():
     mem = PhonemeMemory()
@@ -31,7 +32,7 @@ def run_tests():
     assert top.confidence > 0.95
     
     # Reconstruct test
-    sym, ev, conf = mem.reconstruct_phoneme(q_a)
+    sym, ev, conf = mem.reconstruct_phoneme(q_a, language_filter='lat')
     print(f'Reconstruct /a/: sym={sym}, evidence={ev}, conf={conf}')
     assert sym == 'a'
     assert ev in (EvidenceLevel.ATTESTED, EvidenceLevel.INFERRED)

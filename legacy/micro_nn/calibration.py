@@ -19,6 +19,9 @@ from __future__ import annotations
 
 import json
 import math
+import hashlib
+import os
+import tempfile
 from pathlib import Path
 from typing import Optional
 
@@ -29,11 +32,26 @@ _cache: dict[str, float] = {}
 
 def apply_temperature(probs: list[float], temperature: float) -> list[float]:
     """Rescale a probability vector by temperature T via softmax(log(p)/T)."""
+    if (
+        isinstance(temperature, bool)
+        or not isinstance(temperature, (int, float))
+        or not math.isfinite(temperature)
+        or temperature <= 0
+    ):
+        raise ValueError("temperature must be positive and finite")
+    if any(
+        isinstance(p, bool)
+        or not isinstance(p, (int, float))
+        or not math.isfinite(p)
+        or not 0 <= p <= 1
+        for p in probs
+    ):
+        raise ValueError("probabilities must be finite numbers in [0, 1]")
     if temperature == 1.0 or not probs:
         return list(probs)
     logits = [math.log(max(p, _EPS)) / temperature for p in probs]
     hi = max(logits)
-    exps = [math.exp(l - hi) for l in logits]
+    exps = [math.exp(value - hi) for value in logits]
     total = sum(exps) or 1.0
     return [e / total for e in exps]
 
@@ -68,8 +86,9 @@ def fit_temperature(probs_list: list[list[float]], labels: list[int]) -> float:
     return round(best_t, 3)
 
 
-def expected_calibration_error(probs_list: list[list[float]], labels: list[int],
-                               *, bins: int = 10) -> float:
+def expected_calibration_error(
+    probs_list: list[list[float]], labels: list[int], *, bins: int = 10
+) -> float:
     """ECE — mean gap between confidence and accuracy across confidence bins.
 
     0 = perfectly calibrated (a 0.8-confident batch is right 80% of the time)."""
@@ -93,27 +112,68 @@ def expected_calibration_error(probs_list: list[list[float]], labels: list[int],
 
 # ── persistence ────────────────────────────────────────────────────────────────
 
+
 def _calib_path(model_name: str) -> Path:
+    if not model_name or any(
+        ch not in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-"
+        for ch in model_name
+    ):
+        raise ValueError("invalid model name")
     return _MODELS_DIR / f"{model_name}.calib.json"
 
 
-def save_temperature(model_name: str, temperature: float, *, ece_before: float = 0.0,
-                     ece_after: float = 0.0, samples: int = 0) -> None:
-    _calib_path(model_name).write_text(json.dumps({
-        "temperature": round(float(temperature), 3),
-        "ece_before": ece_before, "ece_after": ece_after, "samples": samples,
-    }, indent=2), encoding="utf-8")
+def save_temperature(
+    model_name: str,
+    temperature: float,
+    *,
+    ece_before: float = 0.0,
+    ece_after: float = 0.0,
+    samples: int = 0,
+) -> None:
+    apply_temperature([0.5, 0.5], temperature)
+    destination = _calib_path(model_name)
+    model = _MODELS_DIR / f"{model_name}.json"
+    payload = json.dumps(
+        {
+            "temperature": round(float(temperature), 3),
+            "ece_before": ece_before,
+            "ece_after": ece_after,
+            "samples": samples,
+            "model_sha256": hashlib.sha256(model.read_bytes()).hexdigest()
+            if model.exists()
+            else None,
+        },
+        indent=2,
+        allow_nan=False,
+    )
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(
+            mode="w", encoding="utf-8", dir=destination.parent, delete=False
+        ) as handle:
+            temporary = Path(handle.name)
+            handle.write(payload)
+        os.replace(temporary, destination)
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
     _cache[model_name] = float(temperature)
 
 
 def load_temperature(model_name: str) -> float:
     """Calibrated T for a model, or 1.0 (identity) if it was never calibrated."""
-    if model_name in _cache:
-        return _cache[model_name]
     try:
-        t = float(json.loads(_calib_path(model_name).read_text(encoding="utf-8"))["temperature"])
-    except (OSError, ValueError, KeyError, TypeError):
-        t = 1.0
+        payload = json.loads(_calib_path(model_name).read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        return 1.0
+    t = payload["temperature"]
+    apply_temperature([0.5, 0.5], t)
+    model = _MODELS_DIR / f"{model_name}.json"
+    if (
+        model.exists()
+        and payload.get("model_sha256") != hashlib.sha256(model.read_bytes()).hexdigest()
+    ):
+        raise ValueError("calibration does not match model bytes")
     _cache[model_name] = t
     return t
 
@@ -124,32 +184,20 @@ def calibrate(model_name: str, probs_list: list[list[float]], labels: list[int])
     t = fit_temperature(probs_list, labels)
     after = expected_calibration_error([apply_temperature(p, t) for p in probs_list], labels)
     save_temperature(model_name, t, ece_before=before, ece_after=after, samples=len(labels))
-    return {"model": model_name, "temperature": t, "ece_before": before,
-            "ece_after": after, "samples": len(labels)}
+    return {
+        "model": model_name,
+        "temperature": t,
+        "ece_before": before,
+        "ece_after": after,
+        "samples": len(labels),
+    }
 
 
 def calibrate_from_logs(model_name: str) -> Optional[dict]:
-    """Calibrate from the active-learning logs (real outcomes). None if too few.
+    """No log adapter is shipped in Bellium. Use calibrate() with verified data.
 
-    Runs the model on each logged feature vector to get probabilities, pairs them
-    with the verified actual_class, and fits T. This is the production path once the
-    feedback loop has collected ≥30 labeled samples."""
-    from legacy.micro_nn.active_learning import ActiveLearning
-    from legacy.micro_nn.cli import _predict_python
-
-    al = ActiveLearning()
-    logs = [l for l in al.logs.get(model_name, [])
-            if l.actual_class is not None and l.correct is not None]
-    model_path = _MODELS_DIR / f"{model_name}.json"
-    if len(logs) < 30 or not model_path.exists():
-        return None
-    probs_list, labels = [], []
-    for l in logs:
-        try:
-            probs_list.append(_predict_python(str(model_path), l.features))
-            labels.append(int(l.actual_class))
-        except Exception:  # noqa: BLE001
-            continue
-    if len(labels) < 30:
-        return None
-    return calibrate(model_name, probs_list, labels)
+    Kept as a compatibility entry point: unavailable log data never triggers a
+    calibration, reads another project's private logs, or changes model weights.
+    """
+    _calib_path(model_name)  # validate the requested identifier
+    return None

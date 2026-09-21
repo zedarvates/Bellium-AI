@@ -1,0 +1,1332 @@
+{
+  "schema": "bellium.tileability-memory/v1",
+  "notes": "Authored synthetic fixtures. The deterministic baseline must agree at inference.",
+  "items": [
+    {
+      "id": "tl_texture_01_x_tileable",
+      "family": "texture",
+      "axis": "x",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.02941176470588267,
+        "seam": 0.5490196078431373,
+        "interior": 0.3498288204170557,
+        "edge_step": 0.5333333333333332,
+        "seam_max": 0.5490196078431373,
+        "hot_rows": 0.0,
+        "axis_asym": 0.029412
+      }
+    },
+    {
+      "id": "tl_texture_01_y_tileable",
+      "family": "texture",
+      "axis": "y",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 0.029412
+      }
+    },
+    {
+      "id": "tl_texture_02_x_tileable",
+      "family": "texture",
+      "axis": "x",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.4205882352941176,
+        "interior": 0.26562402738873325,
+        "edge_step": 0.4235294117647057,
+        "seam_max": 0.42352941176470615,
+        "hot_rows": 0.0,
+        "axis_asym": 0.0
+      }
+    },
+    {
+      "id": "tl_texture_02_y_tileable",
+      "family": "texture",
+      "axis": "y",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.06813725490196078,
+        "interior": 0.27121848739495796,
+        "edge_step": 0.23529411764705888,
+        "seam_max": 0.09411764705882364,
+        "hot_rows": 0.0,
+        "axis_asym": 0.0
+      }
+    },
+    {
+      "id": "tl_texture_03_x_tileable",
+      "family": "texture",
+      "axis": "x",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 1.0,
+        "interior": 1.0,
+        "edge_step": 1.0,
+        "seam_max": 1.0,
+        "hot_rows": 0.1875,
+        "axis_asym": 0.0
+      }
+    },
+    {
+      "id": "tl_texture_03_y_tileable",
+      "family": "texture",
+      "axis": "y",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 1.0,
+        "interior": 1.0,
+        "edge_step": 1.0,
+        "seam_max": 1.0,
+        "hot_rows": 0.1875,
+        "axis_asym": 0.0
+      }
+    },
+    {
+      "id": "tl_texture_04_x_tileable",
+      "family": "texture",
+      "axis": "x",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.24400871459694992,
+        "edge_step": 0.0,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 0.0
+      }
+    },
+    {
+      "id": "tl_texture_04_y_tileable",
+      "family": "texture",
+      "axis": "y",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.24400871459694992,
+        "edge_step": 0.0,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 0.0
+      }
+    },
+    {
+      "id": "tl_texture_05_x_tileable",
+      "family": "texture",
+      "axis": "x",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 0.0
+      }
+    },
+    {
+      "id": "tl_texture_05_y_tileable",
+      "family": "texture",
+      "axis": "y",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 0.0
+      }
+    },
+    {
+      "id": "tl_texture_06_x_seam",
+      "family": "texture",
+      "axis": "x",
+      "verdict": "seam",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.048801742919389976,
+        "edge_step": 0.04705882352941204,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_texture_06_y_tileable",
+      "family": "texture",
+      "axis": "y",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_texture_07_x_seam",
+      "family": "texture",
+      "axis": "x",
+      "verdict": "seam",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.15561780267662617,
+        "edge_step": 0.25098039215686274,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_texture_07_y_tileable",
+      "family": "texture",
+      "axis": "y",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_texture_08_x_seam",
+      "family": "texture",
+      "axis": "x",
+      "verdict": "seam",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.28758169934640515,
+        "edge_step": 0.47058823529411775,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_texture_08_y_tileable",
+      "family": "texture",
+      "axis": "y",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_texture_09_x_seam",
+      "family": "texture",
+      "axis": "x",
+      "verdict": "seam",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.04407096171802055,
+        "edge_step": 0.031372549019607954,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_texture_09_y_tileable",
+      "family": "texture",
+      "axis": "y",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_texture_10_x_tileable",
+      "family": "texture",
+      "axis": "x",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_texture_10_y_seam",
+      "family": "texture",
+      "axis": "y",
+      "verdict": "seam",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.048801742919389976,
+        "edge_step": 0.04705882352941204,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_texture_11_x_tileable",
+      "family": "texture",
+      "axis": "x",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_texture_11_y_seam",
+      "family": "texture",
+      "axis": "y",
+      "verdict": "seam",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.15561780267662617,
+        "edge_step": 0.25098039215686274,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_texture_12_x_tileable",
+      "family": "texture",
+      "axis": "x",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_texture_12_y_seam",
+      "family": "texture",
+      "axis": "y",
+      "verdict": "seam",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.28758169934640515,
+        "edge_step": 0.47058823529411775,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_texture_13_x_tileable",
+      "family": "texture",
+      "axis": "x",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_texture_13_y_seam",
+      "family": "texture",
+      "axis": "y",
+      "verdict": "seam",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.04407096171802055,
+        "edge_step": 0.031372549019607954,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_tilemap_01_x_tileable",
+      "family": "tilemap",
+      "axis": "x",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.01587301587301627,
+        "seam": 1.0,
+        "interior": 0.701151571739807,
+        "edge_step": 0.9882352941176467,
+        "seam_max": 1.0,
+        "hot_rows": 0.0,
+        "axis_asym": 0.015873
+      }
+    },
+    {
+      "id": "tl_tilemap_01_y_tileable",
+      "family": "tilemap",
+      "axis": "y",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 0.015873
+      }
+    },
+    {
+      "id": "tl_tilemap_02_x_tileable",
+      "family": "tilemap",
+      "axis": "x",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.007653061224489914,
+        "seam": 0.7745098039215687,
+        "interior": 0.5330532212885155,
+        "edge_step": 0.7686274509803921,
+        "seam_max": 0.7843137254901961,
+        "hot_rows": 0.0,
+        "axis_asym": 0.007653
+      }
+    },
+    {
+      "id": "tl_tilemap_02_y_tileable",
+      "family": "tilemap",
+      "axis": "y",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.29926470588235304,
+        "interior": 0.5405967942732649,
+        "edge_step": 0.784313725490196,
+        "seam_max": 0.3294117647058825,
+        "hot_rows": 0.0,
+        "axis_asym": 0.007653
+      }
+    },
+    {
+      "id": "tl_tilemap_03_x_tileable",
+      "family": "tilemap",
+      "axis": "x",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 1.0,
+        "interior": 1.0,
+        "edge_step": 1.0,
+        "seam_max": 1.0,
+        "hot_rows": 0.25,
+        "axis_asym": 0.0
+      }
+    },
+    {
+      "id": "tl_tilemap_03_y_tileable",
+      "family": "tilemap",
+      "axis": "y",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 1.0,
+        "interior": 1.0,
+        "edge_step": 1.0,
+        "seam_max": 1.0,
+        "hot_rows": 0.25,
+        "axis_asym": 0.0
+      }
+    },
+    {
+      "id": "tl_tilemap_04_x_tileable",
+      "family": "tilemap",
+      "axis": "x",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.10457516339869281,
+        "edge_step": 0.0,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 0.0
+      }
+    },
+    {
+      "id": "tl_tilemap_04_y_tileable",
+      "family": "tilemap",
+      "axis": "y",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.10457516339869281,
+        "edge_step": 0.0,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 0.0
+      }
+    },
+    {
+      "id": "tl_tilemap_05_x_tileable",
+      "family": "tilemap",
+      "axis": "x",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 0.0
+      }
+    },
+    {
+      "id": "tl_tilemap_05_y_tileable",
+      "family": "tilemap",
+      "axis": "y",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 0.0
+      }
+    },
+    {
+      "id": "tl_tilemap_06_x_seam",
+      "family": "tilemap",
+      "axis": "x",
+      "verdict": "seam",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.048801742919389976,
+        "edge_step": 0.04705882352941204,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_tilemap_06_y_tileable",
+      "family": "tilemap",
+      "axis": "y",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_tilemap_07_x_seam",
+      "family": "tilemap",
+      "axis": "x",
+      "verdict": "seam",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.30849673202614375,
+        "edge_step": 0.47058823529411775,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_tilemap_07_y_tileable",
+      "family": "tilemap",
+      "axis": "y",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_tilemap_08_x_seam",
+      "family": "tilemap",
+      "axis": "x",
+      "verdict": "seam",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.5310924369747898,
+        "edge_step": 0.6588235294117646,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_tilemap_08_y_tileable",
+      "family": "tilemap",
+      "axis": "y",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_tilemap_09_x_seam",
+      "family": "tilemap",
+      "axis": "x",
+      "verdict": "seam",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.0490507314036726,
+        "edge_step": 0.03137254901960784,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_tilemap_09_y_tileable",
+      "family": "tilemap",
+      "axis": "y",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_tilemap_10_x_tileable",
+      "family": "tilemap",
+      "axis": "x",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_tilemap_10_y_seam",
+      "family": "tilemap",
+      "axis": "y",
+      "verdict": "seam",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.048801742919389976,
+        "edge_step": 0.04705882352941204,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_tilemap_11_x_tileable",
+      "family": "tilemap",
+      "axis": "x",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_tilemap_11_y_seam",
+      "family": "tilemap",
+      "axis": "y",
+      "verdict": "seam",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.30849673202614375,
+        "edge_step": 0.47058823529411775,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_tilemap_12_x_tileable",
+      "family": "tilemap",
+      "axis": "x",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_tilemap_12_y_seam",
+      "family": "tilemap",
+      "axis": "y",
+      "verdict": "seam",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.5310924369747898,
+        "edge_step": 0.6588235294117646,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_tilemap_13_x_tileable",
+      "family": "tilemap",
+      "axis": "x",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_tilemap_13_y_seam",
+      "family": "tilemap",
+      "axis": "y",
+      "verdict": "seam",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.0490507314036726,
+        "edge_step": 0.03137254901960784,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_sprite_01_x_tileable",
+      "family": "sprite",
+      "axis": "x",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.9999999999999993,
+        "seam": 1.0,
+        "interior": 0.4705882352941176,
+        "edge_step": 0.7058823529411766,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_sprite_01_y_tileable",
+      "family": "sprite",
+      "axis": "y",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_sprite_02_x_tileable",
+      "family": "sprite",
+      "axis": "x",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.9508928571428573,
+        "seam": 1.0,
+        "interior": 0.35784313725490197,
+        "edge_step": 0.5490196078431371,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 0.008482
+      }
+    },
+    {
+      "id": "tl_sprite_02_y_tileable",
+      "family": "sprite",
+      "axis": "y",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.9593749999999985,
+        "seam": 1.0,
+        "interior": 0.35787815126050415,
+        "edge_step": 0.5490196078431375,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 0.008482
+      }
+    },
+    {
+      "id": "tl_sprite_03_x_tileable",
+      "family": "sprite",
+      "axis": "x",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 1.0,
+        "interior": 1.0,
+        "edge_step": 1.0,
+        "seam_max": 1.0,
+        "hot_rows": 0.25,
+        "axis_asym": 0.044872
+      }
+    },
+    {
+      "id": "tl_sprite_03_y_tileable",
+      "family": "sprite",
+      "axis": "y",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.04487179487179484,
+        "seam": 1.0,
+        "interior": 1.0,
+        "edge_step": 1.0,
+        "seam_max": 1.0,
+        "hot_rows": 0.4375,
+        "axis_asym": 0.044872
+      }
+    },
+    {
+      "id": "tl_sprite_04_x_tileable",
+      "family": "sprite",
+      "axis": "x",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.5228758169934641,
+        "edge_step": 0.0,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 0.0
+      }
+    },
+    {
+      "id": "tl_sprite_04_y_tileable",
+      "family": "sprite",
+      "axis": "y",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.5228758169934641,
+        "edge_step": 0.0,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 0.0
+      }
+    },
+    {
+      "id": "tl_sprite_05_x_tileable",
+      "family": "sprite",
+      "axis": "x",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 0.0
+      }
+    },
+    {
+      "id": "tl_sprite_05_y_tileable",
+      "family": "sprite",
+      "axis": "y",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 0.0
+      }
+    },
+    {
+      "id": "tl_sprite_06_x_seam",
+      "family": "sprite",
+      "axis": "x",
+      "verdict": "seam",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.048801742919389976,
+        "edge_step": 0.04705882352941204,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_sprite_06_y_tileable",
+      "family": "sprite",
+      "axis": "y",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_sprite_07_x_seam",
+      "family": "sprite",
+      "axis": "x",
+      "verdict": "seam",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.208901338313103,
+        "edge_step": 0.3294117647058825,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_sprite_07_y_tileable",
+      "family": "sprite",
+      "axis": "y",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_sprite_08_x_seam",
+      "family": "sprite",
+      "axis": "x",
+      "verdict": "seam",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.3309056956115779,
+        "edge_step": 0.5647058823529414,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_sprite_08_y_tileable",
+      "family": "sprite",
+      "axis": "y",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_sprite_09_x_seam",
+      "family": "sprite",
+      "axis": "x",
+      "verdict": "seam",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.046560846560846546,
+        "edge_step": 0.03137254901960784,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_sprite_09_y_tileable",
+      "family": "sprite",
+      "axis": "y",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_sprite_10_x_tileable",
+      "family": "sprite",
+      "axis": "x",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_sprite_10_y_seam",
+      "family": "sprite",
+      "axis": "y",
+      "verdict": "seam",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.048801742919389976,
+        "edge_step": 0.04705882352941204,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_sprite_11_x_tileable",
+      "family": "sprite",
+      "axis": "x",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_sprite_11_y_seam",
+      "family": "sprite",
+      "axis": "y",
+      "verdict": "seam",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.208901338313103,
+        "edge_step": 0.3294117647058825,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_sprite_12_x_tileable",
+      "family": "sprite",
+      "axis": "x",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_sprite_12_y_seam",
+      "family": "sprite",
+      "axis": "y",
+      "verdict": "seam",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.3309056956115779,
+        "edge_step": 0.5647058823529414,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_sprite_13_x_tileable",
+      "family": "sprite",
+      "axis": "x",
+      "verdict": "tileable",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 0.0,
+        "seam": 0.0,
+        "interior": 0.0,
+        "edge_step": 0.0,
+        "seam_max": 0.0,
+        "hot_rows": 0.0,
+        "axis_asym": 1.0
+      }
+    },
+    {
+      "id": "tl_sprite_13_y_seam",
+      "family": "sprite",
+      "axis": "y",
+      "verdict": "seam",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "gap": 1.0,
+        "seam": 1.0,
+        "interior": 0.046560846560846546,
+        "edge_step": 0.03137254901960784,
+        "seam_max": 1.0,
+        "hot_rows": 1.0,
+        "axis_asym": 1.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,343 @@
+{
+  "schema": "bellium.physical-case-memory/v1",
+  "family": "atmosphere-density",
+  "domain": {
+    "altitude_m": [
+      0.0,
+      20000.0
+    ]
+  },
+  "output_unit": "kg/m3",
+  "reference_method": "reference:isa",
+  "notes": "Cases generated from published reference models by scripts/build_physical_cases.py. They are not field measurements; interpolation is limited to the declared domain.",
+  "items": [
+    {
+      "id": "atm_density_00000",
+      "inputs": {
+        "altitude_m": 0.0
+      },
+      "output": 1.22500002,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_00500",
+      "inputs": {
+        "altitude_m": 500.0
+      },
+      "output": 1.16726883,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_01000",
+      "inputs": {
+        "altitude_m": 1000.0
+      },
+      "output": 1.1116425,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_01500",
+      "inputs": {
+        "altitude_m": 1500.0
+      },
+      "output": 1.05806726,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_02000",
+      "inputs": {
+        "altitude_m": 2000.0
+      },
+      "output": 1.0064901,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_02500",
+      "inputs": {
+        "altitude_m": 2500.0
+      },
+      "output": 0.95685879,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_03000",
+      "inputs": {
+        "altitude_m": 3000.0
+      },
+      "output": 0.90912187,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_03500",
+      "inputs": {
+        "altitude_m": 3500.0
+      },
+      "output": 0.86322863,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_04000",
+      "inputs": {
+        "altitude_m": 4000.0
+      },
+      "output": 0.81912916,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_04500",
+      "inputs": {
+        "altitude_m": 4500.0
+      },
+      "output": 0.77677427,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_05000",
+      "inputs": {
+        "altitude_m": 5000.0
+      },
+      "output": 0.73611556,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_05500",
+      "inputs": {
+        "altitude_m": 5500.0
+      },
+      "output": 0.69710537,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_06000",
+      "inputs": {
+        "altitude_m": 6000.0
+      },
+      "output": 0.65969681,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_06500",
+      "inputs": {
+        "altitude_m": 6500.0
+      },
+      "output": 0.62384373,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_07000",
+      "inputs": {
+        "altitude_m": 7000.0
+      },
+      "output": 0.58950073,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_07500",
+      "inputs": {
+        "altitude_m": 7500.0
+      },
+      "output": 0.55662317,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_08000",
+      "inputs": {
+        "altitude_m": 8000.0
+      },
+      "output": 0.52516714,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_08500",
+      "inputs": {
+        "altitude_m": 8500.0
+      },
+      "output": 0.49508948,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_09000",
+      "inputs": {
+        "altitude_m": 9000.0
+      },
+      "output": 0.46634776,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_09500",
+      "inputs": {
+        "altitude_m": 9500.0
+      },
+      "output": 0.43890031,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_10000",
+      "inputs": {
+        "altitude_m": 10000.0
+      },
+      "output": 0.41270617,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_10500",
+      "inputs": {
+        "altitude_m": 10500.0
+      },
+      "output": 0.38772511,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_11000",
+      "inputs": {
+        "altitude_m": 11000.0
+      },
+      "output": 0.36391766,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_11500",
+      "inputs": {
+        "altitude_m": 11500.0
+      },
+      "output": 0.33632711,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_12000",
+      "inputs": {
+        "altitude_m": 12000.0
+      },
+      "output": 0.31082808,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_12500",
+      "inputs": {
+        "altitude_m": 12500.0
+      },
+      "output": 0.28726229,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_13000",
+      "inputs": {
+        "altitude_m": 13000.0
+      },
+      "output": 0.26548317,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_13500",
+      "inputs": {
+        "altitude_m": 13500.0
+      },
+      "output": 0.24535525,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_14000",
+      "inputs": {
+        "altitude_m": 14000.0
+      },
+      "output": 0.22675336,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_14500",
+      "inputs": {
+        "altitude_m": 14500.0
+      },
+      "output": 0.20956179,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_15000",
+      "inputs": {
+        "altitude_m": 15000.0
+      },
+      "output": 0.19367362,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_15500",
+      "inputs": {
+        "altitude_m": 15500.0
+      },
+      "output": 0.17899003,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_16000",
+      "inputs": {
+        "altitude_m": 16000.0
+      },
+      "output": 0.1654197,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_16500",
+      "inputs": {
+        "altitude_m": 16500.0
+      },
+      "output": 0.15287821,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_17000",
+      "inputs": {
+        "altitude_m": 17000.0
+      },
+      "output": 0.14128757,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_17500",
+      "inputs": {
+        "altitude_m": 17500.0
+      },
+      "output": 0.13057569,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_18000",
+      "inputs": {
+        "altitude_m": 18000.0
+      },
+      "output": 0.12067594,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_18500",
+      "inputs": {
+        "altitude_m": 18500.0
+      },
+      "output": 0.11152676,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_19000",
+      "inputs": {
+        "altitude_m": 19000.0
+      },
+      "output": 0.10307123,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_19500",
+      "inputs": {
+        "altitude_m": 19500.0
+      },
+      "output": 0.09525676,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_density_20000",
+      "inputs": {
+        "altitude_m": 20000.0
+      },
+      "output": 0.08803476,
+      "source": "reference-model:isa"
+    }
+  ]
+}

@@ -10,82 +10,23 @@
 
 > **Small minds. Sharp purpose. Local intelligence.**
 
-Bellium AI is an open-source laboratory for **micro-NN, k-NN, micro-LLM and hybrid specialist intelligence**: small, measurable models built to solve bounded recurring problems without calling a large general-purpose model for everything.
+Bellium AI is an open-source laboratory for **micro-NN, k-NN, micro-LLM and hybrid specialist intelligence**. It exists to solve bounded, recurring problems with small measurable models, without calling a large general-purpose model for everything.
+
+Bellium does not wait for AGI, ASI, or one mind that claims to do it all. Intelligence here is a **local mesh of ultra-specialized nodes**. Each module owns one precise task. An orchestration layer routes, adapts and composes those specialists. It does not replace them, and it is not a hidden general mind: when no node fits, the system abstains or escalates.
 
 🌹 **Visual identity:** abyssal blue, crystalline intelligence and a blue rose at the core — a small touch of fantasy and mystery.
 
-## Modules & Architecture
+## Creator's note
 
-Bellium AI is structured around zero-heavy-dependency specialist primitives:
+I am Sylvain Galliez (RapideCastor), the creator of Bellium AI.
 
-- [`bellium/cutout/`](bellium/cutout/) — Deterministic foreground segmentation, border sampling, alpha feathering and background normalization.
-- [`bellium/inpaint/`](bellium/inpaint/) — Fast localized patch k-NN synthesis and mask-ratio escalation routing.
-- [`bellium/language/`](bellium/language/) — Provenance-grounded phonemic vector space with epistemic evidence tracking (`attested`, `reconstructed`, `inferred`, `speculative`).
-- [`bellium/routing/`](bellium/routing/) — Tiered specialist router (deterministic → k-NN → micro-NN → micro-LLM → large model) with hard constraint filtering and graceful abstention.
-- [`bellium/pipeline/`](bellium/pipeline/) — End-to-end asset preparation chaining inpainting, cutout and canvas normalization for StoryCore / game engines.
-- [`bellium/vision/`](bellium/vision/) — Deterministic visual anomaly, sensor state and emergency stop detection (robotics / aquaponics / CCTV).
-- [`bellium/audio/`](bellium/audio/) — Zero-dependency voice activity detection (VAD), SNR estimation and clipping/quality gates.
-- [`bellium/adapters/`](bellium/adapters/) — Deterministic JSON repair, schema enforcement, type coercion and micro-LLM output stabilization.
-- [`bellium/filters/`](bellium/filters/) — Deterministic grayscale, sepia, binary, invert, brightness, contrast, saturation and tint filters with adjustable strength, factors, optional masks and alpha preservation.
-- [`bellium/texture/`](bellium/texture/) — Deterministic X/Y repetition periods in source pixels with match scores, local prominence, a harmonic check and abstention on flat, noisy or non-periodic content.
-- [`legacy/`](legacy/) — Pinned weight-exact imports from `zedarvates/botte-secrete`: 11 micro-NN JSON models and family-isolated k-NN Asset Quality.
+I do not treat AGI or ASI as the architecture we should wait for. For useful local work, it is enough to ultra-specialize each AI module or node: one task, small enough to measure, allowed to abstain.
 
-## Quick Start & Verification
+That is an engineering bet, not a claim that a large general model is never useful. The hard part is composition: routing, contracts, conflicts, abstention, escalation. An orchestration AI should choose, adapt and compose those nodes. It should not become a hidden general mind, and it should not pretend the mesh covers every new job. Outside a node's contract, the honest answer is no. A large model remains a last resort, not the design.
 
-```bash
-# Clone repository
-git clone https://github.com/zedarvates/Bellium-AI.git
-cd Bellium-AI
+*On n'a pas besoin d'AGI ni d'ASI comme architecture. Ultra-spécialiser chaque nœud local suffit pour beaucoup de travail utile : une tâche, une mesure, un droit de se taire. L'orchestration compose ces nœuds ; elle ne les remplace pas, et elle n'est pas un esprit général.*
 
-# Run the 15 validation suites (cross-platform, pure Python / Pillow)
-python run_all_tests.py
-
-# Apply a deterministic filter (grayscale, sepia or binary)
-python -m bellium.cli filter sepia input.png -o output/sepia.png --strength 0.7
-
-# Measure X/Y texture repetition (exit code 2 when no period is reliable)
-python -m bellium.cli texture input.png
-```
-
-## Usage examples: tools, scripts and an agent skill
-
-See [the runnable examples](examples/README.md) for a local image CLI, a callable
-tool adapter, tool routing, imported micro-NN error triage and a reusable
-[Bellium skill](examples/skills/bellium-local-tools/SKILL.md).
-
-```sh
-python -m pip install -r examples/requirements.txt
-python -m examples.tools.image_tool demo --output-dir output/bellium-demo
-python -m examples.tool_routing
-python -m examples.micro_nn_triage
-```
-
-The image demo creates synthetic inputs and one preview per filter plus cutout
-and small-fill previews. Direct filters use the native `bellium.filters` core;
-cutout/fill use the published Bellium primitives. The
-[texture example](examples/texture_repeat.py) reports X/Y repetition or
-abstains. Original files are preserved and uncertain requests can abstain.
-Physics, PBR extraction, nano-NNs and a full image editor remain
-[roadmap items](docs/ROADMAP.md).
-
-## Empirical Benchmarks & Latency Gates
-
-All benchmarks are measured on consumer CPU (0 token / zero-heavy-dependency):
-
-| Specialist / Operation | Mean Latency | p95 Latency | Throughput | Target Budget | Status |
-|---|---|---|---|---|---|
-| `bellium.routing`: Tiered tool routing | **0.003 ms** | 0.004 ms | >300,000 ops/s | ≤ 0.50 ms | **PASS** |
-| `bellium.adapters`: JSON schema repair & coercion | **0.005 ms** | 0.007 ms | >180,000 ops/s | ≤ 1.00 ms | **PASS** |
-| `bellium.language`: Phonemic k-NN retrieval | **0.11 ms** | 0.12 ms | >9,000 ops/s | ≤ 2.00 ms | **PASS** |
-| `bellium.vision`: Anomaly & blackout scanner (100×100) | **0.37 ms** | 0.41 ms | >2,700 ops/s | ≤ 5.00 ms | **PASS** |
-| `bellium.audio`: VAD & quality gates (1.0s PCM) | **2.35 ms** | 2.37 ms | >420 ops/s | ≤ 15.00 ms | **PASS** |
-| `bellium.inpaint`: Patch k-NN synthesis (64×64, 10×10 hole) | **3.84 ms** | 5.23 ms | >260 ops/s | ≤ 20.00 ms | **PASS** |
-| `bellium.cutout`: Foreground extraction (128×128) | **19.41 ms** | 23.16 ms | >50 ops/s | ≤ 30.00 ms | **PASS** |
-
-Run the benchmark harness locally:
-```bash
-python benchmarks.py
-```
+— Sylvain Galliez
 
 ## Mission
 
@@ -103,7 +44,77 @@ Priority order when reasonable:
 8. compact local general model
 9. large local or remote model
 
+The last rungs are fallbacks, not the architecture. A specialist stays local, inspectable and replaceable. Orchestration may adapt *which* node runs and *how* its result is used; it does not dissolve the node into a general model.
+
 Abstention is a feature. Critical safety constraints stay deterministic.
+
+## Modules
+
+Every package below ships in the wheel. Presence in the tree is not authority:
+a specialist runs with the mode its registry entry declares.
+
+- [`bellium/contracts`](bellium/contracts) — the shared `SpecialistResult` and
+  `AuthorityMode` that every tier returns.
+- [`bellium/registry`](bellium/registry) — the declarative specialist catalogue and
+  its authority modes; membership never authorizes an action.
+- [`bellium/resources.py`](bellium/resources.py) — resolves bundled model JSON from
+  the installed package or the source tree.
+- [`bellium/cutout`](bellium/cutout) — deterministic foreground extraction and
+  background normalization.
+- [`bellium/inpaint`](bellium/inpaint) — patch k-NN fill with mask-ratio escalation.
+- [`bellium/language`](bellium/language) — phoneme k-NN, pronunciation similarity,
+  grapheme↔phoneme reconstruction, cognates and prosody.
+- [`bellium/routing`](bellium/routing) — the tiered router with hard constraint
+  filtering and declarative abstention.
+- [`bellium/knn`](bellium/knn) — the k-NN family: image helpers plus the specialist
+  memories for inpainting, cutout, texture, sprites, panels, audio, physics, tools,
+  language, layout, motion and memory reranking.
+- [`bellium/nano_nn`](bellium/nano_nn) — hard-budget tiny networks: tile seam,
+  edge resampling, tone quantization and adaptive filtering.
+- [`bellium/micro_nn`](bellium/micro_nn) — small feed-forward classifiers: inpaint
+  router, tool router, NPC behaviour, consequence, atmosphere and tone curve.
+- [`bellium/editing`](bellium/editing) — deterministic editing primitives: filters,
+  selections, replayable stacks, geometry, convolution, morphology, quantization,
+  resampling, tone, compositing, channels, colour spaces, montage, comparison,
+  vectorization and previews.
+- [`bellium/magick`](bellium/magick) — the dependency-free raster toolkit and the
+  `bellium-magick` command that replaces the ImageMagick binaries.
+- [`bellium/material`](bellium/material) — albedo/illumination separation,
+  photometric normals, ambient occlusion, normal-map I/O and normal reduction.
+- [`bellium/physics`](bellium/physics) — published reference models and bounded
+  physical estimates travelling with their uncertainty.
+- [`bellium/compression`](bellium/compression) — lossless research codecs,
+  including the complete binary-PLY archive.
+- [`bellium/atlas`](bellium/atlas) — atlas packing and rasterization, exact
+  duplicate removal and the minimal deterministic PNG writer.
+- [`bellium/imports`](bellium/imports) — declared engine-import target contracts
+  and the manifest mirror.
+- [`bellium/drafting`](bellium/drafting) — 2D drafting documents with SVG and
+  DXF R12 output.
+- [`bellium/specialists`](bellium/specialists) — the registry-facing entry points
+  that wrap every tier in the same result contract.
+- [`bellium/adapters`](bellium/adapters) — deterministic JSON repair, schema
+  enforcement and type coercion for micro-LLM output.
+- [`bellium/cli.py`](bellium/cli.py) — the unified `bellium` command over cutout,
+  filters, texture, frame inspection and routing.
+- [`bellium/pipeline`](bellium/pipeline) — the end-to-end asset preparation chain:
+  defect inpaint, cutout, then transparent or solid-background formatting.
+- [`bellium/filters`](bellium/filters) — the first published filter API: grayscale,
+  sepia, binary, invert, brightness, contrast, saturation and tint.
+- [`bellium/texture`](bellium/texture) — the first published X/Y repetition analysis.
+- [`bellium/vision`](bellium/vision) — the first published visual anomaly and
+  blackout screen.
+- [`bellium/audio`](bellium/audio) — the first published voice activity and audio
+  quality gates.
+- [`examples/`](examples) — runnable examples, the local-tools agent skill and their
+  integration tests.
+
+Naming note: `bellium/filters`, `bellium/texture`, `bellium/vision` and
+`bellium/audio` are the first published APIs for four capabilities that the extended
+families also cover under `bellium/editing`, `bellium/knn` and `bellium/nano_nn`.
+Both are shipped on purpose: the unified CLI, the examples and `benchmarks.py` call
+the first APIs, while the extended specialists are the ones measured in the gate
+records under `docs/`. Neither is promoted over the other automatically.
 
 ## First project-driven tracks
 
@@ -117,7 +128,7 @@ Abstention is a feature. Critical safety constraints stay deterministic.
 - robotics and aquaponics visual-state specialists
 - StoryCore / game-asset preparation helpers
 
-## Existing specialists to migrate
+## Imported specialists
 
 The first migration preserves provenance from `zedarvates/botte-secrete` rather than replacing its live integrations. It includes the existing micro-NN family and the shadow-only Asset Quality k-NN algorithm. Private/local neighbor memories are not published.
 
@@ -125,7 +136,9 @@ See [`docs/MIGRATION_INVENTORY.md`](docs/MIGRATION_INVENTORY.md) and [`docs/ROAD
 
 ## Evidence and authority
 
-Every specialist records its task, data provenance, baseline, hardware, latency, RAM/VRAM, quality metrics, dangerous false positives, abstention, escalation and known limits.
+Every specialist must document its task, provenance, baseline, quality, dangerous false agreements,
+abstention and limits before deployment. Current v0 evidence is primarily synthetic; real-data
+quality and RAM/VRAM are not established. See [the evaluation protocol](benchmarks/protocols/README.md).
 
 Authority modes are explicit:
 
@@ -135,4 +148,300 @@ Importing or benchmarking a model never silently promotes its authority.
 
 ---
 
-> **Bellium AI — intelligence distilled until only the useful signal remains.**
+> **Bellium AI — a mesh of small specialists, distilled until only the useful signal remains.**
+
+## Install and verify
+
+```sh
+python -m pip install .
+# Optional Pillow image adapters:
+python -m pip install ".[image]"
+# Development and unified tests, including the retained published scenarios:
+python -m pip install ".[dev]"
+python -m ruff check .
+python -m pytest -q
+python -m build
+```
+
+Models are included in the wheel. Test the installed package outside the source
+import path with `python -I scripts/smoke_installed.py --image` after installing it.
+
+Installing the package also provides the `bellium-magick` command, a
+zero-C-dependency replacement for the ImageMagick binaries covering resize,
+quantization, spatial filtering, tone, thresholding, morphology, compositing,
+channel operations, comparison, geometry transforms, vectorization, batch mogrify
+and spritesheet assembly. See
+[the replacement gate](docs/MAGICK_REPLACEMENT_GATE.md).
+
+The unified `bellium` command wraps the first published APIs:
+
+```sh
+bellium cutout art.png -o cut.png --bg transparent
+bellium filter sepia art.png -o sepia.png --strength 0.6
+bellium texture tile.png
+bellium inspect-frame frame.png
+bellium route --tags cutout inpaint --zero-tokens
+```
+
+This repository has three test entry points: `python -m pytest -q` runs the
+`tests/` suite, `python run_all_tests.py` runs the suite embedded in each package,
+and `python -m unittest discover -s examples/tests` runs the example integrations.
+
+The tool router is a first orchestration specialist: it proposes which node should
+run, and it does not execute the tool itself.
+
+```python
+from bellium.specialists.tool_router import route_tool
+
+result = route_tool({"signals": {"mentions_secret": True}})
+assert result.output["tool"] == "escalate"
+# A proposal is returned; no tool is executed.
+```
+
+See [architecture and compatibility](docs/ARCHITECTURE.md) and
+[the audit correction record](docs/STABILIZATION.md) for the merged APIs and behavior changes.
+
+The [photographic evaluation](docs/VISUAL_QUALITY_V2.md) now tests an uncertainty
+check on known neighboring regions. It reduced severe accepted errors from 7/24
+to 0/11 on the same new test cases, but coverage remains below the 80% gate.
+Photographic inpainting remains experimental; rejected candidates must not be applied.
+
+The [guard correction](docs/VISUAL_QUALITY_V3.md) fixed a probe bias that caused ten
+false rejections, calibrated the guard on synthetic ground truth, and measured a new
+photographic lot: 62.5% coverage with no severe accepted error. Coverage stays below
+the 80% gate, so photographic inpainting remains consultative and experimental.
+
+The [frozen validation](docs/VISUAL_QUALITY_V4.md) on three never-used photographs
+now passes every protocol gate: 83.3% coverage, no accepted error above 25/255 and
+0.33 s at p95. Inpainting stays consultative: it proposes a fill, and abstains
+outside the local conditions its known-context probes can verify.
+
+## Local specialist snapshot
+
+The first local implementations now live in this working tree:
+
+- 11 imported Botte Secrete micro-NNs, observe-only, with SHA-256 provenance
+- native patch k-NN inpainting
+- native color k-NN cutout
+- native asset-quality k-NN (shadow, no private memory)
+- native inpaint-router micro-NN
+- white-background hybrid built on the cutout
+
+- native phoneme k-NN and pronunciation similarity
+
+- native tool router (veto + k-NN + micro-NN)
+- native memory reranker
+
+- native visual anomaly k-NN (not the imported log detector)
+
+- native grapheme-phoneme k-NN (second wave)
+
+- native cognate retrieval k-NN (second wave)
+
+- native prosody profile k-NN (second wave)
+
+- native panel-safe crop (second wave)
+
+- native speech-bubble region finder (second wave)
+
+- native consistency retrieval k-NN (third wave)
+
+- native flat-color helper (third wave)
+
+- native voice-activity k-NN (third wave)
+
+- native recording-quality k-NN (third wave)
+
+See [docs/SPECIALISTS.md](docs/SPECIALISTS.md). No specialist is active by default.
+
+Fourth wave, game-oriented:
+
+- native texture-repeat and texture-tileability k-NN
+- native nano-NN tile-seam classifier with a hard 64-parameter budget
+- native sprite-anchor k-NN and bounded sprite frame preparation
+- native NPC behaviour micro-NN with deterministic vetoes
+
+See [the model tiers](docs/MODEL_TIERS.md) for the deterministic, k-NN, nano-NN
+and micro-NN boundaries, and the nano size contract.
+
+Fifth wave, sprite sheets and action consequences:
+
+- native clip-loop k-NN and a sprite-sheet preparation report
+- frame-phase tier measured and deliberately not shipped (the rule wins)
+- native consequence precedents, micro-NN and hybrid with a deterministic veto
+
+Sixth wave, physical estimates (P7 first gate):
+
+- published references for gravity, atmosphere, pressure and ballistic previews
+- k-NN case interpolation, a four-parameter nano gravity model and a 21-parameter
+  micro atmosphere model, measured against the references in
+  [the gate record](docs/PHYSICAL_ESTIMATES.md)
+
+Seventh wave, texture grain (P8 first gate):
+
+- native texture-orientation k-NN: grain direction, angle and period, with a perspective
+  refusal instead of one global period
+- shift-difference period measurement shared with the repeat and axis tests
+- held-out distorted-texture measurement in
+  [the gate record](docs/TEXTURE_REPEAT_GATE.md)
+
+Eighth wave, animation timing:
+
+- native easing-profile k-NN over the published curves, and a hybrid timing report with
+  holds, peak, duplicates and warnings
+- no neural tier retained: the measured candidate lost to the published rule
+  ([gate record](docs/ANIMATION_TIMING_GATE.md))
+
+Ninth wave, albedo and illumination separation (P8 second gate):
+
+- controlled renders with known maps, a log-domain separation, and a specialist that
+  returns both candidates and requires a declared shading prior
+- measured finding: an image-only choice is right in 76 % of cases
+  ([gate record](docs/MATERIAL_SEPARATION_GATE.md))
+
+Tenth wave, normals from multi-light captures (P8 third gate):
+
+- photometric stereo on controlled captures with declared light directions, per-patch
+  trust from the fit residual, and abstention when the Lambertian model fails
+- trusted patches at 0.0094 degrees against 7.86 degrees for the rejected ones
+  ([gate record](docs/PHOTOMETRIC_NORMALS_GATE.md))
+
+Eleventh wave, direct image editing (P9 first gate):
+
+- seven deterministic filters with adjustable strength, feathered selection masks and a
+  replayable edit stack with undo and redo
+- magic eraser wiring that reuses the inpaint router and escalates when unsure
+- measured 4 to 18 ms per 64 x 64 preview: not interactive yet
+  ([gate record](docs/EDITING_GATE.md))
+
+Twelfth wave, interactive editing path:
+
+- vectorised, lookup-table and plain filter backends kept pixel-identical, plus
+  area-averaged previews that are never exports
+- a preview session at 14.7 ms p95 on a 512 x 512 source, against a cold one-shot
+  preview of about 0.5 s ([interactive record](docs/EDITING_INTERACTIVE_GATE.md))
+
+Thirteenth wave, relative height from normals (P8 fourth gate):
+
+- four published integrators compared on controlled geometry, with the row/column average
+  as the measured default and the convergence of the least-squares solve reported per call
+- a declared grazing floor for capture-derived fields: 1.370 of relative error without one,
+  0.194 with one while keeping 96 % of the pixels ([gate record](docs/NORMAL_INTEGRATION_GATE.md))
+- a k-NN that names the integrator before anything is integrated: held out at 31 of 32 fields
+  against 25 of 32 for the published rule and 23 of 32 for the fixed default
+
+Fourteenth wave, normal maps as pixels (P8 fifth gate):
+
+- 8-bit encode/decode with a mask, the green-channel flip, a displacement quantizer, and a curl
+  check returned by every integration
+- the handedness is decided by integrability where the surface bends: 8 of 32 readings decided,
+  0 decided wrongly, and an exact plane genuinely ambiguous
+- the round trip costs 0.08 to 0.25 degrees; storing the map as sRGB colour costs about 42
+  ([gate record](docs/NORMAL_MAP_IO_GATE.md))
+
+Fifteenth wave, reducing a normal field (P8 sixth gate):
+
+- three published reductions and a level-of-detail chain that reports the flattening it produces
+- the direction of a reduction is the direction of the average, so the naive form differs only in
+  the stored length: 3.7021 degrees as stored against 0.1772, with the same 0.1772 of direction
+- mean Z drifts 0.09489 over two levels of a sphere against 0.006 for a cone
+  ([gate record](docs/NORMAL_RESAMPLE_GATE.md))
+
+Sixteenth wave, ambient occlusion from relief fields (P8 seventh gate):
+
+- horizon-based accessibility in [0.0, 1.0] computed along radial horizon slices from height or normals
+- benchmarked on controlled V-grooves, pits, and synthetic surfaces ([gate record](docs/AMBIENT_OCCLUSION_GATE.md))
+
+P4 gate, atlas packing:
+
+- deterministic atlas geometry: bottom-left skyline placement with a padding gutter, a bounded
+  page count and a plan that reports unplaced frames instead of shrinking them
+- 10 authored cases x 3 methods with 0 invariant violations, measured against the two published
+  shelf baselines ([gate record](docs/ATLAS_PACKING_GATE.md))
+
+P4 gate, engine-import validation:
+
+- declared target contracts (godot-4, unity-sprite-atlas, phaser-3-json, generic-regions) with
+  findings and JSON manifest mirrors, including the Unity bottom-left rect conversion
+- 21 measured runs: 17 ready, 4 abstain, 0 manifest violations, and no engine executed
+  ([gate record](docs/ENGINE_IMPORT_GATE.md))
+
+P4 gate, atlas rasterization:
+
+- exact page composition in RGB or RGBA, with a page invariant checker, a minimal deterministic
+  PNG writer and its own container inspector
+- 5 measured cases: 397312 raw bytes to 184367 PNG bytes, 0 violations and 0 Pillow mismatches
+  ([gate record](docs/ATLAS_RASTER_GATE.md))
+
+P4 gate, exact duplicate removal:
+
+- one stored copy per distinct image with a verified alias map, so an animation keeps its frame
+  list and the atlas stores fewer bytes; merging is exact by default and a caller may declare a
+  bounded per-channel tolerance instead, whose worst measured delta is reported
+- mirrored frames store once too: none, flip-x, flip-y and rotate-180 are matched and declared per
+  alias, and the output counts them
+- 9 measured cases: 108 declared frames to 59 stored, 86592 bytes saved, 0 bound violations, and a
+  mirrored walk that redraws exactly ([gate record](docs/ATLAS_DEDUP_GATE.md))
+
+Local [compression research baselines](docs/model-cards/compression-v0.md) now
+cover images, byte streams and static/temporal Gaussian splat records. They
+compare causal k-NN and an adaptive linear micro-NN against classical codecs,
+preserving exact bytes. Real-asset superiority and runtime integration are unproven.
+
+A [complete binary-PLY archive](docs/model-cards/ply-archive-v0.md) keeps every
+declared field, including spherical harmonics and unknown scalar columns. On one
+25,674-vertex reconstruction it stored 13.64% fewer bytes than the source file
+and 7.15% fewer than a bare zlib reference; that measurement is asset-specific.
+
+Its [coverage gate](docs/PLY_COVERAGE_V2.md) adds canonical ASCII files and an
+explicit size limit, and records both the assets where it beats a bare zlib and
+the four where the fixed packet envelope makes it larger.
+
+A [polygonal gate](docs/PLY_POLYGONAL_V3.md) adds the `vertex` plus `face` layout
+most non-splat PLY files use: element-aware byte planes, uniform-arity face
+transposition, and bounded list counts. Measured on synthetic meshes; a real
+scanned mesh is the next gate.
+
+P10 gate, 2D drafting document:
+
+- native Y-up drawing in mm or in, with layers and exact line, polyline, circle,
+  arc and text primitives
+- SVG drafting profile and DXF R12 subset that must reconstruct the same document
+- five hand-authored fixtures; foreign SVG, splines and empty sheets abstain
+- not a pixel tracer and not a CAD kernel ([gate record](docs/DRAFTING_GATE.md))
+
+P0 suite, ImageMagick replacement:
+
+- the `bellium-magick` command and a pure-Python API covering resize, quantization,
+  spatial filtering, tone, thresholding, morphology, compositing, channel split and
+  merge, comparison (MAE, RMSE, PSNR, SSIM), orthogonal transforms, montage,
+  perceptual hashing, EXIF auto-orientation, batch mogrify and spritesheet
+  slicing/assembly
+- every operation keeps the tier order: deterministic baseline first, then a k-NN
+  exemplar memory, then a nano-NN or micro-NN only where it was measured. The full
+  ImageMagick-to-Bellium mapping is in
+  [the model card](docs/model-cards/magick-replacement-v0.md).
+- reproduced on three synthetic tracks
+  ([manifest](benchmarks/manifests/magick-replacement-v1.json), 2026-09-19): the
+  38-parameter edge model refines 0 pixels and returns bilinear exactly on a smooth
+  gradient (MAE 0.0, SSIM 1.0), and 2 811 pixels on line art (MAE 4.59, SSIM
+  0.9984) at 57.5 ms against 7.7 ms for bilinear; the dither arbiter asks for 0.79
+  of diffusion on a gradient and 1.00 on line art; the adaptive filter prefers
+  0.94 sharpening on line art and 0.68 smoothing on a flat noisy zone; the tone
+  curve costs 1.6 to 2.0 ms per image
+- the k-NN memories behind these operations are small authored exemplar sets
+  (7 resampling patterns, 5 binarization patterns, 8 filter presets and 7 vector
+  region exemplars), not measured corpora
+- no device verification yet: every nano and micro model of this suite ships with
+  `device_verified: false` and null latency and RAM fields, and the held-out
+  accuracies recorded in the model files are declared by the authoring run rather
+  than reproduced independently here ([gate record](docs/MAGICK_REPLACEMENT_GATE.md))
+
+P0 suite, raster to SVG:
+
+- `raster-to-svg v0` traces hard-edge quantized regions into SVG paths, with a k-NN
+  that separates flat fills from thin strokes and abstains on photographic colour
+  counts
+- the pelican-and-bicycle fixture is original geometric clip-art written for tracing,
+  not a prompt-to-image benchmark
+  ([model card](docs/model-cards/raster-to-svg-v0.md))

@@ -1,0 +1,118 @@
+{
+  "schema": "bellium.visual-anomaly-memory/v1",
+  "notes": "Compact visual features only. No pixels. Lab fixtures, not cameras.",
+  "items": [
+    {
+      "id": "va_aqua_1",
+      "domain": "aquaponics-lab",
+      "label": "normal",
+      "source": "fixture:tank-water",
+      "raw_image_stored": false,
+      "features": {
+        "mean_r": 0.07067,
+        "mean_g": 0.321569,
+        "mean_b": 0.690114,
+        "luma_std": 0.012703,
+        "dark_ratio": 0.0,
+        "border_delta": 3.6e-05,
+        "chroma": 0.619444
+      }
+    },
+    {
+      "id": "va_aqua_2",
+      "domain": "aquaponics-lab",
+      "label": "normal",
+      "source": "fixture:tank-water",
+      "raw_image_stored": false,
+      "features": {
+        "mean_r": 0.086356,
+        "mean_g": 0.352859,
+        "mean_b": 0.7372,
+        "luma_std": 0.010425,
+        "dark_ratio": 0.0,
+        "border_delta": 0.000164,
+        "chroma": 0.650844
+      }
+    },
+    {
+      "id": "va_aqua_3",
+      "domain": "aquaponics-lab",
+      "label": "normal",
+      "source": "fixture:tank-water",
+      "raw_image_stored": false,
+      "features": {
+        "mean_r": 0.062827,
+        "mean_g": 0.290223,
+        "mean_b": 0.658796,
+        "luma_std": 0.009473,
+        "dark_ratio": 0.0,
+        "border_delta": 0.000109,
+        "chroma": 0.595969
+      }
+    },
+    {
+      "id": "va_aqua_4",
+      "domain": "aquaponics-lab",
+      "label": "normal",
+      "source": "fixture:tank-water",
+      "raw_image_stored": false,
+      "features": {
+        "mean_r": 0.094199,
+        "mean_g": 0.3372,
+        "mean_b": 0.705882,
+        "luma_std": 0.009477,
+        "dark_ratio": 0.0,
+        "border_delta": 0.00031,
+        "chroma": 0.611683
+      }
+    },
+    {
+      "id": "va_asset_1",
+      "domain": "asset-lab",
+      "label": "normal",
+      "source": "fixture:flat-texture",
+      "raw_image_stored": false,
+      "features": {
+        "mean_r": 0.462827,
+        "mean_g": 0.462745,
+        "mean_b": 0.47835,
+        "luma_std": 0.012703,
+        "dark_ratio": 0.0,
+        "border_delta": 3.6e-05,
+        "chroma": 0.015605
+      }
+    },
+    {
+      "id": "va_asset_2",
+      "domain": "asset-lab",
+      "label": "normal",
+      "source": "fixture:flat-texture",
+      "raw_image_stored": false,
+      "features": {
+        "mean_r": 0.494199,
+        "mean_g": 0.486193,
+        "mean_b": 0.501906,
+        "luma_std": 0.010425,
+        "dark_ratio": 0.0,
+        "border_delta": 0.000164,
+        "chroma": 0.015714
+      }
+    },
+    {
+      "id": "va_asset_3",
+      "domain": "asset-lab",
+      "label": "normal",
+      "source": "fixture:flat-texture",
+      "raw_image_stored": false,
+      "features": {
+        "mean_r": 0.431454,
+        "mean_g": 0.447086,
+        "mean_b": 0.454875,
+        "luma_std": 0.009473,
+        "dark_ratio": 0.0,
+        "border_delta": 0.000109,
+        "chroma": 0.02342
+      }
+    }
+  ]
+}

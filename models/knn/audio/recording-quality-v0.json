@@ -1,0 +1,123 @@
+{
+  "schema": "bellium.recording-quality-memory/v1",
+  "notes": "Frame features only. No waveforms.",
+  "items": [
+    {
+      "id": "rq_clean_1",
+      "label": "clean",
+      "source": "fixture:lab",
+      "raw_audio_stored": false,
+      "features": {
+        "energy": 0.353553,
+        "clipping": 0.0,
+        "noise_floor": 0.661438,
+        "periodicity": 0.951065,
+        "zcr": 0.047619
+      }
+    },
+    {
+      "id": "rq_clean_2",
+      "label": "clean",
+      "source": "fixture:lab",
+      "raw_audio_stored": false,
+      "features": {
+        "energy": 0.353553,
+        "clipping": 0.0,
+        "noise_floor": 0.431035,
+        "periodicity": 0.974873,
+        "zcr": 0.063492
+      }
+    },
+    {
+      "id": "rq_clean_3",
+      "label": "clean",
+      "source": "fixture:lab",
+      "raw_audio_stored": false,
+      "features": {
+        "energy": 0.353553,
+        "clipping": 0.0,
+        "noise_floor": 0.661438,
+        "periodicity": 1.0,
+        "zcr": 0.063492
+      }
+    },
+    {
+      "id": "rq_clip_1",
+      "label": "clipped",
+      "source": "fixture:lab",
+      "raw_audio_stored": false,
+      "features": {
+        "energy": 1.0,
+        "clipping": 0.0625,
+        "noise_floor": 1.0,
+        "periodicity": 0.951065,
+        "zcr": 0.047619
+      }
+    },
+    {
+      "id": "rq_clip_2",
+      "label": "clipped",
+      "source": "fixture:lab",
+      "raw_audio_stored": false,
+      "features": {
+        "energy": 1.0,
+        "clipping": 0.0625,
+        "noise_floor": 1.0,
+        "periodicity": 0.986697,
+        "zcr": 0.063492
+      }
+    },
+    {
+      "id": "rq_clip_3",
+      "label": "clipped",
+      "source": "fixture:lab",
+      "raw_audio_stored": false,
+      "features": {
+        "energy": 1.0,
+        "clipping": 0.0625,
+        "noise_floor": 1.0,
+        "periodicity": 0.997621,
+        "zcr": 0.063492
+      }
+    },
+    {
+      "id": "rq_noise_1",
+      "label": "noisy",
+      "source": "fixture:lab",
+      "raw_audio_stored": false,
+      "features": {
+        "energy": 0.517269,
+        "clipping": 0.0,
+        "noise_floor": 0.829516,
+        "periodicity": 0.774534,
+        "zcr": 0.666667
+      }
+    },
+    {
+      "id": "rq_noise_2",
+      "label": "noisy",
+      "source": "fixture:lab",
+      "raw_audio_stored": false,
+      "features": {
+        "energy": 0.520154,
+        "clipping": 0.0,
+        "noise_floor": 0.776913,
+        "periodicity": 0.809828,
+        "zcr": 0.634921
+      }
+    },
+    {
+      "id": "rq_noise_3",
+      "label": "noisy",
+      "source": "fixture:lab",
+      "raw_audio_stored": false,
+      "features": {
+        "energy": 0.518767,
+        "clipping": 0.0,
+        "noise_floor": 0.829516,
+        "periodicity": 0.780194,
+        "zcr": 0.666667
+      }
+    }
+  ]
+}

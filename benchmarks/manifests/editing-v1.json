@@ -1,0 +1,104 @@
+{
+  "schema": "bellium.editing-benchmark/v1",
+  "note": "Synthetic images on this workstation. Preview and full-resolution latencies are separate; no real-time claim is made.",
+  "repeats": 5,
+  "resolutions": {
+    "preview": {
+      "size": 64,
+      "operations": {
+        "grayscale": {
+          "p50_ms": 8.3017,
+          "p95_ms": 8.3081
+        },
+        "sepia": {
+          "p50_ms": 18.0799,
+          "p95_ms": 18.3532
+        },
+        "invert": {
+          "p50_ms": 3.8169,
+          "p95_ms": 3.8535
+        },
+        "brightness_contrast": {
+          "p50_ms": 8.9967,
+          "p95_ms": 9.0917
+        },
+        "saturation": {
+          "p50_ms": 9.2968,
+          "p95_ms": 9.4183
+        },
+        "tint": {
+          "p50_ms": 6.2734,
+          "p95_ms": 6.6034
+        },
+        "threshold": {
+          "p50_ms": 4.2531,
+          "p95_ms": 4.3865
+        },
+        "masked_sepia": {
+          "p50_ms": 18.1671,
+          "p95_ms": 18.1754
+        },
+        "stack_replay": {
+          "p50_ms": 0.0109,
+          "p95_ms": 0.0109
+        },
+        "magic_eraser_preview": {
+          "p50_ms": 12.6438,
+          "p95_ms": 12.6438
+        }
+      }
+    },
+    "full": {
+      "size": 192,
+      "operations": {
+        "grayscale": {
+          "p50_ms": 74.5982,
+          "p95_ms": 75.1844
+        },
+        "sepia": {
+          "p50_ms": 152.2169,
+          "p95_ms": 153.5919
+        },
+        "invert": {
+          "p50_ms": 34.2602,
+          "p95_ms": 34.3054
+        },
+        "brightness_contrast": {
+          "p50_ms": 83.1315,
+          "p95_ms": 83.2003
+        },
+        "saturation": {
+          "p50_ms": 80.4621,
+          "p95_ms": 83.319
+        },
+        "tint": {
+          "p50_ms": 56.2749,
+          "p95_ms": 56.9768
+        },
+        "threshold": {
+          "p50_ms": 37.4401,
+          "p95_ms": 37.5212
+        },
+        "masked_sepia": {
+          "p50_ms": 162.6977,
+          "p95_ms": 163.4132
+        },
+        "stack_replay": {
+          "p50_ms": 0.1077,
+          "p95_ms": 0.1077
+        },
+        "magic_eraser_preview": {
+          "p50_ms": 109.3674,
+          "p95_ms": 109.3674
+        }
+      }
+    }
+  },
+  "invariants": {
+    "source_unchanged_by_filter": true,
+    "uncovered_pixels_preserved": true,
+    "undo_redo_is_deterministic": true,
+    "recipe_replays_to_the_same_pixels": true,
+    "specialist_keeps_the_source": true
+  }
+}

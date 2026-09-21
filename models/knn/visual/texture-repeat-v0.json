@@ -1,0 +1,431 @@
+{
+  "schema": "bellium.texture-repeat-memory/v1",
+  "notes": "Authored synthetic fixtures. Rebuild with scripts/build_game_memories.py.",
+  "items": [
+    {
+      "id": "tr_01_texture_periodic",
+      "family": "texture",
+      "verdict": "periodic",
+      "period_x": 8,
+      "period_y": null,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.999247,
+        "strength_y": 0.0,
+        "axis_balance": 0.000753,
+        "gradient_energy": 0.350576,
+        "profile_variance": 0.997188,
+        "detail_ratio": 0.001465
+      }
+    },
+    {
+      "id": "tr_02_texture_periodic",
+      "family": "texture",
+      "verdict": "periodic",
+      "period_x": 12,
+      "period_y": null,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.998224,
+        "strength_y": 0.0,
+        "axis_balance": 0.001776,
+        "gradient_energy": 0.235294,
+        "profile_variance": 0.994479,
+        "detail_ratio": 0.001953
+      }
+    },
+    {
+      "id": "tr_03_texture_periodic",
+      "family": "texture",
+      "verdict": "periodic",
+      "period_x": 16,
+      "period_y": null,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.999714,
+        "strength_y": 0.0,
+        "axis_balance": 0.000286,
+        "gradient_energy": 0.174914,
+        "profile_variance": 0.999653,
+        "detail_ratio": 0.001953
+      }
+    },
+    {
+      "id": "tr_04_texture_periodic",
+      "family": "texture",
+      "verdict": "periodic",
+      "period_x": 24,
+      "period_y": null,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.998909,
+        "strength_y": 0.0,
+        "axis_balance": 0.001091,
+        "gradient_energy": 0.120012,
+        "profile_variance": 0.967543,
+        "detail_ratio": 0.00293
+      }
+    },
+    {
+      "id": "tr_05_texture_nonperiodic",
+      "family": "texture",
+      "verdict": "nonperiodic",
+      "period_x": null,
+      "period_y": null,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_balance": 1.0,
+        "gradient_energy": 1.0,
+        "profile_variance": 0.156083,
+        "detail_ratio": 0.003906
+      }
+    },
+    {
+      "id": "tr_06_texture_nonperiodic",
+      "family": "texture",
+      "verdict": "nonperiodic",
+      "period_x": null,
+      "period_y": null,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_balance": 1.0,
+        "gradient_energy": 1.0,
+        "profile_variance": 0.161272,
+        "detail_ratio": 0.003906
+      }
+    },
+    {
+      "id": "tr_07_texture_nonperiodic",
+      "family": "texture",
+      "verdict": "nonperiodic",
+      "period_x": null,
+      "period_y": null,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_balance": 1.0,
+        "gradient_energy": 1.0,
+        "profile_variance": 0.138092,
+        "detail_ratio": 0.003906
+      }
+    },
+    {
+      "id": "tr_08_texture_nonperiodic",
+      "family": "texture",
+      "verdict": "nonperiodic",
+      "period_x": null,
+      "period_y": null,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_balance": 1.0,
+        "gradient_energy": 1.0,
+        "profile_variance": 0.139906,
+        "detail_ratio": 0.003906
+      }
+    },
+    {
+      "id": "tr_09_tilemap_periodic",
+      "family": "tilemap",
+      "verdict": "periodic",
+      "period_x": 8,
+      "period_y": 8,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 1.0,
+        "strength_y": 1.0,
+        "axis_balance": 1.0,
+        "gradient_energy": 1.0,
+        "profile_variance": 0.418385,
+        "detail_ratio": 0.003906
+      }
+    },
+    {
+      "id": "tr_10_tilemap_periodic",
+      "family": "tilemap",
+      "verdict": "periodic",
+      "period_x": 16,
+      "period_y": 16,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 1.0,
+        "strength_y": 1.0,
+        "axis_balance": 1.0,
+        "gradient_energy": 1.0,
+        "profile_variance": 0.292505,
+        "detail_ratio": 0.003906
+      }
+    },
+    {
+      "id": "tr_11_tilemap_periodic",
+      "family": "tilemap",
+      "verdict": "periodic",
+      "period_x": 32,
+      "period_y": 32,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 1.0,
+        "strength_y": 1.0,
+        "axis_balance": 1.0,
+        "gradient_energy": 1.0,
+        "profile_variance": 0.206193,
+        "detail_ratio": 0.003906
+      }
+    },
+    {
+      "id": "tr_12_tilemap_periodic",
+      "family": "tilemap",
+      "verdict": "periodic",
+      "period_x": 8,
+      "period_y": 8,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 1.0,
+        "strength_y": 1.0,
+        "axis_balance": 1.0,
+        "gradient_energy": 0.244009,
+        "profile_variance": 0.0,
+        "detail_ratio": 0.000488
+      }
+    },
+    {
+      "id": "tr_13_tilemap_periodic",
+      "family": "tilemap",
+      "verdict": "periodic",
+      "period_x": 16,
+      "period_y": 16,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 1.0,
+        "strength_y": 1.0,
+        "axis_balance": 1.0,
+        "gradient_energy": 0.104575,
+        "profile_variance": 0.0,
+        "detail_ratio": 0.000488
+      }
+    },
+    {
+      "id": "tr_14_tilemap_nonperiodic",
+      "family": "tilemap",
+      "verdict": "nonperiodic",
+      "period_x": null,
+      "period_y": null,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_balance": 1.0,
+        "gradient_energy": 1.0,
+        "profile_variance": 0.152697,
+        "detail_ratio": 0.003906
+      }
+    },
+    {
+      "id": "tr_15_tilemap_nonperiodic",
+      "family": "tilemap",
+      "verdict": "nonperiodic",
+      "period_x": null,
+      "period_y": null,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_balance": 1.0,
+        "gradient_energy": 1.0,
+        "profile_variance": 0.14664,
+        "detail_ratio": 0.003906
+      }
+    },
+    {
+      "id": "tr_16_tilemap_nonperiodic",
+      "family": "tilemap",
+      "verdict": "nonperiodic",
+      "period_x": null,
+      "period_y": null,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_balance": 1.0,
+        "gradient_energy": 1.0,
+        "profile_variance": 0.16029,
+        "detail_ratio": 0.003906
+      }
+    },
+    {
+      "id": "tr_17_tilemap_nonperiodic",
+      "family": "tilemap",
+      "verdict": "nonperiodic",
+      "period_x": null,
+      "period_y": null,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_balance": 1.0,
+        "gradient_energy": 0.024401,
+        "profile_variance": 0.904991,
+        "detail_ratio": 0.003174
+      }
+    },
+    {
+      "id": "tr_18_sprite_periodic",
+      "family": "sprite",
+      "verdict": "periodic",
+      "period_x": 8,
+      "period_y": 8,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.999296,
+        "strength_y": 0.999499,
+        "axis_balance": 0.999797,
+        "gradient_energy": 0.523,
+        "profile_variance": 0.767067,
+        "detail_ratio": 0.00293
+      }
+    },
+    {
+      "id": "tr_19_sprite_periodic",
+      "family": "sprite",
+      "verdict": "periodic",
+      "period_x": 16,
+      "period_y": 16,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.999674,
+        "strength_y": 0.999655,
+        "axis_balance": 0.999981,
+        "gradient_energy": 0.261811,
+        "profile_variance": 0.768288,
+        "detail_ratio": 0.003906
+      }
+    },
+    {
+      "id": "tr_20_sprite_periodic",
+      "family": "sprite",
+      "verdict": "periodic",
+      "period_x": 24,
+      "period_y": 24,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.999558,
+        "strength_y": 0.999403,
+        "axis_balance": 0.999845,
+        "gradient_energy": 0.173296,
+        "profile_variance": 0.78214,
+        "detail_ratio": 0.003906
+      }
+    },
+    {
+      "id": "tr_21_sprite_periodic",
+      "family": "sprite",
+      "verdict": "periodic",
+      "period_x": 4,
+      "period_y": 4,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 1.0,
+        "strength_y": 1.0,
+        "axis_balance": 1.0,
+        "gradient_energy": 0.522876,
+        "profile_variance": 0.0,
+        "detail_ratio": 0.000488
+      }
+    },
+    {
+      "id": "tr_22_sprite_nonperiodic",
+      "family": "sprite",
+      "verdict": "nonperiodic",
+      "period_x": null,
+      "period_y": null,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_balance": 1.0,
+        "gradient_energy": 0.018301,
+        "profile_variance": 0.475704,
+        "detail_ratio": 0.000732
+      }
+    },
+    {
+      "id": "tr_23_sprite_nonperiodic",
+      "family": "sprite",
+      "verdict": "nonperiodic",
+      "period_x": null,
+      "period_y": null,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_balance": 1.0,
+        "gradient_energy": 0.022035,
+        "profile_variance": 0.709385,
+        "detail_ratio": 0.000732
+      }
+    },
+    {
+      "id": "tr_24_sprite_nonperiodic",
+      "family": "sprite",
+      "verdict": "nonperiodic",
+      "period_x": null,
+      "period_y": null,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_balance": 1.0,
+        "gradient_energy": 0.026019,
+        "profile_variance": 0.944112,
+        "detail_ratio": 0.000732
+      }
+    },
+    {
+      "id": "tr_25_sprite_nonperiodic",
+      "family": "sprite",
+      "verdict": "nonperiodic",
+      "period_x": null,
+      "period_y": null,
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_balance": 1.0,
+        "gradient_energy": 1.0,
+        "profile_variance": 0.146253,
+        "detail_ratio": 0.003906
+      }
+    }
+  ]
+}

@@ -14,19 +14,22 @@
       "sha256": "ea41e7c40032c19cfaebe93235facd56487d7d11bd7c747e2a8b064300241799"
     },
     "cloud_escalation_predictor.json": {
-      "bellium_id": "bellium/micro-nn/cloud-escalation-predictor:legacy-botte",
+      "bellium_id": "bellium/micro-nn/cloud-escalation:legacy-botte",
       "size_bytes": 10059,
-      "sha256": "939b56e20454e4187dc6abdfdbc234bd4ed09dcb78b6bd62d19152e99ad9f0b0"
+      "sha256": "939b56e20454e4187dc6abdfdbc234bd4ed09dcb78b6bd62d19152e99ad9f0b0",
+      "previous_bellium_id": "bellium/micro-nn/cloud-escalation-predictor:legacy-botte"
     },
     "compressibility_predictor.json": {
-      "bellium_id": "bellium/micro-nn/compressibility-predictor:legacy-botte",
+      "bellium_id": "bellium/micro-nn/compressibility:legacy-botte",
       "size_bytes": 8095,
-      "sha256": "ca8eae72280eb520fd47d752deed349512c6815fdae87c8f2225fa0f950f1d71"
+      "sha256": "ca8eae72280eb520fd47d752deed349512c6815fdae87c8f2225fa0f950f1d71",
+      "previous_bellium_id": "bellium/micro-nn/compressibility-predictor:legacy-botte"
     },
     "context_pruning_predictor.json": {
-      "bellium_id": "bellium/micro-nn/context-pruning-predictor:legacy-botte",
+      "bellium_id": "bellium/micro-nn/context-pruning:legacy-botte",
       "size_bytes": 7258,
-      "sha256": "21dd269155afa15302de85c33403e9ad3547001230957fcdd754f08b01092a05"
+      "sha256": "21dd269155afa15302de85c33403e9ad3547001230957fcdd754f08b01092a05",
+      "previous_bellium_id": "bellium/micro-nn/context-pruning-predictor:legacy-botte"
     },
     "effort_classifier.json": {
       "bellium_id": "bellium/micro-nn/effort-classifier:legacy-botte",
@@ -39,24 +42,28 @@
       "sha256": "879e30f2fd35dc4d009546da97b36a660e931793d748e618c9dafd9b512a5c34"
     },
     "response_length_predictor.json": {
-      "bellium_id": "bellium/micro-nn/response-length-predictor:legacy-botte",
+      "bellium_id": "bellium/micro-nn/response-length:legacy-botte",
       "size_bytes": 8070,
-      "sha256": "94a837842bf7cd0e1dd6f25b186eb9c2d7187d1f0f46cf4c4b321e29df9c57cd"
+      "sha256": "94a837842bf7cd0e1dd6f25b186eb9c2d7187d1f0f46cf4c4b321e29df9c57cd",
+      "previous_bellium_id": "bellium/micro-nn/response-length-predictor:legacy-botte"
     },
     "semantic_cache_hit_predictor.json": {
-      "bellium_id": "bellium/micro-nn/semantic-cache-hit-predictor:legacy-botte",
+      "bellium_id": "bellium/micro-nn/semantic-cache-hit:legacy-botte",
       "size_bytes": 9167,
-      "sha256": "a39f59f56122a01db378da02230aa59031ce356e59b29c4f36124c7af4948be2"
+      "sha256": "a39f59f56122a01db378da02230aa59031ce356e59b29c4f36124c7af4948be2",
+      "previous_bellium_id": "bellium/micro-nn/semantic-cache-hit-predictor:legacy-botte"
     },
     "skip_agent_predictor.json": {
-      "bellium_id": "bellium/micro-nn/skip-agent-predictor:legacy-botte",
+      "bellium_id": "bellium/micro-nn/skip-agent:legacy-botte",
       "size_bytes": 9207,
-      "sha256": "7abc190830db28eaf159016dc906fb055dfe95e679e292021d71b9a5600f1108"
+      "sha256": "7abc190830db28eaf159016dc906fb055dfe95e679e292021d71b9a5600f1108",
+      "previous_bellium_id": "bellium/micro-nn/skip-agent-predictor:legacy-botte"
     },
     "tool_call_predictor.json": {
-      "bellium_id": "bellium/micro-nn/tool-call-predictor:legacy-botte",
+      "bellium_id": "bellium/micro-nn/tool-call:legacy-botte",
       "size_bytes": 9207,
-      "sha256": "a5e11b05b266e0cb0fb91037997a5f5f886ce56286c120f157d517a3d34e9711"
+      "sha256": "a5e11b05b266e0cb0fb91037997a5f5f886ce56286c120f157d517a3d34e9711",
+      "previous_bellium_id": "bellium/micro-nn/tool-call-predictor:legacy-botte"
     }
   }
 }

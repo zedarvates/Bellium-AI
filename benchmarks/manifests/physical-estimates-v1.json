@@ -1,0 +1,99 @@
+{
+  "schema": "bellium.physical-benchmark/v1",
+  "repetitions": 5,
+  "thresholds": {
+    "gravity": {
+      "rmse": 0.001,
+      "max_abs": 0.005,
+      "unit": "m/s2",
+      "why": "0.1 mGal moves a 1.27 m jump apex by about 0.13 mm"
+    },
+    "atmosphere-pressure": {
+      "rmse": 1013.25,
+      "max_abs": 3039.75,
+      "unit": "Pa",
+      "why": "1 % of sea level is far below the standard atmosphere's own daily variation"
+    }
+  },
+  "note": "Errors are measured against the published reference models on a grid used neither for training nor for the trainers' held-out check. The reference remains authoritative; the cheaper tiers exist for runtimes that cannot evaluate it.",
+  "families": [
+    {
+      "family": "gravity",
+      "queries": 1200,
+      "tiers": {
+        "reference": {
+          "evaluated": 1200,
+          "abstentions": 0,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "p50_ms": 0.000300002284348011,
+          "p95_ms": 0.000400003045797348,
+          "bytes": 0,
+          "note": "exact by construction; no data, code only"
+        },
+        "case_table": {
+          "evaluated": 1200,
+          "abstentions": 0,
+          "rmse": 0.0004568382160457636,
+          "max_abs": 0.0008580684686467777,
+          "p50_ms": 0.05509999755304307,
+          "p95_ms": 0.06130000110715628,
+          "bytes": 26887,
+          "cases": 117,
+          "within_threshold": true
+        },
+        "nano_regressor": {
+          "evaluated": 1200,
+          "abstentions": 0,
+          "rmse": 2.3342715569187445e-05,
+          "max_abs": 6.41479586036553e-05,
+          "p50_ms": 0.15230001008603722,
+          "p95_ms": 0.18279999494552612,
+          "bytes": 992,
+          "parameters": 4,
+          "abstentions_with_live_check": 0,
+          "within_threshold": true
+        }
+      }
+    },
+    {
+      "family": "atmosphere-pressure",
+      "queries": 80,
+      "tiers": {
+        "reference": {
+          "evaluated": 80,
+          "abstentions": 0,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "p50_ms": 0.000300002284348011,
+          "p95_ms": 0.0007999915396794677,
+          "bytes": 0,
+          "note": "exact by construction; no data, code only"
+        },
+        "case_table": {
+          "evaluated": 80,
+          "abstentions": 0,
+          "rmse": 13.967728322276596,
+          "max_abs": 35.00825945327233,
+          "p50_ms": 0.018749997252598405,
+          "p95_ms": 0.023300002794712782,
+          "bytes": 7847,
+          "cases": 41,
+          "within_threshold": true
+        },
+        "micro_regressor": {
+          "evaluated": 80,
+          "abstentions": 0,
+          "rmse": 161.79330622743896,
+          "max_abs": 539.2461058343906,
+          "p50_ms": 0.14525000005960464,
+          "p95_ms": 0.1728999923216179,
+          "bytes": 1183,
+          "parameters": 21,
+          "abstentions_with_live_check": 0,
+          "within_threshold": true
+        }
+      }
+    }
+  ]
+}

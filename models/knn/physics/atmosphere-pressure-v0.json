@@ -1,0 +1,343 @@
+{
+  "schema": "bellium.physical-case-memory/v1",
+  "family": "atmosphere-pressure",
+  "domain": {
+    "altitude_m": [
+      0.0,
+      20000.0
+    ]
+  },
+  "output_unit": "Pa",
+  "reference_method": "reference:isa",
+  "notes": "Cases generated from published reference models by scripts/build_physical_cases.py. They are not field measurements; interpolation is limited to the declared domain.",
+  "items": [
+    {
+      "id": "atm_pressure_00000",
+      "inputs": {
+        "altitude_m": 0.0
+      },
+      "output": 101325.0,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_00500",
+      "inputs": {
+        "altitude_m": 500.0
+      },
+      "output": 95460.83545858,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_01000",
+      "inputs": {
+        "altitude_m": 1000.0
+      },
+      "output": 89874.56314735,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_01500",
+      "inputs": {
+        "altitude_m": 1500.0
+      },
+      "output": 84555.99440183,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_02000",
+      "inputs": {
+        "altitude_m": 2000.0
+      },
+      "output": 79495.20234771,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_02500",
+      "inputs": {
+        "altitude_m": 2500.0
+      },
+      "output": 74682.51811272,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_03000",
+      "inputs": {
+        "altitude_m": 3000.0
+      },
+      "output": 70108.5270498,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_03500",
+      "inputs": {
+        "altitude_m": 3500.0
+      },
+      "output": 65764.06497161,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_04000",
+      "inputs": {
+        "altitude_m": 4000.0
+      },
+      "output": 61640.21439663,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_04500",
+      "inputs": {
+        "altitude_m": 4500.0
+      },
+      "output": 57728.30080678,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_05000",
+      "inputs": {
+        "altitude_m": 5000.0
+      },
+      "output": 54019.88891682,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_05500",
+      "inputs": {
+        "altitude_m": 5500.0
+      },
+      "output": 50506.77895548,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_06000",
+      "inputs": {
+        "altitude_m": 6000.0
+      },
+      "output": 47181.00295862,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_06500",
+      "inputs": {
+        "altitude_m": 6500.0
+      },
+      "output": 44034.82107434,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_07000",
+      "inputs": {
+        "altitude_m": 7000.0
+      },
+      "output": 41060.7178803,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_07500",
+      "inputs": {
+        "altitude_m": 7500.0
+      },
+      "output": 38251.3987133,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_08000",
+      "inputs": {
+        "altitude_m": 8000.0
+      },
+      "output": 35599.78601122,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_08500",
+      "inputs": {
+        "altitude_m": 8500.0
+      },
+      "output": 33099.01566754,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_09000",
+      "inputs": {
+        "altitude_m": 9000.0
+      },
+      "output": 30742.43339843,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_09500",
+      "inputs": {
+        "altitude_m": 9500.0
+      },
+      "output": 28523.59112267,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_10000",
+      "inputs": {
+        "altitude_m": 10000.0
+      },
+      "output": 26436.24335444,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_10500",
+      "inputs": {
+        "altitude_m": 10500.0
+      },
+      "output": 24474.34360917,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_11000",
+      "inputs": {
+        "altitude_m": 11000.0
+      },
+      "output": 22632.04082255,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_11500",
+      "inputs": {
+        "altitude_m": 11500.0
+      },
+      "output": 20916.18420069,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_12000",
+      "inputs": {
+        "altitude_m": 12000.0
+      },
+      "output": 19330.39950924,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_12500",
+      "inputs": {
+        "altitude_m": 12500.0
+      },
+      "output": 17864.84291789,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_13000",
+      "inputs": {
+        "altitude_m": 13000.0
+      },
+      "output": 16510.39919419,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_13500",
+      "inputs": {
+        "altitude_m": 13500.0
+      },
+      "output": 15258.64418761,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_14000",
+      "inputs": {
+        "altitude_m": 14000.0
+      },
+      "output": 14101.79243431,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_14500",
+      "inputs": {
+        "altitude_m": 14500.0
+      },
+      "output": 13032.6487344,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_15000",
+      "inputs": {
+        "altitude_m": 15000.0
+      },
+      "output": 12044.5634004,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_15500",
+      "inputs": {
+        "altitude_m": 15500.0
+      },
+      "output": 11131.39089856,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_16000",
+      "inputs": {
+        "altitude_m": 16000.0
+      },
+      "output": 10287.45162588,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_16500",
+      "inputs": {
+        "altitude_m": 16500.0
+      },
+      "output": 9507.49658505,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_17000",
+      "inputs": {
+        "altitude_m": 17000.0
+      },
+      "output": 8786.67473753,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_17500",
+      "inputs": {
+        "altitude_m": 17500.0
+      },
+      "output": 8120.5028319,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_18000",
+      "inputs": {
+        "altitude_m": 18000.0
+      },
+      "output": 7504.83751962,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_18500",
+      "inputs": {
+        "altitude_m": 18500.0
+      },
+      "output": 6935.84958491,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_19000",
+      "inputs": {
+        "altitude_m": 19000.0
+      },
+      "output": 6410.00012841,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_19500",
+      "inputs": {
+        "altitude_m": 19500.0
+      },
+      "output": 5924.01855652,
+      "source": "reference-model:isa"
+    },
+    {
+      "id": "atm_pressure_20000",
+      "inputs": {
+        "altitude_m": 20000.0
+      },
+      "output": 5474.88223946,
+      "source": "reference-model:isa"
+    }
+  ]
+}

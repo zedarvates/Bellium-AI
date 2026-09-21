@@ -1,0 +1,16 @@
+{
+  "schema": "bellium.cognate-memory/v1",
+  "notes": "Lab family word forms. No audio. No proto-language.",
+  "items": [
+    {"id": "cg_fl_pata", "family_id": "lab-family", "language_id": "fixture-lab", "form": "pata", "ipa": ["p", "a", "t", "a"], "gloss": "water", "evidence": "attested", "source": "fixture:lab", "cognate_set": "water-1", "raw_audio_stored": false},
+    {"id": "cg_sl_pada", "family_id": "lab-family", "language_id": "sister-lab", "form": "pada", "ipa": ["p", "a", "d", "a"], "gloss": "water", "evidence": "attested", "source": "fixture:lab", "cognate_set": "water-1", "raw_audio_stored": false},
+    {"id": "cg_al_patah", "family_id": "lab-family", "language_id": "aunt-lab", "form": "patah", "ipa": ["p", "a", "t", "a"], "gloss": "water", "evidence": "attested", "source": "fixture:lab", "cognate_set": "water-1", "raw_audio_stored": false},
+    {"id": "cg_fl_kama", "family_id": "lab-family", "language_id": "fixture-lab", "form": "kama", "ipa": ["k", "a", "m", "a"], "gloss": "fire", "evidence": "reconstructed", "source": "fixture:historical-sketch", "cognate_set": "fire-1", "raw_audio_stored": false},
+    {"id": "cg_sl_gama", "family_id": "lab-family", "language_id": "sister-lab", "form": "gama", "ipa": ["g", "a", "m", "a"], "gloss": "fire", "evidence": "attested", "source": "fixture:lab", "cognate_set": "fire-1", "raw_audio_stored": false},
+    {"id": "cg_sl_naga", "family_id": "lab-family", "language_id": "sister-lab", "form": "naga", "ipa": ["n", "a", "g", "a"], "gloss": "stone", "evidence": "attested", "source": "fixture:lab", "raw_audio_stored": false},
+    {"id": "cg_al_naka", "family_id": "lab-family", "language_id": "aunt-lab", "form": "naka", "ipa": ["n", "a", "k", "a"], "gloss": "stone", "evidence": "attested", "source": "fixture:lab", "raw_audio_stored": false},
+    {"id": "cg_cl_nakah", "family_id": "lab-family", "language_id": "cousin-lab", "form": "nakah", "ipa": ["n", "a", "k", "a"], "gloss": "stone", "evidence": "attested", "source": "fixture:lab", "raw_audio_stored": false},
+    {"id": "cg_xx_pata", "family_id": "other-family", "language_id": "other-lab", "form": "pata", "ipa": ["p", "a", "t", "a"], "gloss": "water", "evidence": "attested", "source": "fixture:lab", "cognate_set": "other-water", "raw_audio_stored": false}
+  ]
+}
+

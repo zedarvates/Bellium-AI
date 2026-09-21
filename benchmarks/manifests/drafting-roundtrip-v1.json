@@ -1,0 +1,123 @@
+{
+  "gate": "drafting-roundtrip-v1",
+  "specialist_id": "bellium/deterministic/drafting-document:v0",
+  "authority": "consultative",
+  "fixtures": [
+    "plate-a4",
+    "washer",
+    "bracket",
+    "slot",
+    "inch-card"
+  ],
+  "repeats": 20,
+  "invariant_violations": 0,
+  "svg_mismatches": 0,
+  "dxf_mismatches": 0,
+  "specialist_failures": 0,
+  "latency_ms": {
+    "p50": 0.06770000618416816,
+    "p95": 0.10920001659542322
+  },
+  "cases": [
+    {
+      "name": "plate-a4",
+      "unit": "mm",
+      "entities": 6,
+      "layers": 2,
+      "svg_roundtrip": true,
+      "dxf_roundtrip": true,
+      "violations": [],
+      "specialist_status": "ready",
+      "svg_ms": {
+        "p50": 0.08295000588987023,
+        "p95": 0.14640000881627202
+      },
+      "dxf_ms": {
+        "p50": 0.08630000229459256,
+        "p95": 0.13010000111535192
+      },
+      "svg_bytes": 1036,
+      "dxf_bytes": 567
+    },
+    {
+      "name": "washer",
+      "unit": "mm",
+      "entities": 2,
+      "layers": 2,
+      "svg_roundtrip": true,
+      "dxf_roundtrip": true,
+      "violations": [],
+      "specialist_status": "ready",
+      "svg_ms": {
+        "p50": 0.04549999721348286,
+        "p95": 0.0720999960321933
+      },
+      "dxf_ms": {
+        "p50": 0.04820000322069973,
+        "p95": 0.06710001616738737
+      },
+      "svg_bytes": 539,
+      "dxf_bytes": 370
+    },
+    {
+      "name": "bracket",
+      "unit": "mm",
+      "entities": 1,
+      "layers": 1,
+      "svg_roundtrip": true,
+      "dxf_roundtrip": true,
+      "violations": [],
+      "specialist_status": "ready",
+      "svg_ms": {
+        "p50": 0.043799998820759356,
+        "p95": 0.04919999628327787
+      },
+      "dxf_ms": {
+        "p50": 0.06024999311193824,
+        "p95": 0.06580000626854599
+      },
+      "svg_bytes": 430,
+      "dxf_bytes": 494
+    },
+    {
+      "name": "slot",
+      "unit": "mm",
+      "entities": 4,
+      "layers": 1,
+      "svg_roundtrip": true,
+      "dxf_roundtrip": true,
+      "violations": [],
+      "specialist_status": "ready",
+      "svg_ms": {
+        "p50": 0.06695000047329813,
+        "p95": 0.11510000331327319
+      },
+      "dxf_ms": {
+        "p50": 0.06500000017695129,
+        "p95": 0.09849999332800508
+      },
+      "svg_bytes": 793,
+      "dxf_bytes": 430
+    },
+    {
+      "name": "inch-card",
+      "unit": "in",
+      "entities": 6,
+      "layers": 2,
+      "svg_roundtrip": true,
+      "dxf_roundtrip": true,
+      "violations": [],
+      "specialist_status": "ready",
+      "svg_ms": {
+        "p50": 0.07934999302960932,
+        "p95": 0.09300000965595245
+      },
+      "dxf_ms": {
+        "p50": 0.08379999781027436,
+        "p95": 0.0957000011112541
+      },
+      "svg_bytes": 1044,
+      "dxf_bytes": 568
+    }
+  ]
+}

@@ -1,0 +1,368 @@
+{
+  "schema": "bellium.atlas-packing-benchmark/v1",
+  "note": "Authored geometry, no assets. The three methods share the same frames; an incomplete plan is a valid measured outcome and is reported as such.",
+  "repeats": 5,
+  "cases": [
+    {
+      "name": "uniform_32",
+      "frame_count": 64,
+      "page_width": 256,
+      "page_height": 256,
+      "max_pages": 1,
+      "padding": 0,
+      "methods": {
+        "skyline": {
+          "complete": true,
+          "pages": 1,
+          "occupancy": 1.0,
+          "unplaced": 0,
+          "violations": [],
+          "ms_p50": 0.2202
+        },
+        "shelf": {
+          "complete": true,
+          "pages": 1,
+          "occupancy": 1.0,
+          "unplaced": 0,
+          "violations": [],
+          "ms_p50": 0.1212
+        },
+        "next-fit": {
+          "complete": true,
+          "pages": 1,
+          "occupancy": 1.0,
+          "unplaced": 0,
+          "violations": [],
+          "ms_p50": 0.1109
+        }
+      }
+    },
+    {
+      "name": "uniform_16",
+      "frame_count": 256,
+      "page_width": 256,
+      "page_height": 256,
+      "max_pages": 1,
+      "padding": 0,
+      "methods": {
+        "skyline": {
+          "complete": true,
+          "pages": 1,
+          "occupancy": 1.0,
+          "unplaced": 0,
+          "violations": [],
+          "ms_p50": 0.8477
+        },
+        "shelf": {
+          "complete": true,
+          "pages": 1,
+          "occupancy": 1.0,
+          "unplaced": 0,
+          "violations": [],
+          "ms_p50": 0.4568
+        },
+        "next-fit": {
+          "complete": true,
+          "pages": 1,
+          "occupancy": 1.0,
+          "unplaced": 0,
+          "violations": [],
+          "ms_p50": 0.4242
+        }
+      }
+    },
+    {
+      "name": "many_small",
+      "frame_count": 400,
+      "page_width": 128,
+      "page_height": 128,
+      "max_pages": 1,
+      "padding": 0,
+      "methods": {
+        "skyline": {
+          "complete": false,
+          "pages": 1,
+          "occupancy": 1.0,
+          "unplaced": 144,
+          "violations": [],
+          "ms_p50": 1.0545
+        },
+        "shelf": {
+          "complete": false,
+          "pages": 1,
+          "occupancy": 1.0,
+          "unplaced": 144,
+          "violations": [],
+          "ms_p50": 0.6204
+        },
+        "next-fit": {
+          "complete": false,
+          "pages": 1,
+          "occupancy": 1.0,
+          "unplaced": 144,
+          "violations": [],
+          "ms_p50": 0.5731
+        }
+      }
+    },
+    {
+      "name": "mixed_sprite",
+      "frame_count": 60,
+      "page_width": 256,
+      "page_height": 256,
+      "max_pages": 1,
+      "padding": 0,
+      "methods": {
+        "skyline": {
+          "complete": true,
+          "pages": 1,
+          "occupancy": 0.9001,
+          "unplaced": 0,
+          "violations": [],
+          "ms_p50": 0.2848
+        },
+        "shelf": {
+          "complete": false,
+          "pages": 1,
+          "occupancy": 0.8767,
+          "unplaced": 4,
+          "violations": [],
+          "ms_p50": 0.1142
+        },
+        "next-fit": {
+          "complete": false,
+          "pages": 1,
+          "occupancy": 0.5173,
+          "unplaced": 22,
+          "violations": [],
+          "ms_p50": 0.0889
+        }
+      }
+    },
+    {
+      "name": "mixed_sprite_padded",
+      "frame_count": 60,
+      "page_width": 256,
+      "page_height": 256,
+      "max_pages": 1,
+      "padding": 2,
+      "methods": {
+        "skyline": {
+          "complete": false,
+          "pages": 1,
+          "occupancy": 0.7646,
+          "unplaced": 18,
+          "violations": [],
+          "ms_p50": 0.2337
+        },
+        "shelf": {
+          "complete": false,
+          "pages": 1,
+          "occupancy": 0.6826,
+          "unplaced": 28,
+          "violations": [],
+          "ms_p50": 0.0962
+        },
+        "next-fit": {
+          "complete": false,
+          "pages": 1,
+          "occupancy": 0.4487,
+          "unplaced": 32,
+          "violations": [],
+          "ms_p50": 0.082
+        }
+      }
+    },
+    {
+      "name": "tall_and_wide",
+      "frame_count": 40,
+      "page_width": 256,
+      "page_height": 256,
+      "max_pages": 1,
+      "padding": 0,
+      "methods": {
+        "skyline": {
+          "complete": true,
+          "pages": 1,
+          "occupancy": 0.9375,
+          "unplaced": 0,
+          "violations": [],
+          "ms_p50": 0.1444
+        },
+        "shelf": {
+          "complete": false,
+          "pages": 1,
+          "occupancy": 0.7031,
+          "unplaced": 10,
+          "violations": [],
+          "ms_p50": 0.0728
+        },
+        "next-fit": {
+          "complete": false,
+          "pages": 1,
+          "occupancy": 0.375,
+          "unplaced": 24,
+          "violations": [],
+          "ms_p50": 0.0544
+        }
+      }
+    },
+    {
+      "name": "near_full_24",
+      "frame_count": 100,
+      "page_width": 256,
+      "page_height": 256,
+      "max_pages": 1,
+      "padding": 0,
+      "methods": {
+        "skyline": {
+          "complete": true,
+          "pages": 1,
+          "occupancy": 0.8789,
+          "unplaced": 0,
+          "violations": [],
+          "ms_p50": 0.3753
+        },
+        "shelf": {
+          "complete": true,
+          "pages": 1,
+          "occupancy": 0.8789,
+          "unplaced": 0,
+          "violations": [],
+          "ms_p50": 0.1949
+        },
+        "next-fit": {
+          "complete": true,
+          "pages": 1,
+          "occupancy": 0.8789,
+          "unplaced": 0,
+          "violations": [],
+          "ms_p50": 0.169
+        }
+      }
+    },
+    {
+      "name": "measured_96",
+      "frame_count": 14,
+      "page_width": 96,
+      "page_height": 96,
+      "max_pages": 1,
+      "padding": 0,
+      "methods": {
+        "skyline": {
+          "complete": true,
+          "pages": 1,
+          "occupancy": 0.7847,
+          "unplaced": 0,
+          "violations": [],
+          "ms_p50": 0.0645
+        },
+        "shelf": {
+          "complete": true,
+          "pages": 1,
+          "occupancy": 0.7847,
+          "unplaced": 0,
+          "violations": [],
+          "ms_p50": 0.0306
+        },
+        "next-fit": {
+          "complete": false,
+          "pages": 1,
+          "occupancy": 0.5312,
+          "unplaced": 4,
+          "violations": [],
+          "ms_p50": 0.0256
+        }
+      }
+    },
+    {
+      "name": "three_pages",
+      "frame_count": 200,
+      "page_width": 128,
+      "page_height": 128,
+      "max_pages": 3,
+      "padding": 0,
+      "methods": {
+        "skyline": {
+          "complete": false,
+          "pages": 3,
+          "occupancy": 1.0,
+          "unplaced": 152,
+          "violations": [],
+          "ms_p50": 0.5025
+        },
+        "shelf": {
+          "complete": false,
+          "pages": 3,
+          "occupancy": 1.0,
+          "unplaced": 152,
+          "violations": [],
+          "ms_p50": 0.2885
+        },
+        "next-fit": {
+          "complete": false,
+          "pages": 3,
+          "occupancy": 1.0,
+          "unplaced": 152,
+          "violations": [],
+          "ms_p50": 0.2564
+        }
+      }
+    },
+    {
+      "name": "one_oversized",
+      "frame_count": 2,
+      "page_width": 256,
+      "page_height": 256,
+      "max_pages": 1,
+      "padding": 0,
+      "methods": {
+        "skyline": {
+          "complete": false,
+          "pages": 1,
+          "occupancy": 0.0039,
+          "unplaced": 1,
+          "violations": [],
+          "ms_p50": 0.0107
+        },
+        "shelf": {
+          "complete": false,
+          "pages": 1,
+          "occupancy": 0.0039,
+          "unplaced": 1,
+          "violations": [],
+          "ms_p50": 0.0087
+        },
+        "next-fit": {
+          "complete": false,
+          "pages": 1,
+          "occupancy": 0.0039,
+          "unplaced": 1,
+          "violations": [],
+          "ms_p50": 0.0083
+        }
+      }
+    }
+  ],
+  "baselines": {
+    "shelf": {
+      "wins": 0,
+      "ties": 7,
+      "losses": 3
+    },
+    "next-fit": {
+      "wins": 0,
+      "ties": 6,
+      "losses": 4
+    },
+    "violations": 0,
+    "note": "Each baseline is counted against the shipped skyline packer: wins, ties and losses on occupancy when both place everything, otherwise the differing completeness verdict decides."
+  },
+  "specialist_check": {
+    "status": "ready",
+    "page_width": 128,
+    "occupancy": 0.4414,
+    "certified": false,
+    "pixels_written": false
+  }
+}

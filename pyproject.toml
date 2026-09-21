@@ -1,48 +1,52 @@
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "bellium-ai"
 version = "0.1.0"
-description = "Open-source specialist AI: micro-NN, k-NN and hybrid models for lighter, faster intelligence."
-readme = "README.md"
-license = { file = "LICENSE" }
-authors = [
-    { name = "Bellium AI contributors" }
-]
-classifiers = [
-    "Development Status :: 3 - Alpha",
-    "Intended Audience :: Developers",
-    "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Topic :: Scientific/Engineering :: Artificial Intelligence",
-    "Topic :: Multimedia :: Graphics",
-    "Topic :: Multimedia :: Sound/Audio :: Analysis",
-]
+description = "Micro-NN, k-NN, micro-LLM and hybrid specialist AI research"
 requires-python = ">=3.10"
-dependencies = [
-    "pillow>=9.0.0",
-]
+license = "MIT"
+license-files = ["LICENSE", "NOTICE", "licenses/*.txt"]
+readme = "README.md"
+dependencies = []
 
 [project.optional-dependencies]
-test = [
-    "pytest>=7.0.0",
-]
-accelerated = [
-    "numpy>=1.20.0",
+image = ["Pillow>=10"]
+dev = [
+  "pytest>=8",
+  "ruff>=0.6",
+  "build>=1",
+  "Pillow>=10",
 ]
 
 [project.scripts]
 bellium = "bellium.cli:main"
+bellium-magick = "bellium.magick.cli:main"
 
 [tool.setuptools.packages.find]
-where = ["."]
 include = ["bellium*", "legacy*"]
+namespaces = false
 
 [tool.setuptools.package-data]
-legacy = ["micro_nn/models/*.json", "micro_nn/provenance.json"]
+"legacy.micro_nn" = ["models/*.json", "provenance.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+extend-exclude = ["build", "dist", "*.egg-info"]
+
+# Declare the rule set explicitly: ruff's defaults changed between releases, so
+# an unpinned `ruff>=0.6` in CI silently enabled hundreds of new rules. This is
+# the set the repository is actually kept clean against.
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+
+[tool.ruff.lint.per-file-ignores]
+# These retained script entry points set up their import path before imports.
+"legacy/micro_nn/test_*.py" = ["E402"]
+"tests/test_pillow_regressions.py" = ["E402"]

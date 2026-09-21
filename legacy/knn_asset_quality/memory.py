@@ -7,7 +7,6 @@ or activate an asset.
 
 from __future__ import annotations
 
-import hashlib
 import json
 import math
 import time
@@ -17,6 +16,7 @@ from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterable
+from bellium.ledger import append_record, read_tail
 
 SCHEMA = "botte.asset-quality/v1"
 FAMILIES = ("image", "texture", "mesh", "animation", "godot")
@@ -142,14 +142,13 @@ def _similarity(left: list[float], right: list[float]) -> float:
 
 
 def _load(project_root: str | Path) -> list[dict]:
-    try:
-        lines = _path(project_root).read_text(encoding="utf-8").splitlines()
-    except OSError:
-        return []
+    lines = read_tail(_path(project_root), MAX_ENTRIES)
     records = []
     for line in lines[-MAX_ENTRIES:]:
         try:
             item = json.loads(line)
+            if not isinstance(item, dict):
+                continue
             family = _family(item.get("family"))
             if item.get("schema") != SCHEMA or item.get("verified") is not True:
                 continue
@@ -170,6 +169,10 @@ def _load(project_root: str | Path) -> list[dict]:
                 continue
             _sha256(item.get("sha256"))
             _size(item.get("size_bytes"))
+            if not isinstance(item.get("id"), str) or not item["id"]:
+                continue
+            if item.get("quality_score") != _VERDICT_SCORE[item["verdict"]]:
+                continue
             records.append(item)
         except (ValueError, TypeError, json.JSONDecodeError):
             continue
@@ -185,13 +188,7 @@ def _support(records: Iterable[dict]) -> list[dict]:
 
 
 def _append(project_root: str | Path, record: dict) -> None:
-    path = _path(project_root)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    if path.exists() and path.stat().st_size > MAX_BYTES:
-        lines = path.read_text(encoding="utf-8").splitlines()[-MAX_ENTRIES // 2:]
-        path.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    with path.open("a", encoding="utf-8") as stream:
-        stream.write(json.dumps(record, ensure_ascii=False, separators=(",", ":")) + "\n")
+    append_record(_path(project_root), record)
 
 
 def record_verified(

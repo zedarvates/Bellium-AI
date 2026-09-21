@@ -10,12 +10,13 @@ Bellium priority order:
 
 Zero external dependencies.
 """
+
 from __future__ import annotations
 
 from dataclasses import dataclass, field
 from enum import Enum
 import math
-from typing import List, Dict, Set, Optional, Tuple
+from typing import Dict, Set, Optional, Tuple
 
 
 class EscalationTier(str, Enum):
@@ -31,7 +32,7 @@ class ToolCapability:
     tool_id: str
     tier: EscalationTier
     modalities: Set[str]  # e.g. {'image', 'text', 'code'}
-    tags: Set[str]        # e.g. {'cutout', 'inpaint', 'routing', 'formatting'}
+    tags: Set[str]  # e.g. {'cutout', 'inpaint', 'routing', 'formatting'}
     safety_critical: bool = False
     latency_budget_ms: float = 50.0
     success_rate: float = 0.95
@@ -58,14 +59,28 @@ class RouteVerdict:
 
 class HybridRouter:
     """Deterministic priority router with capability matching and graceful abstention."""
-    
+
     def __init__(self):
         self._registry: Dict[str, ToolCapability] = {}
-        
+
     def register_tool(self, tool: ToolCapability) -> None:
+        if not isinstance(tool.tier, EscalationTier) or not tool.tool_id:
+            raise ValueError("tool needs an id and a valid tier")
+        if not math.isfinite(tool.success_rate) or not 0 <= tool.success_rate <= 1:
+            raise ValueError("success_rate must be finite and in [0, 1]")
+        if not math.isfinite(tool.latency_budget_ms) or tool.latency_budget_ms < 0:
+            raise ValueError("latency budget must be finite and non-negative")
         self._registry[tool.tool_id] = tool
-        
+
     def route_task(self, req: TaskRequirement) -> RouteVerdict:
+        if req.hard_constraints - {"zero_tokens", "offline_only"}:
+            return RouteVerdict(
+                None, EscalationTier.DETERMINISTIC, 0.0, "Unknown hard constraint; abstaining."
+            )
+        if req.max_latency_ms is not None and (
+            not math.isfinite(req.max_latency_ms) or req.max_latency_ms < 0
+        ):
+            raise ValueError("maximum latency must be finite and non-negative")
         # 1. Filter by modality and hard constraints
         candidates = []
         for tool in self._registry.values():
@@ -73,12 +88,15 @@ class HybridRouter:
                 continue
             if req.max_latency_ms is not None and tool.latency_budget_ms > req.max_latency_ms:
                 continue
-            if 'zero_tokens' in req.hard_constraints and tool.tier in (EscalationTier.MICRO_LLM, EscalationTier.GENERAL_LARGE):
+            if "zero_tokens" in req.hard_constraints and tool.tier in (
+                EscalationTier.MICRO_LLM,
+                EscalationTier.GENERAL_LARGE,
+            ):
                 continue
-            if 'offline_only' in req.hard_constraints and tool.tier == EscalationTier.GENERAL_LARGE:
+            if "offline_only" in req.hard_constraints and tool.tier == EscalationTier.GENERAL_LARGE:
                 continue
             candidates.append(tool)
-            
+
         if not candidates:
             return RouteVerdict(
                 selected_tool_id=None,
@@ -86,7 +104,7 @@ class HybridRouter:
                 confidence=0.0,
                 reason="No candidate satisfied task modality/hard constraints. Abstaining.",
             )
-            
+
         # 2. Score candidate tools by tag overlap and lowest competence tier
         # Preference order ranking
         tier_priority = {
@@ -96,30 +114,36 @@ class HybridRouter:
             EscalationTier.MICRO_LLM: 3,
             EscalationTier.GENERAL_LARGE: 4,
         }
-        
+
         def score_candidate(t: ToolCapability) -> Tuple[int, int, float]:
             overlap = len(t.tags.intersection(req.tags))
             tier_rank = tier_priority[t.tier]
             # Return tuple to sort: max overlap (-overlap), min tier_rank, max success (-t.success_rate)
             return (-overlap, tier_rank, -t.success_rate)
-            
+
         candidates.sort(key=score_candidate)
         best = candidates[0]
         overlap_count = len(best.tags.intersection(req.tags))
-        
+
         if overlap_count == 0 and req.tags:
             # No tags matched, escalate to general fallback
             return RouteVerdict(
-                selected_tool_id=best.tool_id,
+                selected_tool_id=None,
                 selected_tier=best.tier,
-                confidence=0.3,
-                reason="Zero tag overlap; falling back to lowest tier candidate.",
-                fallback_tier=EscalationTier.GENERAL_LARGE,
+                confidence=0.0,
+                reason="No candidate matches the requested task; abstaining.",
             )
-            
+
         conf = min(1.0, 0.5 + 0.25 * overlap_count) * best.success_rate
-        fallback = EscalationTier.GENERAL_LARGE if best.tier != EscalationTier.GENERAL_LARGE else None
-        
+        fallback = next(
+            (
+                tool.tier
+                for tool in candidates[1:]
+                if tool.tags.intersection(req.tags) and tool.tier != best.tier
+            ),
+            None,
+        )
+
         return RouteVerdict(
             selected_tool_id=best.tool_id,
             selected_tier=best.tier,

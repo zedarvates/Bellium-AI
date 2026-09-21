@@ -6,12 +6,12 @@ Zero heavy dependencies: executes with PIL and pure Python math.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Tuple, Optional, Dict, Any
+from typing import Tuple, Optional
 from PIL import Image
 
-from bellium.cutout import extract_foreground, normalize_background, CutoutResult, MaskMetrics
-from bellium.inpaint import inpaint_patch_knn, InpaintResult
-from bellium.routing import HybridRouter, ToolCapability, TaskRequirement, EscalationTier
+from bellium.cutout import extract_foreground, normalize_background, MaskMetrics
+from bellium.inpaint import inpaint_patch_knn
+from bellium.routing import HybridRouter, ToolCapability, EscalationTier
 
 
 @dataclass
@@ -75,9 +75,16 @@ class AssetPrepPipeline:
         if defect_mask is not None and self.spec.auto_inpaint_defects:
             inpaint_res = inpaint_patch_knn(working_im, defect_mask)
             working_im = inpaint_res.image
-            inpaint_applied = True
             pixels_filled = inpaint_res.metrics.filled_pixels
-            log.append(f"Defect inpainting applied: {pixels_filled} pixels repaired")
+            inpaint_applied = pixels_filled > 0
+            if inpaint_applied:
+                log.append(f"Defect inpainting applied: {pixels_filled} pixels repaired")
+            else:
+                log.append(
+                    "Defect inpainting abstained: "
+                    f"{inpaint_res.metrics.verdict.method} "
+                    f"({inpaint_res.metrics.verdict.reason}); the mask was left untouched"
+                )
             
         # Step 2: Foreground cutout
         cutout_res = extract_foreground(working_im, tolerance=self.spec.tolerance)

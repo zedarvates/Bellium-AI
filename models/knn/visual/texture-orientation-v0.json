@@ -1,0 +1,726 @@
+{
+  "schema": "bellium.texture-orientation-memory/v1",
+  "notes": "Authored grains. The published axis rule must agree at inference.",
+  "items": [
+    {
+      "id": "to_texture_01_repeat-x",
+      "family": "texture",
+      "grain": "repeat-x",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.999474,
+        "strength_y": 0.0,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.3125
+      }
+    },
+    {
+      "id": "to_texture_02_repeat-x",
+      "family": "texture",
+      "grain": "repeat-x",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.999715,
+        "strength_y": 0.0,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.4375
+      }
+    },
+    {
+      "id": "to_texture_03_repeat-x",
+      "family": "texture",
+      "grain": "repeat-x",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.999719,
+        "strength_y": 0.0,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.5625
+      }
+    },
+    {
+      "id": "to_texture_04_repeat-y",
+      "family": "texture",
+      "grain": "repeat-y",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.999474,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.3125
+      }
+    },
+    {
+      "id": "to_texture_05_repeat-y",
+      "family": "texture",
+      "grain": "repeat-y",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.999715,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.4375
+      }
+    },
+    {
+      "id": "to_texture_06_repeat-y",
+      "family": "texture",
+      "grain": "repeat-y",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.999719,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.5625
+      }
+    },
+    {
+      "id": "to_texture_07_repeat-both",
+      "family": "texture",
+      "grain": "repeat-both",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 1.0,
+        "strength_y": 1.0,
+        "axis_isotropy": 1.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.375
+      }
+    },
+    {
+      "id": "to_texture_08_repeat-both",
+      "family": "texture",
+      "grain": "repeat-both",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.999674,
+        "strength_y": 0.999655,
+        "axis_isotropy": 0.999981,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.5
+      }
+    },
+    {
+      "id": "to_texture_09_repeat-both",
+      "family": "texture",
+      "grain": "repeat-both",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 1.0,
+        "strength_y": 1.0,
+        "axis_isotropy": 1.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.34375
+      }
+    },
+    {
+      "id": "to_texture_10_repeat-diagonal",
+      "family": "texture",
+      "grain": "repeat-diagonal",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.835791,
+        "diagonal_cos2theta": 0.75,
+        "diagonal_sin2theta": 0.933013,
+        "smallest_period_ratio": 0.375
+      }
+    },
+    {
+      "id": "to_texture_11_repeat-diagonal",
+      "family": "texture",
+      "grain": "repeat-diagonal",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.900984,
+        "diagonal_cos2theta": 0.5,
+        "diagonal_sin2theta": 1.0,
+        "smallest_period_ratio": 0.375
+      }
+    },
+    {
+      "id": "to_texture_12_repeat-diagonal",
+      "family": "texture",
+      "grain": "repeat-diagonal",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.876748,
+        "diagonal_cos2theta": 0.25,
+        "diagonal_sin2theta": 0.933013,
+        "smallest_period_ratio": 0.375
+      }
+    },
+    {
+      "id": "to_texture_13_no-repeat",
+      "family": "texture",
+      "grain": "no-repeat",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.0
+      }
+    },
+    {
+      "id": "to_texture_14_no-repeat",
+      "family": "texture",
+      "grain": "no-repeat",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.0
+      }
+    },
+    {
+      "id": "to_texture_15_no-repeat",
+      "family": "texture",
+      "grain": "no-repeat",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.0
+      }
+    },
+    {
+      "id": "to_tilemap_01_repeat-x",
+      "family": "tilemap",
+      "grain": "repeat-x",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.999033,
+        "strength_y": 0.0,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.25
+      }
+    },
+    {
+      "id": "to_tilemap_02_repeat-x",
+      "family": "tilemap",
+      "grain": "repeat-x",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.998372,
+        "strength_y": 0.0,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.375
+      }
+    },
+    {
+      "id": "to_tilemap_03_repeat-x",
+      "family": "tilemap",
+      "grain": "repeat-x",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.999631,
+        "strength_y": 0.0,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.5
+      }
+    },
+    {
+      "id": "to_tilemap_04_repeat-y",
+      "family": "tilemap",
+      "grain": "repeat-y",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.999033,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.25
+      }
+    },
+    {
+      "id": "to_tilemap_05_repeat-y",
+      "family": "tilemap",
+      "grain": "repeat-y",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.998372,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.375
+      }
+    },
+    {
+      "id": "to_tilemap_06_repeat-y",
+      "family": "tilemap",
+      "grain": "repeat-y",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.999631,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.5
+      }
+    },
+    {
+      "id": "to_tilemap_07_repeat-both",
+      "family": "tilemap",
+      "grain": "repeat-both",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 1.0,
+        "strength_y": 1.0,
+        "axis_isotropy": 1.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.0
+      }
+    },
+    {
+      "id": "to_tilemap_08_repeat-both",
+      "family": "tilemap",
+      "grain": "repeat-both",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.999296,
+        "strength_y": 0.999499,
+        "axis_isotropy": 0.999797,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.25
+      }
+    },
+    {
+      "id": "to_tilemap_09_repeat-both",
+      "family": "tilemap",
+      "grain": "repeat-both",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 1.0,
+        "strength_y": 1.0,
+        "axis_isotropy": 1.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.125
+      }
+    },
+    {
+      "id": "to_tilemap_10_repeat-diagonal",
+      "family": "tilemap",
+      "grain": "repeat-diagonal",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.996353,
+        "diagonal_cos2theta": 0.75,
+        "diagonal_sin2theta": 0.933013,
+        "smallest_period_ratio": 0.5
+      }
+    },
+    {
+      "id": "to_tilemap_11_repeat-diagonal",
+      "family": "tilemap",
+      "grain": "repeat-diagonal",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.994406,
+        "diagonal_cos2theta": 0.5,
+        "diagonal_sin2theta": 1.0,
+        "smallest_period_ratio": 0.5
+      }
+    },
+    {
+      "id": "to_tilemap_12_repeat-diagonal",
+      "family": "tilemap",
+      "grain": "repeat-diagonal",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.997316,
+        "diagonal_cos2theta": 0.25,
+        "diagonal_sin2theta": 0.933013,
+        "smallest_period_ratio": 0.5
+      }
+    },
+    {
+      "id": "to_tilemap_13_no-repeat",
+      "family": "tilemap",
+      "grain": "no-repeat",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.0
+      }
+    },
+    {
+      "id": "to_tilemap_14_no-repeat",
+      "family": "tilemap",
+      "grain": "no-repeat",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.0
+      }
+    },
+    {
+      "id": "to_tilemap_15_no-repeat",
+      "family": "tilemap",
+      "grain": "no-repeat",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.0
+      }
+    },
+    {
+      "id": "to_sprite_01_repeat-x",
+      "family": "sprite",
+      "grain": "repeat-x",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.997748,
+        "strength_y": 0.0,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.1875
+      }
+    },
+    {
+      "id": "to_sprite_02_repeat-x",
+      "family": "sprite",
+      "grain": "repeat-x",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.999634,
+        "strength_y": 0.0,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.28125
+      }
+    },
+    {
+      "id": "to_sprite_03_repeat-x",
+      "family": "sprite",
+      "grain": "repeat-x",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.998095,
+        "strength_y": 0.0,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.375
+      }
+    },
+    {
+      "id": "to_sprite_04_repeat-y",
+      "family": "sprite",
+      "grain": "repeat-y",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.997748,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.1875
+      }
+    },
+    {
+      "id": "to_sprite_05_repeat-y",
+      "family": "sprite",
+      "grain": "repeat-y",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.999634,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.28125
+      }
+    },
+    {
+      "id": "to_sprite_06_repeat-y",
+      "family": "sprite",
+      "grain": "repeat-y",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.998095,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.375
+      }
+    },
+    {
+      "id": "to_sprite_07_repeat-both",
+      "family": "sprite",
+      "grain": "repeat-both",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 1.0,
+        "strength_y": 1.0,
+        "axis_isotropy": 1.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.1875
+      }
+    },
+    {
+      "id": "to_sprite_08_repeat-both",
+      "family": "sprite",
+      "grain": "repeat-both",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.998663,
+        "strength_y": 0.997595,
+        "axis_isotropy": 0.998931,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.375
+      }
+    },
+    {
+      "id": "to_sprite_09_repeat-both",
+      "family": "sprite",
+      "grain": "repeat-both",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 1.0,
+        "strength_y": 1.0,
+        "axis_isotropy": 1.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.5
+      }
+    },
+    {
+      "id": "to_sprite_10_repeat-diagonal",
+      "family": "sprite",
+      "grain": "repeat-diagonal",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.833111,
+        "diagonal_cos2theta": 0.75,
+        "diagonal_sin2theta": 0.933013,
+        "smallest_period_ratio": 0.28125
+      }
+    },
+    {
+      "id": "to_sprite_11_repeat-diagonal",
+      "family": "sprite",
+      "grain": "repeat-diagonal",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.8522,
+        "diagonal_cos2theta": 0.5,
+        "diagonal_sin2theta": 1.0,
+        "smallest_period_ratio": 0.28125
+      }
+    },
+    {
+      "id": "to_sprite_12_repeat-diagonal",
+      "family": "sprite",
+      "grain": "repeat-diagonal",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.795579,
+        "diagonal_cos2theta": 0.25,
+        "diagonal_sin2theta": 0.933013,
+        "smallest_period_ratio": 0.28125
+      }
+    },
+    {
+      "id": "to_sprite_13_no-repeat",
+      "family": "sprite",
+      "grain": "no-repeat",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.0
+      }
+    },
+    {
+      "id": "to_sprite_14_no-repeat",
+      "family": "sprite",
+      "grain": "no-repeat",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.0
+      }
+    },
+    {
+      "id": "to_sprite_15_no-repeat",
+      "family": "sprite",
+      "grain": "no-repeat",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "features": {
+        "strength_x": 0.0,
+        "strength_y": 0.0,
+        "axis_isotropy": 0.0,
+        "diagonal_strength": 0.0,
+        "diagonal_cos2theta": 1.0,
+        "diagonal_sin2theta": 0.5,
+        "smallest_period_ratio": 0.0
+      }
+    }
+  ]
+}

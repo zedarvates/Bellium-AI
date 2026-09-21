@@ -1,7 +1,9 @@
-import os, sys, math
+import os
+import sys
+import math
 
 sys.path.insert(0, os.path.abspath('temp_bellium_repo'))
-from bellium.audio import detect_voice_activity, VoiceActivityDetector
+from bellium.audio import detect_voice_activity
 
 def run_tests():
     sr = 16000

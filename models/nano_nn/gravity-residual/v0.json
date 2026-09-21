@@ -1,0 +1,47 @@
+{
+  "layers": [
+    3,
+    1
+  ],
+  "weights": [
+    [
+      1.0335138738645555,
+      0.004634559861299845,
+      -1.2284936081954287
+    ]
+  ],
+  "biases": [
+    [
+      -0.5278582253527982
+    ]
+  ],
+  "activations": [
+    "linear"
+  ],
+  "target_scale": 0.05,
+  "name": "nano_gravity_residual",
+  "inputs": [
+    "latitude_norm",
+    "altitude_norm",
+    "latitude_norm_squared"
+  ],
+  "authority_mode": "consultative",
+  "reference_id": "bellium/reference/wgs84-somigliana",
+  "offset": 9.80665,
+  "heldout_rmse": 2.331e-05,
+  "max_abs": 6.017e-05,
+  "declared_max_abs": 0.001,
+  "max_abs_pa": null,
+  "precision": "float-json-weights-v1",
+  "budget": {
+    "max_parameters": 64,
+    "max_model_bytes": 8192,
+    "precision": "float-json-weights-v1",
+    "target_latency_ms": null,
+    "target_peak_ram_bytes": null,
+    "device": null,
+    "measured_latency_ms": null,
+    "measured_peak_ram_bytes": null,
+    "device_verified": false
+  }
+}

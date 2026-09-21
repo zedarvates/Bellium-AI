@@ -1,0 +1,633 @@
+{
+  "schema": "bellium.normal-resample-benchmark/v1",
+  "note": "Controlled fields only. Nothing here is a measurement of a real texture, and no GPU filter or mipmap generator was involved.",
+  "base_size": 32,
+  "reduction": {
+    "note": "Both sides are the same continuous surface: the wave period scales with the grid, and the comparison is against the analytic field of the coarser sampling, so the number mixes the filter with the sampling difference. That difference is negligible for the smooth families and large for a wave that is not band limited at the target size, which is why two periods are reported. raw_mean_deg is the error as stored, direction_mean_deg normalizes both sides first: the difference between them is the stored length and nothing else. The height column does not separate the methods, because a scale on a normal cancels in the slope and the integral is scale invariant; it prices the resolution instead.",
+    "cases": [
+      {
+        "geometry": "sphere",
+        "wave_period": null,
+        "factor": 2,
+        "method": "renormalized",
+        "raw_mean_deg": 0.1772,
+        "raw_p95_deg": 0.5201,
+        "direction_mean_deg": 0.1772,
+        "direction_max_deg": 0.7537,
+        "height_relative_rmse": 0.191986,
+        "mean_length_before": 0.99757,
+        "mean_non_unit_of_the_stored_bytes": 0.00146,
+        "inspector_verdict": "tangent-space",
+        "pixels": 148
+      },
+      {
+        "geometry": "sphere",
+        "wave_period": null,
+        "factor": 2,
+        "method": "naive",
+        "raw_mean_deg": 3.7021,
+        "raw_p95_deg": 5.2765,
+        "direction_mean_deg": 0.1772,
+        "direction_max_deg": 0.7537,
+        "height_relative_rmse": 0.191986,
+        "mean_length_before": 0.99757,
+        "mean_non_unit_of_the_stored_bytes": 0.002283,
+        "inspector_verdict": "tangent-space",
+        "pixels": 148
+      },
+      {
+        "geometry": "sphere",
+        "wave_period": null,
+        "factor": 2,
+        "method": "slopes",
+        "raw_mean_deg": 0.4696,
+        "raw_p95_deg": 1.4933,
+        "direction_mean_deg": 0.4696,
+        "direction_max_deg": 2.1685,
+        "height_relative_rmse": 0.192204,
+        "mean_length_before": 0.99757,
+        "mean_non_unit_of_the_stored_bytes": 0.001529,
+        "inspector_verdict": "tangent-space",
+        "pixels": 148
+      },
+      {
+        "geometry": "sphere",
+        "wave_period": null,
+        "factor": 4,
+        "method": "renormalized",
+        "raw_mean_deg": 0.4961,
+        "raw_p95_deg": 1.0505,
+        "direction_mean_deg": 0.4961,
+        "direction_max_deg": 1.0505,
+        "height_relative_rmse": 0.337406,
+        "mean_length_before": 0.99113,
+        "mean_non_unit_of_the_stored_bytes": 0.001883,
+        "inspector_verdict": "tangent-space",
+        "pixels": 32
+      },
+      {
+        "geometry": "sphere",
+        "wave_period": null,
+        "factor": 4,
+        "method": "naive",
+        "raw_mean_deg": 7.6438,
+        "raw_p95_deg": 9.2871,
+        "direction_mean_deg": 0.4961,
+        "direction_max_deg": 1.0505,
+        "height_relative_rmse": 0.337406,
+        "mean_length_before": 0.99113,
+        "mean_non_unit_of_the_stored_bytes": 0.006995,
+        "inspector_verdict": "tangent-space",
+        "pixels": 32
+      },
+      {
+        "geometry": "sphere",
+        "wave_period": null,
+        "factor": 4,
+        "method": "slopes",
+        "raw_mean_deg": 1.3076,
+        "raw_p95_deg": 3.0581,
+        "direction_mean_deg": 1.3076,
+        "direction_max_deg": 3.0581,
+        "height_relative_rmse": 0.337875,
+        "mean_length_before": 0.99113,
+        "mean_non_unit_of_the_stored_bytes": 0.001885,
+        "inspector_verdict": "tangent-space",
+        "pixels": 32
+      },
+      {
+        "geometry": "cone",
+        "wave_period": null,
+        "factor": 2,
+        "method": "renormalized",
+        "raw_mean_deg": 0.1095,
+        "raw_p95_deg": 0.3697,
+        "direction_mean_deg": 0.1095,
+        "direction_max_deg": 1.5528,
+        "height_relative_rmse": 0.122841,
+        "mean_length_before": 0.998349,
+        "mean_non_unit_of_the_stored_bytes": 0.001227,
+        "inspector_verdict": "tangent-space",
+        "pixels": 148
+      },
+      {
+        "geometry": "cone",
+        "wave_period": null,
+        "factor": 2,
+        "method": "naive",
+        "raw_mean_deg": 2.8159,
+        "raw_p95_deg": 6.4806,
+        "direction_mean_deg": 0.1095,
+        "direction_max_deg": 1.5528,
+        "height_relative_rmse": 0.122841,
+        "mean_length_before": 0.998349,
+        "mean_non_unit_of_the_stored_bytes": 0.001554,
+        "inspector_verdict": "tangent-space",
+        "pixels": 148
+      },
+      {
+        "geometry": "cone",
+        "wave_period": null,
+        "factor": 2,
+        "method": "slopes",
+        "raw_mean_deg": 0.1095,
+        "raw_p95_deg": 0.3697,
+        "direction_mean_deg": 0.1095,
+        "direction_max_deg": 1.5528,
+        "height_relative_rmse": 0.122841,
+        "mean_length_before": 0.998349,
+        "mean_non_unit_of_the_stored_bytes": 0.001227,
+        "inspector_verdict": "tangent-space",
+        "pixels": 148
+      },
+      {
+        "geometry": "cone",
+        "wave_period": null,
+        "factor": 4,
+        "method": "renormalized",
+        "raw_mean_deg": 0.4971,
+        "raw_p95_deg": 2.1869,
+        "direction_mean_deg": 0.4971,
+        "direction_max_deg": 2.1869,
+        "height_relative_rmse": 0.242374,
+        "mean_length_before": 0.994278,
+        "mean_non_unit_of_the_stored_bytes": 0.001783,
+        "inspector_verdict": "tangent-space",
+        "pixels": 32
+      },
+      {
+        "geometry": "cone",
+        "wave_period": null,
+        "factor": 4,
+        "method": "naive",
+        "raw_mean_deg": 6.5175,
+        "raw_p95_deg": 15.5882,
+        "direction_mean_deg": 0.4971,
+        "direction_max_deg": 2.1869,
+        "height_relative_rmse": 0.242374,
+        "mean_length_before": 0.994278,
+        "mean_non_unit_of_the_stored_bytes": 0.003751,
+        "inspector_verdict": "tangent-space",
+        "pixels": 32
+      },
+      {
+        "geometry": "cone",
+        "wave_period": null,
+        "factor": 4,
+        "method": "slopes",
+        "raw_mean_deg": 0.4971,
+        "raw_p95_deg": 2.1869,
+        "direction_mean_deg": 0.4971,
+        "direction_max_deg": 2.1869,
+        "height_relative_rmse": 0.242374,
+        "mean_length_before": 0.994278,
+        "mean_non_unit_of_the_stored_bytes": 0.001783,
+        "inspector_verdict": "tangent-space",
+        "pixels": 32
+      },
+      {
+        "geometry": "waves",
+        "wave_period": 12.0,
+        "factor": 2,
+        "method": "renormalized",
+        "raw_mean_deg": 12.8502,
+        "raw_p95_deg": 17.5116,
+        "direction_mean_deg": 12.8502,
+        "direction_max_deg": 17.5116,
+        "height_relative_rmse": 0.274402,
+        "mean_length_before": 0.996943,
+        "mean_non_unit_of_the_stored_bytes": 0.003134,
+        "inspector_verdict": "tangent-space",
+        "pixels": 256
+      },
+      {
+        "geometry": "waves",
+        "wave_period": 12.0,
+        "factor": 2,
+        "method": "naive",
+        "raw_mean_deg": 13.7223,
+        "raw_p95_deg": 18.0499,
+        "direction_mean_deg": 12.8502,
+        "direction_max_deg": 17.5116,
+        "height_relative_rmse": 0.274402,
+        "mean_length_before": 0.996943,
+        "mean_non_unit_of_the_stored_bytes": 0.003134,
+        "inspector_verdict": "tangent-space",
+        "pixels": 256
+      },
+      {
+        "geometry": "waves",
+        "wave_period": 12.0,
+        "factor": 2,
+        "method": "slopes",
+        "raw_mean_deg": 12.8415,
+        "raw_p95_deg": 17.4846,
+        "direction_mean_deg": 12.8415,
+        "direction_max_deg": 17.4846,
+        "height_relative_rmse": 0.274412,
+        "mean_length_before": 0.996943,
+        "mean_non_unit_of_the_stored_bytes": 0.003134,
+        "inspector_verdict": "tangent-space",
+        "pixels": 256
+      },
+      {
+        "geometry": "waves",
+        "wave_period": 12.0,
+        "factor": 4,
+        "method": "renormalized",
+        "raw_mean_deg": 34.527,
+        "raw_p95_deg": 45.7512,
+        "direction_mean_deg": 34.527,
+        "direction_max_deg": 45.7512,
+        "height_relative_rmse": 0.344772,
+        "mean_length_before": 0.987913,
+        "mean_non_unit_of_the_stored_bytes": 0.003308,
+        "inspector_verdict": "tangent-space",
+        "pixels": 64
+      },
+      {
+        "geometry": "waves",
+        "wave_period": 12.0,
+        "factor": 4,
+        "method": "naive",
+        "raw_mean_deg": 35.7833,
+        "raw_p95_deg": 46.4164,
+        "direction_mean_deg": 34.527,
+        "direction_max_deg": 45.7512,
+        "height_relative_rmse": 0.344772,
+        "mean_length_before": 0.987913,
+        "mean_non_unit_of_the_stored_bytes": 0.012249,
+        "inspector_verdict": "tangent-space",
+        "pixels": 64
+      },
+      {
+        "geometry": "waves",
+        "wave_period": 12.0,
+        "factor": 4,
+        "method": "slopes",
+        "raw_mean_deg": 34.5178,
+        "raw_p95_deg": 45.7449,
+        "direction_mean_deg": 34.5178,
+        "direction_max_deg": 45.7449,
+        "height_relative_rmse": 0.344851,
+        "mean_length_before": 0.987913,
+        "mean_non_unit_of_the_stored_bytes": 0.003667,
+        "inspector_verdict": "tangent-space",
+        "pixels": 64
+      },
+      {
+        "geometry": "waves",
+        "wave_period": 24.0,
+        "factor": 2,
+        "method": "renormalized",
+        "raw_mean_deg": 6.1629,
+        "raw_p95_deg": 8.8119,
+        "direction_mean_deg": 6.1629,
+        "direction_max_deg": 8.8119,
+        "height_relative_rmse": 0.153582,
+        "mean_length_before": 0.999794,
+        "mean_non_unit_of_the_stored_bytes": 0.001852,
+        "inspector_verdict": "tangent-space",
+        "pixels": 256
+      },
+      {
+        "geometry": "waves",
+        "wave_period": 24.0,
+        "factor": 2,
+        "method": "naive",
+        "raw_mean_deg": 6.3117,
+        "raw_p95_deg": 8.8181,
+        "direction_mean_deg": 6.1629,
+        "direction_max_deg": 8.8119,
+        "height_relative_rmse": 0.153582,
+        "mean_length_before": 0.999794,
+        "mean_non_unit_of_the_stored_bytes": 0.001852,
+        "inspector_verdict": "tangent-space",
+        "pixels": 256
+      },
+      {
+        "geometry": "waves",
+        "wave_period": 24.0,
+        "factor": 2,
+        "method": "slopes",
+        "raw_mean_deg": 6.1623,
+        "raw_p95_deg": 8.8118,
+        "direction_mean_deg": 6.1623,
+        "direction_max_deg": 8.8118,
+        "height_relative_rmse": 0.153573,
+        "mean_length_before": 0.999794,
+        "mean_non_unit_of_the_stored_bytes": 0.001852,
+        "inspector_verdict": "tangent-space",
+        "pixels": 256
+      },
+      {
+        "geometry": "waves",
+        "wave_period": 24.0,
+        "factor": 4,
+        "method": "renormalized",
+        "raw_mean_deg": 17.8124,
+        "raw_p95_deg": 24.0457,
+        "direction_mean_deg": 17.8124,
+        "direction_max_deg": 24.0457,
+        "height_relative_rmse": 0.284123,
+        "mean_length_before": 0.99903,
+        "mean_non_unit_of_the_stored_bytes": 0.001685,
+        "inspector_verdict": "tangent-space",
+        "pixels": 64
+      },
+      {
+        "geometry": "waves",
+        "wave_period": 24.0,
+        "factor": 4,
+        "method": "naive",
+        "raw_mean_deg": 18.0758,
+        "raw_p95_deg": 24.1898,
+        "direction_mean_deg": 17.8124,
+        "direction_max_deg": 24.0457,
+        "height_relative_rmse": 0.284123,
+        "mean_length_before": 0.99903,
+        "mean_non_unit_of_the_stored_bytes": 0.002055,
+        "inspector_verdict": "tangent-space",
+        "pixels": 64
+      },
+      {
+        "geometry": "waves",
+        "wave_period": 24.0,
+        "factor": 4,
+        "method": "slopes",
+        "raw_mean_deg": 17.811,
+        "raw_p95_deg": 24.0425,
+        "direction_mean_deg": 17.811,
+        "direction_max_deg": 24.0425,
+        "height_relative_rmse": 0.284114,
+        "mean_length_before": 0.99903,
+        "mean_non_unit_of_the_stored_bytes": 0.001685,
+        "inspector_verdict": "tangent-space",
+        "pixels": 64
+      },
+      {
+        "geometry": "tilted-plane",
+        "wave_period": null,
+        "factor": 2,
+        "method": "renormalized",
+        "raw_mean_deg": 0.0,
+        "raw_p95_deg": 0.0,
+        "direction_mean_deg": 0.0,
+        "direction_max_deg": 0.0,
+        "height_relative_rmse": 0.112622,
+        "mean_length_before": 1.0,
+        "mean_non_unit_of_the_stored_bytes": 0.001859,
+        "inspector_verdict": "tangent-space",
+        "pixels": 256
+      },
+      {
+        "geometry": "tilted-plane",
+        "wave_period": null,
+        "factor": 2,
+        "method": "naive",
+        "raw_mean_deg": 0.0,
+        "raw_p95_deg": 0.0,
+        "direction_mean_deg": 0.0,
+        "direction_max_deg": 0.0,
+        "height_relative_rmse": 0.112622,
+        "mean_length_before": 1.0,
+        "mean_non_unit_of_the_stored_bytes": 0.001859,
+        "inspector_verdict": "tangent-space",
+        "pixels": 256
+      },
+      {
+        "geometry": "tilted-plane",
+        "wave_period": null,
+        "factor": 2,
+        "method": "slopes",
+        "raw_mean_deg": 0.0,
+        "raw_p95_deg": 0.0,
+        "direction_mean_deg": 0.0,
+        "direction_max_deg": 0.0,
+        "height_relative_rmse": 0.112622,
+        "mean_length_before": 1.0,
+        "mean_non_unit_of_the_stored_bytes": 0.001859,
+        "inspector_verdict": "tangent-space",
+        "pixels": 256
+      },
+      {
+        "geometry": "tilted-plane",
+        "wave_period": null,
+        "factor": 4,
+        "method": "renormalized",
+        "raw_mean_deg": 0.0,
+        "raw_p95_deg": 0.0,
+        "direction_mean_deg": 0.0,
+        "direction_max_deg": 0.0,
+        "height_relative_rmse": 0.119954,
+        "mean_length_before": 1.0,
+        "mean_non_unit_of_the_stored_bytes": 0.001859,
+        "inspector_verdict": "tangent-space",
+        "pixels": 64
+      },
+      {
+        "geometry": "tilted-plane",
+        "wave_period": null,
+        "factor": 4,
+        "method": "naive",
+        "raw_mean_deg": 0.0,
+        "raw_p95_deg": 0.0,
+        "direction_mean_deg": 0.0,
+        "direction_max_deg": 0.0,
+        "height_relative_rmse": 0.119954,
+        "mean_length_before": 1.0,
+        "mean_non_unit_of_the_stored_bytes": 0.001859,
+        "inspector_verdict": "tangent-space",
+        "pixels": 64
+      },
+      {
+        "geometry": "tilted-plane",
+        "wave_period": null,
+        "factor": 4,
+        "method": "slopes",
+        "raw_mean_deg": 0.0,
+        "raw_p95_deg": 0.0,
+        "direction_mean_deg": 0.0,
+        "direction_max_deg": 0.0,
+        "height_relative_rmse": 0.119954,
+        "mean_length_before": 1.0,
+        "mean_non_unit_of_the_stored_bytes": 0.001859,
+        "inspector_verdict": "tangent-space",
+        "pixels": 64
+      }
+    ]
+  },
+  "chain": {
+    "note": "Renormalized reduction, thirty-two pixels down twice. The drift is the change in mean Z across the chain: averaging tilts a curved field towards the viewer, which is the flattening a mip chain shows.",
+    "flattening_limit": 0.03,
+    "cases": [
+      {
+        "geometry": "sphere",
+        "method": "renormalized",
+        "drift": 0.09489,
+        "warnings": [
+          "flattening_drift",
+          "partial_coverage"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "shape": [
+              16,
+              16
+            ],
+            "mean_deg": 0.1772,
+            "max_deg": 0.7537,
+            "height_relative_rmse": 0.191986,
+            "mean_z": 0.711825,
+            "coverage": 0.578125
+          },
+          {
+            "level": 2,
+            "shape": [
+              8,
+              8
+            ],
+            "mean_deg": 0.4982,
+            "max_deg": 1.0567,
+            "height_relative_rmse": 0.337407,
+            "mean_z": 0.765045,
+            "coverage": 0.5
+          }
+        ]
+      },
+      {
+        "geometry": "cone",
+        "method": "renormalized",
+        "drift": 0.006056,
+        "warnings": [
+          "partial_coverage"
+        ],
+        "levels": [
+          {
+            "level": 1,
+            "shape": [
+              16,
+              16
+            ],
+            "mean_deg": 0.1095,
+            "max_deg": 1.5528,
+            "height_relative_rmse": 0.122841,
+            "mean_z": 0.708449,
+            "coverage": 0.578125
+          },
+          {
+            "level": 2,
+            "shape": [
+              8,
+              8
+            ],
+            "mean_deg": 0.4969,
+            "max_deg": 2.1852,
+            "height_relative_rmse": 0.242374,
+            "mean_z": 0.713163,
+            "coverage": 0.5
+          }
+        ]
+      },
+      {
+        "geometry": "waves",
+        "method": "renormalized",
+        "drift": 0.011979,
+        "warnings": [],
+        "levels": [
+          {
+            "level": 1,
+            "shape": [
+              16,
+              16
+            ],
+            "mean_deg": 12.8502,
+            "max_deg": 17.5116,
+            "height_relative_rmse": 0.274402,
+            "mean_z": 0.979473,
+            "coverage": 1.0
+          },
+          {
+            "level": 2,
+            "shape": [
+              8,
+              8
+            ],
+            "mean_deg": 34.5281,
+            "max_deg": 45.7522,
+            "height_relative_rmse": 0.344769,
+            "mean_z": 0.988442,
+            "coverage": 1.0
+          }
+        ]
+      },
+      {
+        "geometry": "tilted-plane",
+        "method": "renormalized",
+        "drift": 0.0,
+        "warnings": [],
+        "levels": [
+          {
+            "level": 1,
+            "shape": [
+              16,
+              16
+            ],
+            "mean_deg": 0.0,
+            "max_deg": 0.0,
+            "height_relative_rmse": 0.112622,
+            "mean_z": 0.927478,
+            "coverage": 1.0
+          },
+          {
+            "level": 2,
+            "shape": [
+              8,
+              8
+            ],
+            "mean_deg": 0.0,
+            "max_deg": 0.0,
+            "height_relative_rmse": 0.119954,
+            "mean_z": 0.927478,
+            "coverage": 1.0
+          }
+        ]
+      }
+    ]
+  },
+  "detectability": {
+    "note": "The length defect a naive chain leaves is real but small, and the inspector's non-unit limit is 0.2: this section prices the gap between the defect and the check that is supposed to catch it. Two honest caveats. The repository's encoder normalizes every normal it writes, so a naive chain pushed through encode_normal_map arrives healed and this table measures a writer that does not normalize. And the angular gap in the reduction table between naive and renormalized is that length read through a formula that assumes unit vectors: two parallel vectors have no angle, whichever length they carry.",
+    "non_unit_limit": 0.2,
+    "cases": [
+      {
+        "factor": 2,
+        "method": "naive",
+        "mean_stored_length": 0.997802,
+        "mean_non_unit": 0.002283,
+        "verdict": "tangent-space"
+      },
+      {
+        "factor": 2,
+        "method": "renormalized",
+        "mean_stored_length": 1.0,
+        "mean_non_unit": 0.00146,
+        "verdict": "tangent-space"
+      },
+      {
+        "factor": 4,
+        "method": "naive",
+        "mean_stored_length": 0.990997,
+        "mean_non_unit": 0.006995,
+        "verdict": "tangent-space"
+      },
+      {
+        "factor": 4,
+        "method": "renormalized",
+        "mean_stored_length": 1.0,
+        "mean_non_unit": 0.001883,
+        "verdict": "tangent-space"
+      }
+    ]
+  }
+}

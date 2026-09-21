@@ -1,0 +1,134 @@
+{
+  "schema": "bellium.visual-quality-protocol/v1",
+  "protocol_id": "visual-quality-v3",
+  "frozen_before_scoring": true,
+  "scope": "Fresh validation lot: adaptive local selection versus pinned patch engine; no tuning on these images",
+  "upstream_repository": "https://github.com/scikit-image/scikit-image",
+  "upstream_revision": "e8a42ba85aaf5fd9322ef9ca51bc21063b22fcae",
+  "upstream_version": "0.25.2",
+  "license_reference": "https://scikit-image.org/docs/0.25.x/api/skimage.data.html",
+  "assets": [
+    {
+      "id": "camera",
+      "file": "camera.png",
+      "kind": "photograph",
+      "license": "CC0-1.0",
+      "attribution": "Lav Varshney, via scikit-image data",
+      "sha256": "b0793d2adda0fa6ae899c03989482bff9a42d3d5690fc7e3648f2795d730c23a"
+    },
+    {
+      "id": "coins",
+      "file": "coins.png",
+      "kind": "photograph",
+      "license": "LicenseRef-NoKnownCopyrightRestrictions",
+      "attribution": "Brooklyn Museum Collection, via scikit-image data",
+      "sha256": "f8d773fc9cfa6f4d8e5942dc34d0a0788fcaed2a4fefbbed0aef5398d7ef4cba"
+    },
+    {
+      "id": "hubble",
+      "file": "hubble_deep_field.jpg",
+      "kind": "photograph",
+      "license": "LicenseRef-Public-Domain",
+      "attribution": "NASA, Hubble eXtreme Deep Field",
+      "sha256": "3a19c5dd8a927a9334bb1229a6d63711b1c0c767fb27e2286e7c84a3e2c2f5f4"
+    },
+    {
+      "id": "text",
+      "file": "text.png",
+      "kind": "photograph",
+      "license": "LicenseRef-Public-Domain",
+      "attribution": "Wikipedia Corner.png",
+      "sha256": "bd84aa3a6e3c9887850d45d606c96b2e59433fbef50338570b63c319e668e6d1"
+    },
+    {
+      "id": "horse",
+      "file": "horse.png",
+      "kind": "silhouette",
+      "license": "CC0-1.0",
+      "attribution": "Andreas Preuss (marauder), Openclipart",
+      "sha256": "c7fb60789fe394c485f842291ea3b21e50d140f39d6dcb5fb9917cc178225455"
+    }
+  ],
+  "inpaint": {
+    "long_side": 128,
+    "resize": "Pillow LANCZOS, preserve aspect ratio, RGB",
+    "centers_xy": [
+      [
+        0.25,
+        0.3
+      ],
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.75,
+        0.7
+      ]
+    ],
+    "hole_sides": [
+      3,
+      7
+    ],
+    "primary_baseline": "nearest-original-known-pixel-euclidean",
+    "secondary_baseline": "one-pixel-bounding-ring-mean",
+    "score_only_masked_pixels": true,
+    "severe_error_mae_255": 25.0,
+    "gates": {
+      "minimum_coverage": 0.8,
+      "maximum_accepted_mean_mae_255": 12.0,
+      "minimum_primary_baseline_improvement": 0.1,
+      "maximum_bad_accept_rate": 0.05,
+      "maximum_p95_seconds": 1.0,
+      "all_known_pixels_preserved": true
+    }
+  },
+  "cutout": {
+    "silhouette_canvas": [
+      128,
+      128
+    ],
+    "foreground_color": [
+      210,
+      50,
+      40
+    ],
+    "backgrounds": [
+      [
+        255,
+        255,
+        255
+      ],
+      [
+        10,
+        20,
+        200
+      ]
+    ],
+    "minimum_mask_iou": 0.98,
+    "minimum_coverage": 1.0,
+    "low_contrast_background": [
+      205,
+      45,
+      40
+    ],
+    "low_contrast_must_abstain": true,
+    "photographs_have_no_cutout_ground_truth": true
+  },
+  "authority": "consultative-only",
+  "data_policy": "Held out from all development; one comparison run per engine, no tuning, no authority promotion",
+  "threshold_note": "Engineering acceptance gates chosen before scoring; not universal perceptual standards",
+  "baseline": null,
+  "quality_guard": {
+    "version": "method-selection-v1",
+    "rule": "each method must pass every translated-hole probe with MAE <= 12/255",
+    "tuning": "threshold carried over from the v1 preregistered error limit; no fitting on v3"
+  },
+  "engine_selection": {
+    "candidates": [
+      "patch",
+      "adaptive"
+    ],
+    "decision": "report both; no gate relaxation"
+  }
+}

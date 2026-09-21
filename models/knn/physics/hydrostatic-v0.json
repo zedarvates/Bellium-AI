@@ -1,0 +1,586 @@
+{
+  "schema": "bellium.physical-case-memory/v1",
+  "family": "hydrostatic",
+  "domain": {
+    "depth_m": [
+      0.0,
+      100.0
+    ],
+    "density_kg_m3": [
+      1000.0,
+      1050.0
+    ]
+  },
+  "output_unit": "Pa",
+  "reference_method": "reference:hydrostatic",
+  "notes": "Cases generated from published reference models by scripts/build_physical_cases.py. They are not field measurements; interpolation is limited to the declared domain.",
+  "items": [
+    {
+      "id": "hyd_000_1000",
+      "inputs": {
+        "depth_m": 0.0,
+        "density_kg_m3": 1000.0
+      },
+      "output": 0.0,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_000_1025",
+      "inputs": {
+        "depth_m": 0.0,
+        "density_kg_m3": 1025.0
+      },
+      "output": 0.0,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_000_1050",
+      "inputs": {
+        "depth_m": 0.0,
+        "density_kg_m3": 1050.0
+      },
+      "output": 0.0,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_005_1000",
+      "inputs": {
+        "depth_m": 5.0,
+        "density_kg_m3": 1000.0
+      },
+      "output": 49033.25,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_005_1025",
+      "inputs": {
+        "depth_m": 5.0,
+        "density_kg_m3": 1025.0
+      },
+      "output": 50259.08125,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_005_1050",
+      "inputs": {
+        "depth_m": 5.0,
+        "density_kg_m3": 1050.0
+      },
+      "output": 51484.9125,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_010_1000",
+      "inputs": {
+        "depth_m": 10.0,
+        "density_kg_m3": 1000.0
+      },
+      "output": 98066.5,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_010_1025",
+      "inputs": {
+        "depth_m": 10.0,
+        "density_kg_m3": 1025.0
+      },
+      "output": 100518.1625,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_010_1050",
+      "inputs": {
+        "depth_m": 10.0,
+        "density_kg_m3": 1050.0
+      },
+      "output": 102969.825,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_015_1000",
+      "inputs": {
+        "depth_m": 15.0,
+        "density_kg_m3": 1000.0
+      },
+      "output": 147099.75,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_015_1025",
+      "inputs": {
+        "depth_m": 15.0,
+        "density_kg_m3": 1025.0
+      },
+      "output": 150777.24375,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_015_1050",
+      "inputs": {
+        "depth_m": 15.0,
+        "density_kg_m3": 1050.0
+      },
+      "output": 154454.7375,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_020_1000",
+      "inputs": {
+        "depth_m": 20.0,
+        "density_kg_m3": 1000.0
+      },
+      "output": 196133.0,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_020_1025",
+      "inputs": {
+        "depth_m": 20.0,
+        "density_kg_m3": 1025.0
+      },
+      "output": 201036.325,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_020_1050",
+      "inputs": {
+        "depth_m": 20.0,
+        "density_kg_m3": 1050.0
+      },
+      "output": 205939.65,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_025_1000",
+      "inputs": {
+        "depth_m": 25.0,
+        "density_kg_m3": 1000.0
+      },
+      "output": 245166.25,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_025_1025",
+      "inputs": {
+        "depth_m": 25.0,
+        "density_kg_m3": 1025.0
+      },
+      "output": 251295.40625,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_025_1050",
+      "inputs": {
+        "depth_m": 25.0,
+        "density_kg_m3": 1050.0
+      },
+      "output": 257424.5625,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_030_1000",
+      "inputs": {
+        "depth_m": 30.0,
+        "density_kg_m3": 1000.0
+      },
+      "output": 294199.5,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_030_1025",
+      "inputs": {
+        "depth_m": 30.0,
+        "density_kg_m3": 1025.0
+      },
+      "output": 301554.4875,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_030_1050",
+      "inputs": {
+        "depth_m": 30.0,
+        "density_kg_m3": 1050.0
+      },
+      "output": 308909.475,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_035_1000",
+      "inputs": {
+        "depth_m": 35.0,
+        "density_kg_m3": 1000.0
+      },
+      "output": 343232.75,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_035_1025",
+      "inputs": {
+        "depth_m": 35.0,
+        "density_kg_m3": 1025.0
+      },
+      "output": 351813.56875,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_035_1050",
+      "inputs": {
+        "depth_m": 35.0,
+        "density_kg_m3": 1050.0
+      },
+      "output": 360394.3875,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_040_1000",
+      "inputs": {
+        "depth_m": 40.0,
+        "density_kg_m3": 1000.0
+      },
+      "output": 392266.0,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_040_1025",
+      "inputs": {
+        "depth_m": 40.0,
+        "density_kg_m3": 1025.0
+      },
+      "output": 402072.65,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_040_1050",
+      "inputs": {
+        "depth_m": 40.0,
+        "density_kg_m3": 1050.0
+      },
+      "output": 411879.3,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_045_1000",
+      "inputs": {
+        "depth_m": 45.0,
+        "density_kg_m3": 1000.0
+      },
+      "output": 441299.25,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_045_1025",
+      "inputs": {
+        "depth_m": 45.0,
+        "density_kg_m3": 1025.0
+      },
+      "output": 452331.73125,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_045_1050",
+      "inputs": {
+        "depth_m": 45.0,
+        "density_kg_m3": 1050.0
+      },
+      "output": 463364.2125,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_050_1000",
+      "inputs": {
+        "depth_m": 50.0,
+        "density_kg_m3": 1000.0
+      },
+      "output": 490332.5,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_050_1025",
+      "inputs": {
+        "depth_m": 50.0,
+        "density_kg_m3": 1025.0
+      },
+      "output": 502590.8125,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_050_1050",
+      "inputs": {
+        "depth_m": 50.0,
+        "density_kg_m3": 1050.0
+      },
+      "output": 514849.125,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_055_1000",
+      "inputs": {
+        "depth_m": 55.0,
+        "density_kg_m3": 1000.0
+      },
+      "output": 539365.75,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_055_1025",
+      "inputs": {
+        "depth_m": 55.0,
+        "density_kg_m3": 1025.0
+      },
+      "output": 552849.89375,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_055_1050",
+      "inputs": {
+        "depth_m": 55.0,
+        "density_kg_m3": 1050.0
+      },
+      "output": 566334.0375,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_060_1000",
+      "inputs": {
+        "depth_m": 60.0,
+        "density_kg_m3": 1000.0
+      },
+      "output": 588399.0,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_060_1025",
+      "inputs": {
+        "depth_m": 60.0,
+        "density_kg_m3": 1025.0
+      },
+      "output": 603108.975,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_060_1050",
+      "inputs": {
+        "depth_m": 60.0,
+        "density_kg_m3": 1050.0
+      },
+      "output": 617818.95,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_065_1000",
+      "inputs": {
+        "depth_m": 65.0,
+        "density_kg_m3": 1000.0
+      },
+      "output": 637432.25,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_065_1025",
+      "inputs": {
+        "depth_m": 65.0,
+        "density_kg_m3": 1025.0
+      },
+      "output": 653368.05625,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_065_1050",
+      "inputs": {
+        "depth_m": 65.0,
+        "density_kg_m3": 1050.0
+      },
+      "output": 669303.8625,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_070_1000",
+      "inputs": {
+        "depth_m": 70.0,
+        "density_kg_m3": 1000.0
+      },
+      "output": 686465.5,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_070_1025",
+      "inputs": {
+        "depth_m": 70.0,
+        "density_kg_m3": 1025.0
+      },
+      "output": 703627.1375,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_070_1050",
+      "inputs": {
+        "depth_m": 70.0,
+        "density_kg_m3": 1050.0
+      },
+      "output": 720788.775,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_075_1000",
+      "inputs": {
+        "depth_m": 75.0,
+        "density_kg_m3": 1000.0
+      },
+      "output": 735498.75,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_075_1025",
+      "inputs": {
+        "depth_m": 75.0,
+        "density_kg_m3": 1025.0
+      },
+      "output": 753886.21875,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_075_1050",
+      "inputs": {
+        "depth_m": 75.0,
+        "density_kg_m3": 1050.0
+      },
+      "output": 772273.6875,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_080_1000",
+      "inputs": {
+        "depth_m": 80.0,
+        "density_kg_m3": 1000.0
+      },
+      "output": 784532.0,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_080_1025",
+      "inputs": {
+        "depth_m": 80.0,
+        "density_kg_m3": 1025.0
+      },
+      "output": 804145.3,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_080_1050",
+      "inputs": {
+        "depth_m": 80.0,
+        "density_kg_m3": 1050.0
+      },
+      "output": 823758.6,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_085_1000",
+      "inputs": {
+        "depth_m": 85.0,
+        "density_kg_m3": 1000.0
+      },
+      "output": 833565.25,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_085_1025",
+      "inputs": {
+        "depth_m": 85.0,
+        "density_kg_m3": 1025.0
+      },
+      "output": 854404.38125,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_085_1050",
+      "inputs": {
+        "depth_m": 85.0,
+        "density_kg_m3": 1050.0
+      },
+      "output": 875243.5125,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_090_1000",
+      "inputs": {
+        "depth_m": 90.0,
+        "density_kg_m3": 1000.0
+      },
+      "output": 882598.5,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_090_1025",
+      "inputs": {
+        "depth_m": 90.0,
+        "density_kg_m3": 1025.0
+      },
+      "output": 904663.4625,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_090_1050",
+      "inputs": {
+        "depth_m": 90.0,
+        "density_kg_m3": 1050.0
+      },
+      "output": 926728.425,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_095_1000",
+      "inputs": {
+        "depth_m": 95.0,
+        "density_kg_m3": 1000.0
+      },
+      "output": 931631.75,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_095_1025",
+      "inputs": {
+        "depth_m": 95.0,
+        "density_kg_m3": 1025.0
+      },
+      "output": 954922.54375,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_095_1050",
+      "inputs": {
+        "depth_m": 95.0,
+        "density_kg_m3": 1050.0
+      },
+      "output": 978213.3375,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_100_1000",
+      "inputs": {
+        "depth_m": 100.0,
+        "density_kg_m3": 1000.0
+      },
+      "output": 980665.0,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_100_1025",
+      "inputs": {
+        "depth_m": 100.0,
+        "density_kg_m3": 1025.0
+      },
+      "output": 1005181.625,
+      "source": "reference-model:hydrostatic"
+    },
+    {
+      "id": "hyd_100_1050",
+      "inputs": {
+        "depth_m": 100.0,
+        "density_kg_m3": 1050.0
+      },
+      "output": 1029698.25,
+      "source": "reference-model:hydrostatic"
+    }
+  ]
+}

@@ -1,0 +1,910 @@
+{
+  "schema": "bellium.normal-map-io-benchmark/v1",
+  "note": "Controlled fields only. The handedness is declared by the caller; this report measures what a map can and cannot say about itself.",
+  "size": 32,
+  "round_trip": {
+    "note": "8-bit RGB, n = 2c - 1, no sRGB transfer. z_from_xy reconstructs the blue channel from the first two; stored_z reads it back as written.",
+    "cases": [
+      {
+        "geometry": "sphere",
+        "sigma": 0.0,
+        "z_from_xy": {
+          "pixels": 648,
+          "mean_deg": 0.2419,
+          "p95_deg": 0.4208,
+          "max_deg": 0.6914,
+          "missing": 0
+        },
+        "stored_z": {
+          "pixels": 648,
+          "mean_deg": 0.1695,
+          "p95_deg": 0.2809,
+          "max_deg": 0.3197,
+          "missing": 0
+        },
+        "unreconstructable": 0,
+        "pixels": 648,
+        "mean_non_unit": 0.0
+      },
+      {
+        "geometry": "sphere",
+        "sigma": 0.05,
+        "z_from_xy": {
+          "pixels": 648,
+          "mean_deg": 0.2669,
+          "p95_deg": 0.6175,
+          "max_deg": 3.7942,
+          "missing": 0
+        },
+        "stored_z": {
+          "pixels": 648,
+          "mean_deg": 0.1685,
+          "p95_deg": 0.2823,
+          "max_deg": 0.3334,
+          "missing": 0
+        },
+        "unreconstructable": 0,
+        "pixels": 648,
+        "mean_non_unit": 0.0
+      },
+      {
+        "geometry": "cone",
+        "sigma": 0.0,
+        "z_from_xy": {
+          "pixels": 648,
+          "mean_deg": 0.1987,
+          "p95_deg": 0.3586,
+          "max_deg": 0.3734,
+          "missing": 0
+        },
+        "stored_z": {
+          "pixels": 648,
+          "mean_deg": 0.1626,
+          "p95_deg": 0.2772,
+          "max_deg": 0.3375,
+          "missing": 0
+        },
+        "unreconstructable": 0,
+        "pixels": 648,
+        "mean_non_unit": 0.0
+      },
+      {
+        "geometry": "cone",
+        "sigma": 0.05,
+        "z_from_xy": {
+          "pixels": 648,
+          "mean_deg": 0.2099,
+          "p95_deg": 0.332,
+          "max_deg": 0.4355,
+          "missing": 0
+        },
+        "stored_z": {
+          "pixels": 648,
+          "mean_deg": 0.1716,
+          "p95_deg": 0.286,
+          "max_deg": 0.3401,
+          "missing": 0
+        },
+        "unreconstructable": 0,
+        "pixels": 648,
+        "mean_non_unit": 0.0
+      },
+      {
+        "geometry": "waves",
+        "sigma": 0.0,
+        "z_from_xy": {
+          "pixels": 1024,
+          "mean_deg": 0.2489,
+          "p95_deg": 0.3178,
+          "max_deg": 0.3178,
+          "missing": 0
+        },
+        "stored_z": {
+          "pixels": 1024,
+          "mean_deg": 0.2413,
+          "p95_deg": 0.3178,
+          "max_deg": 0.3178,
+          "missing": 0
+        },
+        "unreconstructable": 0,
+        "pixels": 1024,
+        "mean_non_unit": 0.0
+      },
+      {
+        "geometry": "waves",
+        "sigma": 0.05,
+        "z_from_xy": {
+          "pixels": 1024,
+          "mean_deg": 0.1742,
+          "p95_deg": 0.2714,
+          "max_deg": 0.3205,
+          "missing": 0
+        },
+        "stored_z": {
+          "pixels": 1024,
+          "mean_deg": 0.1713,
+          "p95_deg": 0.2691,
+          "max_deg": 0.3338,
+          "missing": 0
+        },
+        "unreconstructable": 0,
+        "pixels": 1024,
+        "mean_non_unit": 0.0
+      },
+      {
+        "geometry": "tilted-plane",
+        "sigma": 0.0,
+        "z_from_xy": {
+          "pixels": 1024,
+          "mean_deg": 0.0843,
+          "p95_deg": 0.0843,
+          "max_deg": 0.0843,
+          "missing": 0
+        },
+        "stored_z": {
+          "pixels": 1024,
+          "mean_deg": 0.0895,
+          "p95_deg": 0.0895,
+          "max_deg": 0.0895,
+          "missing": 0
+        },
+        "unreconstructable": 0,
+        "pixels": 1024,
+        "mean_non_unit": 0.0
+      },
+      {
+        "geometry": "tilted-plane",
+        "sigma": 0.05,
+        "z_from_xy": {
+          "pixels": 1024,
+          "mean_deg": 0.1803,
+          "p95_deg": 0.2877,
+          "max_deg": 0.3376,
+          "missing": 0
+        },
+        "stored_z": {
+          "pixels": 1024,
+          "mean_deg": 0.173,
+          "p95_deg": 0.285,
+          "max_deg": 0.3462,
+          "missing": 0
+        },
+        "unreconstructable": 0,
+        "pixels": 1024,
+        "mean_non_unit": 0.0
+      }
+    ]
+  },
+  "integrability": {
+    "note": "The curl is measured on interior pixels only, with central differences. It states what no integrator can recover; it is not a prediction of the error of a given integrator, which the table shows.",
+    "limit": 0.05,
+    "suspect_limit": 0.2,
+    "cases": [
+      {
+        "geometry": "sphere",
+        "sigma": 0.0,
+        "curl_ratio": 0.069212,
+        "verdict": "integrable",
+        "cells": 593,
+        "relative_rmse": 0.058617,
+        "rotational_curl_ratio": 0.210086,
+        "rotational_verdict": "suspect"
+      },
+      {
+        "geometry": "sphere",
+        "sigma": 0.02,
+        "curl_ratio": 0.113996,
+        "verdict": "integrable",
+        "cells": 593,
+        "relative_rmse": 0.060028,
+        "rotational_curl_ratio": 0.211556,
+        "rotational_verdict": "suspect"
+      },
+      {
+        "geometry": "sphere",
+        "sigma": 0.05,
+        "curl_ratio": 0.208245,
+        "verdict": "suspect",
+        "cells": 593,
+        "relative_rmse": 0.066044,
+        "rotational_curl_ratio": 0.219101,
+        "rotational_verdict": "suspect"
+      },
+      {
+        "geometry": "sphere",
+        "sigma": 0.1,
+        "curl_ratio": 0.362105,
+        "verdict": "not_integrable",
+        "cells": 593,
+        "relative_rmse": 0.088488,
+        "rotational_curl_ratio": 0.24597,
+        "rotational_verdict": "suspect"
+      },
+      {
+        "geometry": "cone",
+        "sigma": 0.0,
+        "curl_ratio": 0.010797,
+        "verdict": "integrable",
+        "cells": 593,
+        "relative_rmse": 0.024538,
+        "rotational_curl_ratio": 0.202735,
+        "rotational_verdict": "suspect"
+      },
+      {
+        "geometry": "cone",
+        "sigma": 0.02,
+        "curl_ratio": 0.062461,
+        "verdict": "integrable",
+        "cells": 593,
+        "relative_rmse": 0.025501,
+        "rotational_curl_ratio": 0.202379,
+        "rotational_verdict": "suspect"
+      },
+      {
+        "geometry": "cone",
+        "sigma": 0.05,
+        "curl_ratio": 0.147875,
+        "verdict": "integrable",
+        "cells": 593,
+        "relative_rmse": 0.029423,
+        "rotational_curl_ratio": 0.201713,
+        "rotational_verdict": "suspect"
+      },
+      {
+        "geometry": "cone",
+        "sigma": 0.1,
+        "curl_ratio": 0.29172,
+        "verdict": "not_integrable",
+        "cells": 593,
+        "relative_rmse": 0.040999,
+        "rotational_curl_ratio": 0.205879,
+        "rotational_verdict": "suspect"
+      },
+      {
+        "geometry": "waves",
+        "sigma": 0.0,
+        "curl_ratio": 0.124783,
+        "verdict": "integrable",
+        "cells": 961,
+        "relative_rmse": 0.080462,
+        "rotational_curl_ratio": 0.168247,
+        "rotational_verdict": "suspect"
+      },
+      {
+        "geometry": "waves",
+        "sigma": 0.02,
+        "curl_ratio": 0.202614,
+        "verdict": "suspect",
+        "cells": 961,
+        "relative_rmse": 0.088049,
+        "rotational_curl_ratio": 0.168271,
+        "rotational_verdict": "suspect"
+      },
+      {
+        "geometry": "waves",
+        "sigma": 0.05,
+        "curl_ratio": 0.413362,
+        "verdict": "not_integrable",
+        "cells": 961,
+        "relative_rmse": 0.145076,
+        "rotational_curl_ratio": 0.168302,
+        "rotational_verdict": "suspect"
+      },
+      {
+        "geometry": "waves",
+        "sigma": 0.1,
+        "curl_ratio": 0.725178,
+        "verdict": "not_integrable",
+        "cells": 961,
+        "relative_rmse": 0.274874,
+        "rotational_curl_ratio": 0.168342,
+        "rotational_verdict": "suspect"
+      },
+      {
+        "geometry": "tilted-plane",
+        "sigma": 0.0,
+        "curl_ratio": 0.0,
+        "verdict": "integrable",
+        "cells": 961,
+        "relative_rmse": 0.109149,
+        "rotational_curl_ratio": 0.167567,
+        "rotational_verdict": "suspect"
+      },
+      {
+        "geometry": "tilted-plane",
+        "sigma": 0.02,
+        "curl_ratio": 0.091766,
+        "verdict": "integrable",
+        "cells": 961,
+        "relative_rmse": 0.109872,
+        "rotational_curl_ratio": 0.167625,
+        "rotational_verdict": "suspect"
+      },
+      {
+        "geometry": "tilted-plane",
+        "sigma": 0.05,
+        "curl_ratio": 0.227055,
+        "verdict": "suspect",
+        "cells": 961,
+        "relative_rmse": 0.111082,
+        "rotational_curl_ratio": 0.167699,
+        "rotational_verdict": "suspect"
+      },
+      {
+        "geometry": "tilted-plane",
+        "sigma": 0.1,
+        "curl_ratio": 0.440954,
+        "verdict": "not_integrable",
+        "cells": 961,
+        "relative_rmse": 0.113473,
+        "rotational_curl_ratio": 0.167895,
+        "rotational_verdict": "suspect"
+      }
+    ]
+  },
+  "symptoms": {
+    "note": "One controlled field per variant. The last two rows are the defects a caller actually meets: an object-space map and a height map stored in an image.",
+    "cases": [
+      {
+        "variant": "tangent-space",
+        "verdict": "tangent-space",
+        "mean_z": 0.670582,
+        "negative_z_ratio": 0.0,
+        "mean_non_unit": 0.001799,
+        "saturation_ratio": 0.006173,
+        "y_convention_decidable": true,
+        "detection": "decided",
+        "detected": "+y"
+      },
+      {
+        "variant": "flipped-y declared correctly",
+        "verdict": "tangent-space",
+        "mean_z": 0.670582,
+        "negative_z_ratio": 0.0,
+        "mean_non_unit": 0.001799,
+        "saturation_ratio": 0.006173,
+        "y_convention_decidable": true,
+        "detection": "decided",
+        "detected": "-y"
+      },
+      {
+        "variant": "flipped-y read as +y",
+        "verdict": "tangent-space",
+        "mean_z": 0.670582,
+        "negative_z_ratio": 0.0,
+        "mean_non_unit": 0.001799,
+        "saturation_ratio": 0.006173,
+        "y_convention_decidable": true,
+        "detection": "decided",
+        "detected": "-y"
+      },
+      {
+        "variant": "inverted-z",
+        "verdict": "inverted-z",
+        "mean_z": -0.670582,
+        "negative_z_ratio": 1.0,
+        "mean_non_unit": 0.001799,
+        "saturation_ratio": 0.006173,
+        "y_convention_decidable": true,
+        "detection": "decided",
+        "detected": "+y"
+      },
+      {
+        "variant": "object-space",
+        "verdict": "object-space",
+        "mean_z": -0.0,
+        "negative_z_ratio": 0.5,
+        "mean_non_unit": 0.001899,
+        "saturation_ratio": 0.0625,
+        "y_convention_decidable": false,
+        "detection": "abstain",
+        "detected": null
+      },
+      {
+        "variant": "height map in RGB",
+        "verdict": "not-a-normal-map",
+        "mean_z": 0.39381,
+        "negative_z_ratio": 0.158951,
+        "mean_non_unit": 0.441643,
+        "saturation_ratio": 0.00463,
+        "y_convention_decidable": false,
+        "detection": "abstain",
+        "detected": null
+      }
+    ]
+  },
+  "detection": {
+    "note": "Both handedness of the same controlled field, at four noise levels. A decided answer that is wrong is counted as wrong; an abstention is not a failure.",
+    "margin_limit": 2.0,
+    "summary": {
+      "runs": 32,
+      "decided": 8,
+      "abstained": 24,
+      "wrong": 0
+    },
+    "cases": [
+      {
+        "geometry": "sphere",
+        "sigma": 0.0,
+        "declared_in_the_picture": "+y",
+        "status": "decided",
+        "reason": null,
+        "detected": "+y",
+        "correct": true,
+        "margin": 3.1848,
+        "curl_y_plus": 0.065377,
+        "curl_y_minus": 0.20821
+      },
+      {
+        "geometry": "sphere",
+        "sigma": 0.0,
+        "declared_in_the_picture": "-y",
+        "status": "decided",
+        "reason": null,
+        "detected": "-y",
+        "correct": true,
+        "margin": 3.1848,
+        "curl_y_plus": 0.20821,
+        "curl_y_minus": 0.065377
+      },
+      {
+        "geometry": "sphere",
+        "sigma": 0.02,
+        "declared_in_the_picture": "+y",
+        "status": "decided",
+        "reason": null,
+        "detected": "+y",
+        "correct": true,
+        "margin": 2.0932,
+        "curl_y_plus": 0.116726,
+        "curl_y_minus": 0.244328
+      },
+      {
+        "geometry": "sphere",
+        "sigma": 0.02,
+        "declared_in_the_picture": "-y",
+        "status": "decided",
+        "reason": null,
+        "detected": "-y",
+        "correct": true,
+        "margin": 2.0932,
+        "curl_y_plus": 0.244328,
+        "curl_y_minus": 0.116726
+      },
+      {
+        "geometry": "sphere",
+        "sigma": 0.05,
+        "declared_in_the_picture": "+y",
+        "status": "abstain",
+        "reason": "margin_below_declared",
+        "detected": null,
+        "correct": null,
+        "margin": 1.458,
+        "curl_y_plus": 0.199277,
+        "curl_y_minus": 0.290539
+      },
+      {
+        "geometry": "sphere",
+        "sigma": 0.05,
+        "declared_in_the_picture": "-y",
+        "status": "abstain",
+        "reason": "margin_below_declared",
+        "detected": null,
+        "correct": null,
+        "margin": 1.458,
+        "curl_y_plus": 0.290539,
+        "curl_y_minus": 0.199277
+      },
+      {
+        "geometry": "sphere",
+        "sigma": 0.1,
+        "declared_in_the_picture": "+y",
+        "status": "abstain",
+        "reason": "margin_below_declared",
+        "detected": null,
+        "correct": null,
+        "margin": 1.1628,
+        "curl_y_plus": 0.391823,
+        "curl_y_minus": 0.455596
+      },
+      {
+        "geometry": "sphere",
+        "sigma": 0.1,
+        "declared_in_the_picture": "-y",
+        "status": "abstain",
+        "reason": "margin_below_declared",
+        "detected": null,
+        "correct": null,
+        "margin": 1.1628,
+        "curl_y_plus": 0.455596,
+        "curl_y_minus": 0.391823
+      },
+      {
+        "geometry": "cone",
+        "sigma": 0.0,
+        "declared_in_the_picture": "+y",
+        "status": "abstain",
+        "reason": "both_readings_integrable",
+        "detected": null,
+        "correct": null,
+        "margin": null,
+        "curl_y_plus": 0.014661,
+        "curl_y_minus": 0.08802
+      },
+      {
+        "geometry": "cone",
+        "sigma": 0.0,
+        "declared_in_the_picture": "-y",
+        "status": "abstain",
+        "reason": "both_readings_integrable",
+        "detected": null,
+        "correct": null,
+        "margin": null,
+        "curl_y_plus": 0.08802,
+        "curl_y_minus": 0.014661
+      },
+      {
+        "geometry": "cone",
+        "sigma": 0.02,
+        "declared_in_the_picture": "+y",
+        "status": "abstain",
+        "reason": "both_readings_integrable",
+        "detected": null,
+        "correct": null,
+        "margin": null,
+        "curl_y_plus": 0.062333,
+        "curl_y_minus": 0.103524
+      },
+      {
+        "geometry": "cone",
+        "sigma": 0.02,
+        "declared_in_the_picture": "-y",
+        "status": "abstain",
+        "reason": "both_readings_integrable",
+        "detected": null,
+        "correct": null,
+        "margin": null,
+        "curl_y_plus": 0.103524,
+        "curl_y_minus": 0.062333
+      },
+      {
+        "geometry": "cone",
+        "sigma": 0.05,
+        "declared_in_the_picture": "+y",
+        "status": "abstain",
+        "reason": "margin_below_declared",
+        "detected": null,
+        "correct": null,
+        "margin": 1.1345,
+        "curl_y_plus": 0.146476,
+        "curl_y_minus": 0.16618
+      },
+      {
+        "geometry": "cone",
+        "sigma": 0.05,
+        "declared_in_the_picture": "-y",
+        "status": "abstain",
+        "reason": "margin_below_declared",
+        "detected": null,
+        "correct": null,
+        "margin": 1.1345,
+        "curl_y_plus": 0.16618,
+        "curl_y_minus": 0.146476
+      },
+      {
+        "geometry": "cone",
+        "sigma": 0.1,
+        "declared_in_the_picture": "+y",
+        "status": "abstain",
+        "reason": "margin_below_declared",
+        "detected": null,
+        "correct": null,
+        "margin": 1.0016,
+        "curl_y_plus": 0.296004,
+        "curl_y_minus": 0.296492
+      },
+      {
+        "geometry": "cone",
+        "sigma": 0.1,
+        "declared_in_the_picture": "-y",
+        "status": "abstain",
+        "reason": "margin_below_declared",
+        "detected": null,
+        "correct": null,
+        "margin": 1.0016,
+        "curl_y_plus": 0.296492,
+        "curl_y_minus": 0.296004
+      },
+      {
+        "geometry": "waves",
+        "sigma": 0.0,
+        "declared_in_the_picture": "+y",
+        "status": "decided",
+        "reason": null,
+        "detected": "+y",
+        "correct": true,
+        "margin": 5.1333,
+        "curl_y_plus": 0.124122,
+        "curl_y_minus": 0.637153
+      },
+      {
+        "geometry": "waves",
+        "sigma": 0.0,
+        "declared_in_the_picture": "-y",
+        "status": "decided",
+        "reason": null,
+        "detected": "-y",
+        "correct": true,
+        "margin": 5.1257,
+        "curl_y_plus": 0.637191,
+        "curl_y_minus": 0.124312
+      },
+      {
+        "geometry": "waves",
+        "sigma": 0.02,
+        "declared_in_the_picture": "+y",
+        "status": "decided",
+        "reason": null,
+        "detected": "+y",
+        "correct": true,
+        "margin": 3.2906,
+        "curl_y_plus": 0.19863,
+        "curl_y_minus": 0.653606
+      },
+      {
+        "geometry": "waves",
+        "sigma": 0.02,
+        "declared_in_the_picture": "-y",
+        "status": "decided",
+        "reason": null,
+        "detected": "-y",
+        "correct": true,
+        "margin": 3.2906,
+        "curl_y_plus": 0.653606,
+        "curl_y_minus": 0.19863
+      },
+      {
+        "geometry": "waves",
+        "sigma": 0.05,
+        "declared_in_the_picture": "+y",
+        "status": "abstain",
+        "reason": "margin_below_declared",
+        "detected": null,
+        "correct": null,
+        "margin": 1.7953,
+        "curl_y_plus": 0.403559,
+        "curl_y_minus": 0.724521
+      },
+      {
+        "geometry": "waves",
+        "sigma": 0.05,
+        "declared_in_the_picture": "-y",
+        "status": "abstain",
+        "reason": "margin_below_declared",
+        "detected": null,
+        "correct": null,
+        "margin": 1.7953,
+        "curl_y_plus": 0.724521,
+        "curl_y_minus": 0.403559
+      },
+      {
+        "geometry": "waves",
+        "sigma": 0.1,
+        "declared_in_the_picture": "+y",
+        "status": "abstain",
+        "reason": "margin_below_declared",
+        "detected": null,
+        "correct": null,
+        "margin": 1.2527,
+        "curl_y_plus": 0.710585,
+        "curl_y_minus": 0.890136
+      },
+      {
+        "geometry": "waves",
+        "sigma": 0.1,
+        "declared_in_the_picture": "-y",
+        "status": "abstain",
+        "reason": "margin_below_declared",
+        "detected": null,
+        "correct": null,
+        "margin": 1.2527,
+        "curl_y_plus": 0.890136,
+        "curl_y_minus": 0.710585
+      },
+      {
+        "geometry": "tilted-plane",
+        "sigma": 0.0,
+        "declared_in_the_picture": "+y",
+        "status": "abstain",
+        "reason": "both_readings_integrable",
+        "detected": null,
+        "correct": null,
+        "margin": null,
+        "curl_y_plus": 0.0,
+        "curl_y_minus": 0.0
+      },
+      {
+        "geometry": "tilted-plane",
+        "sigma": 0.0,
+        "declared_in_the_picture": "-y",
+        "status": "abstain",
+        "reason": "both_readings_integrable",
+        "detected": null,
+        "correct": null,
+        "margin": null,
+        "curl_y_plus": 0.0,
+        "curl_y_minus": 0.0
+      },
+      {
+        "geometry": "tilted-plane",
+        "sigma": 0.02,
+        "declared_in_the_picture": "+y",
+        "status": "abstain",
+        "reason": "both_readings_integrable",
+        "detected": null,
+        "correct": null,
+        "margin": null,
+        "curl_y_plus": 0.088636,
+        "curl_y_minus": 0.087887
+      },
+      {
+        "geometry": "tilted-plane",
+        "sigma": 0.02,
+        "declared_in_the_picture": "-y",
+        "status": "abstain",
+        "reason": "both_readings_integrable",
+        "detected": null,
+        "correct": null,
+        "margin": null,
+        "curl_y_plus": 0.087887,
+        "curl_y_minus": 0.088636
+      },
+      {
+        "geometry": "tilted-plane",
+        "sigma": 0.05,
+        "declared_in_the_picture": "+y",
+        "status": "abstain",
+        "reason": "margin_below_declared",
+        "detected": null,
+        "correct": null,
+        "margin": 1.013,
+        "curl_y_plus": 0.219626,
+        "curl_y_minus": 0.216807
+      },
+      {
+        "geometry": "tilted-plane",
+        "sigma": 0.05,
+        "declared_in_the_picture": "-y",
+        "status": "abstain",
+        "reason": "margin_below_declared",
+        "detected": null,
+        "correct": null,
+        "margin": 1.013,
+        "curl_y_plus": 0.216807,
+        "curl_y_minus": 0.219626
+      },
+      {
+        "geometry": "tilted-plane",
+        "sigma": 0.1,
+        "declared_in_the_picture": "+y",
+        "status": "abstain",
+        "reason": "margin_below_declared",
+        "detected": null,
+        "correct": null,
+        "margin": 1.0115,
+        "curl_y_plus": 0.429021,
+        "curl_y_minus": 0.424141
+      },
+      {
+        "geometry": "tilted-plane",
+        "sigma": 0.1,
+        "declared_in_the_picture": "-y",
+        "status": "abstain",
+        "reason": "margin_below_declared",
+        "detected": null,
+        "correct": null,
+        "margin": 1.0115,
+        "curl_y_plus": 0.424141,
+        "curl_y_minus": 0.429021
+      }
+    ]
+  },
+  "displacement": {
+    "note": "Displacement is returned as levels plus the declared span; no file is written, because the shipped PNG writer is 8-bit RGB and RGBA only.",
+    "cases": [
+      {
+        "geometry": "sphere",
+        "bit_depth": 8,
+        "span": [
+          -0.737336,
+          0.280384
+        ],
+        "step": 0.00399106,
+        "worst_error": 0.00199288,
+        "worst_error_of_span": 0.00195818,
+        "pixels": 648
+      },
+      {
+        "geometry": "sphere",
+        "bit_depth": 16,
+        "span": [
+          -0.737336,
+          0.280384
+        ],
+        "step": 1.553e-05,
+        "worst_error": 7.65e-06,
+        "worst_error_of_span": 7.52e-06,
+        "pixels": 648
+      },
+      {
+        "geometry": "waves",
+        "bit_depth": 8,
+        "span": [
+          -0.575915,
+          0.753623
+        ],
+        "step": 0.00521387,
+        "worst_error": 0.00260694,
+        "worst_error_of_span": 0.00196079,
+        "pixels": 1024
+      },
+      {
+        "geometry": "waves",
+        "bit_depth": 16,
+        "span": [
+          -0.575915,
+          0.753623
+        ],
+        "step": 2.029e-05,
+        "worst_error": 1.014e-05,
+        "worst_error_of_span": 7.63e-06,
+        "pixels": 1024
+      }
+    ]
+  },
+  "colour_space": {
+    "note": "The measured mapping is n = 2c - 1 with no transfer function. Applying the sRGB curve on the way in and reading the bytes back as data is the pipeline mistake this row prices.",
+    "cases": [
+      {
+        "geometry": "sphere",
+        "stored_as_colour_read_as_data": {
+          "pixels": 648,
+          "mean_deg": 40.9312,
+          "p95_deg": 53.0735,
+          "max_deg": 68.9807,
+          "missing": 0
+        }
+      },
+      {
+        "geometry": "cone",
+        "stored_as_colour_read_as_data": {
+          "pixels": 648,
+          "mean_deg": 42.9834,
+          "p95_deg": 50.6481,
+          "max_deg": 51.0486,
+          "missing": 0
+        }
+      },
+      {
+        "geometry": "waves",
+        "stored_as_colour_read_as_data": {
+          "pixels": 1024,
+          "mean_deg": 41.7922,
+          "p95_deg": 43.5132,
+          "max_deg": 43.5132,
+          "missing": 0
+        }
+      },
+      {
+        "geometry": "tilted-plane",
+        "stored_as_colour_read_as_data": {
+          "pixels": 1024,
+          "mean_deg": 45.0401,
+          "p95_deg": 45.0401,
+          "max_deg": 45.0401,
+          "missing": 0
+        }
+      }
+    ]
+  }
+}

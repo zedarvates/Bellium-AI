@@ -107,10 +107,10 @@ class JSONTransformer:
                     if rule.expected_type in (int, float):
                         val = rule.expected_type(val)
                         coerced.append(f"{key}: coerced to {rule.expected_type.__name__}")
-                    elif rule.expected_type == bool and isinstance(val, str):
+                    elif rule.expected_type is bool and isinstance(val, str):
                         val = val.strip().lower() in ('true', '1', 'yes')
                         coerced.append(f"{key}: coerced str to bool")
-                    elif rule.expected_type == str:
+                    elif rule.expected_type is str:
                         val = str(val)
                         coerced.append(f"{key}: coerced to str")
                     else:

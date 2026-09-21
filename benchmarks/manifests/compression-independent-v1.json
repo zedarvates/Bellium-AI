@@ -1,0 +1,375 @@
+{
+  "schema": "bellium-independent-compression-corpus/1",
+  "created_at_utc": "2026-09-16T16:31:41.942561+00:00",
+  "sources": [
+    {
+      "id": "camera.png",
+      "path": "sources/camera.png",
+      "sha256": "b0793d2adda0fa6ae899c03989482bff9a42d3d5690fc7e3648f2795d730c23a",
+      "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/camera.png",
+      "license": "CC0",
+      "license_evidence": "https://scikit-image.org/docs/stable/api/skimage.data.html#skimage.data.camera",
+      "author": "Lav Varshney",
+      "classification": "photograph",
+      "split": "development"
+    },
+    {
+      "id": "coffee.png",
+      "path": "sources/coffee.png",
+      "sha256": "cc02f8ca188b167c775a7101b5d767d1e71792cf762c33d6fa15a4599b5a8de7",
+      "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/coffee.png",
+      "license": "CC0",
+      "license_evidence": "https://scikit-image.org/docs/stable/api/skimage.data.html#skimage.data.coffee",
+      "author": "Rachel Michetti",
+      "classification": "photograph",
+      "split": "development"
+    },
+    {
+      "id": "astronaut.png",
+      "path": "sources/astronaut.png",
+      "sha256": "88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5",
+      "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/astronaut.png",
+      "license": "Public domain",
+      "license_evidence": "https://scikit-image.org/docs/stable/api/skimage.data.html#skimage.data.astronaut",
+      "author": "NASA",
+      "classification": "photograph",
+      "split": "holdout"
+    },
+    {
+      "id": "chelsea.png",
+      "path": "sources/chelsea.png",
+      "sha256": "596aa1e7cb875eb79f437e310381d26b338a81c2da23439704a73c4651e8c4bb",
+      "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/chelsea.png",
+      "license": "CC0",
+      "license_evidence": "https://scikit-image.org/docs/stable/api/skimage.data.html#skimage.data.chelsea",
+      "author": "Stefan van der Walt",
+      "classification": "photograph",
+      "split": "holdout"
+    },
+    {
+      "id": "countries.csv",
+      "path": "sources/countries.csv",
+      "sha256": "2a9dbee691125b0cdb8ceb5fe227c48c903f99c488963b8e53e2ab366521c639",
+      "url": "https://raw.githubusercontent.com/davidmegginson/ourairports-data/b09709853c62f26b442d55c0ab3b669e7dbf6d66/countries.csv",
+      "revision": "b09709853c62f26b442d55c0ab3b669e7dbf6d66",
+      "license": "Public domain",
+      "license_evidence": "https://ourairports.com/data/",
+      "author": "OurAirports contributors",
+      "classification": "public_tabular_data",
+      "split": "development"
+    },
+    {
+      "id": "regions.csv",
+      "path": "sources/regions.csv",
+      "sha256": "63bc8012a4e5449867b81ab510a722f5f98cedd8ea56fe09e113c9d630cd21b4",
+      "url": "https://raw.githubusercontent.com/davidmegginson/ourairports-data/b09709853c62f26b442d55c0ab3b669e7dbf6d66/regions.csv",
+      "revision": "b09709853c62f26b442d55c0ab3b669e7dbf6d66",
+      "license": "Public domain",
+      "license_evidence": "https://ourairports.com/data/",
+      "author": "OurAirports contributors",
+      "classification": "public_tabular_data",
+      "split": "holdout"
+    },
+    {
+      "id": "horse.ply",
+      "path": "sources/horse.ply",
+      "sha256": "4392920074f41204ec900244da06505a8696312ea989340df88b1bd9c025806a",
+      "url": "https://polyhaven.com/a/horse_statue_01",
+      "license": "CC0 source; local derived reconstruction",
+      "license_evidence": "https://polyhaven.com/license",
+      "author": "Rico Cilliers / local reconstruction",
+      "classification": "trained_splats_from_synthetic_multiview_video",
+      "split": "holdout",
+      "provenance_manifest_sha256": "2b97442dd2b8d83e2699a830f9f3634e108bc81dfa5ded333b5d64e7dac889a7"
+    }
+  ],
+  "samples": [
+    {
+      "id": "camera-0",
+      "path": "samples/camera-0.bin",
+      "sha256": "d862448150b9306146654adb1d68098787afd5e4f88d4650868800feedab159f",
+      "bytes": 9216,
+      "source_id": "camera.png",
+      "split": "development",
+      "kind": "image",
+      "width": 96,
+      "height": 96,
+      "mode": "L",
+      "crop_xy": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "camera-1",
+      "path": "samples/camera-1.bin",
+      "sha256": "06f689b721016bee9abffe6b83feeb60d45b92e85ef63f8dc25f96dae47b0abb",
+      "bytes": 9216,
+      "source_id": "camera.png",
+      "split": "development",
+      "kind": "image",
+      "width": 96,
+      "height": 96,
+      "mode": "L",
+      "crop_xy": [
+        208,
+        208
+      ]
+    },
+    {
+      "id": "camera-2",
+      "path": "samples/camera-2.bin",
+      "sha256": "aab39769192f4d81014dfdcb64a30d3715cb9dab76aeabab1fad68b8d2fb83ee",
+      "bytes": 9216,
+      "source_id": "camera.png",
+      "split": "development",
+      "kind": "image",
+      "width": 96,
+      "height": 96,
+      "mode": "L",
+      "crop_xy": [
+        416,
+        416
+      ]
+    },
+    {
+      "id": "coffee-0",
+      "path": "samples/coffee-0.bin",
+      "sha256": "8dad279c6ade0e120ee5c837748a77b75ba8357a63c035a3936353cee95e87e3",
+      "bytes": 27648,
+      "source_id": "coffee.png",
+      "split": "development",
+      "kind": "image",
+      "width": 96,
+      "height": 96,
+      "mode": "RGB",
+      "crop_xy": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "coffee-1",
+      "path": "samples/coffee-1.bin",
+      "sha256": "23e30708ebd1e96f49f37480f0a2cdcfe451ba51a79d7025e73d034b387bf08d",
+      "bytes": 27648,
+      "source_id": "coffee.png",
+      "split": "development",
+      "kind": "image",
+      "width": 96,
+      "height": 96,
+      "mode": "RGB",
+      "crop_xy": [
+        252,
+        152
+      ]
+    },
+    {
+      "id": "coffee-2",
+      "path": "samples/coffee-2.bin",
+      "sha256": "714ac7f27fcfdbdce36df1a82acfecb80726a5bbc7bbed9addf43d158ee84a71",
+      "bytes": 27648,
+      "source_id": "coffee.png",
+      "split": "development",
+      "kind": "image",
+      "width": 96,
+      "height": 96,
+      "mode": "RGB",
+      "crop_xy": [
+        504,
+        304
+      ]
+    },
+    {
+      "id": "astronaut-0",
+      "path": "samples/astronaut-0.bin",
+      "sha256": "e68526451cc1e68cf721ce01d9bdecdc662c40b2bd563b75aa97e58ed038331b",
+      "bytes": 27648,
+      "source_id": "astronaut.png",
+      "split": "holdout",
+      "kind": "image",
+      "width": 96,
+      "height": 96,
+      "mode": "RGB",
+      "crop_xy": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "astronaut-1",
+      "path": "samples/astronaut-1.bin",
+      "sha256": "e7feee5c05ee3235e3b7c3c44042559673388d03f5fc717f8c80e979dee3b892",
+      "bytes": 27648,
+      "source_id": "astronaut.png",
+      "split": "holdout",
+      "kind": "image",
+      "width": 96,
+      "height": 96,
+      "mode": "RGB",
+      "crop_xy": [
+        208,
+        208
+      ]
+    },
+    {
+      "id": "astronaut-2",
+      "path": "samples/astronaut-2.bin",
+      "sha256": "d4a55a652d5ab1028bbae850410f1cb039590e429b6fe8b96a5a47171bc3ed05",
+      "bytes": 27648,
+      "source_id": "astronaut.png",
+      "split": "holdout",
+      "kind": "image",
+      "width": 96,
+      "height": 96,
+      "mode": "RGB",
+      "crop_xy": [
+        416,
+        416
+      ]
+    },
+    {
+      "id": "chelsea-0",
+      "path": "samples/chelsea-0.bin",
+      "sha256": "87ef789e2a1f350bb13310b670aff3547b19898e357c9565849538e97506964f",
+      "bytes": 27648,
+      "source_id": "chelsea.png",
+      "split": "holdout",
+      "kind": "image",
+      "width": 96,
+      "height": 96,
+      "mode": "RGB",
+      "crop_xy": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "chelsea-1",
+      "path": "samples/chelsea-1.bin",
+      "sha256": "a2f96ac983e338ed018c6843953c8d58881be36d9ce3031ab9e2b82b0f98123b",
+      "bytes": 27648,
+      "source_id": "chelsea.png",
+      "split": "holdout",
+      "kind": "image",
+      "width": 96,
+      "height": 96,
+      "mode": "RGB",
+      "crop_xy": [
+        177,
+        102
+      ]
+    },
+    {
+      "id": "chelsea-2",
+      "path": "samples/chelsea-2.bin",
+      "sha256": "a05016fce6ad7cf6c4bffc1aa51fcad6df60314b603053a2aa21c11fc866a4d5",
+      "bytes": 27648,
+      "source_id": "chelsea.png",
+      "split": "holdout",
+      "kind": "image",
+      "width": 96,
+      "height": 96,
+      "mode": "RGB",
+      "crop_xy": [
+        355,
+        204
+      ]
+    },
+    {
+      "id": "countries-0",
+      "path": "samples/countries-0.bin",
+      "sha256": "b3c7df36e930e242173500b5f4bbba02e8b53cb39a09fe401f2ff5693311d05d",
+      "bytes": 8192,
+      "source_id": "countries.csv",
+      "split": "development",
+      "kind": "stream",
+      "byte_offset": 0
+    },
+    {
+      "id": "countries-1",
+      "path": "samples/countries-1.bin",
+      "sha256": "c7ff794f85e17d8db3a0710a3539acdd1958f48a79f55c08bc7eec26a432fe69",
+      "bytes": 8192,
+      "source_id": "countries.csv",
+      "split": "development",
+      "kind": "stream",
+      "byte_offset": 16391
+    },
+    {
+      "id": "regions-0",
+      "path": "samples/regions-0.bin",
+      "sha256": "4b608c72a56e803e202396292f72ef4d34560f7018c478f8d4ad0b4391db67b6",
+      "bytes": 8192,
+      "source_id": "regions.csv",
+      "split": "holdout",
+      "kind": "stream",
+      "byte_offset": 0
+    },
+    {
+      "id": "regions-1",
+      "path": "samples/regions-1.bin",
+      "sha256": "b1b93fdbb41c04f453bdeefdbd1d479b3e3701faab16c6fced689aba5b8938c6",
+      "bytes": 8192,
+      "source_id": "regions.csv",
+      "split": "holdout",
+      "kind": "stream",
+      "byte_offset": 238530
+    },
+    {
+      "id": "regions-2",
+      "path": "samples/regions-2.bin",
+      "sha256": "c40eac47d30d12413d58974f9747cf2cb957f5f925b471a42874e67243b7ce03",
+      "bytes": 8192,
+      "source_id": "regions.csv",
+      "split": "holdout",
+      "kind": "stream",
+      "byte_offset": 477061
+    },
+    {
+      "id": "horse-0",
+      "path": "samples/horse-0.bin",
+      "sha256": "f6fd9d37e4a3597978adec91ccc175ccaffb6e02be0a5eab03cbd9574db3ec98",
+      "bytes": 28672,
+      "source_id": "horse.ply",
+      "split": "holdout",
+      "kind": "splats",
+      "record_offset": 0,
+      "record_count": 512,
+      "full_ply_preserved": false,
+      "adaptation": "14 f32 physical fields; normalized xyzw; exp(scale), sigmoid(opacity), clamped SH DC RGB; higher SH dropped"
+    },
+    {
+      "id": "horse-1",
+      "path": "samples/horse-1.bin",
+      "sha256": "bcb0e15ce3c5f725f01dea9a464efa17d4b13d6723f01b3c3b4c68466bdbfd14",
+      "bytes": 28672,
+      "source_id": "horse.ply",
+      "split": "holdout",
+      "kind": "splats",
+      "record_offset": 12581,
+      "record_count": 512,
+      "full_ply_preserved": false,
+      "adaptation": "14 f32 physical fields; normalized xyzw; exp(scale), sigmoid(opacity), clamped SH DC RGB; higher SH dropped"
+    },
+    {
+      "id": "horse-2",
+      "path": "samples/horse-2.bin",
+      "sha256": "426d71d9511c9622486b3f1d43128f3d08b0b1501e5042d184058c79bee1c4cd",
+      "bytes": 28672,
+      "source_id": "horse.ply",
+      "split": "holdout",
+      "kind": "splats",
+      "record_offset": 25162,
+      "record_count": 512,
+      "full_ply_preserved": false,
+      "adaptation": "14 f32 physical fields; normalized xyzw; exp(scale), sigmoid(opacity), clamped SH DC RGB; higher SH dropped"
+    }
+  ],
+  "limitations": [
+    "No natural splat motion",
+    "One synthetic-video-derived splat scene",
+    "Losslessness measured after the explicitly lossy PLY adaptation",
+    "Small fixed crops/chunks; source-disjoint split, not population representativeness"
+  ]
+}

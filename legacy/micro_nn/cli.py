@@ -170,50 +170,8 @@ def _predict_rust(binary: str, model_json: str, input_vec: list[float]) -> list[
 
 def _predict_python(model_json: str, input_vec: list[float]) -> list[float]:
     """Autonomous prediction using pure Python (with numpy optional fallback)."""
-    import math
-    with open(model_json, 'r', encoding='utf-8') as f:
-        data = json.load(f)
-
-    layers = data["layers"]
-    weights = data["weights"]
-    biases = data["biases"]
-    activations = data["activations"]
-
-    def _relu(x):
-        return [max(0.0, v) for v in x]
-
-    def _sigmoid(x):
-        return [1.0 / (1.0 + math.exp(-max(-500.0, min(500.0, v)))) for v in x]
-
-    def _softmax(x):
-        m = max(x)
-        exps = [math.exp(v - m) for v in x]
-        s = sum(exps)
-        return [e / s for e in exps]
-
-    h = list(input_vec)
-    for i in range(len(weights)):
-        out_dim = layers[i + 1]
-        in_dim = layers[i]
-        w_flat = weights[i]
-        b = biases[i]
-        z = []
-        for r in range(out_dim):
-            val = b[r]
-            offset = r * in_dim
-            for c in range(in_dim):
-                val += h[c] * w_flat[offset + c]
-            z.append(val)
-        act = activations[i]
-        if act == "relu":
-            h = _relu(z)
-        elif act == "sigmoid":
-            h = _sigmoid(z)
-        elif act == "softmax":
-            h = _softmax(z)
-        # linear = identity
-
-    return h
+    from bellium.micro_nn.mlp import load_mlp, predict_mlp
+    return predict_mlp(load_mlp(model_json), input_vec)
 
 
 def do_predict(args):
@@ -246,6 +204,10 @@ def do_predict(args):
         except Exception as e2:
             print(f"❌ Python fallback also failed: {e2}", file=sys.stderr)
             return 1
+
+    if args.model in _MODEL_META:
+        from legacy.micro_nn.calibration import apply_temperature, load_temperature
+        output = apply_temperature(output, load_temperature(args.model))
 
     if args.probabilities:
         for i, (label, prob) in enumerate(zip(meta["labels"], output)):

@@ -1,4 +1,5 @@
-import os, sys
+import os
+import sys
 from PIL import Image, ImageDraw
 
 sys.path.insert(0, os.path.abspath('temp_bellium_repo'))

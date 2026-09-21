@@ -1,0 +1,30 @@
+{
+  "schema": "bellium.tool-router-memory/v1",
+  "notes": "Fixture exemplars. No prompts stored. Closed catalog only.",
+  "items": [
+    {"id": "tr_none_1", "tool": "none", "verified_by": "tests:router", "raw_prompt_stored": false,
+     "features": {"has_code": 0, "has_files": 0, "has_error": 0, "wants_mutation": 0, "wants_external_state": 0, "criticality": 0.10}},
+    {"id": "tr_none_2", "tool": "none", "verified_by": "tests:router", "raw_prompt_stored": false,
+     "features": {"has_code": 0, "has_files": 0, "has_error": 0, "wants_mutation": 0, "wants_external_state": 0, "criticality": 0.20}},
+    {"id": "tr_none_3", "tool": "none", "verified_by": "tests:router", "raw_prompt_stored": false,
+     "features": {"has_code": 0, "has_files": 0, "has_error": 0, "wants_mutation": 0, "wants_external_state": 0, "criticality": 0.15}},
+    {"id": "tr_inspect_1", "tool": "inspect_files", "verified_by": "tests:router", "raw_prompt_stored": false,
+     "features": {"has_code": 1, "has_files": 1, "has_error": 0, "wants_mutation": 0, "wants_external_state": 0, "criticality": 0.30}},
+    {"id": "tr_inspect_2", "tool": "inspect_files", "verified_by": "tests:router", "raw_prompt_stored": false,
+     "features": {"has_code": 1, "has_files": 1, "has_error": 0, "wants_mutation": 0, "wants_external_state": 0, "criticality": 0.40}},
+    {"id": "tr_inspect_3", "tool": "inspect_files", "verified_by": "tests:router", "raw_prompt_stored": false,
+     "features": {"has_code": 1, "has_files": 1, "has_error": 0, "wants_mutation": 0, "wants_external_state": 0, "criticality": 0.35}},
+    {"id": "tr_tests_1", "tool": "run_tests", "verified_by": "tests:router", "raw_prompt_stored": false,
+     "features": {"has_code": 1, "has_files": 1, "has_error": 1, "wants_mutation": 0, "wants_external_state": 0, "criticality": 0.45}},
+    {"id": "tr_tests_2", "tool": "run_tests", "verified_by": "tests:router", "raw_prompt_stored": false,
+     "features": {"has_code": 1, "has_files": 1, "has_error": 1, "wants_mutation": 0, "wants_external_state": 0, "criticality": 0.55}},
+    {"id": "tr_tests_3", "tool": "run_tests", "verified_by": "tests:router", "raw_prompt_stored": false,
+     "features": {"has_code": 1, "has_files": 1, "has_error": 1, "wants_mutation": 0, "wants_external_state": 0, "criticality": 0.50}},
+    {"id": "tr_git_1", "tool": "git_status", "verified_by": "tests:router", "raw_prompt_stored": false,
+     "features": {"has_code": 0, "has_files": 0, "has_error": 0, "wants_mutation": 0, "wants_external_state": 1, "criticality": 0.25}},
+    {"id": "tr_git_2", "tool": "git_status", "verified_by": "tests:router", "raw_prompt_stored": false,
+     "features": {"has_code": 0, "has_files": 0, "has_error": 0, "wants_mutation": 0, "wants_external_state": 1, "criticality": 0.35}},
+    {"id": "tr_git_3", "tool": "git_status", "verified_by": "tests:router", "raw_prompt_stored": false,
+     "features": {"has_code": 0, "has_files": 0, "has_error": 0, "wants_mutation": 0, "wants_external_state": 1, "criticality": 0.30}}
+  ]
+}

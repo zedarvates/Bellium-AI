@@ -1,4 +1,6 @@
-import os, sys, subprocess
+import os
+import sys
+import subprocess
 
 def run_tests():
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

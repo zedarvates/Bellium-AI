@@ -1,0 +1,118 @@
+{
+  "version": "v0",
+  "description": "Exemplar subpixel gradients for edge-aware k-NN resampling",
+  "patterns": [
+    {
+      "id": "flat_uniform",
+      "features": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "weights": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "label": "flat"
+    },
+    {
+      "id": "horizontal_edge_top",
+      "features": [
+        0.8,
+        0.0,
+        0.8,
+        0.0
+      ],
+      "weights": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "label": "horiz_top"
+    },
+    {
+      "id": "horizontal_edge_bottom",
+      "features": [
+        0.0,
+        0.8,
+        0.0,
+        0.8
+      ],
+      "weights": [
+        0.0,
+        0.0,
+        0.5,
+        0.5
+      ],
+      "label": "horiz_bottom"
+    },
+    {
+      "id": "vertical_edge_left",
+      "features": [
+        0.8,
+        0.8,
+        0.0,
+        0.0
+      ],
+      "weights": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "label": "vert_left"
+    },
+    {
+      "id": "vertical_edge_right",
+      "features": [
+        0.0,
+        0.0,
+        0.8,
+        0.8
+      ],
+      "weights": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "label": "vert_right"
+    },
+    {
+      "id": "diagonal_main",
+      "features": [
+        0.8,
+        0.0,
+        0.0,
+        0.8
+      ],
+      "weights": [
+        0.5,
+        0.0,
+        0.0,
+        0.5
+      ],
+      "label": "diag_main"
+    },
+    {
+      "id": "diagonal_anti",
+      "features": [
+        0.0,
+        0.8,
+        0.8,
+        0.0
+      ],
+      "weights": [
+        0.0,
+        0.5,
+        0.5,
+        0.0
+      ],
+      "label": "diag_anti"
+    }
+  ]
+}

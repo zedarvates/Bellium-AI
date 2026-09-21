@@ -1,0 +1,41 @@
+{
+  "version": "v0",
+  "description": "Exemplar region descriptors for raster-to-SVG routing",
+  "regions": [
+    {
+      "id": "poster_fill",
+      "label": "flat_fill",
+      "features": {"luma_std": 0.02, "unique_ratio": 0.04, "compactness": 0.72, "fill_ratio": 0.82, "chroma": 0.35}
+    },
+    {
+      "id": "icon_disc",
+      "label": "flat_fill",
+      "features": {"luma_std": 0.01, "unique_ratio": 0.02, "compactness": 0.85, "fill_ratio": 0.78, "chroma": 0.05}
+    },
+    {
+      "id": "beak_block",
+      "label": "flat_fill",
+      "features": {"luma_std": 0.03, "unique_ratio": 0.06, "compactness": 0.45, "fill_ratio": 0.70, "chroma": 0.80}
+    },
+    {
+      "id": "frame_bar",
+      "label": "thin_stroke",
+      "features": {"luma_std": 0.02, "unique_ratio": 0.05, "compactness": 0.12, "fill_ratio": 0.22, "chroma": 0.08}
+    },
+    {
+      "id": "lineart_stroke",
+      "label": "thin_stroke",
+      "features": {"luma_std": 0.04, "unique_ratio": 0.08, "compactness": 0.08, "fill_ratio": 0.18, "chroma": 0.12}
+    },
+    {
+      "id": "photo_grain",
+      "label": "photo_texture",
+      "features": {"luma_std": 0.42, "unique_ratio": 0.55, "compactness": 0.30, "fill_ratio": 0.48, "chroma": 0.22}
+    },
+    {
+      "id": "noisy_gradient",
+      "label": "photo_texture",
+      "features": {"luma_std": 0.28, "unique_ratio": 0.40, "compactness": 0.50, "fill_ratio": 0.60, "chroma": 0.18}
+    }
+  ]
+}

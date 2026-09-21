@@ -130,6 +130,9 @@ SCHEMAS: dict[str, list[FeatureSpec]] = {
 
 
 def _clamp(x: float, lo: float, hi: float) -> float:
+    import math
+    if isinstance(x, bool) or not isinstance(x, (int, float)) or not math.isfinite(x):
+        raise ValueError("features must be finite numbers")
     x = float(x)
     return lo if x < lo else hi if x > hi else x
 
@@ -219,6 +222,8 @@ def classify(model: str, values: dict[str, float]) -> tuple[str, float, list[flo
 
     vec = featurize(model, values)
     probs = _predict_python(str(_MODELS_DIR / f"{model}.json"), vec)
+    from legacy.micro_nn.calibration import apply_temperature, load_temperature
+    probs = apply_temperature(probs, load_temperature(model))
     idx = max(range(len(probs)), key=probs.__getitem__)
     labels = _MODEL_META.get(model, {}).get("labels") or [f"class_{i}" for i in range(len(probs))]
     return labels[idx], float(probs[idx]), probs

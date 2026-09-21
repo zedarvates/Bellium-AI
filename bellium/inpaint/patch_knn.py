@@ -1,16 +1,12 @@
-"""Compact Patch k-NN inpainting synthesis.
+"""Pillow adapter to Bellium's bounded, deterministic patch implementation."""
 
-Fills missing/masked pixels by searching nearest exemplar patches from known valid regions
-using color similarity and boundary gradient matching. Zero external dependencies.
-"""
 from __future__ import annotations
 
 from dataclasses import dataclass
-import math
-import random
-from typing import List, Tuple, Optional
+import time
 from PIL import Image
 
+from bellium.knn.patch_inpaint import inpaint
 from .router import route_inpaint_request, InpaintRouteVerdict
 
 
@@ -20,6 +16,7 @@ class InpaintMetrics:
     mask_ratio: float
     verdict: InpaintRouteVerdict
     elapsed_ms: float
+    quality: dict | None = None
 
 
 @dataclass
@@ -36,62 +33,49 @@ def inpaint_patch_knn(
     search_radius: int = 25,
     k_neighbors: int = 3,
 ) -> InpaintResult:
-    """Fill masked pixels (mask > 128) with k-NN exemplar patches from unmasked surroundings."""
-    import time
-    t0 = time.perf_counter()
-    
+    """Fill a small mask, or return the unchanged image with an escalation verdict."""
+    if image.size != mask.size:
+        raise ValueError("mask shape must match image")
+    start = time.perf_counter()
     verdict = route_inpaint_request(mask)
-    rgb_im = image.convert("RGB")
+    rgb = image.convert("RGB")
+    output = rgb.copy()
+    if verdict.method == "escalate_diffusion":
+        return InpaintResult(output, InpaintMetrics(0, verdict.mask_ratio, verdict, 0.0))
+    width, height = rgb.size
+    pixels = list(rgb.get_flattened_data() if hasattr(rgb, "get_flattened_data") else rgb.getdata())
     gray_mask = mask.convert("L")
-    w, h = rgb_im.size
-    
-    out_im = rgb_im.copy()
-    out_px = out_im.load()
-    m_px = gray_mask.load()
-    
-    # Identify masked and valid coordinates
-    masked_coords = []
-    valid_coords = []
-    half = patch_size // 2
-    
-    for y in range(h):
-        for x in range(w):
-            if m_px[x, y] > 128:
-                masked_coords.append((x, y))
-            else:
-                valid_coords.append((x, y))
-                
-    if not masked_coords:
-        ms = (time.perf_counter() - t0) * 1000
-        return InpaintResult(out_im, InpaintMetrics(0, 0.0, verdict, round(ms, 2)))
-        
-   # Filter valid coordinates suitable as center of candidate patches
-    # Identify boundary perimeter pixels directly adjacent to the hole
-    boundary_exemplars = []
-    for (x, y) in valid_coords:
-        is_border = False
-        for dx, dy in ((-1, 0), (1, 0), (0, -1), (0, 1)):
-            nx, ny = x + dx, y + dy
-            if 0 <= nx < w and 0 <= ny < h and m_px[nx, ny] > 128:
-                is_border = True
-                break
-        if is_border:
-            boundary_exemplars.append((x, y))
-            
-    if not boundary_exemplars:
-        boundary_exemplars = valid_coords[:20]
-        
-    filled_count = 0
-    for (x, y) in masked_coords:
-        best = min(boundary_exemplars, key=lambda c: (c[0] - x)**2 + (c[1] - y)**2)
-        out_px[x, y] = out_px[best[0], best[1]]
-        filled_count += 1
-        
-    ms = (time.perf_counter() - t0) * 1000
-    metrics = InpaintMetrics(
-        filled_pixels=filled_count,
-        mask_ratio=verdict.mask_ratio,
-        verdict=verdict,
-        elapsed_ms=round(ms, 2)
+    mask_pixels = list(gray_mask.get_flattened_data() if hasattr(gray_mask, "get_flattened_data") else gray_mask.getdata())
+    rows = [pixels[r * width : (r + 1) * width] for r in range(height)]
+    binary = [
+        [int(v > 128) for v in mask_pixels[r * width : (r + 1) * width]] for r in range(height)
+    ]
+    result = inpaint(
+        rows, binary, patch_size=patch_size, search_radius=search_radius, k_neighbors=k_neighbors
     )
-    return InpaintResult(out_im, metrics)
+    if result.abstained:
+        verdict = InpaintRouteVerdict(
+            "escalate_diffusion",
+            result.confidence,
+            verdict.mask_ratio,
+            result.output.get("reason", "Patch support insufficient; result not applied"),
+        )
+        applied = 0
+    else:
+        output.putdata([pixel for row in result.output["image"] for pixel in row])
+        applied = result.output["filled"]
+        if result.output.get("quality") is not None:
+            verdict = InpaintRouteVerdict(
+                "patch_knn", None, verdict.mask_ratio,
+                "Known-context checks passed; reconstruction probability is not calibrated",
+            )
+    return InpaintResult(
+        output,
+        InpaintMetrics(
+            applied,
+            verdict.mask_ratio,
+            verdict,
+            round((time.perf_counter() - start) * 1000, 2),
+            result.output.get("quality"),
+        ),
+    )

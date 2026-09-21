@@ -1,0 +1,438 @@
+{
+  "schema": "bellium.clip-loop-memory/v1",
+  "notes": "Authored clip pairs. The baseline threshold must agree at inference.",
+  "items": [
+    {
+      "id": "cl_character_01_loops",
+      "family": "character",
+      "verdict": "loops",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "shift_px": 0,
+      "tint": 0,
+      "features": {
+        "iou_mismatch": 0.0,
+        "added_ratio": 0.0,
+        "removed_ratio": 0.0,
+        "centroid_shift": 0.0,
+        "area_ratio": 0.0,
+        "color_delta": 0.0,
+        "bbox_shift": 0.0
+      }
+    },
+    {
+      "id": "cl_character_02_loops",
+      "family": "character",
+      "verdict": "loops",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "shift_px": 0,
+      "tint": 8,
+      "features": {
+        "iou_mismatch": 0.0,
+        "added_ratio": 0.0,
+        "removed_ratio": 0.0,
+        "centroid_shift": 0.0,
+        "area_ratio": 0.0,
+        "color_delta": 0.018113,
+        "bbox_shift": 0.0
+      }
+    },
+    {
+      "id": "cl_character_03_loops",
+      "family": "character",
+      "verdict": "loops",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "shift_px": 0,
+      "tint": 16,
+      "features": {
+        "iou_mismatch": 0.0,
+        "added_ratio": 0.0,
+        "removed_ratio": 0.0,
+        "centroid_shift": 0.0,
+        "area_ratio": 0.0,
+        "color_delta": 0.036226,
+        "bbox_shift": 0.0
+      }
+    },
+    {
+      "id": "cl_character_04_drifts",
+      "family": "character",
+      "verdict": "drifts",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "shift_px": 6,
+      "tint": 0,
+      "features": {
+        "iou_mismatch": 1.0,
+        "added_ratio": 0.5,
+        "removed_ratio": 0.5,
+        "centroid_shift": 0.176777,
+        "area_ratio": 0.0,
+        "color_delta": 0.0,
+        "bbox_shift": 0.25
+      }
+    },
+    {
+      "id": "cl_character_05_drifts",
+      "family": "character",
+      "verdict": "drifts",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "shift_px": 8,
+      "tint": 0,
+      "features": {
+        "iou_mismatch": 1.0,
+        "added_ratio": 0.5,
+        "removed_ratio": 0.5,
+        "centroid_shift": 0.235702,
+        "area_ratio": 0.0,
+        "color_delta": 0.0,
+        "bbox_shift": 0.333333
+      }
+    },
+    {
+      "id": "cl_character_06_drifts",
+      "family": "character",
+      "verdict": "drifts",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "shift_px": 10,
+      "tint": 8,
+      "features": {
+        "iou_mismatch": 1.0,
+        "added_ratio": 0.444444,
+        "removed_ratio": 0.555556,
+        "centroid_shift": 0.279896,
+        "area_ratio": 0.2,
+        "color_delta": 0.018113,
+        "bbox_shift": 0.416667
+      }
+    },
+    {
+      "id": "cl_effect_01_loops",
+      "family": "effect",
+      "verdict": "loops",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "shift_px": 0,
+      "tint": 0,
+      "features": {
+        "iou_mismatch": 0.0,
+        "added_ratio": 0.0,
+        "removed_ratio": 0.0,
+        "centroid_shift": 0.0,
+        "area_ratio": 0.0,
+        "color_delta": 0.0,
+        "bbox_shift": 0.0
+      }
+    },
+    {
+      "id": "cl_effect_02_loops",
+      "family": "effect",
+      "verdict": "loops",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "shift_px": 0,
+      "tint": 8,
+      "features": {
+        "iou_mismatch": 0.0,
+        "added_ratio": 0.0,
+        "removed_ratio": 0.0,
+        "centroid_shift": 0.0,
+        "area_ratio": 0.0,
+        "color_delta": 0.018113,
+        "bbox_shift": 0.0
+      }
+    },
+    {
+      "id": "cl_effect_03_loops",
+      "family": "effect",
+      "verdict": "loops",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "shift_px": 0,
+      "tint": 16,
+      "features": {
+        "iou_mismatch": 0.0,
+        "added_ratio": 0.0,
+        "removed_ratio": 0.0,
+        "centroid_shift": 0.0,
+        "area_ratio": 0.0,
+        "color_delta": 0.036226,
+        "bbox_shift": 0.0
+      }
+    },
+    {
+      "id": "cl_effect_04_drifts",
+      "family": "effect",
+      "verdict": "drifts",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "shift_px": 6,
+      "tint": 0,
+      "features": {
+        "iou_mismatch": 0.826389,
+        "added_ratio": 0.409722,
+        "removed_ratio": 0.416667,
+        "centroid_shift": 0.174672,
+        "area_ratio": 0.011765,
+        "color_delta": 0.0,
+        "bbox_shift": 0.25
+      }
+    },
+    {
+      "id": "cl_effect_05_drifts",
+      "family": "effect",
+      "verdict": "drifts",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "shift_px": 8,
+      "tint": 0,
+      "features": {
+        "iou_mismatch": 0.912162,
+        "added_ratio": 0.425676,
+        "removed_ratio": 0.486486,
+        "centroid_shift": 0.219808,
+        "area_ratio": 0.105882,
+        "color_delta": 0.0,
+        "bbox_shift": 0.333333
+      }
+    },
+    {
+      "id": "cl_effect_06_drifts",
+      "family": "effect",
+      "verdict": "drifts",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "shift_px": 10,
+      "tint": 8,
+      "features": {
+        "iou_mismatch": 0.964286,
+        "added_ratio": 0.392857,
+        "removed_ratio": 0.571429,
+        "centroid_shift": 0.255344,
+        "area_ratio": 0.294118,
+        "color_delta": 0.018113,
+        "bbox_shift": 0.416667
+      }
+    },
+    {
+      "id": "cl_ui_01_loops",
+      "family": "ui",
+      "verdict": "loops",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "shift_px": 0,
+      "tint": 0,
+      "features": {
+        "iou_mismatch": 0.0,
+        "added_ratio": 0.0,
+        "removed_ratio": 0.0,
+        "centroid_shift": 0.0,
+        "area_ratio": 0.0,
+        "color_delta": 0.0,
+        "bbox_shift": 0.0
+      }
+    },
+    {
+      "id": "cl_ui_02_loops",
+      "family": "ui",
+      "verdict": "loops",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "shift_px": 0,
+      "tint": 8,
+      "features": {
+        "iou_mismatch": 0.0,
+        "added_ratio": 0.0,
+        "removed_ratio": 0.0,
+        "centroid_shift": 0.0,
+        "area_ratio": 0.0,
+        "color_delta": 0.018113,
+        "bbox_shift": 0.0
+      }
+    },
+    {
+      "id": "cl_ui_03_loops",
+      "family": "ui",
+      "verdict": "loops",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "shift_px": 0,
+      "tint": 16,
+      "features": {
+        "iou_mismatch": 0.0,
+        "added_ratio": 0.0,
+        "removed_ratio": 0.0,
+        "centroid_shift": 0.0,
+        "area_ratio": 0.0,
+        "color_delta": 0.036226,
+        "bbox_shift": 0.0
+      }
+    },
+    {
+      "id": "cl_ui_04_drifts",
+      "family": "ui",
+      "verdict": "drifts",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "shift_px": 6,
+      "tint": 0,
+      "features": {
+        "iou_mismatch": 0.8,
+        "added_ratio": 0.4,
+        "removed_ratio": 0.4,
+        "centroid_shift": 0.176777,
+        "area_ratio": 0.0,
+        "color_delta": 0.0,
+        "bbox_shift": 0.25
+      }
+    },
+    {
+      "id": "cl_ui_05_drifts",
+      "family": "ui",
+      "verdict": "drifts",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "shift_px": 8,
+      "tint": 0,
+      "features": {
+        "iou_mismatch": 0.9375,
+        "added_ratio": 0.4375,
+        "removed_ratio": 0.5,
+        "centroid_shift": 0.220971,
+        "area_ratio": 0.111111,
+        "color_delta": 0.0,
+        "bbox_shift": 0.333333
+      }
+    },
+    {
+      "id": "cl_ui_06_drifts",
+      "family": "ui",
+      "verdict": "drifts",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "shift_px": 10,
+      "tint": 8,
+      "features": {
+        "iou_mismatch": 1.0,
+        "added_ratio": 0.4,
+        "removed_ratio": 0.6,
+        "centroid_shift": 0.250434,
+        "area_ratio": 0.333333,
+        "color_delta": 0.018113,
+        "bbox_shift": 0.416667
+      }
+    },
+    {
+      "id": "cl_prop_01_loops",
+      "family": "prop",
+      "verdict": "loops",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "shift_px": 0,
+      "tint": 0,
+      "features": {
+        "iou_mismatch": 0.0,
+        "added_ratio": 0.0,
+        "removed_ratio": 0.0,
+        "centroid_shift": 0.0,
+        "area_ratio": 0.0,
+        "color_delta": 0.0,
+        "bbox_shift": 0.0
+      }
+    },
+    {
+      "id": "cl_prop_02_loops",
+      "family": "prop",
+      "verdict": "loops",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "shift_px": 0,
+      "tint": 8,
+      "features": {
+        "iou_mismatch": 0.0,
+        "added_ratio": 0.0,
+        "removed_ratio": 0.0,
+        "centroid_shift": 0.0,
+        "area_ratio": 0.0,
+        "color_delta": 0.018113,
+        "bbox_shift": 0.0
+      }
+    },
+    {
+      "id": "cl_prop_03_loops",
+      "family": "prop",
+      "verdict": "loops",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "shift_px": 0,
+      "tint": 16,
+      "features": {
+        "iou_mismatch": 0.0,
+        "added_ratio": 0.0,
+        "removed_ratio": 0.0,
+        "centroid_shift": 0.0,
+        "area_ratio": 0.0,
+        "color_delta": 0.036226,
+        "bbox_shift": 0.0
+      }
+    },
+    {
+      "id": "cl_prop_04_drifts",
+      "family": "prop",
+      "verdict": "drifts",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "shift_px": 6,
+      "tint": 0,
+      "features": {
+        "iou_mismatch": 0.817518,
+        "added_ratio": 0.408759,
+        "removed_ratio": 0.408759,
+        "centroid_shift": 0.176777,
+        "area_ratio": 0.0,
+        "color_delta": 0.0,
+        "bbox_shift": 0.25
+      }
+    },
+    {
+      "id": "cl_prop_05_drifts",
+      "family": "prop",
+      "verdict": "drifts",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "shift_px": 8,
+      "tint": 0,
+      "features": {
+        "iou_mismatch": 0.937931,
+        "added_ratio": 0.441379,
+        "removed_ratio": 0.496552,
+        "centroid_shift": 0.222383,
+        "area_ratio": 0.098765,
+        "color_delta": 0.0,
+        "bbox_shift": 0.333333
+      }
+    },
+    {
+      "id": "cl_prop_06_drifts",
+      "family": "prop",
+      "verdict": "drifts",
+      "source": "fixture:game-lab-synthetic",
+      "raw_image_stored": false,
+      "shift_px": 10,
+      "tint": 8,
+      "features": {
+        "iou_mismatch": 0.992593,
+        "added_ratio": 0.4,
+        "removed_ratio": 0.592593,
+        "centroid_shift": 0.252844,
+        "area_ratio": 0.320988,
+        "color_delta": 0.018113,
+        "bbox_shift": 0.416667
+      }
+    }
+  ]
+}

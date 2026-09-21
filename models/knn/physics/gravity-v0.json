@@ -1,0 +1,1072 @@
+{
+  "schema": "bellium.physical-case-memory/v1",
+  "family": "gravity",
+  "domain": {
+    "latitude_deg": [
+      -90.0,
+      90.0
+    ],
+    "altitude_m": [
+      0.0,
+      20000.0
+    ]
+  },
+  "output_unit": "m/s2",
+  "reference_method": "reference:wgs84-somigliana+free-air",
+  "notes": "Cases generated from published reference models by scripts/build_physical_cases.py. They are not field measurements; interpolation is limited to the declared domain.",
+  "items": [
+    {
+      "id": "grav_-090_00000",
+      "inputs": {
+        "latitude_deg": -90.0,
+        "altitude_m": 0.0
+      },
+      "output": 9.832185,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-090_02500",
+      "inputs": {
+        "latitude_deg": -90.0,
+        "altitude_m": 2500.0
+      },
+      "output": 9.824481,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-090_05000",
+      "inputs": {
+        "latitude_deg": -90.0,
+        "altitude_m": 5000.0
+      },
+      "output": 9.816787,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-090_07500",
+      "inputs": {
+        "latitude_deg": -90.0,
+        "altitude_m": 7500.0
+      },
+      "output": 9.809101,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-090_10000",
+      "inputs": {
+        "latitude_deg": -90.0,
+        "altitude_m": 10000.0
+      },
+      "output": 9.801424,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-090_12500",
+      "inputs": {
+        "latitude_deg": -90.0,
+        "altitude_m": 12500.0
+      },
+      "output": 9.793756,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-090_15000",
+      "inputs": {
+        "latitude_deg": -90.0,
+        "altitude_m": 15000.0
+      },
+      "output": 9.786098,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-090_17500",
+      "inputs": {
+        "latitude_deg": -90.0,
+        "altitude_m": 17500.0
+      },
+      "output": 9.778448,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-090_20000",
+      "inputs": {
+        "latitude_deg": -90.0,
+        "altitude_m": 20000.0
+      },
+      "output": 9.770808,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-075_00000",
+      "inputs": {
+        "latitude_deg": -75.0,
+        "altitude_m": 0.0
+      },
+      "output": 9.828697,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-075_02500",
+      "inputs": {
+        "latitude_deg": -75.0,
+        "altitude_m": 2500.0
+      },
+      "output": 9.820992,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-075_05000",
+      "inputs": {
+        "latitude_deg": -75.0,
+        "altitude_m": 5000.0
+      },
+      "output": 9.813297,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-075_07500",
+      "inputs": {
+        "latitude_deg": -75.0,
+        "altitude_m": 7500.0
+      },
+      "output": 9.80561,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-075_10000",
+      "inputs": {
+        "latitude_deg": -75.0,
+        "altitude_m": 10000.0
+      },
+      "output": 9.797933,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-075_12500",
+      "inputs": {
+        "latitude_deg": -75.0,
+        "altitude_m": 12500.0
+      },
+      "output": 9.790264,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-075_15000",
+      "inputs": {
+        "latitude_deg": -75.0,
+        "altitude_m": 15000.0
+      },
+      "output": 9.782605,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-075_17500",
+      "inputs": {
+        "latitude_deg": -75.0,
+        "altitude_m": 17500.0
+      },
+      "output": 9.774955,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-075_20000",
+      "inputs": {
+        "latitude_deg": -75.0,
+        "altitude_m": 20000.0
+      },
+      "output": 9.767313,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-060_00000",
+      "inputs": {
+        "latitude_deg": -60.0,
+        "altitude_m": 0.0
+      },
+      "output": 9.819177,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-060_02500",
+      "inputs": {
+        "latitude_deg": -60.0,
+        "altitude_m": 2500.0
+      },
+      "output": 9.81147,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-060_05000",
+      "inputs": {
+        "latitude_deg": -60.0,
+        "altitude_m": 5000.0
+      },
+      "output": 9.803773,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-060_07500",
+      "inputs": {
+        "latitude_deg": -60.0,
+        "altitude_m": 7500.0
+      },
+      "output": 9.796085,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-060_10000",
+      "inputs": {
+        "latitude_deg": -60.0,
+        "altitude_m": 10000.0
+      },
+      "output": 9.788405,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-060_12500",
+      "inputs": {
+        "latitude_deg": -60.0,
+        "altitude_m": 12500.0
+      },
+      "output": 9.780735,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-060_15000",
+      "inputs": {
+        "latitude_deg": -60.0,
+        "altitude_m": 15000.0
+      },
+      "output": 9.773073,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-060_17500",
+      "inputs": {
+        "latitude_deg": -60.0,
+        "altitude_m": 17500.0
+      },
+      "output": 9.765421,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-060_20000",
+      "inputs": {
+        "latitude_deg": -60.0,
+        "altitude_m": 20000.0
+      },
+      "output": 9.757778,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-045_00000",
+      "inputs": {
+        "latitude_deg": -45.0,
+        "altitude_m": 0.0
+      },
+      "output": 9.806198,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-045_02500",
+      "inputs": {
+        "latitude_deg": -45.0,
+        "altitude_m": 2500.0
+      },
+      "output": 9.798489,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-045_05000",
+      "inputs": {
+        "latitude_deg": -45.0,
+        "altitude_m": 5000.0
+      },
+      "output": 9.790788,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-045_07500",
+      "inputs": {
+        "latitude_deg": -45.0,
+        "altitude_m": 7500.0
+      },
+      "output": 9.783097,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-045_10000",
+      "inputs": {
+        "latitude_deg": -45.0,
+        "altitude_m": 10000.0
+      },
+      "output": 9.775415,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-045_12500",
+      "inputs": {
+        "latitude_deg": -45.0,
+        "altitude_m": 12500.0
+      },
+      "output": 9.767742,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-045_15000",
+      "inputs": {
+        "latitude_deg": -45.0,
+        "altitude_m": 15000.0
+      },
+      "output": 9.760078,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-045_17500",
+      "inputs": {
+        "latitude_deg": -45.0,
+        "altitude_m": 17500.0
+      },
+      "output": 9.752423,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-045_20000",
+      "inputs": {
+        "latitude_deg": -45.0,
+        "altitude_m": 20000.0
+      },
+      "output": 9.744776,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-030_00000",
+      "inputs": {
+        "latitude_deg": -30.0,
+        "altitude_m": 0.0
+      },
+      "output": 9.793247,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-030_02500",
+      "inputs": {
+        "latitude_deg": -30.0,
+        "altitude_m": 2500.0
+      },
+      "output": 9.785535,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-030_05000",
+      "inputs": {
+        "latitude_deg": -30.0,
+        "altitude_m": 5000.0
+      },
+      "output": 9.777832,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-030_07500",
+      "inputs": {
+        "latitude_deg": -30.0,
+        "altitude_m": 7500.0
+      },
+      "output": 9.770138,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-030_10000",
+      "inputs": {
+        "latitude_deg": -30.0,
+        "altitude_m": 10000.0
+      },
+      "output": 9.762453,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-030_12500",
+      "inputs": {
+        "latitude_deg": -30.0,
+        "altitude_m": 12500.0
+      },
+      "output": 9.754778,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-030_15000",
+      "inputs": {
+        "latitude_deg": -30.0,
+        "altitude_m": 15000.0
+      },
+      "output": 9.747111,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-030_17500",
+      "inputs": {
+        "latitude_deg": -30.0,
+        "altitude_m": 17500.0
+      },
+      "output": 9.739453,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-030_20000",
+      "inputs": {
+        "latitude_deg": -30.0,
+        "altitude_m": 20000.0
+      },
+      "output": 9.731804,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-015_00000",
+      "inputs": {
+        "latitude_deg": -15.0,
+        "altitude_m": 0.0
+      },
+      "output": 9.783785,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-015_02500",
+      "inputs": {
+        "latitude_deg": -15.0,
+        "altitude_m": 2500.0
+      },
+      "output": 9.776071,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-015_05000",
+      "inputs": {
+        "latitude_deg": -15.0,
+        "altitude_m": 5000.0
+      },
+      "output": 9.768366,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-015_07500",
+      "inputs": {
+        "latitude_deg": -15.0,
+        "altitude_m": 7500.0
+      },
+      "output": 9.76067,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-015_10000",
+      "inputs": {
+        "latitude_deg": -15.0,
+        "altitude_m": 10000.0
+      },
+      "output": 9.752983,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-015_12500",
+      "inputs": {
+        "latitude_deg": -15.0,
+        "altitude_m": 12500.0
+      },
+      "output": 9.745305,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-015_15000",
+      "inputs": {
+        "latitude_deg": -15.0,
+        "altitude_m": 15000.0
+      },
+      "output": 9.737636,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-015_17500",
+      "inputs": {
+        "latitude_deg": -15.0,
+        "altitude_m": 17500.0
+      },
+      "output": 9.729976,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_-015_20000",
+      "inputs": {
+        "latitude_deg": -15.0,
+        "altitude_m": 20000.0
+      },
+      "output": 9.722326,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+000_00000",
+      "inputs": {
+        "latitude_deg": 0.0,
+        "altitude_m": 0.0
+      },
+      "output": 9.780325,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+000_02500",
+      "inputs": {
+        "latitude_deg": 0.0,
+        "altitude_m": 2500.0
+      },
+      "output": 9.772611,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+000_05000",
+      "inputs": {
+        "latitude_deg": 0.0,
+        "altitude_m": 5000.0
+      },
+      "output": 9.764905,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+000_07500",
+      "inputs": {
+        "latitude_deg": 0.0,
+        "altitude_m": 7500.0
+      },
+      "output": 9.757208,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+000_10000",
+      "inputs": {
+        "latitude_deg": 0.0,
+        "altitude_m": 10000.0
+      },
+      "output": 9.749521,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+000_12500",
+      "inputs": {
+        "latitude_deg": 0.0,
+        "altitude_m": 12500.0
+      },
+      "output": 9.741842,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+000_15000",
+      "inputs": {
+        "latitude_deg": 0.0,
+        "altitude_m": 15000.0
+      },
+      "output": 9.734172,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+000_17500",
+      "inputs": {
+        "latitude_deg": 0.0,
+        "altitude_m": 17500.0
+      },
+      "output": 9.726512,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+000_20000",
+      "inputs": {
+        "latitude_deg": 0.0,
+        "altitude_m": 20000.0
+      },
+      "output": 9.71886,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+015_00000",
+      "inputs": {
+        "latitude_deg": 15.0,
+        "altitude_m": 0.0
+      },
+      "output": 9.783785,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+015_02500",
+      "inputs": {
+        "latitude_deg": 15.0,
+        "altitude_m": 2500.0
+      },
+      "output": 9.776071,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+015_05000",
+      "inputs": {
+        "latitude_deg": 15.0,
+        "altitude_m": 5000.0
+      },
+      "output": 9.768366,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+015_07500",
+      "inputs": {
+        "latitude_deg": 15.0,
+        "altitude_m": 7500.0
+      },
+      "output": 9.76067,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+015_10000",
+      "inputs": {
+        "latitude_deg": 15.0,
+        "altitude_m": 10000.0
+      },
+      "output": 9.752983,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+015_12500",
+      "inputs": {
+        "latitude_deg": 15.0,
+        "altitude_m": 12500.0
+      },
+      "output": 9.745305,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+015_15000",
+      "inputs": {
+        "latitude_deg": 15.0,
+        "altitude_m": 15000.0
+      },
+      "output": 9.737636,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+015_17500",
+      "inputs": {
+        "latitude_deg": 15.0,
+        "altitude_m": 17500.0
+      },
+      "output": 9.729976,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+015_20000",
+      "inputs": {
+        "latitude_deg": 15.0,
+        "altitude_m": 20000.0
+      },
+      "output": 9.722326,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+030_00000",
+      "inputs": {
+        "latitude_deg": 30.0,
+        "altitude_m": 0.0
+      },
+      "output": 9.793247,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+030_02500",
+      "inputs": {
+        "latitude_deg": 30.0,
+        "altitude_m": 2500.0
+      },
+      "output": 9.785535,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+030_05000",
+      "inputs": {
+        "latitude_deg": 30.0,
+        "altitude_m": 5000.0
+      },
+      "output": 9.777832,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+030_07500",
+      "inputs": {
+        "latitude_deg": 30.0,
+        "altitude_m": 7500.0
+      },
+      "output": 9.770138,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+030_10000",
+      "inputs": {
+        "latitude_deg": 30.0,
+        "altitude_m": 10000.0
+      },
+      "output": 9.762453,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+030_12500",
+      "inputs": {
+        "latitude_deg": 30.0,
+        "altitude_m": 12500.0
+      },
+      "output": 9.754778,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+030_15000",
+      "inputs": {
+        "latitude_deg": 30.0,
+        "altitude_m": 15000.0
+      },
+      "output": 9.747111,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+030_17500",
+      "inputs": {
+        "latitude_deg": 30.0,
+        "altitude_m": 17500.0
+      },
+      "output": 9.739453,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+030_20000",
+      "inputs": {
+        "latitude_deg": 30.0,
+        "altitude_m": 20000.0
+      },
+      "output": 9.731804,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+045_00000",
+      "inputs": {
+        "latitude_deg": 45.0,
+        "altitude_m": 0.0
+      },
+      "output": 9.806198,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+045_02500",
+      "inputs": {
+        "latitude_deg": 45.0,
+        "altitude_m": 2500.0
+      },
+      "output": 9.798489,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+045_05000",
+      "inputs": {
+        "latitude_deg": 45.0,
+        "altitude_m": 5000.0
+      },
+      "output": 9.790788,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+045_07500",
+      "inputs": {
+        "latitude_deg": 45.0,
+        "altitude_m": 7500.0
+      },
+      "output": 9.783097,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+045_10000",
+      "inputs": {
+        "latitude_deg": 45.0,
+        "altitude_m": 10000.0
+      },
+      "output": 9.775415,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+045_12500",
+      "inputs": {
+        "latitude_deg": 45.0,
+        "altitude_m": 12500.0
+      },
+      "output": 9.767742,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+045_15000",
+      "inputs": {
+        "latitude_deg": 45.0,
+        "altitude_m": 15000.0
+      },
+      "output": 9.760078,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+045_17500",
+      "inputs": {
+        "latitude_deg": 45.0,
+        "altitude_m": 17500.0
+      },
+      "output": 9.752423,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+045_20000",
+      "inputs": {
+        "latitude_deg": 45.0,
+        "altitude_m": 20000.0
+      },
+      "output": 9.744776,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+060_00000",
+      "inputs": {
+        "latitude_deg": 60.0,
+        "altitude_m": 0.0
+      },
+      "output": 9.819177,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+060_02500",
+      "inputs": {
+        "latitude_deg": 60.0,
+        "altitude_m": 2500.0
+      },
+      "output": 9.81147,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+060_05000",
+      "inputs": {
+        "latitude_deg": 60.0,
+        "altitude_m": 5000.0
+      },
+      "output": 9.803773,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+060_07500",
+      "inputs": {
+        "latitude_deg": 60.0,
+        "altitude_m": 7500.0
+      },
+      "output": 9.796085,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+060_10000",
+      "inputs": {
+        "latitude_deg": 60.0,
+        "altitude_m": 10000.0
+      },
+      "output": 9.788405,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+060_12500",
+      "inputs": {
+        "latitude_deg": 60.0,
+        "altitude_m": 12500.0
+      },
+      "output": 9.780735,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+060_15000",
+      "inputs": {
+        "latitude_deg": 60.0,
+        "altitude_m": 15000.0
+      },
+      "output": 9.773073,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+060_17500",
+      "inputs": {
+        "latitude_deg": 60.0,
+        "altitude_m": 17500.0
+      },
+      "output": 9.765421,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+060_20000",
+      "inputs": {
+        "latitude_deg": 60.0,
+        "altitude_m": 20000.0
+      },
+      "output": 9.757778,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+075_00000",
+      "inputs": {
+        "latitude_deg": 75.0,
+        "altitude_m": 0.0
+      },
+      "output": 9.828697,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+075_02500",
+      "inputs": {
+        "latitude_deg": 75.0,
+        "altitude_m": 2500.0
+      },
+      "output": 9.820992,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+075_05000",
+      "inputs": {
+        "latitude_deg": 75.0,
+        "altitude_m": 5000.0
+      },
+      "output": 9.813297,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+075_07500",
+      "inputs": {
+        "latitude_deg": 75.0,
+        "altitude_m": 7500.0
+      },
+      "output": 9.80561,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+075_10000",
+      "inputs": {
+        "latitude_deg": 75.0,
+        "altitude_m": 10000.0
+      },
+      "output": 9.797933,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+075_12500",
+      "inputs": {
+        "latitude_deg": 75.0,
+        "altitude_m": 12500.0
+      },
+      "output": 9.790264,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+075_15000",
+      "inputs": {
+        "latitude_deg": 75.0,
+        "altitude_m": 15000.0
+      },
+      "output": 9.782605,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+075_17500",
+      "inputs": {
+        "latitude_deg": 75.0,
+        "altitude_m": 17500.0
+      },
+      "output": 9.774955,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+075_20000",
+      "inputs": {
+        "latitude_deg": 75.0,
+        "altitude_m": 20000.0
+      },
+      "output": 9.767313,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+090_00000",
+      "inputs": {
+        "latitude_deg": 90.0,
+        "altitude_m": 0.0
+      },
+      "output": 9.832185,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+090_02500",
+      "inputs": {
+        "latitude_deg": 90.0,
+        "altitude_m": 2500.0
+      },
+      "output": 9.824481,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+090_05000",
+      "inputs": {
+        "latitude_deg": 90.0,
+        "altitude_m": 5000.0
+      },
+      "output": 9.816787,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+090_07500",
+      "inputs": {
+        "latitude_deg": 90.0,
+        "altitude_m": 7500.0
+      },
+      "output": 9.809101,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+090_10000",
+      "inputs": {
+        "latitude_deg": 90.0,
+        "altitude_m": 10000.0
+      },
+      "output": 9.801424,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+090_12500",
+      "inputs": {
+        "latitude_deg": 90.0,
+        "altitude_m": 12500.0
+      },
+      "output": 9.793756,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+090_15000",
+      "inputs": {
+        "latitude_deg": 90.0,
+        "altitude_m": 15000.0
+      },
+      "output": 9.786098,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+090_17500",
+      "inputs": {
+        "latitude_deg": 90.0,
+        "altitude_m": 17500.0
+      },
+      "output": 9.778448,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    },
+    {
+      "id": "grav_+090_20000",
+      "inputs": {
+        "latitude_deg": 90.0,
+        "altitude_m": 20000.0
+      },
+      "output": 9.770808,
+      "source": "reference-model:wgs84-somigliana+free-air"
+    }
+  ]
+}

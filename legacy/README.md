@@ -19,7 +19,7 @@ This directory hosts the initial imported specialist models from `zedarvates/bot
   - `tool_call_predictor.json` (`bellium/micro-nn/tool-call:legacy-botte`)
 - **Provenance manifest** (`legacy/micro_nn/provenance.json`): stores pinned revision, size, and SHA-256 for each model.
 - **Contrats de features & extracteurs** (`legacy/micro_nn/features.py`).
-- **Inférence autonome** (`legacy/micro_nn/cli.py`): support zéro dépendance en Python pur (sans numpy obligatoire) avec support Rust/numpy optionnel.
+- **Inférence autonome** (`legacy/micro_nn/cli.py`): Python pur, déléguée au cœur Bellium validé. Le binaire Rust optionnel n'est pas livré ni validé dans cet extrait.
 - **Calibration & Température** (`legacy/micro_nn/calibration.py`).
 - **Tests validés** (`test_features.py`, `test_botte_nn.py`, `test_calibration.py`).
 
@@ -31,8 +31,15 @@ This directory hosts the initial imported specialist models from `zedarvates/bot
 ## Running tests
 
 ```bash
-python legacy/micro_nn/test_features.py
-python legacy/micro_nn/test_botte_nn.py
-python legacy/micro_nn/test_calibration.py
-python legacy/knn_asset_quality/test_asset_quality.py
+python -m pytest -q
+# Individual compatibility scripts, from the repository root:
+python -m legacy.micro_nn.test_features
+python -m legacy.micro_nn.test_botte_nn
+python -m legacy.micro_nn.test_calibration
+python -m legacy.knn_asset_quality.test_asset_quality
 ```
+
+Temperature scaling is applied by the named legacy classifiers when a valid
+calibration exists. Calibration sidecars are bound to model bytes. Automatic log
+calibration is unavailable: `calibrate_from_logs` returns `None`; use `calibrate`
+with explicitly verified probabilities and labels. No private log collector is imported.

@@ -1,0 +1,48 @@
+{
+  "schema": "bellium.visual-quality-protocol/v1",
+  "protocol_id": "visual-quality-v1",
+  "frozen_before_scoring": true,
+  "scope": "Small photographic inpainting and controlled silhouette composites; no production certification",
+  "upstream_repository": "https://github.com/scikit-image/scikit-image",
+  "upstream_revision": "e8a42ba85aaf5fd9322ef9ca51bc21063b22fcae",
+  "upstream_version": "0.25.2",
+  "license_reference": "https://scikit-image.org/docs/0.25.x/api/skimage.data.html",
+  "assets": [
+    {"id": "coffee", "file": "coffee.png", "kind": "photograph", "license": "CC0-1.0", "attribution": "Rachel Michetti, courtesy Pikolo Espresso Bar", "sha256": "cc02f8ca188b167c775a7101b5d767d1e71792cf762c33d6fa15a4599b5a8de7"},
+    {"id": "chelsea", "file": "chelsea.png", "kind": "photograph", "license": "CC0-1.0", "attribution": "Stefan van der Walt", "sha256": "596aa1e7cb875eb79f437e310381d26b338a81c2da23439704a73c4651e8c4bb"},
+    {"id": "brick", "file": "brick.png", "kind": "photograph", "license": "CC0-1.0", "attribution": "CC0Textures Bricks25, transformed by scikit-image", "sha256": "7966caf324f6ba843118d98f7a07746d22f6a343430add0233eca5f6eaaa8fcf"},
+    {"id": "grass", "file": "grass.png", "kind": "photograph", "license": "CC0-1.0", "attribution": "linolafett, Grass-01, transformed by scikit-image", "sha256": "b6b6022426b38936c43a4ac09635cd78af074e90f42ffa8227ac8b7452d39f89"},
+    {"id": "horse", "file": "horse.png", "kind": "silhouette", "license": "CC0-1.0", "attribution": "Andreas Preuss (marauder), Openclipart", "sha256": "c7fb60789fe394c485f842291ea3b21e50d140f39d6dcb5fb9917cc178225455"}
+  ],
+  "inpaint": {
+    "long_side": 128,
+    "resize": "Pillow LANCZOS, preserve aspect ratio, RGB",
+    "centers_xy": [[0.25, 0.30], [0.50, 0.50], [0.75, 0.70]],
+    "hole_sides": [3, 7],
+    "primary_baseline": "nearest-original-known-pixel-euclidean",
+    "secondary_baseline": "one-pixel-bounding-ring-mean",
+    "score_only_masked_pixels": true,
+    "severe_error_mae_255": 25.0,
+    "gates": {
+      "minimum_coverage": 0.80,
+      "maximum_accepted_mean_mae_255": 12.0,
+      "minimum_primary_baseline_improvement": 0.10,
+      "maximum_bad_accept_rate": 0.05,
+      "maximum_p95_seconds": 1.0,
+      "all_known_pixels_preserved": true
+    }
+  },
+  "cutout": {
+    "silhouette_canvas": [128, 128],
+    "foreground_color": [210, 50, 40],
+    "backgrounds": [[255, 255, 255], [10, 20, 200]],
+    "minimum_mask_iou": 0.98,
+    "minimum_coverage": 1.0,
+    "low_contrast_background": [205, 45, 40],
+    "low_contrast_must_abstain": true,
+    "photographs_have_no_cutout_ground_truth": true
+  },
+  "authority": "consultative-only",
+  "data_policy": "Evaluation-only; no training, threshold fitting, or model promotion in this protocol",
+  "threshold_note": "Engineering acceptance gates chosen before scoring; not universal perceptual standards"
+}

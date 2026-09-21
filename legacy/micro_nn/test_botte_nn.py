@@ -6,7 +6,6 @@
 
 from __future__ import annotations
 
-import json
 import sys
 from pathlib import Path
 
@@ -18,7 +17,7 @@ force_utf8()  # Windows cp1252 consoles crash on the ✅/→ output below.
 
 from legacy.micro_nn.cli import (
     _find_model, _predict_python, _MODEL_META, _MODELS_DIR,
-    do_predict, do_list, do_which,
+    do_list,
 )
 
 
@@ -84,7 +83,6 @@ def main() -> int:
     p = _MODELS_DIR / "binary_router.json"
     if p.exists():
         local_task = _predict_python(str(p), [0.2, 0.9, 1.0])
-        cloud_task = _predict_python(str(p), [0.9, 0.1, 0.0])
         _ok("simple + budget + local → local class (index 0)",
             local_task.index(max(local_task)) == 0, state)
 
