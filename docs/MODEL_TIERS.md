@@ -27,10 +27,20 @@ Declared budgets today:
 | Specialist | Parameters | Budget | Bytes | Budget |
 | --- | --- | --- | --- | --- |
 | `nano-tile-seam-v0` | 38 | 64 | 1816 | 8192 |
+| `nano-resample-edge-v0` | 38 | 64 | 1200 | 8192 |
+| `nano-quantize-tone-v0` | 25 | 48 | 1026 | 4096 |
+| `nano-adaptive-filter-v0` | 30 | 48 | 1108 | 4096 |
 
 Measured on this workstation (Windows, CPython 3.14): warm prediction p50
 0.013 ms, p95 0.014 ms over 2000 calls; full `classify_seam` including model
 load and budget check p50 0.177 ms, p95 0.259 ms over 50 calls.
+
+`nano-resample-edge-v0`, `nano-quantize-tone-v0` and
+`nano-adaptive-filter-v0` pass the same size check with the byte counts above,
+but no device latency or RAM has been measured for them: their budget blocks
+still report `device_verified: false` with null latency and RAM fields, and
+the per-image wall times in the ImageMagick replacement manifest are whole-run
+timings rather than warm predictions.
 
 Not established: target-device latency, peak RAM, VRAM, quantized deployment,
 and any advantage on real textures. An abstaining model is a valid outcome.
