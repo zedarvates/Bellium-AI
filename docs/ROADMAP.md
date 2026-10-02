@@ -156,6 +156,20 @@ fixtures. Raster-to-svg remains a pixel tracer and is not this track.
 First gate: the document and both round-trips, no model. A neural candidate is
 not in scope until a deterministic operator loses a measured comparison.
 
+## P11 — ApproxSurface and TopologyGrammar
+
+Planned deterministic-first geometry track for reusable surface reasoning, animation-aware retopology and UV seam proposals. The shared surface graph should serve retopology, UV, LOD, collision preparation and downstream validation instead of duplicating analysis.
+
+Initial primitives: `approx-curvature-v0`, `approx-surface-flow-v0`, `approx-developability-v0`, `approx-seam-v0` and `approx-density-v0`.
+
+Initial deformation grammar: mouth, eyes, nose, jaw/neck, shoulder, elbow, knee, finger joints and hip/groin. The mouth is the first animation-critical benchmark because speaking, lip closure, smile, pucker and asymmetric motion expose topology failures quickly.
+
+Use analytical geometry and graph heuristics first, then k-NN / compact specialists only when justified by benchmark evidence. Escalate to micro-NNs or larger models only when cheaper stages abstain. The same contract carries value/interval, confidence, evidence, compute/latency cost, usable/unsafe scopes and next action.
+
+First gate: immutable head/limb/hard-surface fixtures with deformation and UV measurements. Track invalid topology, self-intersection, stretch/compression, silhouette error, UV distortion, seam visibility, island count, p50/p95 latency, peak memory, abstention and expensive-model call rate. No production claim before comparison against deterministic/reference workflows.
+
+See [ApproxSurface + TopologyGrammar](APPROX_SURFACE_TOPOLOGY_GRAMMAR.md).
+
 ## First Bellium-native wave
 
 1. `image-cutout-v0`
