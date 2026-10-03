@@ -170,6 +170,24 @@ First gate: immutable head/limb/hard-surface fixtures with deformation and UV me
 
 See [ApproxSurface + TopologyGrammar](APPROX_SURFACE_TOPOLOGY_GRAMMAR.md).
 
+## P12 — Primitive-to-Complex Mesh / ShapeGrammar 3D
+
+Planned construction track for editable 3D assets assembled from simple primitives, deterministic modifiers, concept-art constraints and surface-pattern routing before ApproxSurface / TopologyGrammar cleanup.
+
+Core modules:
+
+- `PrimitiveLibrary`: box, cylinder, sphere, cone, torus, plane, capsule, spline, extruded profile and lathe/revolution primitives.
+- `ShapeAssemblyGrammar`: semantic part graphs and attachment rules for props, modular environment pieces, simple robots and stylized organic blockouts.
+- `ConceptGuide`: silhouette, proportions, dominant axes, symmetry/asymmetry, negative spaces and high-importance regions from concept art or sketches, always with confidence/provenance.
+- `FormRefinement`: reversible/recorded transforms, extrusion, inset, bevel, bridge, booleans, bend, twist, taper, smooth, subdivision, projection, mirror, array and sweep.
+- `SurfacePatternSystem`: routes details to texture, normal/bump, displacement or explicit geometry according to scale, silhouette importance, deformation and target use.
+
+Extend ApproxSurface with `approx-feature-scale-v0`, `approx-crease-v0` and `approx-silhouette-importance-v0`. `approx-density-v0` should support anisotropic density (`density_u`, `density_v`, principal direction) instead of only a scalar target.
+
+First gate: sci-fi hammer, modular wall panel and stylized trunk/branches. Compare deterministic primitive construction, concept-guided construction, pattern-enhanced construction and expensive generative fallback only after abstention. Measure editability, topology validity, silhouette fit, manual corrections, p50/p95 latency, peak memory and expensive-model calls.
+
+See [Primitive-to-Complex Mesh Pipeline](PRIMITIVE_TO_COMPLEX_MESH_PIPELINE.md).
+
 ## First Bellium-native wave
 
 1. `image-cutout-v0`
