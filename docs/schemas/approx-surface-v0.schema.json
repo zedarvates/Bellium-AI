@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bellium.local/schemas/approx-surface-v0.schema.json",
+  "title": "ApproxSurface v0 analysis manifest",
+  "type": "object",
+  "required": ["schema_version", "asset_id", "coordinate_frame", "measurements", "cost", "provenance"],
+  "properties": {
+    "schema_version": {"const": "approx-surface-v0"},
+    "asset_id": {"type": "string", "minLength": 1},
+    "coordinate_frame": {"type": "string", "minLength": 1},
+    "profile": {
+      "type": "string",
+      "enum": ["game-general", "vr-character", "story-closeup", "lod-background", "print-no-uv"]
+    },
+    "measurements": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/measurement"}
+    },
+    "semantic_regions": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/semanticRegion"}
+    },
+    "topology_patterns": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/topologyPattern"}
+    },
+    "cost": {"$ref": "#/$defs/cost"},
+    "provenance": {
+      "type": "object",
+      "required": ["method"],
+      "properties": {
+        "method": {"type": "string", "minLength": 1},
+        "source_hash": {"type": "string"},
+        "tool_version": {"type": "string"},
+        "notes": {"type": "string"}
+      },
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "measurement": {
+      "type": "object",
+      "required": ["kind", "confidence", "evidence", "usable_for", "unsafe_for", "next_if_needed"],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "approx-curvature-v0",
+            "approx-surface-flow-v0",
+            "approx-developability-v0",
+            "approx-seam-v0",
+            "approx-density-v0"
+          ]
+        },
+        "region_id": {"type": "string"},
+        "value": {},
+        "interval": {
+          "type": "array",
+          "prefixItems": [{"type": "number"}, {"type": "number"}],
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+        "evidence": {"type": "string", "minLength": 1},
+        "usable_for": {"type": "array", "items": {"type": "string"}},
+        "unsafe_for": {"type": "array", "items": {"type": "string"}},
+        "next_if_needed": {"type": ["string", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "semanticRegion": {
+      "type": "object",
+      "required": ["id", "label", "confidence"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "label": {"type": "string", "minLength": 1},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+        "evidence": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "topologyPattern": {
+      "type": "object",
+      "required": ["pattern", "region_id", "confidence", "status"],
+      "properties": {
+        "pattern": {
+          "type": "string",
+          "enum": [
+            "mouth-loop-v0",
+            "eye-loop-v0",
+            "nose-flow-v0",
+            "jaw-neck-v0",
+            "shoulder-v0",
+            "elbow-v0",
+            "knee-v0",
+            "finger-joint-v0",
+            "hip-groin-v0"
+          ]
+        },
+        "region_id": {"type": "string"},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+        "status": {"type": "string", "enum": ["proposed", "accepted", "rejected", "abstained"]},
+        "reason": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "cost": {
+      "type": "object",
+      "required": ["compute", "latency_ms"],
+      "properties": {
+        "compute": {"type": "number", "minimum": 0},
+        "latency_ms": {"type": "number", "minimum": 0},
+        "movement": {"type": "number", "minimum": 0},
+        "expensive_model_calls": {"type": "integer", "minimum": 0}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

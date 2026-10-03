@@ -156,6 +156,38 @@ fixtures. Raster-to-svg remains a pixel tracer and is not this track.
 First gate: the document and both round-trips, no model. A neural candidate is
 not in scope until a deterministic operator loses a measured comparison.
 
+## P11 — ApproxSurface and TopologyGrammar
+
+Planned deterministic-first geometry track for reusable surface reasoning, animation-aware retopology and UV seam proposals. The shared surface graph should serve retopology, UV, LOD, collision preparation and downstream validation instead of duplicating analysis.
+
+Initial primitives: `approx-curvature-v0`, `approx-surface-flow-v0`, `approx-developability-v0`, `approx-seam-v0` and `approx-density-v0`.
+
+Initial deformation grammar: mouth, eyes, nose, jaw/neck, shoulder, elbow, knee, finger joints and hip/groin. The mouth is the first animation-critical benchmark because speaking, lip closure, smile, pucker and asymmetric motion expose topology failures quickly.
+
+Use analytical geometry and graph heuristics first, then k-NN / compact specialists only when justified by benchmark evidence. Escalate to micro-NNs or larger models only when cheaper stages abstain. The same contract carries value/interval, confidence, evidence, compute/latency cost, usable/unsafe scopes and next action.
+
+First gate: immutable head/limb/hard-surface fixtures with deformation and UV measurements. Track invalid topology, self-intersection, stretch/compression, silhouette error, UV distortion, seam visibility, island count, p50/p95 latency, peak memory, abstention and expensive-model call rate. No production claim before comparison against deterministic/reference workflows.
+
+See [ApproxSurface + TopologyGrammar](APPROX_SURFACE_TOPOLOGY_GRAMMAR.md).
+
+## P12 — Primitive-to-Complex Mesh / ShapeGrammar 3D
+
+Planned construction track for editable 3D assets assembled from simple primitives, deterministic modifiers, concept-art constraints and surface-pattern routing before ApproxSurface / TopologyGrammar cleanup.
+
+Core modules:
+
+- `PrimitiveLibrary`: box, cylinder, sphere, cone, torus, plane, capsule, spline, extruded profile and lathe/revolution primitives.
+- `ShapeAssemblyGrammar`: semantic part graphs and attachment rules for props, modular environment pieces, simple robots and stylized organic blockouts.
+- `ConceptGuide`: silhouette, proportions, dominant axes, symmetry/asymmetry, negative spaces and high-importance regions from concept art or sketches, always with confidence/provenance.
+- `FormRefinement`: reversible/recorded transforms, extrusion, inset, bevel, bridge, booleans, bend, twist, taper, smooth, subdivision, projection, mirror, array and sweep.
+- `SurfacePatternSystem`: routes details to texture, normal/bump, displacement or explicit geometry according to scale, silhouette importance, deformation and target use.
+
+Extend ApproxSurface with `approx-feature-scale-v0`, `approx-crease-v0` and `approx-silhouette-importance-v0`. `approx-density-v0` should support anisotropic density (`density_u`, `density_v`, principal direction) instead of only a scalar target.
+
+First gate: sci-fi hammer, modular wall panel and stylized trunk/branches. Compare deterministic primitive construction, concept-guided construction, pattern-enhanced construction and expensive generative fallback only after abstention. Measure editability, topology validity, silhouette fit, manual corrections, p50/p95 latency, peak memory and expensive-model calls.
+
+See [Primitive-to-Complex Mesh Pipeline](PRIMITIVE_TO_COMPLEX_MESH_PIPELINE.md).
+
 ## First Bellium-native wave
 
 1. `image-cutout-v0`
