@@ -64,7 +64,6 @@ def _candidate_score(mesh: Mesh, edge: Edge, faces: tuple[int, ...]) -> float:
 
 
 def scored_edges(mesh: Mesh) -> tuple[tuple[Edge, float], ...]:
-    mapping = _edge_faces(mesh)
     items = [
         (edge, _candidate_score(mesh, edge, faces))
         for edge, faces in mapping.items()
