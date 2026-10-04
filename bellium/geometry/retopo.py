@@ -64,6 +64,7 @@ def _candidate_score(mesh: Mesh, edge: Edge, faces: tuple[int, ...]) -> float:
 
 
 def scored_edges(mesh: Mesh) -> tuple[tuple[Edge, float], ...]:
+    mapping = _edge_faces(mesh)
     items = [
         (edge, _candidate_score(mesh, edge, faces))
         for edge, faces in mapping.items()
@@ -140,7 +141,6 @@ def crease_paths(mesh: Mesh, threshold_degrees: float = 35.0) -> tuple[RetopoPat
 def flow_paths(mesh: Mesh, min_alignment: float = 0.85) -> tuple[RetopoPath, ...]:
     if not 0.0 <= min_alignment <= 1.0:
         raise ValueError("min_alignment must be between 0 and 1")
-    mapping = _edge_faces(mesh)
     accepted = {
         edge: score
         for edge, score in scored_edges(mesh)
