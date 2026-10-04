@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bellium.local/schemas/primitive-mesh-plan-v0.schema.json",
+  "title": "Primitive-to-Complex Mesh Plan v0",
+  "type": "object",
+  "required": ["schema_version", "asset_id", "profile", "parts", "operations", "provenance"],
+  "properties": {
+    "schema_version": {"const": "primitive-mesh-plan-v0"},
+    "asset_id": {"type": "string", "minLength": 1},
+    "profile": {
+      "type": "string",
+      "enum": [
+        "hard-surface-prop",
+        "modular-environment",
+        "stylized-organic",
+        "humanoid-base-mesh",
+        "creature-blockout",
+        "printable-object"
+      ]
+    },
+    "concept_sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["kind", "confidence"],
+        "properties": {
+          "kind": {"type": "string", "enum": ["image", "sketch", "text", "pattern-reference"]},
+          "source_id": {"type": "string"},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+          "notes": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "parts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "primitive", "semantic_role", "transform"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "primitive": {
+            "type": "string",
+            "enum": [
+              "box", "cylinder", "sphere", "cone", "torus", "plane", "capsule",
+              "polyline", "spline", "extruded-profile", "lathe-profile", "base-mesh"
+            ]
+          },
+          "semantic_role": {"type": "string", "minLength": 1},
+          "transform": {
+            "type": "object",
+            "properties": {
+              "translation": {"type": "array", "items": {"type": "number"}, "minItems": 3, "maxItems": 3},
+              "rotation_euler": {"type": "array", "items": {"type": "number"}, "minItems": 3, "maxItems": 3},
+              "scale": {"type": "array", "items": {"type": "number"}, "minItems": 3, "maxItems": 3}
+            },
+            "additionalProperties": false
+          },
+          "dimensions": {"type": "array", "items": {"type": "number"}},
+          "symmetry": {"type": "string"},
+          "editable_parameters": {"type": "object"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "operations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "operator", "input_ids", "parameters", "reversible"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "operator": {
+            "type": "string",
+            "enum": [
+              "translate", "rotate", "scale", "extrude", "inset", "bevel", "bridge",
+              "boolean-union", "boolean-difference", "boolean-intersection",
+              "bend", "twist", "taper", "smooth", "subdivision",
+              "shrinkwrap", "project", "mirror", "array", "sweep"
+            ]
+          },
+          "input_ids": {"type": "array", "items": {"type": "string"}},
+          "parameters": {"type": "object"},
+          "semantic_intent": {"type": "string"},
+          "source_evidence": {"type": "string"},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+          "reversible": {"type": "boolean"},
+          "output_ids": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": true
+      }
+    },
+    "surface_patterns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["pattern", "representation", "target_ids"],
+        "properties": {
+          "pattern": {"type": "string"},
+          "representation": {
+            "type": "string",
+            "enum": ["texture", "normal-bump", "displacement", "geometry"]
+          },
+          "target_ids": {"type": "array", "items": {"type": "string"}},
+          "scale": {"type": "number", "minimum": 0},
+          "orientation": {"type": "string"},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+        },
+        "additionalProperties": true
+      }
+    },
+    "handoff": {
+      "type": "object",
+      "properties": {
+        "run_approx_surface": {"type": "boolean"},
+        "run_topology_grammar": {"type": "boolean"},
+        "generate_uv": {"type": "boolean"},
+        "generate_lod": {"type": "boolean"},
+        "generate_collision": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["method"],
+      "properties": {
+        "method": {"type": "string"},
+        "tool_version": {"type": "string"},
+        "source_hash": {"type": "string"},
+        "notes": {"type": "string"}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}
