@@ -1,0 +1,488 @@
+{
+  "schema": "bellium.memory-retrieval-evaluation/v1",
+  "scope": "Authored lexical relevance labels, same author for corpus and queries; not independent human annotation or semantic quality certification.",
+  "corpus_sha256": "e740f4c6092989bc67fb13eb6d712ef521992a5702f3fb748440491568cf8232",
+  "cases_sha256": "9a2ad5e05c6e8e7f97367f8e28b92f6bc7690b64924c0728d24c56c13da186fc",
+  "thresholds_declared_before_evaluation": {
+    "min_positive_top1_rate": 0.8,
+    "max_negative_suggestions": 0
+  },
+  "k": 5,
+  "splits": {
+    "development": [
+      {
+        "profile": "exact",
+        "cases": 18,
+        "positive_cases": 12,
+        "negative_cases": 6,
+        "positive_top1_hits": 1,
+        "positive_top1_rate": 0.08333333333333333,
+        "positive_suggestion_coverage": 0.08333333333333333,
+        "mean_accepted_recall_at_5": 0.08333333333333333,
+        "accepted_neighbor_precision": 1.0,
+        "negative_suggestions": 0,
+        "negative_abstentions": 6,
+        "latency_p50_ms": 0.01565,
+        "latency_p95_ms": 0.0568,
+        "gate_passed": false,
+        "results": [
+          {
+            "id": "dev-fr-cutout",
+            "expected_relevant_ids": [
+              "fr-cutout-a",
+              "fr-cutout-b"
+            ],
+            "status": "abstain",
+            "reason": "too_few_similar_memories",
+            "top_correct": false,
+            "returned_ids": [],
+            "abstained": true
+          },
+          {
+            "id": "dev-fr-fill",
+            "expected_relevant_ids": [
+              "fr-fill-a",
+              "fr-fill-b"
+            ],
+            "status": "abstain",
+            "reason": "too_few_similar_memories",
+            "top_correct": false,
+            "returned_ids": [],
+            "abstained": true
+          },
+          {
+            "id": "dev-fr-texture",
+            "expected_relevant_ids": [
+              "fr-texture-a",
+              "fr-texture-b"
+            ],
+            "status": "abstain",
+            "reason": "too_few_similar_memories",
+            "top_correct": false,
+            "returned_ids": [],
+            "abstained": true
+          },
+          {
+            "id": "dev-fr-audio",
+            "expected_relevant_ids": [
+              "fr-audio-a",
+              "fr-audio-b"
+            ],
+            "status": "abstain",
+            "reason": "too_few_similar_memories",
+            "top_correct": false,
+            "returned_ids": [],
+            "abstained": true
+          },
+          {
+            "id": "dev-fr-route",
+            "expected_relevant_ids": [
+              "fr-route-a",
+              "fr-route-b"
+            ],
+            "status": "abstain",
+            "reason": "too_few_similar_memories",
+            "top_correct": false,
+            "returned_ids": [],
+            "abstained": true
+          },
+          {
+            "id": "dev-fr-language",
+            "expected_relevant_ids": [
+              "fr-language-a",
+              "fr-language-b"
+            ],
+            "status": "abstain",
+            "reason": "too_few_similar_memories",
+            "top_correct": false,
+            "returned_ids": [],
+            "abstained": true
+          },
+          {
+            "id": "dev-en-cutout",
+            "expected_relevant_ids": [
+              "en-cutout-a",
+              "en-cutout-b"
+            ],
+            "status": "abstain",
+            "reason": "too_few_similar_memories",
+            "top_correct": false,
+            "returned_ids": [],
+            "abstained": true
+          },
+          {
+            "id": "dev-en-fill",
+            "expected_relevant_ids": [
+              "en-fill-a",
+              "en-fill-b"
+            ],
+            "status": "abstain",
+            "reason": "too_few_similar_memories",
+            "top_correct": false,
+            "returned_ids": [],
+            "abstained": true
+          },
+          {
+            "id": "dev-en-texture",
+            "expected_relevant_ids": [
+              "en-texture-a",
+              "en-texture-b"
+            ],
+            "status": "abstain",
+            "reason": "too_few_similar_memories",
+            "top_correct": false,
+            "returned_ids": [],
+            "abstained": true
+          },
+          {
+            "id": "dev-en-audio",
+            "expected_relevant_ids": [
+              "en-audio-a",
+              "en-audio-b"
+            ],
+            "status": "abstain",
+            "reason": "too_few_similar_memories",
+            "top_correct": false,
+            "returned_ids": [],
+            "abstained": true
+          },
+          {
+            "id": "dev-en-route",
+            "expected_relevant_ids": [
+              "en-route-a",
+              "en-route-b"
+            ],
+            "status": "abstain",
+            "reason": "too_few_similar_memories",
+            "top_correct": false,
+            "returned_ids": [
+              "en-route-a"
+            ],
+            "abstained": true
+          },
+          {
+            "id": "dev-en-language",
+            "expected_relevant_ids": [
+              "en-language-a",
+              "en-language-b"
+            ],
+            "status": "suggest",
+            "reason": null,
+            "top_correct": true,
+            "returned_ids": [
+              "en-language-a",
+              "en-language-b"
+            ],
+            "abstained": false
+          },
+          {
+            "id": "dev-fr-unrelated",
+            "expected_relevant_ids": [],
+            "status": "abstain",
+            "reason": "too_few_similar_memories",
+            "top_correct": false,
+            "returned_ids": [],
+            "abstained": true
+          },
+          {
+            "id": "dev-en-unrelated",
+            "expected_relevant_ids": [],
+            "status": "abstain",
+            "reason": "too_few_similar_memories",
+            "top_correct": false,
+            "returned_ids": [],
+            "abstained": true
+          },
+          {
+            "id": "dev-domain",
+            "expected_relevant_ids": [],
+            "status": "abstain",
+            "reason": "too_few_similar_memories",
+            "top_correct": false,
+            "returned_ids": [],
+            "abstained": true
+          },
+          {
+            "id": "dev-vague",
+            "expected_relevant_ids": [],
+            "status": "abstain",
+            "reason": "too_few_similar_memories",
+            "top_correct": false,
+            "returned_ids": [],
+            "abstained": true
+          },
+          {
+            "id": "dev-paraphrase",
+            "expected_relevant_ids": [],
+            "status": "abstain",
+            "reason": "too_few_similar_memories",
+            "top_correct": false,
+            "returned_ids": [],
+            "abstained": true
+          },
+          {
+            "id": "dev-domain-isolation",
+            "expected_relevant_ids": [],
+            "status": "abstain",
+            "reason": "too_few_similar_memories",
+            "top_correct": false,
+            "returned_ids": [],
+            "abstained": true
+          }
+        ]
+      },
+      {
+        "profile": "fr-en",
+        "cases": 18,
+        "positive_cases": 12,
+        "negative_cases": 6,
+        "positive_top1_hits": 12,
+        "positive_top1_rate": 1.0,
+        "positive_suggestion_coverage": 1.0,
+        "mean_accepted_recall_at_5": 1.0,
+        "accepted_neighbor_precision": 1.0,
+        "negative_suggestions": 0,
+        "negative_abstentions": 6,
+        "latency_p50_ms": 0.0186,
+        "latency_p95_ms": 0.0365,
+        "gate_passed": true,
+        "results": [
+          {
+            "id": "dev-fr-cutout",
+            "expected_relevant_ids": [
+              "fr-cutout-a",
+              "fr-cutout-b"
+            ],
+            "status": "suggest",
+            "reason": null,
+            "top_correct": true,
+            "returned_ids": [
+              "fr-cutout-a",
+              "fr-cutout-b"
+            ],
+            "abstained": false
+          },
+          {
+            "id": "dev-fr-fill",
+            "expected_relevant_ids": [
+              "fr-fill-a",
+              "fr-fill-b"
+            ],
+            "status": "suggest",
+            "reason": null,
+            "top_correct": true,
+            "returned_ids": [
+              "fr-fill-a",
+              "fr-fill-b"
+            ],
+            "abstained": false
+          },
+          {
+            "id": "dev-fr-texture",
+            "expected_relevant_ids": [
+              "fr-texture-a",
+              "fr-texture-b"
+            ],
+            "status": "suggest",
+            "reason": null,
+            "top_correct": true,
+            "returned_ids": [
+              "fr-texture-a",
+              "fr-texture-b"
+            ],
+            "abstained": false
+          },
+          {
+            "id": "dev-fr-audio",
+            "expected_relevant_ids": [
+              "fr-audio-a",
+              "fr-audio-b"
+            ],
+            "status": "suggest",
+            "reason": null,
+            "top_correct": true,
+            "returned_ids": [
+              "fr-audio-a",
+              "fr-audio-b"
+            ],
+            "abstained": false
+          },
+          {
+            "id": "dev-fr-route",
+            "expected_relevant_ids": [
+              "fr-route-a",
+              "fr-route-b"
+            ],
+            "status": "suggest",
+            "reason": null,
+            "top_correct": true,
+            "returned_ids": [
+              "fr-route-a",
+              "fr-route-b"
+            ],
+            "abstained": false
+          },
+          {
+            "id": "dev-fr-language",
+            "expected_relevant_ids": [
+              "fr-language-a",
+              "fr-language-b"
+            ],
+            "status": "suggest",
+            "reason": null,
+            "top_correct": true,
+            "returned_ids": [
+              "fr-language-a",
+              "fr-language-b"
+            ],
+            "abstained": false
+          },
+          {
+            "id": "dev-en-cutout",
+            "expected_relevant_ids": [
+              "en-cutout-a",
+              "en-cutout-b"
+            ],
+            "status": "suggest",
+            "reason": null,
+            "top_correct": true,
+            "returned_ids": [
+              "en-cutout-a",
+              "en-cutout-b"
+            ],
+            "abstained": false
+          },
+          {
+            "id": "dev-en-fill",
+            "expected_relevant_ids": [
+              "en-fill-a",
+              "en-fill-b"
+            ],
+            "status": "suggest",
+            "reason": null,
+            "top_correct": true,
+            "returned_ids": [
+              "en-fill-a",
+              "en-fill-b"
+            ],
+            "abstained": false
+          },
+          {
+            "id": "dev-en-texture",
+            "expected_relevant_ids": [
+              "en-texture-a",
+              "en-texture-b"
+            ],
+            "status": "suggest",
+            "reason": null,
+            "top_correct": true,
+            "returned_ids": [
+              "en-texture-a",
+              "en-texture-b"
+            ],
+            "abstained": false
+          },
+          {
+            "id": "dev-en-audio",
+            "expected_relevant_ids": [
+              "en-audio-a",
+              "en-audio-b"
+            ],
+            "status": "suggest",
+            "reason": null,
+            "top_correct": true,
+            "returned_ids": [
+              "en-audio-a",
+              "en-audio-b"
+            ],
+            "abstained": false
+          },
+          {
+            "id": "dev-en-route",
+            "expected_relevant_ids": [
+              "en-route-a",
+              "en-route-b"
+            ],
+            "status": "suggest",
+            "reason": null,
+            "top_correct": true,
+            "returned_ids": [
+              "en-route-a",
+              "en-route-b"
+            ],
+            "abstained": false
+          },
+          {
+            "id": "dev-en-language",
+            "expected_relevant_ids": [
+              "en-language-a",
+              "en-language-b"
+            ],
+            "status": "suggest",
+            "reason": null,
+            "top_correct": true,
+            "returned_ids": [
+              "en-language-a",
+              "en-language-b"
+            ],
+            "abstained": false
+          },
+          {
+            "id": "dev-fr-unrelated",
+            "expected_relevant_ids": [],
+            "status": "abstain",
+            "reason": "too_few_similar_memories",
+            "top_correct": false,
+            "returned_ids": [],
+            "abstained": true
+          },
+          {
+            "id": "dev-en-unrelated",
+            "expected_relevant_ids": [],
+            "status": "abstain",
+            "reason": "too_few_similar_memories",
+            "top_correct": false,
+            "returned_ids": [],
+            "abstained": true
+          },
+          {
+            "id": "dev-domain",
+            "expected_relevant_ids": [],
+            "status": "abstain",
+            "reason": "too_few_similar_memories",
+            "top_correct": false,
+            "returned_ids": [],
+            "abstained": true
+          },
+          {
+            "id": "dev-vague",
+            "expected_relevant_ids": [],
+            "status": "abstain",
+            "reason": "too_few_similar_memories",
+            "top_correct": false,
+            "returned_ids": [],
+            "abstained": true
+          },
+          {
+            "id": "dev-paraphrase",
+            "expected_relevant_ids": [],
+            "status": "abstain",
+            "reason": "too_few_similar_memories",
+            "top_correct": false,
+            "returned_ids": [],
+            "abstained": true
+          },
+          {
+            "id": "dev-domain-isolation",
+            "expected_relevant_ids": [],
+            "status": "abstain",
+            "reason": "too_few_similar_memories",
+            "top_correct": false,
+            "returned_ids": [],
+            "abstained": true
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,297 @@
+{
+  "schema": "bellium.memory-rerank-scale/v1",
+  "scope": "authored corpus; repeated-query CPU and Python allocations only",
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "k": 5,
+  "query_path": "caller-supplied tokenized list, including validation each call",
+  "allocation_scope": "incremental traced Python allocations; not RSS, VRAM or total resident corpus",
+  "source_sha256": "a17fc942a6e2dd69da93d20a1e4c317c41ba4c881ea7e70d3e1406ba113d602c",
+  "cases": [
+    {
+      "records": 1000,
+      "domains": 8,
+      "queries": {
+        "supported": {
+          "raw_list": {
+            "runs": 7,
+            "p50_ms": 4.234,
+            "p95_ms": 5.0825,
+            "peak_traced_bytes": 691876,
+            "retained_traced_bytes": 18693,
+            "status": "suggest",
+            "neighbors": 5
+          },
+          "prepared": {
+            "runs": 7,
+            "p50_ms": 0.044,
+            "p95_ms": 0.0599,
+            "peak_traced_bytes": 6879,
+            "retained_traced_bytes": 3776,
+            "status": "suggest",
+            "neighbors": 5
+          },
+          "exact_result_equivalence": true
+        },
+        "unrelated": {
+          "raw_list": {
+            "runs": 7,
+            "p50_ms": 3.8712,
+            "p95_ms": 4.2572,
+            "peak_traced_bytes": 691803,
+            "retained_traced_bytes": 15672,
+            "status": "abstain",
+            "neighbors": 0
+          },
+          "prepared": {
+            "runs": 7,
+            "p50_ms": 0.0057,
+            "p95_ms": 0.0089,
+            "peak_traced_bytes": 2374,
+            "retained_traced_bytes": 1032,
+            "status": "abstain",
+            "neighbors": 0
+          },
+          "exact_result_equivalence": true
+        },
+        "unknown_domain": {
+          "raw_list": {
+            "runs": 7,
+            "p50_ms": 3.6392,
+            "p95_ms": 3.9262,
+            "peak_traced_bytes": 691828,
+            "retained_traced_bytes": 15624,
+            "status": "abstain",
+            "neighbors": 0
+          },
+          "prepared": {
+            "runs": 7,
+            "p50_ms": 0.0053,
+            "p95_ms": 0.0087,
+            "peak_traced_bytes": 2119,
+            "retained_traced_bytes": 1032,
+            "status": "abstain",
+            "neighbors": 0
+          },
+          "exact_result_equivalence": true
+        },
+        "broad_query": {
+          "raw_list": {
+            "runs": 7,
+            "p50_ms": 3.7754,
+            "p95_ms": 3.8121,
+            "peak_traced_bytes": 692951,
+            "retained_traced_bytes": 15800,
+            "status": "abstain",
+            "neighbors": 0
+          },
+          "prepared": {
+            "runs": 7,
+            "p50_ms": 0.0918,
+            "p95_ms": 0.1018,
+            "peak_traced_bytes": 13762,
+            "retained_traced_bytes": 1128,
+            "status": "abstain",
+            "neighbors": 0
+          },
+          "exact_result_equivalence": true
+        }
+      },
+      "preparation": {
+        "seconds": 0.007446100000379374,
+        "retained_traced_bytes": 636826,
+        "peak_traced_bytes": 1244944
+      }
+    },
+    {
+      "records": 10000,
+      "domains": 8,
+      "queries": {
+        "supported": {
+          "raw_list": {
+            "runs": 7,
+            "p50_ms": 43.916,
+            "p95_ms": 49.637,
+            "peak_traced_bytes": 7093285,
+            "retained_traced_bytes": 18565,
+            "status": "suggest",
+            "neighbors": 5
+          },
+          "prepared": {
+            "runs": 7,
+            "p50_ms": 0.2114,
+            "p95_ms": 0.2173,
+            "peak_traced_bytes": 13023,
+            "retained_traced_bytes": 3728,
+            "status": "suggest",
+            "neighbors": 5
+          },
+          "exact_result_equivalence": true
+        },
+        "unrelated": {
+          "raw_list": {
+            "runs": 7,
+            "p50_ms": 41.5097,
+            "p95_ms": 42.2749,
+            "peak_traced_bytes": 7093212,
+            "retained_traced_bytes": 15672,
+            "status": "abstain",
+            "neighbors": 0
+          },
+          "prepared": {
+            "runs": 7,
+            "p50_ms": 0.0059,
+            "p95_ms": 0.01,
+            "peak_traced_bytes": 2374,
+            "retained_traced_bytes": 1032,
+            "status": "abstain",
+            "neighbors": 0
+          },
+          "exact_result_equivalence": true
+        },
+        "unknown_domain": {
+          "raw_list": {
+            "runs": 7,
+            "p50_ms": 41.4806,
+            "p95_ms": 43.8611,
+            "peak_traced_bytes": 7093237,
+            "retained_traced_bytes": 15624,
+            "status": "abstain",
+            "neighbors": 0
+          },
+          "prepared": {
+            "runs": 7,
+            "p50_ms": 0.0052,
+            "p95_ms": 0.0095,
+            "peak_traced_bytes": 2119,
+            "retained_traced_bytes": 1032,
+            "status": "abstain",
+            "neighbors": 0
+          },
+          "exact_result_equivalence": true
+        },
+        "broad_query": {
+          "raw_list": {
+            "runs": 7,
+            "p50_ms": 42.6337,
+            "p95_ms": 53.5372,
+            "peak_traced_bytes": 7094360,
+            "retained_traced_bytes": 15672,
+            "status": "abstain",
+            "neighbors": 0
+          },
+          "prepared": {
+            "runs": 7,
+            "p50_ms": 0.8116,
+            "p95_ms": 0.8426,
+            "peak_traced_bytes": 167362,
+            "retained_traced_bytes": 1080,
+            "status": "abstain",
+            "neighbors": 0
+          },
+          "exact_result_equivalence": true
+        }
+      },
+      "preparation": {
+        "seconds": 0.07412599999952363,
+        "retained_traced_bytes": 5706506,
+        "peak_traced_bytes": 11897502
+      }
+    },
+    {
+      "records": 50000,
+      "domains": 8,
+      "queries": {
+        "supported": {
+          "raw_list": {
+            "runs": 7,
+            "p50_ms": 232.4918,
+            "p95_ms": 348.4226,
+            "peak_traced_bytes": 34952189,
+            "retained_traced_bytes": 18570,
+            "status": "suggest",
+            "neighbors": 5
+          },
+          "prepared": {
+            "runs": 7,
+            "p50_ms": 1.0227,
+            "p95_ms": 1.4994,
+            "peak_traced_bytes": 166287,
+            "retained_traced_bytes": 3728,
+            "status": "suggest",
+            "neighbors": 5
+          },
+          "exact_result_equivalence": true
+        },
+        "unrelated": {
+          "raw_list": {
+            "runs": 7,
+            "p50_ms": 276.1556,
+            "p95_ms": 381.6132,
+            "peak_traced_bytes": 34952116,
+            "retained_traced_bytes": 15672,
+            "status": "abstain",
+            "neighbors": 0
+          },
+          "prepared": {
+            "runs": 7,
+            "p50_ms": 0.0062,
+            "p95_ms": 0.011,
+            "peak_traced_bytes": 2374,
+            "retained_traced_bytes": 1032,
+            "status": "abstain",
+            "neighbors": 0
+          },
+          "exact_result_equivalence": true
+        },
+        "unknown_domain": {
+          "raw_list": {
+            "runs": 7,
+            "p50_ms": 248.9194,
+            "p95_ms": 349.8238,
+            "peak_traced_bytes": 34952141,
+            "retained_traced_bytes": 15624,
+            "status": "abstain",
+            "neighbors": 0
+          },
+          "prepared": {
+            "runs": 7,
+            "p50_ms": 0.0053,
+            "p95_ms": 0.0093,
+            "peak_traced_bytes": 2119,
+            "retained_traced_bytes": 1032,
+            "status": "abstain",
+            "neighbors": 0
+          },
+          "exact_result_equivalence": true
+        },
+        "broad_query": {
+          "raw_list": {
+            "runs": 7,
+            "p50_ms": 228.0571,
+            "p95_ms": 323.2776,
+            "peak_traced_bytes": 34953264,
+            "retained_traced_bytes": 15672,
+            "status": "abstain",
+            "neighbors": 0
+          },
+          "prepared": {
+            "runs": 7,
+            "p50_ms": 4.5252,
+            "p95_ms": 4.9362,
+            "peak_traced_bytes": 658882,
+            "retained_traced_bytes": 1080,
+            "status": "abstain",
+            "neighbors": 0
+          },
+          "exact_result_equivalence": true
+        }
+      },
+      "preparation": {
+        "seconds": 0.3749587000002066,
+        "retained_traced_bytes": 28066506,
+        "peak_traced_bytes": 59013462
+      }
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "schema": "bellium.small-learning-packaging/v1",
+  "scope": "local uncommitted candidate; installed core/image checks plus source-archive tests",
+  "source_head": "1a7817915e3b7c5677082eb4f14138c6bbe47766",
+  "source_dirty": true,
+  "snapshot_files": 557,
+  "evidence_directory": "<validation-root>",
+  "build": {
+    "exit_code": 0,
+    "log": "<validation-root>/build-verified.log",
+    "isolation": "source snapshot"
+  },
+  "artifacts": {
+    "scope": "local candidate artifacts; no publication",
+    "wheel": {
+      "path": "<validation-root>/dist-verified/bellium_ai-0.1.0-py3-none-any.whl",
+      "sha256": "c8cb6318755efdc9bba5dd23f073cac2a3b43ed0ca1048f1b3bc13aa080983e9"
+    },
+    "sdist": {
+      "path": "<validation-root>/dist-verified/bellium_ai-0.1.0.tar.gz",
+      "sha256": "737788c745feb99366c5d4db7a65cbe0774d44f0321ab0c06499ba29773bd9b9"
+    },
+    "snapshot_manifest_sha256": "bb675cb098fd7d244f18b545ec037ef8e7bf57da890c8cc8e94f129d00aafe63",
+    "byte_identical_package_modules": 198,
+    "byte_identical_model_resources": 54,
+    "byte_identical_legacy_json": 12,
+    "sdist_examples": [
+      "examples/memory_reranking.py",
+      "examples/micro_nn_triage.py",
+      "examples/README.md",
+      "examples/requirements.txt",
+      "examples/texture_repeat.py",
+      "examples/tool_routing.py",
+      "examples/__init__.py",
+      "examples/tests/test_examples.py",
+      "examples/tools/image_tool.py",
+      "examples/tools/__init__.py",
+      "examples/skills/bellium-local-tools/SKILL.md"
+    ],
+    "core_runtime_dependencies": [],
+    "passed": true
+  },
+  "installed_core": {
+    "installed_package": "<validation-root>/venv-core/Lib/site-packages/bellium/__init__.py",
+    "json_resources": 54,
+    "legacy_models": 11,
+    "registry_entries": 90,
+    "image_extra_checked": false,
+    "small_learning_checks": {
+      "prepared_memory": true,
+      "fr_en_profile": true,
+      "unicode_snapshot": true,
+      "domain_abstention_and_veto": true,
+      "validation_trainers": true,
+      "classification_metrics": true,
+      "model_roundtrip": true
+    },
+    "cli_help_and_routing_checked": true,
+    "passed": true,
+    "installed_wheel_sha256": "c8cb6318755efdc9bba5dd23f073cac2a3b43ed0ca1048f1b3bc13aa080983e9",
+    "byte_identical_installed_files": 264,
+    "installed_distributions": [
+      {
+        "name": "bellium-ai",
+        "version": "0.1.0"
+      },
+      {
+        "name": "pip",
+        "version": "25.1.1"
+      }
+    ],
+    "isolated_interpreter": true,
+    "working_directory": "<validation-root>",
+    "console_entry_point_checked": true,
+    "missing_image_extra_message_checked": true
+  },
+  "installed_image": {
+    "installed_package": "<validation-root>/venv-image/Lib/site-packages/bellium/__init__.py",
+    "json_resources": 54,
+    "legacy_models": 11,
+    "registry_entries": 90,
+    "image_extra_checked": true,
+    "small_learning_checks": {
+      "prepared_memory": true,
+      "fr_en_profile": true,
+      "unicode_snapshot": true,
+      "domain_abstention_and_veto": true,
+      "validation_trainers": true,
+      "classification_metrics": true,
+      "model_roundtrip": true
+    },
+    "cli_help_and_routing_checked": true,
+    "passed": true,
+    "installed_wheel_sha256": "c8cb6318755efdc9bba5dd23f073cac2a3b43ed0ca1048f1b3bc13aa080983e9",
+    "byte_identical_installed_files": 264,
+    "installed_distributions": [
+      {
+        "name": "bellium-ai",
+        "version": "0.1.0"
+      },
+      {
+        "name": "pillow",
+        "version": "11.3.0"
+      },
+      {
+        "name": "pip",
+        "version": "25.1.1"
+      }
+    ],
+    "isolated_interpreter": true,
+    "working_directory": "<validation-root>",
+    "console_entry_point_checked": true
+  },
+  "source_distribution_checks": {
+    "scope": "tests from extracted local sdist, plus standalone example using installed wheel",
+    "source_archive_root": "<validation-root>/sdist-verified-validation/bellium_ai-0.1.0",
+    "checks": {
+      "pytest": {
+        "exit_code": 0,
+        "log": "<validation-root>/sdist-verified-pytest.log",
+        "passed_tests": 1190
+      },
+      "internal": {
+        "exit_code": 0,
+        "log": "<validation-root>/sdist-verified-internal.log"
+      },
+      "examples": {
+        "exit_code": 0,
+        "log": "<validation-root>/sdist-verified-examples.log"
+      },
+      "ruff": {
+        "exit_code": 0,
+        "log": "<validation-root>/sdist-verified-ruff.log"
+      }
+    },
+    "installed_example_passed": true,
+    "passed": true
+  },
+  "changes": [
+    "source archive includes examples, documented test runners, project docs and banner assets",
+    "CLI parser reads filter names without importing Pillow",
+    "image CLI commands explain missing optional dependency",
+    "installed smoke checks exercise prepared memory, phrase profile and validation trainers"
+  ],
+  "limitations": [
+    "Windows/Python 3.13.5 only",
+    "no publication or version bump",
+    "source test suite is distinct from installed-wheel smoke checks",
+    "no model-weight changes or field-quality claim"
+  ],
+  "passed": true
+}

@@ -1,0 +1,172 @@
+{
+  "scope": "synthetic-only; validation selects weights, independent test evaluates them",
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "training": [
+    {
+      "seed": 3,
+      "split_seeds": [
+        101,
+        102,
+        103
+      ],
+      "split_sizes": [
+        120,
+        80,
+        200
+      ],
+      "training_label_noise": 0.15,
+      "fixed": {
+        "seconds": 0.1613167000004978,
+        "test_accuracy": 0.795,
+        "epochs_run": 80,
+        "selection": null,
+        "parameter_count": 32
+      },
+      "validation": {
+        "seconds": 0.05344650000006368,
+        "test_accuracy": 0.985,
+        "epochs_run": 17,
+        "selection": {
+          "epochs_run": 17,
+          "best_epoch": 9,
+          "best_validation_loss": 0.30026387225928247,
+          "validation_loss": "cross_entropy",
+          "stopped_early": true,
+          "patience": 8,
+          "min_delta": 0.0001
+        },
+        "parameter_count": 32
+      }
+    },
+    {
+      "seed": 7,
+      "split_seeds": [
+        101,
+        102,
+        103
+      ],
+      "split_sizes": [
+        120,
+        80,
+        200
+      ],
+      "training_label_noise": 0.15,
+      "fixed": {
+        "seconds": 0.16043039999931352,
+        "test_accuracy": 0.915,
+        "epochs_run": 80,
+        "selection": null,
+        "parameter_count": 32
+      },
+      "validation": {
+        "seconds": 0.049383700000362296,
+        "test_accuracy": 0.915,
+        "epochs_run": 19,
+        "selection": {
+          "epochs_run": 19,
+          "best_epoch": 11,
+          "best_validation_loss": 0.29530183894254836,
+          "validation_loss": "cross_entropy",
+          "stopped_early": true,
+          "patience": 8,
+          "min_delta": 0.0001
+        },
+        "parameter_count": 32
+      }
+    },
+    {
+      "seed": 11,
+      "split_seeds": [
+        101,
+        102,
+        103
+      ],
+      "split_sizes": [
+        120,
+        80,
+        200
+      ],
+      "training_label_noise": 0.15,
+      "fixed": {
+        "seconds": 0.16967939999994996,
+        "test_accuracy": 0.88,
+        "epochs_run": 80,
+        "selection": null,
+        "parameter_count": 32
+      },
+      "validation": {
+        "seconds": 0.023116200000004028,
+        "test_accuracy": 0.9,
+        "epochs_run": 9,
+        "selection": {
+          "epochs_run": 9,
+          "best_epoch": 1,
+          "best_validation_loss": 0.349809310954239,
+          "validation_loss": "cross_entropy",
+          "stopped_early": true,
+          "patience": 8,
+          "min_delta": 0.0001
+        },
+        "parameter_count": 32
+      }
+    }
+  ],
+  "retrieval": [
+    {
+      "terms": "image cutout",
+      "query_normal_form": "NFD",
+      "memory_normal_form": "NFC",
+      "legacy_ascii_similarity": 1.0,
+      "legacy_would_have_support": true,
+      "unicode_status": "suggest",
+      "unicode_similarity": 1.0
+    },
+    {
+      "terms": "mémoire réseau",
+      "query_normal_form": "NFD",
+      "memory_normal_form": "NFC",
+      "legacy_ascii_similarity": 0.3333333333333333,
+      "legacy_would_have_support": false,
+      "unicode_status": "suggest",
+      "unicode_similarity": 1.0
+    },
+    {
+      "terms": "acción selección",
+      "query_normal_form": "NFD",
+      "memory_normal_form": "NFC",
+      "legacy_ascii_similarity": 0.2,
+      "legacy_would_have_support": false,
+      "unicode_status": "suggest",
+      "unicode_similarity": 1.0
+    },
+    {
+      "terms": "μνήμη δίκτυο",
+      "query_normal_form": "NFD",
+      "memory_normal_form": "NFC",
+      "legacy_ascii_similarity": 0.0,
+      "legacy_would_have_support": false,
+      "unicode_status": "suggest",
+      "unicode_similarity": 1.0
+    },
+    {
+      "terms": "机器 学习",
+      "query_normal_form": "NFD",
+      "memory_normal_form": "NFC",
+      "legacy_ascii_similarity": 0.0,
+      "legacy_would_have_support": false,
+      "unicode_status": "suggest",
+      "unicode_similarity": 1.0
+    }
+  ],
+  "training_summary": {
+    "fixed": {
+      "mean_test_accuracy": 0.8633333333333334,
+      "mean_epochs": 80
+    },
+    "validation": {
+      "mean_test_accuracy": 0.9333333333333333,
+      "mean_epochs": 15
+    }
+  }
+}
