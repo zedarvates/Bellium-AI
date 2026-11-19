@@ -1,7 +1,8 @@
 recursive-include models *.json
 recursive-include licenses *.txt
-include LICENSE NOTICE README.md
-recursive-include docs *.md *.json
+include LICENSE NOTICE README.md CONTRIBUTING.md SECURITY.md run_all_tests.py benchmarks.py
+recursive-include docs *.md *.json *.png *.svg
 recursive-include tests *.py
 recursive-include scripts *.py
+recursive-include examples *.py *.md *.txt
 recursive-include benchmarks *.json *.md

@@ -1,0 +1,129 @@
+{
+  "schema": "bellium.memory-rerank-scale/v1",
+  "scope": "authored corpus; repeated-query CPU and Python allocations only",
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "k": 5,
+  "query_path": "caller-supplied tokenized list, including validation each call",
+  "allocation_scope": "incremental traced Python allocations; not RSS, VRAM or total resident corpus",
+  "source_sha256": "feefbd1d423fb8c1838fb2498a2af855f8e589bdd29cbfc2c3916fa2b78c8ef4",
+  "cases": [
+    {
+      "records": 1000,
+      "domains": 8,
+      "queries": {
+        "supported": {
+          "raw_list": {
+            "runs": 7,
+            "p50_ms": 7.8999,
+            "p95_ms": 8.9924,
+            "peak_traced_bytes": 691876,
+            "retained_traced_bytes": 18693,
+            "status": "suggest",
+            "neighbors": 5
+          }
+        },
+        "unrelated": {
+          "raw_list": {
+            "runs": 7,
+            "p50_ms": 3.8772,
+            "p95_ms": 4.3005,
+            "peak_traced_bytes": 691803,
+            "retained_traced_bytes": 15720,
+            "status": "abstain",
+            "neighbors": 0
+          }
+        },
+        "unknown_domain": {
+          "raw_list": {
+            "runs": 7,
+            "p50_ms": 3.8098,
+            "p95_ms": 4.1643,
+            "peak_traced_bytes": 691828,
+            "retained_traced_bytes": 15624,
+            "status": "abstain",
+            "neighbors": 0
+          }
+        }
+      }
+    },
+    {
+      "records": 10000,
+      "domains": 8,
+      "queries": {
+        "supported": {
+          "raw_list": {
+            "runs": 7,
+            "p50_ms": 44.945,
+            "p95_ms": 60.8273,
+            "peak_traced_bytes": 7093285,
+            "retained_traced_bytes": 18565,
+            "status": "suggest",
+            "neighbors": 5
+          }
+        },
+        "unrelated": {
+          "raw_list": {
+            "runs": 7,
+            "p50_ms": 44.7405,
+            "p95_ms": 49.5233,
+            "peak_traced_bytes": 7093212,
+            "retained_traced_bytes": 15672,
+            "status": "abstain",
+            "neighbors": 0
+          }
+        },
+        "unknown_domain": {
+          "raw_list": {
+            "runs": 7,
+            "p50_ms": 44.7533,
+            "p95_ms": 50.2398,
+            "peak_traced_bytes": 7093237,
+            "retained_traced_bytes": 15624,
+            "status": "abstain",
+            "neighbors": 0
+          }
+        }
+      }
+    },
+    {
+      "records": 50000,
+      "domains": 8,
+      "queries": {
+        "supported": {
+          "raw_list": {
+            "runs": 7,
+            "p50_ms": 258.3641,
+            "p95_ms": 287.5463,
+            "peak_traced_bytes": 34952189,
+            "retained_traced_bytes": 18570,
+            "status": "suggest",
+            "neighbors": 5
+          }
+        },
+        "unrelated": {
+          "raw_list": {
+            "runs": 7,
+            "p50_ms": 248.7758,
+            "p95_ms": 312.1771,
+            "peak_traced_bytes": 34952116,
+            "retained_traced_bytes": 15672,
+            "status": "abstain",
+            "neighbors": 0
+          }
+        },
+        "unknown_domain": {
+          "raw_list": {
+            "runs": 7,
+            "p50_ms": 244.5819,
+            "p95_ms": 310.7104,
+            "peak_traced_bytes": 34952141,
+            "retained_traced_bytes": 15624,
+            "status": "abstain",
+            "neighbors": 0
+          }
+        }
+      }
+    }
+  ]
+}

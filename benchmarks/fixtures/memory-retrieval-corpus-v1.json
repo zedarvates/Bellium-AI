@@ -1,0 +1,30 @@
+{
+  "schema": "bellium.memory-rerank/v1",
+  "notes": "Original authored lexical fixtures; no private memory or payload bodies. Query cases are in a separate file.",
+  "items": [
+    {"id":"fr-cutout-a","domain":"fr","title":"Détourage transparent","terms":"image détourage fond transparent alpha","evidence":"attested"},
+    {"id":"fr-cutout-b","domain":"fr","title":"Détourage blanc","terms":"image détourage fond blanc masque","evidence":"attested"},
+    {"id":"fr-fill-a","domain":"fr","title":"Remplissage par texture","terms":"image remplissage trou masque texture","evidence":"attested"},
+    {"id":"fr-fill-b","domain":"fr","title":"Reconstruction de zone","terms":"image remplissage trou reconstruction zone","evidence":"attested"},
+    {"id":"fr-texture-a","domain":"fr","title":"Coutures de texture","terms":"texture répétition couture horizontal vertical","evidence":"attested"},
+    {"id":"fr-texture-b","domain":"fr","title":"Raccord de texture","terms":"texture répétition couture raccord bord","evidence":"attested"},
+    {"id":"fr-audio-a","domain":"fr","title":"Segments vocaux","terms":"audio voix activité silence segment","evidence":"attested"},
+    {"id":"fr-audio-b","domain":"fr","title":"Activité au microphone","terms":"audio voix activité bruit microphone","evidence":"attested"},
+    {"id":"fr-route-a","domain":"fr","title":"Inspection de fichiers","terms":"outil routage fichier inspection local","evidence":"attested"},
+    {"id":"fr-route-b","domain":"fr","title":"Proposition de tests","terms":"outil routage fichier test proposition","evidence":"attested"},
+    {"id":"fr-language-a","domain":"fr","title":"Prononciation attestée","terms":"langue phonème prononciation preuve attestée","evidence":"attested"},
+    {"id":"fr-language-b","domain":"fr","title":"Prononciation reconstruite","terms":"langue phonème prononciation preuve reconstruite","evidence":"reconstructed"},
+    {"id":"en-cutout-a","domain":"en","title":"Foreground cutout","terms":"image cutout background alpha foreground","evidence":"attested"},
+    {"id":"en-cutout-b","domain":"en","title":"Transparent cutout","terms":"image cutout background transparency mask","evidence":"attested"},
+    {"id":"en-fill-a","domain":"en","title":"Patch fill","terms":"image inpaint patch hole fill","evidence":"attested"},
+    {"id":"en-fill-b","domain":"en","title":"Masked inpainting","terms":"image inpaint patch hole mask","evidence":"attested"},
+    {"id":"en-texture-a","domain":"en","title":"Texture seams","terms":"texture repeat seam horizontal vertical","evidence":"attested"},
+    {"id":"en-texture-b","domain":"en","title":"Tile edges","terms":"texture repeat seam edge tile","evidence":"attested"},
+    {"id":"en-audio-a","domain":"en","title":"Voice segments","terms":"audio voice activity silence segment","evidence":"attested"},
+    {"id":"en-audio-b","domain":"en","title":"Microphone activity","terms":"audio voice activity noise microphone","evidence":"attested"},
+    {"id":"en-route-a","domain":"en","title":"File inspection","terms":"tool routing file inspection local","evidence":"attested"},
+    {"id":"en-route-b","domain":"en","title":"Test proposal","terms":"tool routing file test proposal","evidence":"attested"},
+    {"id":"en-language-a","domain":"en","title":"Attested pronunciation","terms":"language phoneme pronunciation evidence attested","evidence":"attested"},
+    {"id":"en-language-b","domain":"en","title":"Reconstructed pronunciation","terms":"language phoneme pronunciation evidence reconstructed","evidence":"reconstructed"}
+  ]
+}

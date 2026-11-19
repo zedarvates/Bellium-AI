@@ -1,0 +1,858 @@
+{
+  "schema": "bellium.tool-router-training-gate/v1",
+  "scope": "synthetic rule fidelity; not field quality or calibrated confidence",
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "thresholds_declared_before_training": {
+    "min_accuracy": 0.95,
+    "min_recall": 0.9,
+    "min_support": 10
+  },
+  "split_seeds": {
+    "train": 5,
+    "validation": 31,
+    "test": 20261009
+  },
+  "split_sizes": {
+    "train": 900,
+    "validation": 300,
+    "test": 1000,
+    "boundary": 144
+  },
+  "split_overlap": 0,
+  "labels": [
+    "none",
+    "use_tool",
+    "escalate"
+  ],
+  "published_sha256_before": "00d45c30fc7392a3f36a6369db2480a11850b734673dd4ecd13c0fbe4161e138",
+  "published": {
+    "test": {
+      "samples": 1000,
+      "confusion_true_rows": [
+        [
+          62,
+          0,
+          0
+        ],
+        [
+          0,
+          470,
+          0
+        ],
+        [
+          0,
+          7,
+          461
+        ]
+      ],
+      "class_support": [
+        62,
+        470,
+        468
+      ],
+      "class_recall": [
+        1.0,
+        1.0,
+        0.9850427350427351
+      ],
+      "accuracy": 0.993,
+      "balanced_accuracy": 0.9950142450142451,
+      "accepted": 999,
+      "abstained": 1,
+      "class_abstentions": [
+        0,
+        0,
+        1
+      ],
+      "coverage": 0.999,
+      "selective_accuracy": 0.993993993993994,
+      "confidence_threshold": 0.55
+    },
+    "test_gate": {
+      "passed": true,
+      "reasons": [],
+      "thresholds": {
+        "min_accuracy": 0.95,
+        "min_recall": 0.9,
+        "min_support": 10
+      }
+    },
+    "boundary": {
+      "samples": 144,
+      "confusion_true_rows": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          15
+        ],
+        [
+          0,
+          0,
+          128
+        ]
+      ],
+      "class_support": [
+        1,
+        15,
+        128
+      ],
+      "class_recall": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "accuracy": 0.8888888888888888,
+      "balanced_accuracy": 0.3333333333333333,
+      "accepted": 144,
+      "abstained": 0,
+      "class_abstentions": [
+        0,
+        0,
+        0
+      ],
+      "coverage": 1.0,
+      "selective_accuracy": 0.8888888888888888,
+      "confidence_threshold": 0.55
+    },
+    "boundary_gate": {
+      "passed": false,
+      "reasons": [
+        "accuracy_below_threshold",
+        "class_0_recall_below_threshold",
+        "class_1_recall_below_threshold"
+      ],
+      "thresholds": {
+        "min_accuracy": 0.95,
+        "min_recall": 0.9,
+        "min_support": 1
+      }
+    }
+  },
+  "deterministic_rule_accuracy": 1.0,
+  "policy_boundary": {
+    "escalation_cases": 128,
+    "all_escalated_before_models": true
+  },
+  "runs": [
+    {
+      "initialization_seed": 5,
+      "fixed": {
+        "test": {
+          "samples": 1000,
+          "confusion_true_rows": [
+            [
+              62,
+              0,
+              0
+            ],
+            [
+              0,
+              470,
+              0
+            ],
+            [
+              0,
+              7,
+              461
+            ]
+          ],
+          "class_support": [
+            62,
+            470,
+            468
+          ],
+          "class_recall": [
+            1.0,
+            1.0,
+            0.9850427350427351
+          ],
+          "accuracy": 0.993,
+          "balanced_accuracy": 0.9950142450142451,
+          "accepted": 999,
+          "abstained": 1,
+          "class_abstentions": [
+            0,
+            0,
+            1
+          ],
+          "coverage": 0.999,
+          "selective_accuracy": 0.993993993993994,
+          "confidence_threshold": 0.55
+        },
+        "test_gate": {
+          "passed": true,
+          "reasons": [],
+          "thresholds": {
+            "min_accuracy": 0.95,
+            "min_recall": 0.9,
+            "min_support": 10
+          }
+        },
+        "boundary": {
+          "samples": 144,
+          "confusion_true_rows": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              15
+            ],
+            [
+              0,
+              0,
+              128
+            ]
+          ],
+          "class_support": [
+            1,
+            15,
+            128
+          ],
+          "class_recall": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "accuracy": 0.8888888888888888,
+          "balanced_accuracy": 0.3333333333333333,
+          "accepted": 144,
+          "abstained": 0,
+          "class_abstentions": [
+            0,
+            0,
+            0
+          ],
+          "coverage": 1.0,
+          "selective_accuracy": 0.8888888888888888,
+          "confidence_threshold": 0.55
+        },
+        "boundary_gate": {
+          "passed": false,
+          "reasons": [
+            "accuracy_below_threshold",
+            "class_0_recall_below_threshold",
+            "class_1_recall_below_threshold"
+          ],
+          "thresholds": {
+            "min_accuracy": 0.95,
+            "min_recall": 0.9,
+            "min_support": 1
+          }
+        },
+        "training_seconds": 8.087720499999705,
+        "epochs_run": 220,
+        "selection": null
+      },
+      "validation": {
+        "test": {
+          "samples": 1000,
+          "confusion_true_rows": [
+            [
+              61,
+              0,
+              1
+            ],
+            [
+              0,
+              466,
+              4
+            ],
+            [
+              0,
+              2,
+              466
+            ]
+          ],
+          "class_support": [
+            62,
+            470,
+            468
+          ],
+          "class_recall": [
+            0.9838709677419355,
+            0.9914893617021276,
+            0.9957264957264957
+          ],
+          "accuracy": 0.993,
+          "balanced_accuracy": 0.990362275056853,
+          "accepted": 996,
+          "abstained": 4,
+          "class_abstentions": [
+            1,
+            2,
+            1
+          ],
+          "coverage": 0.996,
+          "selective_accuracy": 0.9949799196787149,
+          "confidence_threshold": 0.55
+        },
+        "test_gate": {
+          "passed": true,
+          "reasons": [],
+          "thresholds": {
+            "min_accuracy": 0.95,
+            "min_recall": 0.9,
+            "min_support": 10
+          }
+        },
+        "boundary": {
+          "samples": 144,
+          "confusion_true_rows": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              15
+            ],
+            [
+              0,
+              0,
+              128
+            ]
+          ],
+          "class_support": [
+            1,
+            15,
+            128
+          ],
+          "class_recall": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "accuracy": 0.8888888888888888,
+          "balanced_accuracy": 0.3333333333333333,
+          "accepted": 144,
+          "abstained": 0,
+          "class_abstentions": [
+            0,
+            0,
+            0
+          ],
+          "coverage": 1.0,
+          "selective_accuracy": 0.8888888888888888,
+          "confidence_threshold": 0.55
+        },
+        "boundary_gate": {
+          "passed": false,
+          "reasons": [
+            "accuracy_below_threshold",
+            "class_0_recall_below_threshold",
+            "class_1_recall_below_threshold"
+          ],
+          "thresholds": {
+            "min_accuracy": 0.95,
+            "min_recall": 0.9,
+            "min_support": 1
+          }
+        },
+        "training_seconds": 3.81702469999982,
+        "epochs_run": 91,
+        "selection": {
+          "epochs_run": 91,
+          "best_epoch": 71,
+          "best_validation_loss": 0.013884987170556725,
+          "validation_loss": "cross_entropy",
+          "stopped_early": true,
+          "patience": 20,
+          "min_delta": 0.0001
+        }
+      }
+    },
+    {
+      "initialization_seed": 17,
+      "fixed": {
+        "test": {
+          "samples": 1000,
+          "confusion_true_rows": [
+            [
+              62,
+              0,
+              0
+            ],
+            [
+              0,
+              467,
+              3
+            ],
+            [
+              0,
+              2,
+              466
+            ]
+          ],
+          "class_support": [
+            62,
+            470,
+            468
+          ],
+          "class_recall": [
+            1.0,
+            0.9936170212765958,
+            0.9957264957264957
+          ],
+          "accuracy": 0.995,
+          "balanced_accuracy": 0.9964478390010306,
+          "accepted": 998,
+          "abstained": 2,
+          "class_abstentions": [
+            0,
+            0,
+            2
+          ],
+          "coverage": 0.998,
+          "selective_accuracy": 0.9959919839679359,
+          "confidence_threshold": 0.55
+        },
+        "test_gate": {
+          "passed": true,
+          "reasons": [],
+          "thresholds": {
+            "min_accuracy": 0.95,
+            "min_recall": 0.9,
+            "min_support": 10
+          }
+        },
+        "boundary": {
+          "samples": 144,
+          "confusion_true_rows": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              15
+            ],
+            [
+              0,
+              0,
+              128
+            ]
+          ],
+          "class_support": [
+            1,
+            15,
+            128
+          ],
+          "class_recall": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "accuracy": 0.8888888888888888,
+          "balanced_accuracy": 0.3333333333333333,
+          "accepted": 144,
+          "abstained": 0,
+          "class_abstentions": [
+            0,
+            0,
+            0
+          ],
+          "coverage": 1.0,
+          "selective_accuracy": 0.8888888888888888,
+          "confidence_threshold": 0.55
+        },
+        "boundary_gate": {
+          "passed": false,
+          "reasons": [
+            "accuracy_below_threshold",
+            "class_0_recall_below_threshold",
+            "class_1_recall_below_threshold"
+          ],
+          "thresholds": {
+            "min_accuracy": 0.95,
+            "min_recall": 0.9,
+            "min_support": 1
+          }
+        },
+        "training_seconds": 9.36200159999953,
+        "epochs_run": 220,
+        "selection": null
+      },
+      "validation": {
+        "test": {
+          "samples": 1000,
+          "confusion_true_rows": [
+            [
+              62,
+              0,
+              0
+            ],
+            [
+              0,
+              460,
+              10
+            ],
+            [
+              0,
+              0,
+              468
+            ]
+          ],
+          "class_support": [
+            62,
+            470,
+            468
+          ],
+          "class_recall": [
+            1.0,
+            0.9787234042553191,
+            1.0
+          ],
+          "accuracy": 0.99,
+          "balanced_accuracy": 0.9929078014184397,
+          "accepted": 997,
+          "abstained": 3,
+          "class_abstentions": [
+            1,
+            2,
+            0
+          ],
+          "coverage": 0.997,
+          "selective_accuracy": 0.9909729187562688,
+          "confidence_threshold": 0.55
+        },
+        "test_gate": {
+          "passed": true,
+          "reasons": [],
+          "thresholds": {
+            "min_accuracy": 0.95,
+            "min_recall": 0.9,
+            "min_support": 10
+          }
+        },
+        "boundary": {
+          "samples": 144,
+          "confusion_true_rows": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              15
+            ],
+            [
+              0,
+              0,
+              128
+            ]
+          ],
+          "class_support": [
+            1,
+            15,
+            128
+          ],
+          "class_recall": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "accuracy": 0.8888888888888888,
+          "balanced_accuracy": 0.3333333333333333,
+          "accepted": 144,
+          "abstained": 0,
+          "class_abstentions": [
+            0,
+            0,
+            0
+          ],
+          "coverage": 1.0,
+          "selective_accuracy": 0.8888888888888888,
+          "confidence_threshold": 0.55
+        },
+        "boundary_gate": {
+          "passed": false,
+          "reasons": [
+            "accuracy_below_threshold",
+            "class_0_recall_below_threshold",
+            "class_1_recall_below_threshold"
+          ],
+          "thresholds": {
+            "min_accuracy": 0.95,
+            "min_recall": 0.9,
+            "min_support": 1
+          }
+        },
+        "training_seconds": 3.3989561000007598,
+        "epochs_run": 89,
+        "selection": {
+          "epochs_run": 89,
+          "best_epoch": 69,
+          "best_validation_loss": 0.02086784787664232,
+          "validation_loss": "cross_entropy",
+          "stopped_early": true,
+          "patience": 20,
+          "min_delta": 0.0001
+        }
+      }
+    },
+    {
+      "initialization_seed": 29,
+      "fixed": {
+        "test": {
+          "samples": 1000,
+          "confusion_true_rows": [
+            [
+              58,
+              0,
+              4
+            ],
+            [
+              0,
+              463,
+              7
+            ],
+            [
+              0,
+              0,
+              468
+            ]
+          ],
+          "class_support": [
+            62,
+            470,
+            468
+          ],
+          "class_recall": [
+            0.9354838709677419,
+            0.9851063829787234,
+            1.0
+          ],
+          "accuracy": 0.989,
+          "balanced_accuracy": 0.9735300846488218,
+          "accepted": 997,
+          "abstained": 3,
+          "class_abstentions": [
+            1,
+            2,
+            0
+          ],
+          "coverage": 0.997,
+          "selective_accuracy": 0.9899699097291875,
+          "confidence_threshold": 0.55
+        },
+        "test_gate": {
+          "passed": true,
+          "reasons": [],
+          "thresholds": {
+            "min_accuracy": 0.95,
+            "min_recall": 0.9,
+            "min_support": 10
+          }
+        },
+        "boundary": {
+          "samples": 144,
+          "confusion_true_rows": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              15
+            ],
+            [
+              0,
+              0,
+              128
+            ]
+          ],
+          "class_support": [
+            1,
+            15,
+            128
+          ],
+          "class_recall": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "accuracy": 0.8888888888888888,
+          "balanced_accuracy": 0.3333333333333333,
+          "accepted": 144,
+          "abstained": 0,
+          "class_abstentions": [
+            0,
+            0,
+            0
+          ],
+          "coverage": 1.0,
+          "selective_accuracy": 0.8888888888888888,
+          "confidence_threshold": 0.55
+        },
+        "boundary_gate": {
+          "passed": false,
+          "reasons": [
+            "accuracy_below_threshold",
+            "class_0_recall_below_threshold",
+            "class_1_recall_below_threshold"
+          ],
+          "thresholds": {
+            "min_accuracy": 0.95,
+            "min_recall": 0.9,
+            "min_support": 1
+          }
+        },
+        "training_seconds": 7.982988700000533,
+        "epochs_run": 220,
+        "selection": null
+      },
+      "validation": {
+        "test": {
+          "samples": 1000,
+          "confusion_true_rows": [
+            [
+              60,
+              0,
+              2
+            ],
+            [
+              0,
+              469,
+              1
+            ],
+            [
+              0,
+              5,
+              463
+            ]
+          ],
+          "class_support": [
+            62,
+            470,
+            468
+          ],
+          "class_recall": [
+            0.967741935483871,
+            0.997872340425532,
+            0.9893162393162394
+          ],
+          "accuracy": 0.992,
+          "balanced_accuracy": 0.9849768384085474,
+          "accepted": 997,
+          "abstained": 3,
+          "class_abstentions": [
+            1,
+            0,
+            2
+          ],
+          "coverage": 0.997,
+          "selective_accuracy": 0.9919759277833501,
+          "confidence_threshold": 0.55
+        },
+        "test_gate": {
+          "passed": true,
+          "reasons": [],
+          "thresholds": {
+            "min_accuracy": 0.95,
+            "min_recall": 0.9,
+            "min_support": 10
+          }
+        },
+        "boundary": {
+          "samples": 144,
+          "confusion_true_rows": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              15
+            ],
+            [
+              0,
+              0,
+              128
+            ]
+          ],
+          "class_support": [
+            1,
+            15,
+            128
+          ],
+          "class_recall": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "accuracy": 0.8888888888888888,
+          "balanced_accuracy": 0.3333333333333333,
+          "accepted": 144,
+          "abstained": 0,
+          "class_abstentions": [
+            0,
+            0,
+            0
+          ],
+          "coverage": 1.0,
+          "selective_accuracy": 0.8888888888888888,
+          "confidence_threshold": 0.55
+        },
+        "boundary_gate": {
+          "passed": false,
+          "reasons": [
+            "accuracy_below_threshold",
+            "class_0_recall_below_threshold",
+            "class_1_recall_below_threshold"
+          ],
+          "thresholds": {
+            "min_accuracy": 0.95,
+            "min_recall": 0.9,
+            "min_support": 1
+          }
+        },
+        "training_seconds": 1.847570199999609,
+        "epochs_run": 48,
+        "selection": {
+          "epochs_run": 48,
+          "best_epoch": 28,
+          "best_validation_loss": 0.019913286228243107,
+          "validation_loss": "cross_entropy",
+          "stopped_early": true,
+          "patience": 20,
+          "min_delta": 0.0001
+        }
+      }
+    }
+  ],
+  "promotion": {
+    "passed": false,
+    "reasons": [
+      "boundary_accuracy_below_threshold",
+      "boundary_class_0_recall_below_threshold",
+      "boundary_class_1_recall_below_threshold"
+    ],
+    "candidate_seed": 5,
+    "shipped": false
+  },
+  "published_sha256_after": "00d45c30fc7392a3f36a6369db2480a11850b734673dd4ecd13c0fbe4161e138",
+  "runtime_domain_boundary": {
+    "unsupported_raw_inputs_abstained": 144,
+    "non_veto_hybrid_inputs_abstained": 16
+  }
+}

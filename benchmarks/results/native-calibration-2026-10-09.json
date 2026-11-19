@@ -1,0 +1,487 @@
+{
+  "schema": "bellium.native-calibration-gate/v1",
+  "scope": "fresh synthetic rule-fidelity labels; no field calibration claim",
+  "thresholds_declared_before_fitting": {
+    "minimum_relative_nll_improvement": 0.02,
+    "maximum_brier_increase": 0.0,
+    "maximum_ece_increase": 0.001,
+    "maximum_coverage_drop": 0.02,
+    "maximum_selective_accuracy_drop": 0.002,
+    "minimum_class_support": 50,
+    "maximum_class_nll_increase": 0.01,
+    "maximum_class_brier_increase": 0.002
+  },
+  "calibration_seed": 2026100901,
+  "evaluation_seed": 2026100902,
+  "confidence_threshold_unchanged": 0.55,
+  "ece_bins": 10,
+  "models": {
+    "tool-router": {
+      "model_sha256_before": "00d45c30fc7392a3f36a6369db2480a11850b734673dd4ecd13c0fbe4161e138",
+      "model_sha256_after": "00d45c30fc7392a3f36a6369db2480a11850b734673dd4ecd13c0fbe4161e138",
+      "split_sizes": [
+        1500,
+        2500
+      ],
+      "feature_overlap": 0,
+      "calibration_artifact": {
+        "schema": "bellium.temperature-calibration/v1",
+        "model_fingerprint": "1592285982a682172aaeeb31d4ad617f4e54ffdeacc0fc072a60c6d82ec88efa",
+        "classes": 3,
+        "samples": 1500,
+        "class_support": [
+          97,
+          646,
+          757
+        ],
+        "temperature": 1.21767135064746,
+        "calibration_nll_before": 0.02538536319055764,
+        "calibration_nll_after": 0.024588258184357434,
+        "search_bounds": [
+          0.1,
+          10.0
+        ],
+        "at_search_bound": false
+      },
+      "evaluation_raw": {
+        "samples": 2500,
+        "class_support": [
+          160,
+          1123,
+          1217
+        ],
+        "class_nll": [
+          0.0019210930492139905,
+          0.0022532264795884238,
+          0.034995304468887434
+        ],
+        "class_brier": [
+          2.3520824851602344e-05,
+          0.0006248370310918583,
+          0.02262574226919342
+        ],
+        "nll": 0.018170813505235212,
+        "brier": 0.01129639346380031,
+        "ece": 0.003049543374833169,
+        "accuracy": 0.9916,
+        "accepted": 2496,
+        "abstained": 4,
+        "coverage": 0.9984,
+        "selective_accuracy": 0.9919871794871795,
+        "temperature": 1.0,
+        "confidence_threshold": 0.55,
+        "reliability_bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.1,
+            "samples": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lower": 0.1,
+            "upper": 0.2,
+            "samples": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.3,
+            "samples": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lower": 0.3,
+            "upper": 0.4,
+            "samples": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.5,
+            "samples": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lower": 0.5,
+            "upper": 0.6,
+            "samples": 6,
+            "mean_confidence": 0.5458868220206002,
+            "accuracy": 0.6666666666666666
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.7,
+            "samples": 13,
+            "mean_confidence": 0.6463471687352994,
+            "accuracy": 0.38461538461538464
+          },
+          {
+            "lower": 0.7,
+            "upper": 0.8,
+            "samples": 8,
+            "mean_confidence": 0.7406415373341495,
+            "accuracy": 0.5
+          },
+          {
+            "lower": 0.8,
+            "upper": 0.9,
+            "samples": 19,
+            "mean_confidence": 0.8593352118850934,
+            "accuracy": 0.8421052631578947
+          },
+          {
+            "lower": 0.9,
+            "upper": 1.0,
+            "samples": 2454,
+            "mean_confidence": 0.9988770027918328,
+            "accuracy": 0.9983700081499592
+          }
+        ]
+      },
+      "evaluation_calibrated": {
+        "samples": 2500,
+        "class_support": [
+          160,
+          1123,
+          1217
+        ],
+        "class_nll": [
+          0.005406017826188723,
+          0.003938002559178302,
+          0.03319497036247316
+        ],
+        "class_brier": [
+          0.00013311761750006576,
+          0.0008489435838632518,
+          0.02181448781119087
+        ],
+        "nll": 0.018274247462910904,
+        "brier": 0.011009157651879107,
+        "ece": 0.00421108074264398,
+        "accuracy": 0.9916,
+        "accepted": 2495,
+        "abstained": 5,
+        "coverage": 0.998,
+        "selective_accuracy": 0.9919839679358717,
+        "temperature": 1.21767135064746,
+        "confidence_threshold": 0.55,
+        "reliability_bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.1,
+            "samples": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lower": 0.1,
+            "upper": 0.2,
+            "samples": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.3,
+            "samples": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lower": 0.3,
+            "upper": 0.4,
+            "samples": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.5,
+            "samples": 1,
+            "mean_confidence": 0.49863408501917705,
+            "accuracy": 1.0
+          },
+          {
+            "lower": 0.5,
+            "upper": 0.6,
+            "samples": 8,
+            "mean_confidence": 0.5592829137530596,
+            "accuracy": 0.625
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.7,
+            "samples": 15,
+            "mean_confidence": 0.6514511244526203,
+            "accuracy": 0.3333333333333333
+          },
+          {
+            "lower": 0.7,
+            "upper": 0.8,
+            "samples": 7,
+            "mean_confidence": 0.7547702358580965,
+            "accuracy": 0.8571428571428571
+          },
+          {
+            "lower": 0.8,
+            "upper": 0.9,
+            "samples": 24,
+            "mean_confidence": 0.8439223430379766,
+            "accuracy": 0.7916666666666666
+          },
+          {
+            "lower": 0.9,
+            "upper": 1.0,
+            "samples": 2445,
+            "mean_confidence": 0.9980539518188305,
+            "accuracy": 0.9991820040899796
+          }
+        ]
+      },
+      "promotion": {
+        "passed": false,
+        "reasons": [
+          "insufficient_final_nll_improvement",
+          "final_ece_regression"
+        ],
+        "automatically_applied": false
+      }
+    },
+    "inpaint-router": {
+      "model_sha256_before": "b61f3c4604f47fcc8c6f522a83a73bc5bd3dd158d5a3565b0304260d575aba71",
+      "model_sha256_after": "b61f3c4604f47fcc8c6f522a83a73bc5bd3dd158d5a3565b0304260d575aba71",
+      "split_sizes": [
+        1500,
+        2500
+      ],
+      "feature_overlap": 0,
+      "calibration_artifact": {
+        "schema": "bellium.temperature-calibration/v1",
+        "model_fingerprint": "6433472f6b4e09951c7b62311eee9bf8e69d5ec19da6b1091c9d7749242abd4c",
+        "classes": 2,
+        "samples": 1500,
+        "class_support": [
+          118,
+          1382
+        ],
+        "temperature": 1.4079036183315565,
+        "calibration_nll_before": 0.04494572045372389,
+        "calibration_nll_after": 0.04224992773483187,
+        "search_bounds": [
+          0.1,
+          10.0
+        ],
+        "at_search_bound": false
+      },
+      "evaluation_raw": {
+        "samples": 2500,
+        "class_support": [
+          210,
+          2290
+        ],
+        "class_nll": [
+          0.20897352966698682,
+          0.018776115792493598
+        ],
+        "class_brier": [
+          0.11440632410146824,
+          0.01158795470832792
+        ],
+        "nll": 0.03475269855795106,
+        "brier": 0.020224697737351697,
+        "ece": 0.0019488042095958653,
+        "accuracy": 0.986,
+        "accepted": 2491,
+        "abstained": 9,
+        "coverage": 0.9964,
+        "selective_accuracy": 0.9871537535126456,
+        "temperature": 1.0,
+        "confidence_threshold": 0.55,
+        "reliability_bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.1,
+            "samples": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lower": 0.1,
+            "upper": 0.2,
+            "samples": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.3,
+            "samples": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lower": 0.3,
+            "upper": 0.4,
+            "samples": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.5,
+            "samples": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lower": 0.5,
+            "upper": 0.6,
+            "samples": 21,
+            "mean_confidence": 0.5565658476512961,
+            "accuracy": 0.5714285714285714
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.7,
+            "samples": 16,
+            "mean_confidence": 0.6452541463806292,
+            "accuracy": 0.5625
+          },
+          {
+            "lower": 0.7,
+            "upper": 0.8,
+            "samples": 21,
+            "mean_confidence": 0.7522820471234457,
+            "accuracy": 0.7142857142857143
+          },
+          {
+            "lower": 0.8,
+            "upper": 0.9,
+            "samples": 36,
+            "mean_confidence": 0.8583896438729581,
+            "accuracy": 0.8333333333333334
+          },
+          {
+            "lower": 0.9,
+            "upper": 1.0,
+            "samples": 2406,
+            "mean_confidence": 0.9977289596066325,
+            "accuracy": 0.9970906068162926
+          }
+        ]
+      },
+      "evaluation_calibrated": {
+        "samples": 2500,
+        "class_support": [
+          210,
+          2290
+        ],
+        "class_nll": [
+          0.21122704205267423,
+          0.01934901096633251
+        ],
+        "class_brier": [
+          0.11684506213671994,
+          0.011622548161844104
+        ],
+        "nll": 0.03546676557758524,
+        "brier": 0.02046123933573368,
+        "ece": 0.004639910813254443,
+        "accuracy": 0.986,
+        "accepted": 2487,
+        "abstained": 13,
+        "coverage": 0.9948,
+        "selective_accuracy": 0.9879372738238842,
+        "temperature": 1.4079036183315565,
+        "confidence_threshold": 0.55,
+        "reliability_bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.1,
+            "samples": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lower": 0.1,
+            "upper": 0.2,
+            "samples": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.3,
+            "samples": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lower": 0.3,
+            "upper": 0.4,
+            "samples": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.5,
+            "samples": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lower": 0.5,
+            "upper": 0.6,
+            "samples": 27,
+            "mean_confidence": 0.5499494420496928,
+            "accuracy": 0.5555555555555556
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.7,
+            "samples": 23,
+            "mean_confidence": 0.6493583890389952,
+            "accuracy": 0.6521739130434783
+          },
+          {
+            "lower": 0.7,
+            "upper": 0.8,
+            "samples": 28,
+            "mean_confidence": 0.7452257601113719,
+            "accuracy": 0.7142857142857143
+          },
+          {
+            "lower": 0.8,
+            "upper": 0.9,
+            "samples": 54,
+            "mean_confidence": 0.8501823413126344,
+            "accuracy": 0.9629629629629629
+          },
+          {
+            "lower": 0.9,
+            "upper": 1.0,
+            "samples": 2368,
+            "mean_confidence": 0.9960189273377793,
+            "accuracy": 0.9978885135135135
+          }
+        ]
+      },
+      "promotion": {
+        "passed": false,
+        "reasons": [
+          "insufficient_final_nll_improvement",
+          "final_brier_regression",
+          "final_ece_regression",
+          "class_0_brier_regression"
+        ],
+        "automatically_applied": false
+      }
+    }
+  }
+}

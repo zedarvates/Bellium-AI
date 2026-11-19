@@ -6,9 +6,10 @@ from typing import Any
 
 from bellium.contracts.schema import AuthorityMode, SpecialistResult
 from bellium.resources import model_path
-from bellium.knn.tool_router import retrieve_tool, _features
+from bellium.knn.tool_router import FEATURE_NAMES, retrieve_tool, _features
 from bellium.micro_nn.features import featurize
 from bellium.micro_nn.mlp import load_mlp, predict_mlp
+from bellium.micro_nn.calibration import predict_calibrated
 
 SPECIALIST_ID = "bellium/hybrid/tool-router:v0"
 NN_ID = "bellium/micro-nn/tool-router:v0"
@@ -21,18 +22,38 @@ MODEL_PATH = (
 LABELS = ("none", "use_tool", "escalate")
 
 
-def classify_tool_need(query: dict[str, Any]) -> SpecialistResult:
+def classify_tool_need(query: dict[str, Any], *, calibration: dict | None = None) -> SpecialistResult:
     values = _features(query)
+    # The shipped trainer samples these flags at 0/1 only. A continuous input
+    # passes the numeric API schema but has no training-domain evidence.
+    fractional = [name for name in FEATURE_NAMES if name != "criticality"
+                  and values[name] not in (0.0, 1.0)]
+    if fractional:
+        return SpecialistResult(
+            NN_ID,
+            {"label": None, "probabilities": {}, "reason": "outside_training_domain",
+             "unsupported_features": fractional},
+            0.0,
+            True,
+            AuthorityMode.CONSULTATIVE,
+            notes=("Training covers binary flags and continuous criticality only.",),
+        )
     vector = featurize("tool_router", values)
-    probs = predict_mlp(load_mlp(MODEL_PATH), vector)
+    model = load_mlp(MODEL_PATH)
+    probs = predict_mlp(model, vector) if calibration is None else predict_calibrated(model, vector, calibration)
     best = max(range(len(probs)), key=probs.__getitem__)
     confidence = float(probs[best])
     abstained = confidence < 0.55
+    calibration_info = ({"calibration": {"method": "temperature",
+                                         "temperature": calibration["temperature"],
+                                         "model_fingerprint": calibration["model_fingerprint"]}}
+                        if calibration is not None else {})
     return SpecialistResult(
         NN_ID,
         {
             "label": None if abstained else LABELS[best],
             "probabilities": {LABELS[i]: round(float(probs[i]), 4) for i in range(len(LABELS))},
+            **calibration_info,
         },
         round(confidence, 4),
         abstained,
@@ -42,7 +63,7 @@ def classify_tool_need(query: dict[str, Any]) -> SpecialistResult:
     )
 
 
-def route_tool(query: dict[str, Any]) -> SpecialistResult:
+def route_tool(query: dict[str, Any], *, calibration: dict | None = None) -> SpecialistResult:
     knn = retrieve_tool(query)
     if knn.output.get("status") == "rule_escalate":
         return SpecialistResult(
@@ -51,7 +72,7 @@ def route_tool(query: dict[str, Any]) -> SpecialistResult:
             1.0, False, AuthorityMode.CONSULTATIVE,
             notes=("Deterministic veto returned before consulting any model.",),
         )
-    nn = classify_tool_need(query)
+    nn = classify_tool_need(query) if calibration is None else classify_tool_need(query, calibration=calibration)
     if nn.abstained:
         return SpecialistResult(
             SPECIALIST_ID,

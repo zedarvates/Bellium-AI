@@ -2,12 +2,13 @@
 from __future__ import annotations
 
 import argparse
+import importlib
 import sys
 from pathlib import Path
 
 
 def main(args: list[str] | None = None) -> int:
-    from bellium.filters import FILTER_NAMES
+    from bellium._filter_catalog import FILTER_NAMES
 
     parser = argparse.ArgumentParser(
         prog="bellium",
@@ -61,6 +62,15 @@ def main(args: list[str] | None = None) -> int:
     route_p.add_argument("--zero-tokens", action="store_true", help="Enforce zero-token execution")
     
     parsed = parser.parse_args(args)
+
+    if parsed.command in {"cutout", "filter", "texture", "inspect-frame"}:
+        try:
+            importlib.import_module("PIL")
+        except ModuleNotFoundError as exc:
+            if exc.name != "PIL":
+                raise
+            print("Image commands require Pillow. Install bellium-ai[image].", file=sys.stderr)
+            return 2
     
     if parsed.command == "test":
         import subprocess

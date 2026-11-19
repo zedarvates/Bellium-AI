@@ -3,7 +3,7 @@ from bellium.knn.color_cutout import cutout
 from bellium.knn.patch_inpaint import inpaint
 from bellium.knn.phoneme import retrieve_phoneme
 from bellium.knn.pronunciation import compare_pronunciation
-from bellium.knn.memory_rerank import rerank_memory
+from bellium.knn.memory_rerank import PreparedMemory, rerank_memory
 from bellium.knn.tool_router import retrieve_tool
 from bellium.knn.visual_anomaly import assess_visual
 from bellium.knn.grapheme_phoneme import map_form
@@ -25,6 +25,7 @@ from bellium.knn.texture_orientation import classify_orientation
 from bellium.knn.easing_profile import classify_easing
 
 __all__ = [
+    "PreparedMemory",
     "compare_pronunciation",
     "cutout",
     "evaluate_asset",

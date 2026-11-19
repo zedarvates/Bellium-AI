@@ -17,6 +17,7 @@ python -m pip install -r examples/requirements.txt
 | [Texture repetition](texture_repeat.py) | Measure X/Y periods with match scores, margins and abstention; includes synthetic checkerboard, sine stripes and noise cases. |
 | [Tool routing](tool_routing.py) | Register capabilities, request an offline tool and handle unsupported requests without executing a proposal. |
 | [Micro-NN triage](micro_nn_triage.py) | Extract named features, consult an imported classifier and apply a consumer-side abstention threshold. |
+| [Memory reranking](memory_reranking.py) | Reuse immutable lexical snapshots; compare exact tokens with optional French/English grammatical-word filtering. |
 | [Agent skill](skills/bellium-local-tools/SKILL.md) | A reusable skill describing the actual tools, commands, limits and result handling. |
 
 ## Try it without supplying an image
@@ -25,6 +26,7 @@ python -m pip install -r examples/requirements.txt
 python -m examples.tools.image_tool demo --output-dir output/bellium-demo
 python -m examples.tool_routing
 python -m examples.micro_nn_triage
+python -m examples.memory_reranking
 ```
 
 The image demo creates an original synthetic graphic, a damaged copy, a mask,
@@ -36,6 +38,11 @@ The routing demo proposes `image.sepia` for the matching request and returns
 `null` for unsupported requests. The micro-NN example uses a synthetic error;
 its label/score come from the included legacy weights. The score is not a
 calibrated probability of correctness. Neither example performs an action.
+
+The memory demo keeps exact matching as the default and opts into `fr-en` for
+phrase queries. It prints titles/ids with scores and preserves unknown-domain
+abstention. Filtering keeps negations but does not understand them, translate,
+stem words or infer synonyms. Rebuild the snapshot explicitly when memory changes.
 
 With the current weights, the missing-file example suggests `network` with a
 score around `0.57`; the `0.8` threshold therefore abstains. This deliberately

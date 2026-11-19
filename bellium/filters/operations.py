@@ -11,16 +11,8 @@ import math
 
 from PIL import Image, ImageChops, ImageEnhance, ImageOps
 
-FILTER_NAMES: tuple[str, ...] = (
-    "grayscale",
-    "sepia",
-    "binary",
-    "invert",
-    "brightness",
-    "contrast",
-    "saturation",
-    "tint",
-)
+from bellium._filter_catalog import FILTER_NAMES
+
 SEPIA_DARK: tuple[int, int, int] = (32, 16, 8)
 SEPIA_LIGHT: tuple[int, int, int] = (244, 223, 181)
 MAX_FACTOR: float = 16.0

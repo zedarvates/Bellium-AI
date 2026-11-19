@@ -84,7 +84,8 @@ def test_memory_reranker_ranks_same_domain_and_isolates_the_rest() -> None:
     assert "mem_white" in ids
     assert "mem_other" not in ids
     other = rerank_memory({"domain": "storycore", "terms": "image panel crop"})
-    assert other.output["top_id"] == "mem_other"
+    # Equal evidence-weighted similarities now have a stable id tie-break.
+    assert other.output["top_id"] == "mem_bubble"
 
 
 def test_memory_reranker_abstains_on_unknown_domain() -> None:

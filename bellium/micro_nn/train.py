@@ -4,7 +4,101 @@ from __future__ import annotations
 
 import math
 import random
+from copy import deepcopy
 from typing import Callable
+
+
+def _finite_number(value: object, name: str) -> float:
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        raise ValueError(f"{name} must be a finite number")
+    try:
+        number = float(value)
+    except OverflowError as exc:
+        raise ValueError(f"{name} must be a finite number") from exc
+    if not math.isfinite(number):
+        raise ValueError(f"{name} must be a finite number; arithmetic may have overflowed")
+    return number
+
+
+def _validate_layers(layer_sizes: list[int]) -> None:
+    if not isinstance(layer_sizes, list) or len(layer_sizes) < 2:
+        raise ValueError("layers must list input and output sizes")
+    if any(isinstance(n, bool) or not isinstance(n, int) or n <= 0 for n in layer_sizes):
+        raise ValueError("layer sizes must be positive integers")
+
+
+def _validate_controls(epochs, lr, validation_samples, patience, min_delta) -> None:
+    if isinstance(epochs, bool) or not isinstance(epochs, int) or epochs <= 0:
+        raise ValueError("epochs must be a positive integer")
+    if _finite_number(lr, "lr") <= 0.0:
+        raise ValueError("lr must be positive")
+    if _finite_number(min_delta, "min_delta") < 0.0:
+        raise ValueError("min_delta must be non-negative")
+    if patience is not None:
+        if isinstance(patience, bool) or not isinstance(patience, int) or patience <= 0:
+            raise ValueError("patience must be a positive integer")
+        if validation_samples is None:
+            raise ValueError("patience requires validation_samples")
+
+
+def _validated_samples(samples, layers, *, classification: bool) -> list:
+    if not isinstance(samples, list) or not samples:
+        raise ValueError("need a non-empty list of samples")
+    checked = []
+    for sample in samples:
+        if not isinstance(sample, (tuple, list)) or len(sample) != 2:
+            raise ValueError("sample must contain features and target")
+        vec, target = sample
+        if not isinstance(vec, (list, tuple)) or len(vec) != layers[0]:
+            raise ValueError(f"expected {layers[0]} features per sample")
+        vector = [_finite_number(value, "feature") for value in vec]
+        if classification:
+            if (isinstance(target, bool) or not isinstance(target, int)
+                    or not 0 <= target < layers[-1]):
+                raise ValueError("label must be an integer in the output class range")
+        else:
+            target = _finite_number(target, "target")
+        checked.append((vector, target))
+    return checked
+
+
+class _ValidationTracker:
+    """Keep the lowest loss, while patience counts insignificant improvements."""
+
+    def __init__(self, patience, min_delta):
+        self.patience = patience
+        self.min_delta = min_delta
+        self.best_loss = math.inf
+        self.progress_loss = math.inf
+        self.best_epoch = 0
+        self.wait = 0
+        self.best_model = None
+
+    def observe(self, model, loss, epoch) -> bool:
+        _finite_number(loss, "validation loss")
+        if loss < self.best_loss:
+            self.best_loss = loss
+            self.best_epoch = epoch
+            self.best_model = deepcopy(model)
+        if loss < self.progress_loss - self.min_delta:
+            self.progress_loss = loss
+            self.wait = 0
+        else:
+            self.wait += 1
+        return self.patience is not None and self.wait >= self.patience
+
+    def finish(self, epochs_run, epochs, loss_name):
+        model = self.best_model
+        model["training"] = {
+            "epochs_run": epochs_run,
+            "best_epoch": self.best_epoch,
+            "best_validation_loss": self.best_loss,
+            "validation_loss": loss_name,
+            "stopped_early": epochs_run < epochs,
+            "patience": self.patience,
+            "min_delta": self.min_delta,
+        }
+        return model
 
 
 def _zeros(rows: int, cols: int) -> list[float]:
@@ -23,6 +117,7 @@ def _relu(values: list[float]) -> list[float]:
 
 
 def init_mlp(layer_sizes: list[int], rng: random.Random) -> dict:
+    _validate_layers(layer_sizes)
     weights: list[list[float]] = []
     biases: list[list[float]] = []
     activations: list[str] = []
@@ -56,7 +151,7 @@ def _forward(model: dict, vec: list[float]) -> tuple[list[list[float]], list[lis
             offset = row * in_dim
             for col in range(in_dim):
                 acc += weights[offset + col] * hidden[col]
-            z[row] = acc
+            z[row] = _finite_number(acc, "model arithmetic")
         preacts.append(z)
         if model["activations"][index] == "relu":
             hidden = _relu(z)
@@ -73,15 +168,27 @@ def train_classifier(
     epochs: int = 400,
     lr: float = 0.08,
     seed: int = 7,
+    validation_samples: list[tuple[list[float], int]] | None = None,
+    patience: int | None = None,
+    min_delta: float = 0.0,
 ) -> dict:
-    if not samples:
-        raise ValueError("need training samples")
+    """SGD classifier; optional validation restores the lowest cross-entropy weights.
+
+    Validation is for model selection, not final held-out evaluation. Inputs are
+    copied before shuffling. Existing callers keep fixed-epoch training.
+    """
+    _validate_layers(layer_sizes)
+    _validate_controls(epochs, lr, validation_samples, patience, min_delta)
+    training = _validated_samples(samples, layer_sizes, classification=True)
+    validation = (_validated_samples(validation_samples, layer_sizes, classification=True)
+                  if validation_samples is not None else None)
+    tracker = _ValidationTracker(patience, min_delta)
     rng = random.Random(seed)
     model = init_mlp(layer_sizes, rng)
     n_classes = layer_sizes[-1]
-    for _ in range(epochs):
-        rng.shuffle(samples)
-        for vec, label in samples:
+    for epoch in range(1, epochs + 1):
+        rng.shuffle(training)
+        for vec, label in training:
             preacts, acts = _forward(model, vec)
             probs = acts[-1]
             delta = [probs[i] - (1.0 if i == label else 0.0) for i in range(n_classes)]
@@ -95,15 +202,28 @@ def train_classifier(
                 next_delta = [0.0] * in_dim
                 for row in range(out_dim):
                     grad = delta[row]
-                    biases[row] -= lr * grad
+                    biases[row] = _finite_number(biases[row] - lr * grad, "bias update")
                     offset = row * in_dim
                     for col in range(in_dim):
                         next_delta[col] += grad * weights[offset + col]
-                        weights[offset + col] -= lr * grad * in_act[col]
+                        weights[offset + col] = _finite_number(
+                            weights[offset + col] - lr * grad * in_act[col], "weight update")
                 if layer_index == 0:
                     break
                 relu_pre = preacts[layer_index - 1]
                 delta = [next_delta[i] if relu_pre[i] > 0.0 else 0.0 for i in range(in_dim)]
+        if validation is not None:
+            losses = []
+            for vec, label in validation:
+                preacts, _ = _forward(model, vec)
+                logits = preacts[-1]
+                peak = max(logits)
+                losses.append((peak - logits[label])
+                              + math.log(sum(math.exp(value - peak) for value in logits)))
+            if tracker.observe(model, sum(losses) / len(losses), epoch):
+                break
+    if validation is not None:
+        model = tracker.finish(epoch, epochs, "cross_entropy")
     model["labels"] = list(range(n_classes))
     return model
 
@@ -122,6 +242,9 @@ def accuracy(model: dict, samples: list[tuple[list[float], int]], predict: Calla
 
 def init_regressor(layer_sizes: list[int], rng: random.Random) -> dict:
     """Same tiny topology as the classifier, with a linear output for a scalar target."""
+    _validate_layers(layer_sizes)
+    if layer_sizes[-1] != 1:
+        raise ValueError("regressor requires one scalar output")
     model = init_mlp(layer_sizes, rng)
     model["activations"][-1] = "linear"
     return model
@@ -141,7 +264,7 @@ def _forward_regressor(model: dict, vec: list[float]) -> tuple[list[list[float]]
             offset = row * in_dim
             for col in range(in_dim):
                 acc += weights[offset + col] * hidden[col]
-            z[row] = acc
+            z[row] = _finite_number(acc, "model arithmetic")
         preacts.append(z)
         hidden = _relu(z) if model["activations"][index] == "relu" else z
         acts.append(hidden)
@@ -157,14 +280,23 @@ def train_regressor(
     seed: int = 7,
     target_scale: float = 1.0,
     momentum: float = 0.9,
+    validation_samples: list[tuple[list[float], float]] | None = None,
+    patience: int | None = None,
+    min_delta: float = 0.0,
 ) -> dict:
     """Plain SGD on mean squared error for a single scalar output.
 
     The target is divided by target_scale so the linear output starts in a
     reasonable range, and the caller keeps the scale to undo it at inference.
     """
-    if not samples:
-        raise ValueError("need training samples")
+    _validate_layers(layer_sizes)
+    if layer_sizes[-1] != 1:
+        raise ValueError("regressor requires one scalar output")
+    _validate_controls(epochs, lr, validation_samples, patience, min_delta)
+    training = _validated_samples(samples, layer_sizes, classification=False)
+    validation = (_validated_samples(validation_samples, layer_sizes, classification=False)
+                  if validation_samples is not None else None)
+    tracker = _ValidationTracker(patience, min_delta)
     if isinstance(target_scale, bool) or not isinstance(target_scale, (int, float)):
         raise ValueError("target_scale must be numeric")
     if not math.isfinite(float(target_scale)) or float(target_scale) == 0.0:
@@ -177,8 +309,12 @@ def train_regressor(
     model = init_regressor(layer_sizes, rng)
     velocity_weights = [[0.0] * len(block) for block in model["weights"]]
     velocity_biases = [[0.0] * len(bias) for bias in model["biases"]]
-    scaled = [(vec, float(target) / float(target_scale)) for vec, target in samples]
-    for _ in range(epochs):
+    scaled = [(vec, _finite_number(target / target_scale, "scaled target"))
+              for vec, target in training]
+    if validation is not None:
+        validation = [(vec, _finite_number(target / target_scale, "scaled validation target"))
+                      for vec, target in validation]
+    for epoch in range(1, epochs + 1):
         rng.shuffle(scaled)
         for vec, target in scaled:
             preacts, acts = _forward_regressor(model, vec)
@@ -195,18 +331,29 @@ def train_regressor(
                 for row in range(out_dim):
                     grad = delta[row]
                     v_biases[row] = momentum * v_biases[row] - lr * grad
-                    biases[row] += v_biases[row]
+                    biases[row] = _finite_number(biases[row] + v_biases[row], "bias update")
                     offset = row * in_dim
                     for col in range(in_dim):
                         next_delta[col] += grad * weights[offset + col]
                         v_weights[offset + col] = (
                             momentum * v_weights[offset + col] - lr * grad * in_act[col]
                         )
-                        weights[offset + col] += v_weights[offset + col]
+                        weights[offset + col] = _finite_number(
+                            weights[offset + col] + v_weights[offset + col], "weight update")
                 if layer_index == 0:
                     break
                 relu_pre = preacts[layer_index - 1]
                 delta = [next_delta[i] if relu_pre[i] > 0.0 else 0.0 for i in range(in_dim)]
+        if validation is not None:
+            losses = []
+            for vec, target in validation:
+                _, acts = _forward_regressor(model, vec)
+                error = acts[-1][0] - target
+                losses.append(_finite_number(error * error, "validation loss"))
+            if tracker.observe(model, sum(losses) / len(losses), epoch):
+                break
+    if validation is not None:
+        model = tracker.finish(epoch, epochs, "scaled_mse")
     model["target_scale"] = float(target_scale)
     return model
 
